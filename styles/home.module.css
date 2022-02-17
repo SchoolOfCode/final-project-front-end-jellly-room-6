@@ -1,0 +1,46 @@
+
+.levelsWrapper{
+    padding: 4em;
+    max-width: 800px;
+    position:relative;
+}
+
+
+
+.level{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.levelTitle{
+    font-size: 1.5rem;
+}
+
+.levelContainer{
+    border: solid black 2px;
+    width: 500px;
+    height: 250px;
+    padding: 2em;
+    display:flex;
+    gap: 2em;
+    justify-content: center;
+    align-items: center;
+}
+
+.beanBtn{
+    border: solid black 1px;
+    padding: 1em;
+}
+
+.statsDisplay{
+
+    border: solid black 1px;
+    width: 350px;
+    display:inline-flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
