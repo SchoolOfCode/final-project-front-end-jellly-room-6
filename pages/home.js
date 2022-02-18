@@ -1,7 +1,25 @@
 // Import Header here
+import { useState, useEffect, useLayoutEffect } from "react";
 import styles from "../styles/home.module.css";
+//Plan
+//-onClick go to questions (loading page, etc.)
+//-stats: we need to fetch user info.
+//states for the user: {xp, beans}
+//state for categories:[""]
+//
 
 export default function Home () {
+  const [userInfo, setUserInfo]=useState({});
+  const [categories,setCategories]=useState([""]);
+
+   useEffect( ()=>{ 
+     async function getUser(){
+    const res = await fetch("/users/userName")
+   const data= await res.json();
+   setUserInfo(data)} getUser()},[]
+   )
+
+ console.log(userInfo);
     return (
       <div>
         {/* Header goes here */}
