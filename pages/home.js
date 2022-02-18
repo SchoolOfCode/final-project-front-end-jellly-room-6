@@ -10,7 +10,6 @@ export default function Home () {
           <div className={`${styles.gridItem} ${styles.gridItemLevel}`}>
 
             <div className={styles.level}>
-                <h3 className={styles.levelTitle}>Level 1</h3>
                 <div className={styles.levelContainer}>
                   <div className={styles.beanBtn}>Addition</div>
                   <div className={styles.beanBtn}>Subtraction</div>
@@ -23,7 +22,6 @@ export default function Home () {
           <div className={`${styles.gridItem} ${styles.gridItemLevel}`}>
 
             <div className={styles.level}>
-                <h3 className={styles.levelTitle}>Level 2</h3>
                 <div className={styles.levelContainer}>
                   <div className={styles.beanBtn}>Addition</div>
                   <div className={styles.beanBtn}>Subtraction</div>
@@ -36,7 +34,6 @@ export default function Home () {
           <div className={`${styles.gridItem} ${styles.gridItemLevel}`}>
 
           <div className={styles.level}>
-              <h3 className={styles.levelTitle}>Level 3</h3>
               <div className={styles.levelContainer}>
                 <div className={styles.beanBtn}>Addition</div>
                 <div className={styles.beanBtn}>Subtraction</div>
