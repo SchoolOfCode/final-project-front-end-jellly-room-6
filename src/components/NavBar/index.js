@@ -1,22 +1,23 @@
 import Link from "next/link";
+import styles from "../../../styles/index.module.css";
+
 export default function NavBar() {
   return (
     <>
       <Link href="/home">
-        <a>Home</a>
+        <a className={styles.link}>Home</a>
       </Link>
       <Link href="/leaderboard">
-        <a>Leaderboard</a>
+        <a className={styles.link}>Leaderboard</a>
       </Link>
       <Link href="/shop">
-        <a>Shop</a>
+        <a className={styles.link}>Shop</a>
       </Link>
       <Link href="/profile">
-        <a>Profile</a>
+        <a className={styles.link}>Profile</a>
       </Link>
-      <Link href="/question">
-        <a>Question</a>
-      </Link>
+      <a href="/api/auth/logout"><button>Logout</button></a>
+      
     </>
   );
 }

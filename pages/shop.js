@@ -1,7 +1,7 @@
 import { useUser } from '@auth0/nextjs-auth0';
 import NavBar from "../src/components/NavBar";
 
-export default function Profile(){
+export default function Shop(){
     const { user, error, isLoading } = useUser();
   
     if (isLoading) return <div>Loading...</div>;
@@ -9,7 +9,8 @@ export default function Profile(){
     if (!user){
       window.location.href = "/"
     }
+
     return user && (<div>
-        <NavBar/>
-        Profile</div>)
+    <NavBar/>
+    Shop</div>)
 }
