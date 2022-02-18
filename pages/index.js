@@ -9,8 +9,8 @@ export default function LandingPage() {
   return (
     <div>
       
-     
-<Button className={css.login}>LogIn</Button>
+      <a href="/api/auth/login"><Button className={css.login}>LogIn</Button></a>
+
 <div className={css.wording}>  
 <h1 className={css.title}>JELLLY</h1>
 </div>
