@@ -1,8 +1,9 @@
 // Import Header here
 import { useState, useEffect, useLayoutEffect } from "react";
 import styles from "../styles/home.module.css";
-import Link from 'next/link';
+import NavBar from "../src/components/NavBar"
 import CategoryButton from "../src/components/CategoryButton";
+import { useUser } from '@auth0/nextjs-auth0';
 //Plan
 //-onClick go to questions (loading page, etc.)
 //-stats: we need to fetch user info.
@@ -12,6 +13,14 @@ import CategoryButton from "../src/components/CategoryButton";
 
 
 export default function Home () {
+
+  const { user, error, isLoading } = useUser();
+  
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>{error.message}</div>;
+  if (!user){
+    window.location.href = "/"
+  }
 
   const [username, setUsername] = useState("JellyLord");
 
@@ -30,14 +39,17 @@ export default function Home () {
 
     },[])
 
-    function handleClick(){
-      console.log("test")
-    }
+    
 
- console.log(userInfo);
+ 
+
+
     return (
+      user && (
+    
       <div>
-        {/* Header goes here */}
+      
+        <NavBar/>
         <div className={styles.grid}>
 
         <div className={`${styles.gridItem} ${styles.statsDisplay}`}>
@@ -55,9 +67,9 @@ export default function Home () {
                 <div className={styles.levelContainer}>
 
 
-                  <CategoryButton handleClick={handleClick} category="Addition"/>
-                  <CategoryButton handleClick={handleClick} category="Subtraction"/>
-                  <CategoryButton handleClick={handleClick} category="Multiplication"/>
+                  <CategoryButton category="Addition"/>
+                  <CategoryButton category="Subtraction"/>
+                  <CategoryButton category="Multiplication"/>
 
                   
                   
@@ -73,7 +85,7 @@ export default function Home () {
 
 
       </div>
-        
+      )
     );
   }
 
