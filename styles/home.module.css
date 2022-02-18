@@ -61,9 +61,9 @@
 }
 
 .statsDisplay{
-    width: 75%;
+    width: 500px;
     border: solid black 1px;
-    display:inline-flex;
+    display:flex;
     align-items: center;
     flex-direction: column;
 
