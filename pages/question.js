@@ -4,7 +4,7 @@ import NavBar from "../src/components/NavBar";
 
 
 
-export default function question({category, question}){
+export default function Question({category, question}){
 
     const { user, error, isLoading } = useUser();
      
