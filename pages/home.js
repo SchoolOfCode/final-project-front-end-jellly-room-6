@@ -80,7 +80,7 @@ export default function Home ({authenticatedUser}) {
         <NavBar/>
         <div className={styles.grid}>
 
-        <div className={`${styles.gridItem} ${styles.statsDisplay}`}>
+        <div className={`${styles.gridItem} ${styles.gridItemStats} ${styles.statsDisplay}`}>
                 <h2>{userInfo.username}</h2>
                 <h2>Beans: {username}</h2>
                 <p>Level 1</p>
@@ -94,15 +94,10 @@ export default function Home ({authenticatedUser}) {
             <div className={styles.level}>
                 <div className={styles.levelContainer}>
 
-
                   <CategoryButton category="Addition"/>
                   <CategoryButton category="Subtraction"/>
                   <CategoryButton category="Multiplication"/>
 
-                  
-                  
-                  
-                  
                 </div>
             </div>
 
