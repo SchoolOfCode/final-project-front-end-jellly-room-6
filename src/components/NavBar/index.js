@@ -17,7 +17,7 @@ export default function NavBar() {
         <a className={styles.link}>Profile</a>
       </Link>
       <Link href="/api/auth/logout">
-      <button>Logout</button>
+      <a><button>Logout</button></a>
       </Link>
       
     </>

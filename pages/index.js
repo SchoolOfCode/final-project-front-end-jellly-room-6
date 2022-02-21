@@ -21,7 +21,7 @@ export default function LandingPage() {
       <NavBar/>
       <hr/>
       <Link href="/api/auth/login">
-      <Button className={css.login}>LogIn</Button>
+      <a><Button className={css.login}>LogIn</Button></a>
       </Link>
 
       <div className={css.wording}>  
