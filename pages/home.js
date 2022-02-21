@@ -40,6 +40,7 @@ export default function Home ({authenticatedUser}) {
       console.log("Retrieving user " + authenticatedUser)
       const res = await fetch(`https://jellly.herokuapp.com/user/${authenticatedUser}`);
       const data = await res.json();
+      console.log(data)
       if(!data.payload || data.payload.length === 0) {
         console.log("User not found.. creating user: " + authenticatedUser)
         createNewUser(authenticatedUser);

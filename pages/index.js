@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button"
 import Image from "next/image";
 import css from "../styles/index.module.css";
 import { useUser } from '@auth0/nextjs-auth0';
+import Link from "next/link";
 
 export default function LandingPage() {
   const { user, error, isLoading } = useUser();
@@ -19,7 +20,9 @@ export default function LandingPage() {
     <div>
       <NavBar/>
       <hr/>
-      <a href="/api/auth/login"><Button className={css.login}>LogIn</Button></a>
+      <Link href="/api/auth/login">
+      <a><Button className={css.login}>LogIn</Button></a>
+      </Link>
 
       <div className={css.wording}>  
       <h1 className={css.title}>JELLLY</h1>
