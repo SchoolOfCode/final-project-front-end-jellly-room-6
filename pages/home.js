@@ -39,7 +39,7 @@ export default function Home ({authenticatedUser}) {
       const data = await res.json();
       if(!data.payload || data.payload.length === 0) return;
       console.log("Created user:", data.payload);
-      setUserInfo(data.payload);
+      await fetchUser();
     }
     
     async function fetchUser(){
@@ -61,6 +61,7 @@ export default function Home ({authenticatedUser}) {
 
 
   }, [authenticatedUser])
+  
   
     
 
@@ -145,7 +146,7 @@ export default function Home ({authenticatedUser}) {
       };
       const username = await getUsername();
       return { props: 
-        { authenticatedUser: username} 
+        { authenticatedUser: username || "No user"} 
       };
      }
     });
