@@ -28,17 +28,24 @@ export default function Home ({authenticatedUser}) {
   useEffect(() => {
     
     async function createNewUser(username){
-      const res = await fetch (`https://jellly.herokuapp.com/users/${username}`);
+      const res = await fetch (`https://jellly.herokuapp.com/users`,{
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+      },
+        body: JSON.stringify({username})
+      });
       const data = await res.json();
       if(!data.payload || data.payload.length === 0) return;
       console.log("Created user:", data.payload);
-      setUserInfo(data.payload[0]);
+      setUserInfo(data.payload);
     }
     
     async function fetchUser(){
       if(!authenticatedUser) return;
       console.log("Retrieving user " + authenticatedUser)
-      const res = await fetch(`https://jellly.herokuapp.com/user/${authenticatedUser}`);
+      const res = await fetch(`https://jellly.herokuapp.com/users/${authenticatedUser}`);
       const data = await res.json();
       console.log(data)
       if(!data.payload || data.payload.length === 0) {
