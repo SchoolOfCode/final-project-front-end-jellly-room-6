@@ -4,6 +4,7 @@ import styles from "../styles/home.module.css";
 import NavBar from "../src/components/NavBar"
 import CategoryButton from "../src/components/CategoryButton";
 import { useUser, getSession, withPageAuthRequired } from '@auth0/nextjs-auth0';
+import Image from 'next/image'
 //Plan
 //-onClick go to questions (loading page, etc.)
 //-stats: we need to fetch user info.
@@ -128,13 +129,25 @@ export default function Home ({authenticatedUser}) {
           </div>
 
           <div className={`${styles.gridItem} ${styles.gridItemStats} `}>
+          <div className={`${styles.statsContainer}`}>
           <div className={`${styles.statsDisplay}`}>
                 <h2>{userInfo.username}</h2>
                 <h2>Beans: {username}</h2>
                 <p>Level 1</p>
+                <p>LEVEL PROGRESS BAR</p>
                 <p>{userInfo.xp} XP</p>
 
           </div>
+          </div>
+
+          </div>
+
+          <div className={`${styles.gridItem} ${styles.gridItemLogo} `}>
+          <div className={`${styles.gridItemLogoContainer}`}>
+            <img src="https://via.placeholder.com/350x400"></img>
+
+          </div>
+
           </div>
 
         </div>

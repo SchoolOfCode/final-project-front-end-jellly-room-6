@@ -62,14 +62,41 @@
     padding: 1em;
 }
 
-.statsDisplay{
+.statsContainer{
+    margin: auto;
+    display:flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 100%;
     
+}
+
+.statsDisplay{
     border: solid black 1px;
     display:flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     min-width: 300px;
+    max-width: 300px;
+}
+
+.gridItemLogo{
+    grid-column-start: 4;
+    grid-column-end: 7;
+    grid-row-end: span 2;
+}
+
+.gridItemLogoContainer{
+    display:flex;
+    align-items: center;
+    justify-content: center;
     height: 100%;
-    
+}
+
+.gridItemLogoImage{
+    width: 350px;
+    border: solid black 1px;
+    height: 400px;
+
 }
