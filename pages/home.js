@@ -80,18 +80,12 @@ export default function Home ({authenticatedUser}) {
         <NavBar/>
         <div className={styles.grid}>
 
-        <div className={`${styles.gridItem} ${styles.gridItemStats} ${styles.statsDisplay}`}>
-                <h2>{userInfo.username}</h2>
-                <h2>Beans: {username}</h2>
-                <p>Level 1</p>
-                <p>{userInfo.xp} XP</p>
-          </div>
+
 
           <div className={`${styles.gridItem} ${styles.gridItemLevel}`}>
 
-
-
             <div className={styles.level}>
+            <h2 className={styles.levelTitle}>Section 1</h2>
                 <div className={styles.levelContainer}>
 
                   <CategoryButton category="Addition"/>
@@ -103,8 +97,48 @@ export default function Home ({authenticatedUser}) {
 
           </div>
 
-              
+          <div className={`${styles.gridItem} ${styles.gridItemLevel}`}>
+
+            <div className={styles.level}>
+            <h2 className={styles.levelTitle}>Section 2</h2>
+                <div className={styles.levelContainer}>
+
+                  <CategoryButton category="Addition"/>
+                  <CategoryButton category="Subtraction"/>
+                  <CategoryButton category="Multiplication"/>
+
+                </div>
+            </div>
+
+          </div>
+
+          <div className={`${styles.gridItem} ${styles.gridItemLevel}`}>
+
+            <div className={styles.level}>
+            <h2 className={styles.levelTitle}>Section 3</h2>
+                <div className={styles.levelContainer}>
+
+                  <CategoryButton category="Addition"/>
+                  <CategoryButton category="Subtraction"/>
+                  <CategoryButton category="Multiplication"/>
+
+                </div>
+            </div>
+
+          </div>
+
+          <div className={`${styles.gridItem} ${styles.gridItemStats} `}>
+          <div className={`${styles.statsDisplay}`}>
+                <h2>{userInfo.username}</h2>
+                <h2>Beans: {username}</h2>
+                <p>Level 1</p>
+                <p>{userInfo.xp} XP</p>
+
+          </div>
+          </div>
+
         </div>
+
 
 
       </div>
