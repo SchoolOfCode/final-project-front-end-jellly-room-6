@@ -1,18 +1,21 @@
 import Link from "next/link";
 import Router from "next/router";
-import React from "react";
+import React, { useEffect } from "react";
 
-export default function Results({ user, score, category, hasWon }) {
-  async function rewardUser(XP, beans) {
-    await fetch(`http://localhost:3001/users/${user}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({ XP, beans }),
-    });
-  }
+export default function Results({ user, score, hasWon }) {
+  useEffect(() => {
+    async function rewardUser(XP, beans) {
+      await fetch(`http://localhost:3001/users/${user}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({ XP, beans }),
+      });
+    }
+    hasWon && rewardUser(score * 10, 20);
+  }, []);
 
   return (
     <div>
@@ -23,7 +26,7 @@ export default function Results({ user, score, category, hasWon }) {
           <h2>Beans: 20</h2>
           <Link href="/home">
             <a>
-              <button onClick={() => rewardUser(score * 10, 20)}>Continue</button>
+              <button>Continue</button>
             </a>
           </Link>
         </div>
