@@ -2,6 +2,7 @@ import Link from "next/link";
 import Router from "next/router";
 import React, { useEffect } from "react";
 import Image from "next/image"
+import style from "../../../styles/result.module.css"
 
 export default function Results({ user, score, hasWon }) {
   useEffect(() => {
@@ -21,7 +22,7 @@ export default function Results({ user, score, hasWon }) {
   return (
     <div>
       {hasWon && (
-        <div>
+        <div className={style.frame}>
           <Image src="/threeJellies.png" width={40} height={40} alt="Jellies"/>
           <h1>Results</h1>
           <h2>Correct answers: {score}</h2>
@@ -37,12 +38,18 @@ export default function Results({ user, score, hasWon }) {
         </div>
       )}
       {!hasWon && (
-        <div>
-          <h2>You Lose!</h2>
-          <button onClick={() => Router.reload(window.location.pathname)}>Try Again?</button>
+        <div className={style.frame}>
+           <Image src="/threeJellies.png" width={40} height={40} alt="Jellies"/>
+          <h1>Results</h1>
+          <h2>Correct answers: {score}</h2>
+          <h2>Incorrect answers: {4 - score}</h2>
+          <h2>XP earned: {score * 10}</h2>
+          <h2>Beans collected: {score * 5}</h2>          
+          <h1>Oh no you did not pass! Please try again</h1>
+          <button onClick={() => Router.reload(window.location.pathname)}>Retry?</button>
           <Link href="/home">
             <a>
-              <button>Exit</button>
+              <button>Home</button>
             </a>
           </Link>
         </div>
