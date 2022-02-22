@@ -37,7 +37,7 @@ export default function Question({ questions, category, userID }) {
   return (
     user && (
       <div>
-        <NavBar />
+        {/* <NavBar /> */}
         {!complete && (
           <div>
             <h2>{currentQuestion.question}</h2>
