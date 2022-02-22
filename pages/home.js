@@ -94,7 +94,7 @@ export default function Home ({authenticatedUser}) {
         <div className={styles.grid}>
 
         {sections.map((section, index)=>{
-          return <CategoryContainer key={index} id={section.id} categories={section.categories}/>
+          return <CategoryContainer key={index} id={section.id} categories={section.categories} userId={userInfo.user_id}/>
         })}
 
           <HomeStatsDisplay userInfo={userInfo}/>
