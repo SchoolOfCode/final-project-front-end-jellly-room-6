@@ -17,7 +17,7 @@ export default function Results({ numQuestions, user, score, hasWon }) {
       });
     }
     hasWon && rewardUser(score * 10, 20);
-  }, []);
+  }, [hasWon, score, user]);
 
   return (
     <div>
