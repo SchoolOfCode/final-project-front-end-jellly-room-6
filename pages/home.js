@@ -13,7 +13,6 @@ import { useUser, getSession, withPageAuthRequired } from "@auth0/nextjs-auth0";
 export default function Home({ authenticatedUser }) {
   const categories = ["Addition", "Subtraction", "Multiplication"];
   const { user, error, isLoading } = useUser();
-  const [username, setUsername] = useState(authenticatedUser);
   const [userInfo, setUserInfo] = useState("");
 
   useEffect(() => {
@@ -37,7 +36,6 @@ export default function Home({ authenticatedUser }) {
       // console.log("Retrieving user " + authenticatedUser);
       const res = await fetch(`https://jellly.herokuapp.com/users/${authenticatedUser}`);
       const data = await res.json();
-      console.log(data);
       if (!data.payload || data.payload.length === 0) {
         // console.log("User not found.. creating user: " + authenticatedUser);
         createNewUser(authenticatedUser);
@@ -62,7 +60,7 @@ export default function Home({ authenticatedUser }) {
         <div className={styles.grid}>
           <div className={`${styles.gridItem} ${styles.statsDisplay}`}>
             <h2>{userInfo.username}</h2>
-            <h2>Beans: {username}</h2>
+            <h2>Beans: {userInfo.beans}</h2>
             <p>Level 1</p>
             <p>{userInfo.xp} XP</p>
           </div>
@@ -71,7 +69,7 @@ export default function Home({ authenticatedUser }) {
             <div className={styles.level}>
               <div className={styles.levelContainer}>
                 {categories.map(category => (
-                  <CategoryButton key={category} category={category} />
+                  <CategoryButton key={category} category={category} user={userInfo.user_id} />
                 ))}
               </div>
             </div>

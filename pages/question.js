@@ -3,7 +3,7 @@ import { useUser } from "@auth0/nextjs-auth0";
 import NavBar from "../src/components/NavBar";
 import Results from "../src/components/Results";
 
-export default function Question({ questions }) {
+export default function Question({ questions, category, userID }) {
   const { user, error, isLoading } = useUser();
   const [questionCount, setQuestionCount] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState(questions[0]);
@@ -13,7 +13,7 @@ export default function Question({ questions }) {
 
   useEffect(() => {
     setCurrentQuestion(questions[questionCount]);
-  }, [questionCount]);
+  }, [questionCount, questions]);
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>{error.message}</div>;
@@ -47,7 +47,7 @@ export default function Question({ questions }) {
             <button onClick={checkAnswer}>{currentQuestion.answers[3]}</button>
           </div>
         )}
-        {complete && <Results hasWon={win} />}
+        {complete && <Results category={category} score={score} hasWon={win} user={userID} />}
       </div>
     )
   );
@@ -85,13 +85,11 @@ export async function getServerSideProps(context) {
     },
   ];
 
-  const questionsByCategory = questions.filter(
-    question => question.category === context.query.category
-  );
-
   return {
     props: {
-      questions: questionsByCategory,
+      questions,
+      userID: context.query.user,
+      category: context.query.category,
     },
   };
 }
