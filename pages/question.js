@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useUser } from "@auth0/nextjs-auth0";
 import Results from "../src/components/Results";
+import styles from "../styles/questions.module.css";
 
 export default function Question({ questions, category, userID }) {
   const { user, error, isLoading } = useUser();
@@ -35,14 +36,24 @@ export default function Question({ questions, category, userID }) {
 
   return (
     user && (
-      <div>
+      <div className={styles.container}>
         {!complete && (
-          <div>
-            <h2>{currentQuestion.question}</h2>
-            <button onClick={checkAnswer}>{currentQuestion.answers[0]}</button>
-            <button onClick={checkAnswer}>{currentQuestion.answers[1]}</button>
-            <button onClick={checkAnswer}>{currentQuestion.answers[2]}</button>
-            <button onClick={checkAnswer}>{currentQuestion.answers[3]}</button>
+          <div className={styles.questionContainer}>
+            <h2 className={styles.questionText}>{currentQuestion.question}</h2>
+            <div className={styles.answers}>
+              <button className={styles.btn} onClick={checkAnswer}>
+                {currentQuestion.answers[0]}
+              </button>
+              <button className={styles.btn} onClick={checkAnswer}>
+                {currentQuestion.answers[1]}
+              </button>
+              <button className={styles.btn} onClick={checkAnswer}>
+                {currentQuestion.answers[2]}
+              </button>
+              <button className={styles.btn} onClick={checkAnswer}>
+                {currentQuestion.answers[3]}
+              </button>
+            </div>
             <h3>
               Question: {questionCount + 1}/{questions.length}
             </h3>
