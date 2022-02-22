@@ -2,16 +2,28 @@
 import { useState, useEffect, useLayoutEffect } from "react";
 import styles from "../styles/home.module.css";
 import NavBar from "../src/components/NavBar"
-import CategoryButton from "../src/components/CategoryButton";
 import { useUser, getSession, withPageAuthRequired } from '@auth0/nextjs-auth0';
 import Image from 'next/image'
+import CategoryContainer from "../src/components/Home/CategoryContainer";
+import HomeStatsDisplay from "../src/components/Home/HomeStatsDisplay";
 //Plan
 //-onClick go to questions (loading page, etc.)
 //-stats: we need to fetch user info.
 //states for the user: {xp, beans}
 //state for categories:[""]
 
-
+const sections = [{
+  id: 1,
+  categories: ["Addition", "Subtraction", "Multiplication"]
+},
+{
+  id: 2,
+  categories: ["Category 4", "Category 5", "Category 6"]
+},
+{
+  id:3,
+  categories: ["Category 7", "Category 8", "Category 9"]
+}]
 
 export default function Home ({authenticatedUser}) {
 
@@ -81,74 +93,21 @@ export default function Home ({authenticatedUser}) {
         <NavBar/>
         <div className={styles.grid}>
 
+        {sections.map((section, index)=>{
+          return <CategoryContainer key={index} id={section.id} categories={section.categories}/>
+        })}
+
+          <HomeStatsDisplay userInfo={userInfo}/>
 
 
-          <div className={`${styles.gridItem} ${styles.gridItemLevel}`}>
-
-            <div className={styles.level}>
-            <h2 className={styles.levelTitle}>Section 1</h2>
-                <div className={styles.levelContainer}>
-
-                  <CategoryButton category="Addition"/>
-                  <CategoryButton category="Subtraction"/>
-                  <CategoryButton category="Multiplication"/>
-
-                </div>
-            </div>
-
-          </div>
-
-          <div className={`${styles.gridItem} ${styles.gridItemLevel}`}>
-
-            <div className={styles.level}>
-            <h2 className={styles.levelTitle}>Section 2</h2>
-                <div className={styles.levelContainer}>
-
-                  <CategoryButton category="Addition"/>
-                  <CategoryButton category="Subtraction"/>
-                  <CategoryButton category="Multiplication"/>
-
-                </div>
-            </div>
-
-          </div>
-
-          <div className={`${styles.gridItem} ${styles.gridItemLevel}`}>
-
-            <div className={styles.level}>
-            <h2 className={styles.levelTitle}>Section 3</h2>
-                <div className={styles.levelContainer}>
-
-                  <CategoryButton category="Addition"/>
-                  <CategoryButton category="Subtraction"/>
-                  <CategoryButton category="Multiplication"/>
-
-                </div>
-            </div>
-
-          </div>
-
-          <div className={`${styles.gridItem} ${styles.gridItemStats} `}>
-          <div className={`${styles.statsContainer}`}>
-          <div className={`${styles.statsDisplay}`}>
-                <h2>{userInfo.username}</h2>
-                <h2>Beans: {username}</h2>
-                <p>Level 1</p>
-                <p>LEVEL PROGRESS BAR</p>
-                <p>{userInfo.xp} XP</p>
-
-          </div>
-          </div>
-
-          </div>
+  {/* TODO: Convert img to next <Image/> component */}
 
           <div className={`${styles.gridItem} ${styles.gridItemLogo} `}>
-          <div className={`${styles.gridItemLogoContainer}`}>
-            <img src="https://via.placeholder.com/350x400"></img>
-
+            <div className={`${styles.gridItemLogoContainer}`}>
+                <img src="https://via.placeholder.com/350x400"></img>
+            </div>
           </div>
 
-          </div>
 
         </div>
 

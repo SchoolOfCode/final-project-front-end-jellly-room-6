@@ -1,8 +1,7 @@
 import Link from 'next/link'
 import styles from './index.module.css';
-import { useState } from 'react';
 
-export default function CategoryButton({category, handleClick, disabled}){
+export default function CategoryButton({category, disabled}){
 
 
     return (
@@ -16,7 +15,7 @@ export default function CategoryButton({category, handleClick, disabled}){
     
 
     <a>
-    <button disabled={disabled} className={styles.button} onClick={handleClick}>{category}</button>
+    <button disabled={disabled} className={styles.button}>{category}</button>
     </a>
 
     </Link>)
