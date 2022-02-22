@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useUser } from "@auth0/nextjs-auth0";
-import NavBar from "../src/components/NavBar";
 import Results from "../src/components/Results";
 
 export default function Question({ questions, category, userID }) {
@@ -37,7 +36,6 @@ export default function Question({ questions, category, userID }) {
   return (
     user && (
       <div>
-        {/* <NavBar /> */}
         {!complete && (
           <div>
             <h2>{currentQuestion.question}</h2>
@@ -45,6 +43,9 @@ export default function Question({ questions, category, userID }) {
             <button onClick={checkAnswer}>{currentQuestion.answers[1]}</button>
             <button onClick={checkAnswer}>{currentQuestion.answers[2]}</button>
             <button onClick={checkAnswer}>{currentQuestion.answers[3]}</button>
+            <h3>
+              Question: {questionCount + 1}/{questions.length}
+            </h3>
             <p>{currentQuestion.correct}</p>
           </div>
         )}
