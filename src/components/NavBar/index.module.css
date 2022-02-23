@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Chewy&display=swap");
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding:1em;
+  border-bottom: solid #3c3c3c4b 2px;
+}
+
+.branding{
+    display:flex;
+}
+
+.link{
+    font-size: 1.25rem;
+}
+
+.title {
+  font-family: "Chewy", cursive;
+  font-size: 3rem;
+  letter-spacing: 2px;
+  margin: 0;
+  margin-left: 1rem;
+}
+
