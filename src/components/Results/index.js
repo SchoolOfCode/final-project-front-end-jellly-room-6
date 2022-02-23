@@ -1,13 +1,13 @@
 import Link from "next/link";
 import Router from "next/router";
 import React, { useEffect } from "react";
-import Image from "next/image"
-import style from "../../../styles/result.module.css"
+import Image from "next/image";
+import style from "../../../styles/result.module.css";
 
 export default function Results({ user, score, hasWon }) {
   useEffect(() => {
     async function rewardUser(XP, beans) {
-      await fetch(`http://localhost:3001/users/${user}`, {
+      await fetch(`https://jellly.herokuapp.com/users/${user}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -17,13 +17,13 @@ export default function Results({ user, score, hasWon }) {
       });
     }
     hasWon && rewardUser(score * 10, 20);
-  }, []);
+  }, [hasWon, score, user]);
 
   return (
     <div>
       {hasWon && (
         <div className={style.frame}>
-          <Image src="/threeJellies.png" width={40} height={40} alt="Jellies"/>
+          <Image src="/threeJellies.png" width={40} height={40} alt="Jellies" />
           <h1>Results</h1>
           <h2>Correct answers: {score}</h2>
           <h2>Incorrect answers: {4 - score}</h2>
@@ -39,12 +39,12 @@ export default function Results({ user, score, hasWon }) {
       )}
       {!hasWon && (
         <div className={style.frame}>
-           <Image src="/threeJellies.png" width={40} height={40} alt="Jellies"/>
+          <Image src="/threeJellies.png" width={40} height={40} alt="Jellies" />
           <h1>Results</h1>
           <h2>Correct answers: {score}</h2>
           <h2>Incorrect answers: {4 - score}</h2>
           <h2>XP earned: {score * 10}</h2>
-          <h2>Beans collected: {score * 5}</h2>          
+          <h2>Beans collected: {score * 5}</h2>
           <h1>Oh no you did not pass! Please try again</h1>
           <button onClick={() => Router.reload(window.location.pathname)}>Retry?</button>
           <Link href="/home">
