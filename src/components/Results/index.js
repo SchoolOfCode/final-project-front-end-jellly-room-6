@@ -2,7 +2,7 @@ import Link from "next/link";
 import Router from "next/router";
 import React, { useEffect } from "react";
 import Image from "next/image";
-import style from "../../../styles/result.module.css";
+import style from "../../../styles/results.module.css";
 
 export default function Results({ numQuestions, user, score, hasWon }) {
   useEffect(() => {
@@ -48,7 +48,6 @@ export default function Results({ numQuestions, user, score, hasWon }) {
           <Link href="/home">
             <a>
               <button className={style.smallbutton}>Home</button>
-              <SmallButton text="HOME"/>
             </a>
           </Link>
         </div>
