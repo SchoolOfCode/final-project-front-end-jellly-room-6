@@ -1,7 +1,7 @@
 import styles from '../../../../styles/home.module.css'
 import CategoryButton from '../CategoryButton'
 
-export default function CategoryContainer({id, categories, userId}){
+export default function CategoryContainer({id, categories, userId, completedCategories}){
 
     return  <div className={`${styles.gridItem} ${styles.gridItemLevel}`}>
 
@@ -10,7 +10,7 @@ export default function CategoryContainer({id, categories, userId}){
         <div className={styles.levelContainer}>
 
         {categories.map((category)=>{
-          return <CategoryButton key={category} category={category} user={userId}/>
+          return <CategoryButton key={category} category={category} user={userId} isCompleted={completedCategories.includes(category)? true : false}/>
         })}
 
         </div>
