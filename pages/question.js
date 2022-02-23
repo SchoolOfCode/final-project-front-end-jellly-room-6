@@ -75,7 +75,7 @@ export default function Question({ questions, category, userID }) {
 }
 
 export async function getServerSideProps(context) {
-  const res = await fetch(`http://localhost:3001/questions/${context.query.category}`);
+  const res = await fetch(`https://jellly.herokuapp.com/questions/${context.query.category}`);
   const data = await res.json();
   const questions = data.payload;
 
