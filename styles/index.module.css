@@ -1,3 +1,64 @@
-.link{
-    margin: 1em;
+@import url("https://fonts.googleapis.com/css2?family=Chewy&display=swap");
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem;
+  width: 100%;
+}
+
+.main {
+  position: relative;
+  top: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.titleContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.jellyBean {
+  margin-right: 1rem;
+}
+
+.jellies {
+  display: flex;
+  justify-content: flex-end;
+  width: 50%;
+  margin-top: 2rem;
+  position: relative;
+  top: -8rem;
+}
+
+.title {
+  font-family: "Chewy", cursive;
+  font-size: 6rem;
+  margin: 0;
+  margin-left: 1rem;
+}
+
+#getStarted {
+  margin: 5rem;
+}
+
+.text {
+  width: 80%;
+  text-align: center;
+}
+
+.line {
+  background-color: #3c3c3c;
+  width: 90%;
+  opacity: 0.3;
 }

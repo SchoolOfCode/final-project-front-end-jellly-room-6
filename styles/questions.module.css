@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}
+
+.questionContainer {
+  display: grid;
+  place-items: center;
+}
+
+.questionText {
+  width: 50%;
+  word-wrap: break-word;
+}
+
+.answers {
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.btn {
+  padding: 1.5rem 4rem;
+}
