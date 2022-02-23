@@ -1,9 +1,9 @@
 // Import Header here
 import { useState, useEffect, useLayoutEffect } from "react";
 import styles from "../styles/home.module.css";
-import NavBar from "../src/components/NavBar"
-import { useUser, getSession, withPageAuthRequired } from '@auth0/nextjs-auth0';
-import Image from 'next/image'
+import NavBar from "../src/components/NavBar";
+import { useUser, getSession, withPageAuthRequired } from "@auth0/nextjs-auth0";
+import Image from "next/image";
 import CategoryContainer from "../src/components/Home/CategoryContainer";
 import HomeStatsDisplay from "../src/components/Home/HomeStatsDisplay";
 //Plan
@@ -21,27 +21,30 @@ import HomeStatsDisplay from "../src/components/Home/HomeStatsDisplay";
  - when looping through category buttons, pass down a prop called 'completed' which will be true or false, depending on if found in that state 
  */
 
-const sections = [{
-  id: 1,
-  categories: ["Addition", "Subtraction", "Multiplication"]
-},
-{
-  id: 2,
-  categories: ["Category 4", "Category 5", "Category 6"]
-},
-{
-  id:3,
-  categories: ["Category 7", "Category 8", "Category 9"]
-}]
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
-export default function Home ({authenticatedUser}) {
+const sections = [
+  {
+    id: 1,
+    categories: ["Addition", "Subtraction", "Multiplication"],
+  },
+  {
+    id: 2,
+    categories: ["Category 4", "Category 5", "Category 6"],
+  },
+  {
+    id: 3,
+    categories: ["Category 7", "Category 8", "Category 9"],
+  },
+];
 
+export default function Home({ authenticatedUser }) {
   const { user, error, isLoading } = useUser();
   const [userInfo, setUserInfo] = useState("");
   const [userCategories, setUserCategories] = useState([]);
   useEffect(() => {
     async function createNewUser(username) {
-      const res = await fetch(`https://jellly.herokuapp.com/users`, {
+      const res = await fetch(`${API_URL}/users`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -55,8 +58,8 @@ export default function Home ({authenticatedUser}) {
       await fetchUser();
     }
 
-    async function getCategories(id){
-      const res = await fetch(`https://jellly.herokuapp.com/categories/${id}`)
+    async function getCategories(id) {
+      const res = await fetch(`${API_URL}/categories/${id}`);
       const data = await res.json();
       return data.payload;
     }
@@ -64,24 +67,22 @@ export default function Home ({authenticatedUser}) {
     async function fetchUser() {
       if (!authenticatedUser) return;
       // console.log("Retrieving user " + authenticatedUser);
-      const res = await fetch(`https://jellly.herokuapp.com/users/${authenticatedUser}`);
+      const res = await fetch(`${API_URL}/users/${authenticatedUser}`);
       const data = await res.json();
       if (!data.payload || data.payload.length === 0) {
         // console.log("User not found.. creating user: " + authenticatedUser);
         createNewUser(authenticatedUser);
         return;
       }
-      const categories = await getCategories(data.payload[0].user_id);
-     console.log("Found user:", {...data.payload[0], categories});
-      setUserInfo({...data.payload[0], categories});
+      let categories = await getCategories(data.payload[0].user_id);
+      categories = categories.map(category => category.category_name);
+
+      console.log("Found user:", { ...data.payload[0], categories });
+      setUserInfo({ ...data.payload[0], categories });
     }
 
-    fetchUser()
-
+    fetchUser();
   }, [authenticatedUser]);
-  
-  
-
 
   if (isLoading || !userInfo) return <div>Loading...</div>;
   if (error) return <div>{error.message}</div>;
@@ -93,25 +94,26 @@ export default function Home ({authenticatedUser}) {
       <div>
         <NavBar />
         <div className={styles.grid}>
+          {sections.map((section, index) => {
+            return (
+              <CategoryContainer
+                key={index}
+                id={section.id}
+                categories={section.categories}
+                userId={userInfo.user_id}
+                completedCategories={userInfo.categories}
+              />
+            );
+          })}
 
-        {sections.map((section, index)=>{
-          return <CategoryContainer key={index} id={section.id} categories={section.categories} userId={userInfo.user_id} completedCategories={userInfo.categories}/>
-        })}
-
-          <HomeStatsDisplay userInfo={userInfo}/>
-
+          <HomeStatsDisplay userInfo={userInfo} />
 
           <div className={`${styles.gridItem} ${styles.gridItemLogo} `}>
             <div className={`${styles.gridItemLogoContainer}`}>
-                <Image src="/logojelly.png" width="350" height="400"></Image>
+              <Image src="/logojelly.png" width="350" height="400"></Image>
             </div>
           </div>
-
-
         </div>
-
-
-
       </div>
     )
   );
