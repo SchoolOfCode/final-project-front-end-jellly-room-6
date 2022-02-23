@@ -19,7 +19,7 @@ export default function LandingPage() {
       <hr />
       <Link href="/api/auth/login">
         <a>
-          <Button className={styles.login}>Log In</Button>
+          <Button className="btn login">Login</Button>
         </a>
       </Link>
 
