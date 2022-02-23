@@ -3,6 +3,7 @@ import Router from "next/router";
 import React, { useEffect } from "react";
 import Image from "next/image"
 import style from "../../../styles/result.module.css"
+import SmallButton from "../SmallButton";
 
 export default function Results({ user, score, hasWon }) {
   useEffect(() => {
@@ -49,7 +50,8 @@ export default function Results({ user, score, hasWon }) {
           <button onClick={() => Router.reload(window.location.pathname)}>Retry?</button>
           <Link href="/home">
             <a>
-              <button>Home</button>
+              <button className={style.smallbutton}>Home</button>
+              <SmallButton text="HOME"/>
             </a>
           </Link>
         </div>
