@@ -4,41 +4,60 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem;
+  width: 100%;
+}
+
+.main {
+  position: relative;
+  top: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
-.titleContainer{
+
+.titleContainer {
   display: flex;
-  justify-content:center;
+  justify-content: center;
   align-items: center;
 }
-.jellyBean{
+
+.jellyBean {
   margin-right: 1rem;
 }
-.jellies{
+
+.jellies {
   display: flex;
-justify-content: flex-end;
+  justify-content: flex-end;
+  width: 50%;
   margin-top: 2rem;
-  width: 70%;
   position: relative;
   top: -8rem;
 }
+
 .title {
   font-family: "Chewy", cursive;
-  font-size: 4rem;
+  font-size: 6rem;
   margin: 0;
   margin-left: 1rem;
-
-}
-#getStarted{
-  margin:5rem;
 }
 
-.text{
+#getStarted {
+  margin: 5rem;
+}
 
-  width: 30%;
+.text {
+  width: 80%;
   text-align: center;
 }
-.line{
+
+.line {
   background-color: #3c3c3c;
   width: 90%;
   opacity: 0.3;
