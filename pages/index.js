@@ -16,22 +16,25 @@ export default function LandingPage() {
 
   return (
     <div className={styles.container}>
-      <hr />
+      
       <Link href="/api/auth/login">
         <a>
           <Button className="btn login">Login</Button>
         </a>
       </Link>
 
-      <div className={styles.wording}>
+      <div className={styles.titleContainer}>
+        <Image className={styles.jellyBean} src="/logoJelly.png" alt="me" width="100" height="100" />
         <h1 className={styles.title}>JELLLY</h1>
       </div>
-      <Image src="/logoJelly.png" alt="me" width="64" height="64" />
+
       <h2 className={styles.text}>
         The fun, free way to learn maths and improve financial literacy
       </h2>
-      <button className="btn large">Get Started</button>
-      <Image src="/threeJellies.png" alt="me" width="64" height="64" />
+      <button className="btn large" id={styles.getStarted}>Get Started</button>
+      <div className={styles.jellies}><Image src="/threeJellies.png" alt="me" width="150" height="150" /></div>
+      <hr className={styles.line}/>    
     </div>
+
   );
 }

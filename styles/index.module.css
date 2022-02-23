@@ -6,11 +6,40 @@
   align-items: center;
   justify-content: center;
 }
-
+.titleContainer{
+  display: flex;
+  justify-content:center;
+  align-items: center;
+}
+.jellyBean{
+  margin-right: 1rem;
+}
+.jellies{
+  display: flex;
+justify-content: flex-end;
+  margin-top: 2rem;
+  width: 70%;
+  position: relative;
+  top: -8rem;
+}
 .title {
   font-family: "Chewy", cursive;
+  font-size: 4rem;
+  margin: 0;
+  margin-left: 1rem;
+
+}
+#getStarted{
+  margin:5rem;
 }
 
-.link {
-  margin: 1em;
+.text{
+
+  width: 30%;
+  text-align: center;
+}
+.line{
+  background-color: #3c3c3c;
+  width: 90%;
+  opacity: 0.3;
 }
