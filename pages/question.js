@@ -1,50 +1,89 @@
-import { useRouter } from 'next/router'
-import { useUser } from '@auth0/nextjs-auth0';
-import NavBar from "../src/components/NavBar";
+import { useEffect, useState } from "react";
+import { useUser } from "@auth0/nextjs-auth0";
+import Results from "../src/components/Results";
+import styles from "../styles/questions.module.css";
 
+export default function Question({ questions, category, userID }) {
+  const { user, error, isLoading } = useUser();
+  const [questionCount, setQuestionCount] = useState(0);
+  const [currentQuestion, setCurrentQuestion] = useState(questions[0]);
+  const [score, setScore] = useState(0);
+  const [win, setWin] = useState(false);
+  const [complete, setComplete] = useState(false);
 
+  useEffect(() => {
+    setCurrentQuestion(questions[questionCount]);
+  }, [questionCount, questions]);
 
-export default function Question({category, question}){
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>{error.message}</div>;
+  if (!user) {
+    window.location.href = "/";
+  }
 
-    const { user, error, isLoading } = useUser();
-     
-    if (isLoading) return <div>Loading...</div>;
-    if (error) return <div>{error.message}</div>;
-    if (!user){
-      window.location.href = "/"
-    }
+  function checkAnswer(e) {
+    if (e.target.textContent == currentQuestion.correct) setScore(score + 1);
+    else console.log("incorrect");
+    if (questionCount < questions.length - 1) return setQuestionCount(questionCount + 1);
+    calculateScore();
+  }
 
-    const correctAnswer = question.answer;
+  function calculateScore() {
+    if (score >= questions.length * 0.5) setWin(true);
+    else setWin(false);
+    setComplete(true);
+  }
 
-    function handleClick(event){
-
-        if(event.target.value !== String(correctAnswer)) {
-            console.log("Try Again")
-            return
-        }
-        console.log("Correct")
-    }
-    
-    return user && (<div>
-        <NavBar/>
-        <h1>Put {category} question here</h1>
-        <h1>{question.question}</h1>
-        <button onClick={handleClick} value="1">1</button>
-        <button onClick={handleClick} value="3">3</button>
-        <button onClick={handleClick} value="5">5</button>
-        <button onClick={handleClick} value="10">10</button>
-    </div>)
+  return (
+    user && (
+      <div className={styles.container}>
+        {!complete && (
+          <div className={styles.questionContainer}>
+            <h2 className={styles.questionText}>{currentQuestion.question}</h2>
+            <div className={styles.answers}>
+              <button className={styles.btn} onClick={checkAnswer}>
+                {currentQuestion.answers[0]}
+              </button>
+              <button className={styles.btn} onClick={checkAnswer}>
+                {currentQuestion.answers[1]}
+              </button>
+              <button className={styles.btn} onClick={checkAnswer}>
+                {currentQuestion.answers[2]}
+              </button>
+              <button className={styles.btn} onClick={checkAnswer}>
+                {currentQuestion.answers[3]}
+              </button>
+            </div>
+            <h3>
+              Question: {questionCount + 1}/{questions.length}
+            </h3>
+            <p>{currentQuestion.correct}</p>
+          </div>
+        )}
+        {complete && (
+          <Results
+            numQuestions={questions.length}
+            category={category}
+            score={score}
+            hasWon={win}
+            user={userID}
+          />
+        )}
+      </div>
+    )
+  );
 }
 
-
 export async function getServerSideProps(context) {
-    return {
-        props: {
-            category: context.query.category,
-            question: {
-                question: "Ariel was playing basketball. 1 of her shots went in the hoop. 2 of her shots did not go in the hoop. How many shots were there in total?",
-                answer: 3
-            }
-        }
-    }
+  const res = await fetch(`https://jellly.herokuapp.com/questions/${context.query.category}`);
+  const data = await res.json();
+  const questions = data.payload;
+
+  return {
+    props: {
+      questions,
+      userID: context.query.user,
+      category: context.query.category,
+    },
+  };
 }

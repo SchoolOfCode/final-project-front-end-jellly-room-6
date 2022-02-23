@@ -15,16 +15,12 @@ export default function Shop() {
 
   return (
     user && (
-      <div>
-        <div className={style.NavBar}>
-          {" "}
-          <Image alt="icon-jelly" src="/logoJelly.png" width={40} height={40} />
-          <h2>Jelly</h2> <NavBar />
-        </div>
-        <h1>The Jelly Shop</h1>
-        <ShopItem src="/logoJelly.png" alt="an item" price="50"/>
-
-      </div>
+      <><NavBar/>
+      <h1>The Jelly Shop</h1>
+      <ShopItem src="/logoJelly.png" alt="an item" price="50"/>
+</>
+      
+      
     )
   );
 }

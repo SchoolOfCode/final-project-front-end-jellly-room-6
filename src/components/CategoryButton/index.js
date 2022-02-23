@@ -1,17 +1,19 @@
-import Link from 'next/link'
+import Link from "next/link";
 
-export default function CategoryButton({category, handleClick}){
-    return (
-    <Link href={{
+export default function CategoryButton({ category, user, handleClick }) {
+  return (
+    <Link
+      href={{
         pathname: "/question",
         query: {
-            category
-        }
-    }}>
-
-    <a>
-    <button onClick={handleClick}>{category}</button>
-    </a>
-
-    </Link>)
+          category,
+          user,
+        },
+      }}
+    >
+      <a>
+        <button onClick={handleClick}>{category}</button>
+      </a>
+    </Link>
+  );
 }
