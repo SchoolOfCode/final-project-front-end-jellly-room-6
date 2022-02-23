@@ -1,3 +1,16 @@
-.link{
-    margin: 1em;
+@import url("https://fonts.googleapis.com/css2?family=Chewy&display=swap");
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-family: "Chewy", cursive;
+}
+
+.link {
+  margin: 1em;
 }
