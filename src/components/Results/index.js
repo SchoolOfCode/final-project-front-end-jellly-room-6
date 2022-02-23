@@ -2,7 +2,7 @@ import Link from "next/link";
 import Router from "next/router";
 import React, { useEffect } from "react";
 import Image from "next/image";
-import style from "../../../styles/result.module.css";
+import style from "../../../styles/results.module.css";
 
 export default function Results({ numQuestions, user, score, hasWon }) {
   useEffect(() => {
@@ -47,7 +47,7 @@ export default function Results({ numQuestions, user, score, hasWon }) {
           <button onClick={() => Router.reload(window.location.pathname)}>Retry?</button>
           <Link href="/home">
             <a>
-              <button>Home</button>
+              <button className={style.smallbutton}>Home</button>
             </a>
           </Link>
         </div>

@@ -1,3 +1,7 @@
 .button {
     padding: 1em;
 }
+
+.completed {
+    background-color: greenyellow;
+}

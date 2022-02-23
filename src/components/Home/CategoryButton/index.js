@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import styles from './index.module.css';
 
-export default function CategoryButton({category, disabled, user}){
+export default function CategoryButton({category, disabled, user, isCompleted}){
 
 
     return (
@@ -15,7 +15,7 @@ export default function CategoryButton({category, disabled, user}){
     
 
     <a>
-    <button disabled={disabled} className={styles.button}>{category}</button>
+    <button disabled={disabled} className={`${styles.button} ${isCompleted && styles.completed}`}>{category}</button>
     </a>
 
     </Link>)

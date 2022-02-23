@@ -12,6 +12,15 @@ import HomeStatsDisplay from "../src/components/Home/HomeStatsDisplay";
 //states for the user: {xp, beans}
 //state for categories:[""]
 
+/*Categories logic plan
+ - once user id has been fetched, need to know which categories have been unlocked and which states to fetch for the loop to work (comparing the array on the page to what's in the database)
+ - continue by doing a fetch request for categories that user has unlocked (categories/userid)
+ - store categories unlocked in a state (as an array)
+ - check which category completed by comparing list of categories
+ - add state of categories checked as a prop down to container relating to section
+ - when looping through category buttons, pass down a prop called 'completed' which will be true or false, depending on if found in that state 
+ */
+
 const sections = [{
   id: 1,
   categories: ["Addition", "Subtraction", "Multiplication"]
@@ -29,7 +38,7 @@ export default function Home ({authenticatedUser}) {
 
   const { user, error, isLoading } = useUser();
   const [userInfo, setUserInfo] = useState("");
-
+  const [userCategories, setUserCategories] = useState([]);
   useEffect(() => {
     async function createNewUser(username) {
       const res = await fetch(`https://jellly.herokuapp.com/users`, {
@@ -46,6 +55,12 @@ export default function Home ({authenticatedUser}) {
       await fetchUser();
     }
 
+    async function getCategories(id){
+      const res = await fetch(`https://jellly.herokuapp.com/categories/${id}`)
+      const data = await res.json();
+      return data.payload;
+    }
+
     async function fetchUser() {
       if (!authenticatedUser) return;
       // console.log("Retrieving user " + authenticatedUser);
@@ -56,14 +71,19 @@ export default function Home ({authenticatedUser}) {
         createNewUser(authenticatedUser);
         return;
       }
-      // console.log("Found user:", data.payload);
-      setUserInfo(data.payload[0]);
+      const categories = await getCategories(data.payload[0].user_id);
+     console.log("Found user:", {...data.payload[0], categories});
+      setUserInfo({...data.payload[0], categories});
     }
 
-    fetchUser();
-  }, [authenticatedUser]);
+    fetchUser()
 
-  if (isLoading) return <div>Loading...</div>;
+  }, [authenticatedUser]);
+  
+  
+
+
+  if (isLoading || !userInfo) return <div>Loading...</div>;
   if (error) return <div>{error.message}</div>;
   if (!user) {
     window.location.href = "/";
@@ -75,7 +95,7 @@ export default function Home ({authenticatedUser}) {
         <div className={styles.grid}>
 
         {sections.map((section, index)=>{
-          return <CategoryContainer key={index} id={section.id} categories={section.categories} userId={userInfo.user_id}/>
+          return <CategoryContainer key={index} id={section.id} categories={section.categories} userId={userInfo.user_id} completedCategories={userInfo.categories}/>
         })}
 
           <HomeStatsDisplay userInfo={userInfo}/>
