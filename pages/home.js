@@ -101,11 +101,9 @@ export default function Home ({authenticatedUser}) {
           <HomeStatsDisplay userInfo={userInfo}/>
 
 
-  {/* TODO: Convert img to next <Image/> component */}
-
           <div className={`${styles.gridItem} ${styles.gridItemLogo} `}>
             <div className={`${styles.gridItemLogoContainer}`}>
-                <img src="https://via.placeholder.com/350x400"></img>
+                <Image src="/logojelly.png" width="350" height="400"></Image>
             </div>
           </div>
 
