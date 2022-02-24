@@ -4,16 +4,27 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import style from "../../../styles/results.module.css";
 
-export default function Results({ numQuestions, user, score, hasWon }) {
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
+export default function Results({ numQuestions, user, score, category, hasWon }) {
   useEffect(() => {
     async function rewardUser(XP, beans) {
-      await fetch(`https://jellly.herokuapp.com/users/${user}`, {
+      await fetch(`${API_URL}/users/${user}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
         body: JSON.stringify({ XP, beans }),
+      });
+
+      await fetch(`${API_URL}/categories/${user}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({ category }),
       });
     }
     hasWon && rewardUser(score * 10, 20);
