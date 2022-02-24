@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import getUserLevel from "./getUserLevel.js"
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -51,7 +52,9 @@ useEffect(() => {
       // Mapping over the array of category objects, and replacing each object with just the string of the category name
       categories = categories.map((category) => category.category_name);
 
-      console.log("Found user:", { ...data.payload[0], categories });
+      const playerLevel = getUserLevel(user.xp);
+
+      //console.log("Found user:", { ...data.payload[0], categories, playerLevel });
       // Set userInfo state to user object with categories included
       setUserInfo({ ...user, categories });
     }

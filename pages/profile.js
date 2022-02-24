@@ -13,9 +13,10 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL;
 export default function Profile({ auth0User, users }) {
   const { user, error, isLoading } = useUser();
   const userInfo = useUserInfo(auth0User.username);
-
+  
   users = users.map((user) => user.username + " " + user.xp);
   console.log("users map: " + users);
+  
   if (isLoading) return <Loading>Loading...</Loading>;
   if (error) return <div>{error.message}</div>;
 

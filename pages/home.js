@@ -39,9 +39,9 @@ const sections = [
   },
 ];
 
-export default function Home({ username }) {
+export default function Home({ auth0User }) {
   const { user, error, isLoading } = useUser();
-  const userInfo = useUserInfo(username)
+  const userInfo = useUserInfo(auth0User.username)
 
   // If userInfo is undefined or isLoading is true, display "Loading..."
   if (isLoading || !userInfo) return <Loading>Loading...</Loading>;
@@ -81,7 +81,7 @@ export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps(ctx) {
     return {
       props:{
-        username: await getAuth0User(ctx)
+        auth0User: await getAuth0User(ctx)
         //Add any other props here if needed for more fetching
     }}
   },
