@@ -3,3 +3,23 @@
     justify-content: space-evenly;
     flex-direction: row;
 }
+
+.category{
+    display:flex;
+
+}
+
+.price{
+    display:flex;
+}
+
+.infocard{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-width: 400px;
+    max-width: 400px;
+    background-color: #ca38ff42;
+    border-radius: 25px;
+}
