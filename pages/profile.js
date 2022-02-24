@@ -17,10 +17,16 @@ export default function Profile({ auth0User, users }) {
   let leaderIndex = users
     .map((user, index) => {
       if (user.username === auth0User.username) {
-        return index;
+        return index + 1;
       }
     })
     .join("");
+
+  let count = Math.floor(userInfo.xp / 100);
+  let arrBadge = [];
+  for (let i = 0; i < count; i++) {
+    arrBadge.push(i);
+  }
 
   if (isLoading) return <Loading>Loading...</Loading>;
   if (error) return <div>{error.message}</div>;
@@ -51,7 +57,7 @@ export default function Profile({ auth0User, users }) {
             <StatisticsItem
               className={styles.StatisticsItem}
               title="Player Level"
-              value="1"
+              value={arrBadge.length}
             />
             <StatisticsItem
               className={styles.StatisticsItem}
@@ -71,9 +77,15 @@ export default function Profile({ auth0User, users }) {
           </div>
           <h2 className={styles.title}>Achievements</h2>
           <div className={styles.badges}>
-            <Badge className={styles.badgeItem} name="Level 1" />
-            <Badge className={styles.badgeItem} name="Level 2" />
-            <Badge className={styles.badgeItem} name="Level 3" />
+            {arrBadge.map((item, index) => {
+              return (
+                <Badge
+                  key={index}
+                  className={styles.badgeItem}
+                  name={`Level ${item + 1} `}
+                />
+              );
+            })}
           </div>
         </div>
       </div>
@@ -87,7 +99,6 @@ export const getServerSideProps = withPageAuthRequired({
     const data = await response.json();
 
     const users = data.payload.sort((a, b) => b.xp - a.xp);
-
     return {
       props: {
         auth0User: await getAuth0User(ctx),
