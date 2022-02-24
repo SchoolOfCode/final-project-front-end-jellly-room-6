@@ -1,0 +1,24 @@
+.profileContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 2rem;
+  height: 30rem;
+  width: 38rem;
+}
+
+.statistics {
+  display: flex;
+  justify-content: space-between;
+}
+
+.badge {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}

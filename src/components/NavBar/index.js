@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./index.module.css";
 
-export default function NavBar() {
+export default function NavBar({userId}) {
   return (
     <div className={styles.container}>
         <div className={styles.branding}>
@@ -20,7 +20,12 @@ export default function NavBar() {
       <Link href="/leaderboard">
         <a className={styles.link}>Leaderboard</a>
       </Link>
-      <Link href="/profile">
+      <Link href={{
+        pathname: `/profile`,
+        query: {
+          userId: userId
+        } 
+      }}>
         <a className={styles.link}>Profile</a>
       </Link>
         </div>

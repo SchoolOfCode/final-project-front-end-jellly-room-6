@@ -50,7 +50,7 @@ export default function Home({ username }) {
   return (
     user && (
       <div>
-        <NavBar />
+        <NavBar userId={userInfo.user_id} />
         <div className={styles.grid}>
           {sections.map((section, index) => {
             return (
