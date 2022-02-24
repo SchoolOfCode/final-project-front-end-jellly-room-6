@@ -13,10 +13,15 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL;
 export default function Profile({ auth0User, users }) {
   const { user, error, isLoading } = useUser();
   const userInfo = useUserInfo(auth0User.username);
-  
-  users = users.map((user) => user.username + " " + user.xp);
-  console.log("users map: " + users);
-  
+
+  let leaderIndex = users
+    .map((user, index) => {
+      if (user.username === auth0User.username) {
+        return index;
+      }
+    })
+    .join("");
+
   if (isLoading) return <Loading>Loading...</Loading>;
   if (error) return <div>{error.message}</div>;
 
@@ -61,7 +66,7 @@ export default function Profile({ auth0User, users }) {
             <StatisticsItem
               className={styles.StatisticsItem}
               title="Leaderboard Position"
-              value="1"
+              value={leaderIndex}
             />
           </div>
           <h2 className={styles.title}>Achievements</h2>
