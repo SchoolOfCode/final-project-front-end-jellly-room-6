@@ -20,12 +20,20 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  max-width: 800px;
+  gap: 4em;
+  padding: 2em;
 }
 
 .titleContainer {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
+}
+
+.titleLogo{
+  display:flex;
 }
 
 .jellyBean {
@@ -33,12 +41,9 @@
 }
 
 .jellies {
-  display: flex;
-  justify-content: flex-end;
-  width: 50%;
-  margin-top: 2rem;
-  position: relative;
-  top: -8rem;
+  position: absolute;
+  right: 0;
+  bottom: -2em;
 }
 
 .title {
@@ -48,17 +53,24 @@
   margin-left: 1rem;
 }
 
-#getStarted {
-  margin: 5rem;
-}
-
 .text {
   width: 80%;
   text-align: center;
 }
 
+.lineContainer{
+  position:absolute;
+  bottom: 10%;
+}
 .line {
   background-color: #3c3c3c;
-  width: 90%;
+  width: 90vw;
   opacity: 0.3;
+  
 }
+
+@media (max-width: 700px) { 
+  .jellies{
+    display:none;
+  }
+ }

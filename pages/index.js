@@ -25,28 +25,40 @@ export default function LandingPage() {
       </header>
 
       <main className={styles.main}>
+
         <div className={styles.titleContainer}>
+        <div className={styles.titleLogo}>
           <Image
             className={styles.jellyBean}
             src="/logoJelly.png"
             alt="me"
-            width="100"
+            width="130"
             height="100"
           />
           <h1 className={styles.title}>JELLLY</h1>
+        
         </div>
-
         <h2 className={styles.text}>
           The fun, free way to learn maths and improve financial literacy.
         </h2>
-        <button className="btn large" id={styles.getStarted}>
-          Get Started
-        </button>
-      </main>
+        </div>
+
+        <Link href="/api/auth/login">
+            <a>
+            <button className="btn large" id={styles.getStarted}>
+              Get Started
+            </button>
+            </a>
+        </Link>
+
       <div className={styles.jellies}>
         <Image src="/threeJellies.png" alt="me" width="200" height="200" />
       </div>
+      </main>
+      <div className={styles.lineContainer}>
+
       <hr className={styles.line} />
+      </div>
     </div>
   );
 }
