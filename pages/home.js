@@ -41,9 +41,12 @@ const sections = [
 export default function Home({ authenticatedUser }) {
   const { user, error, isLoading } = useUser();
   const [userInfo, setUserInfo] = useState("");
-  const [userCategories, setUserCategories] = useState([]);
+
+  // UseEffect to get user info will run any time the authenticatedUser variable changes in value
   useEffect(() => {
     async function createNewUser(username) {
+      // POST /users
+      // Adds a new user to our database, using the username fetched from Auth0 (see get serverside props below for the Auth0 fetch)
       const res = await fetch(`${API_URL}/users`, {
         method: "POST",
         headers: {
@@ -54,38 +57,47 @@ export default function Home({ authenticatedUser }) {
       });
       const data = await res.json();
       if (!data.payload || data.payload.length === 0) return;
-      // console.log("Created user:", data.payload);
       await fetchUser();
     }
 
     async function getCategories(id) {
+      // Get the categories associated with the user with id
       const res = await fetch(`${API_URL}/categories/${id}`);
       const data = await res.json();
+      // Returns an array of category objects I.E. [{category_id: 1, category_name: 'Addition', user_id: 1}, {...anotherOne} etc]
       return data.payload;
     }
 
     async function fetchUser() {
+      // If no authenticated user/authenticated user is Null, do not run the rest of funtion
       if (!authenticatedUser) return;
-      // console.log("Retrieving user " + authenticatedUser);
+      // Get user info from our database (including XP/Beans etc)
       const res = await fetch(`${API_URL}/users/${authenticatedUser}`);
       const data = await res.json();
+      // If no user found, create new user in our database
       if (!data.payload || data.payload.length === 0) {
-        // console.log("User not found.. creating user: " + authenticatedUser);
         createNewUser(authenticatedUser);
         return;
       }
-      let categories = await getCategories(data.payload[0].user_id);
+      // Storing user object
+      const user = data.payload[0];
+      // Get categories for the user by id
+      let categories = await getCategories(user.user_id);
+      // Mapping over the array of category objects, and replacing each object with just the string of the category name
       categories = categories.map(category => category.category_name);
 
       console.log("Found user:", { ...data.payload[0], categories });
-      setUserInfo({ ...data.payload[0], categories });
+      // Set userInfo state to user object with categories included
+      setUserInfo({ ...user, categories });
     }
 
     fetchUser();
   }, [authenticatedUser]);
 
+  // If userInfo is undefined or isLoading is true, display "Loading..."
   if (isLoading || !userInfo) return <div>Loading...</div>;
   if (error) return <div>{error.message}</div>;
+  // If user is not logged in when navigating to home page, redirect back to landing page
   if (!user) {
     window.location.href = "/";
   }
@@ -121,14 +133,18 @@ export default function Home({ authenticatedUser }) {
 
 export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps(ctx) {
+    // Gives you the basic user info from Auth0
     const session = getSession(ctx.req, ctx.res);
 
     const getUsername = async () => {
       const domain = "jelllyapp.eu.auth0.com";
 
+      // Try/Catch -> Try some functions and if it fails then Catch errors and log them
       try {
+        // URL to fetch from (Auth0 API which gives detailed user info inc. username)
         const userDetailsByIdUrl = `https://${domain}/api/v2/users/${session.user.sub}`;
 
+        // Fetching the user information stored in the Auth0 database for the user with id user.sub
         const metadataResponse = await fetch(userDetailsByIdUrl, {
           headers: {
             Authorization: `Bearer ${session.accessToken}`,
@@ -141,7 +157,10 @@ export const getServerSideProps = withPageAuthRequired({
         console.log(e.message);
       }
     };
+    // Storing username
     const username = await getUsername();
+
+    // Send username prop into the component as 'authenticatedUser'
     return { props: { authenticatedUser: username || "No user" } };
   },
 });
