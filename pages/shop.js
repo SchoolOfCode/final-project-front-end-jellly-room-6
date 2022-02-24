@@ -3,6 +3,9 @@ import NavBar from "../src/components/NavBar";
 import Image from "next/image";
 import style from "../styles/shop.module.css";
 import ShopItem from "../src/components/ShopItem/ShopItem";
+import ShopCategory from "../src/components/ShopCategory";
+
+const data = [{id: 1, src:"/beansCoins.png", alt:"beans-coins", price:150}]
 
 export default function Shop() {
   const { user, error, isLoading } = useUser();
@@ -17,9 +20,8 @@ export default function Shop() {
     user && (
       <><NavBar/>
       <h1>The Jelly Shop</h1>
-      <ShopItem src="/logoJelly.png" alt="an item" price="50"/>
+      <ShopCategory categorytitle="Color skins" data={data} />     
 </>
-      
       
     )
   );
