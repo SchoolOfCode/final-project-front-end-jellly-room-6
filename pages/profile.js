@@ -8,15 +8,16 @@ import StatisticsItem from "../src/components/Profile/StatisticsItem";
 import Badge from "../src/components/Profile/Badge";
 import styles from "../styles/profile.module.css";
 
-export default function Profile({ auth0User }) {
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
+export default function Profile({ auth0User, users }) {
   const { user, error, isLoading } = useUser();
-  const userInfo = useUserInfo(auth0User.username)
-console.log(auth0User)
+  const userInfo = useUserInfo(auth0User.username);
+
+  users = users.map((user) => user.username + " " + user.xp);
+  console.log("users map: " + users);
   if (isLoading) return <Loading>Loading...</Loading>;
   if (error) return <div>{error.message}</div>;
-
-  
 
   return (
     user && (
@@ -24,15 +25,20 @@ console.log(auth0User)
         <NavBar />
         <div className={styles.profileContainer}>
           <div className={styles.userDetails}>
-            <Image className={styles.userImage} src={auth0User.picture} alt="Jelly" width={110} height={50} />
-              <div>
-                <h2>{userInfo.username}</h2>
-                <h3>{auth0User.email}</h3>
-              </div>
+            <Image
+              className={styles.userImage}
+              src={auth0User.picture}
+              alt="Jelly"
+              width={110}
+              height={50}
+            />
+            <div>
+              <h2>{userInfo.username}</h2>
+              <h3>{auth0User.email}</h3>
+            </div>
           </div>
 
-            <hr className={styles.line} />
-
+          <hr className={styles.line} />
 
           <h2 className={styles.title}>Statistics</h2>
           <div className={styles.statistics}>
@@ -71,11 +77,17 @@ console.log(auth0User)
 
 export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps(ctx) {
+    const response = await fetch(`${API_URL}/users`);
+    const data = await response.json();
+
+    const users = data.payload.sort((a, b) => b.xp - a.xp);
 
     return {
-      props:{
-        auth0User: await getAuth0User(ctx)
+      props: {
+        auth0User: await getAuth0User(ctx),
+        users,
         //Add any other props here if needed for more fetching
-    }}
+      },
+    };
   },
 });
