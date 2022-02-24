@@ -6,6 +6,7 @@ import { useUser, getSession, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import Image from "next/image";
 import CategoryContainer from "../src/components/Home/CategoryContainer";
 import HomeStatsDisplay from "../src/components/Home/HomeStatsDisplay";
+import Loading from "../src/components/Loading";
 //Plan
 //-onClick go to questions (loading page, etc.)
 //-stats: we need to fetch user info.
@@ -84,7 +85,7 @@ export default function Home({ authenticatedUser }) {
       // Get categories for the user by id
       let categories = await getCategories(user.user_id);
       // Mapping over the array of category objects, and replacing each object with just the string of the category name
-      categories = categories.map(category => category.category_name);
+      categories = categories.map((category) => category.category_name);
 
       console.log("Found user:", { ...data.payload[0], categories });
       // Set userInfo state to user object with categories included
@@ -95,7 +96,7 @@ export default function Home({ authenticatedUser }) {
   }, [authenticatedUser]);
 
   // If userInfo is undefined or isLoading is true, display "Loading..."
-  if (isLoading || !userInfo) return <div>Loading...</div>;
+  if (isLoading || !userInfo) return <Loading>Loading...</Loading>;
   if (error) return <div>{error.message}</div>;
   // If user is not logged in when navigating to home page, redirect back to landing page
   if (!user) {
