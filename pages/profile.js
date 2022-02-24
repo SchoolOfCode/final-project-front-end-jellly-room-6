@@ -12,7 +12,7 @@ export default function Profile({ auth0User }) {
 
   const { user, error, isLoading } = useUser();
   const userInfo = useUserInfo(auth0User.username)
-console.log(auth0User)
+
   if (isLoading) return <Loading>Loading...</Loading>;
   if (error) return <div>{error.message}</div>;
 

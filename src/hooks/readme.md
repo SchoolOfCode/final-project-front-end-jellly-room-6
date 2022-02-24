@@ -16,7 +16,7 @@ import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 
 
 ```
-export default function Profile({username}){ ... }
+export default function Profile({auth0User}){ ... }
 ```
 <br/>
 
@@ -24,7 +24,7 @@ export default function Profile({username}){ ... }
 
 ```
 const { user, error, isLoading } = useUser();
-const userInfo = useUserInfo(username)
+const userInfo = useUserInfo(auth0User.username)
 ```
 
 * ### We can now access all info on our user (userInfo.user_id, userInfo.beans, etc..)
@@ -47,7 +47,7 @@ export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps(ctx) {
     return {
       props:{
-        username: await getAuth0User(ctx)
+        auth0User: await getAuth0User(ctx)
         //Add any other props here if needed for more fetching
     }}
   },
