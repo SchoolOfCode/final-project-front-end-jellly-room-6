@@ -1,15 +1,61 @@
-.container{
-    background-color: rgb(0, 255, 255);
-    display: grid;
-    place-items: center;
-    text-align: left;
-    
+.container {
+  display: grid;
+  place-items: center;
 }
 
-.user{
-    display: flex;
-    gap: 1.5rem;
-    align-items: center;
-    justify-content: space-between;
-    width: 50vw;
+.title {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  background-color: #8816b2;
+  color: white;
+  margin: 3rem 0;
+  padding: 1.5rem 2rem;
+  border-radius: 20px;
+  width: 30vw;
+  text-align: center;
+}
+
+.leaderboard {
+  position: relative;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  width: 25vw;
+  height: 2rem;
+  text-align: left;
+  margin-bottom: 7rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.userPosition {
+  position: absolute;
+  left: 1rem;
+  font-weight: bold;
+}
+
+.username {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.userXP {
+  display: grid;
+  place-items: center;
+  position: absolute;
+  right: 1rem;
+  font-weight: 500;
+  background: #ffd900;
+  width: 5vw;
+  padding: 1rem;
+  border-radius: 1000px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.jellies {
+  position: absolute;
+  bottom: 12.5%;
+  right: 12.5%;
 }
