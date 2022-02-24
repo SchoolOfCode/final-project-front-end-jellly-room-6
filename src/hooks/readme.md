@@ -5,7 +5,7 @@
 * ### At the top of the page file, add:  
 
 ```  
-import useRetrieveAuth0User from "../src/hooks/useRetrieveAuth0User";
+import getAuth0User from "../src/hooks/getAuth0User";
 import useUserInfo from "../src/hooks/useUserInfo";
 import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 ```
@@ -47,7 +47,7 @@ export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps(ctx) {
     return {
       props:{
-        username: await useRetrieveAuth0User(ctx)
+        username: await getAuth0User(ctx)
         //Add any other props here if needed for more fetching
     }}
   },

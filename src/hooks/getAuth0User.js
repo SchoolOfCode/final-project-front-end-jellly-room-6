@@ -1,7 +1,7 @@
 
 import { getSession } from "@auth0/nextjs-auth0";
 
-export default async function useRetrieveAuth0User(ctx){
+export default async function getAuth0User(ctx){
         // Gives you the basic user info from Auth0
         const session = getSession(ctx.req, ctx.res);
 

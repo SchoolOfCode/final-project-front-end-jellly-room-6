@@ -7,7 +7,7 @@ import Image from "next/image";
 import CategoryContainer from "../src/components/Home/CategoryContainer";
 import HomeStatsDisplay from "../src/components/Home/HomeStatsDisplay";
 import Loading from "../src/components/Loading";
-import useRetrieveAuth0User from "../src/hooks/useRetrieveAuth0User";
+import getAuth0User from "../src/hooks/getAuth0User";
 import useUserInfo from "../src/hooks/useUserInfo";
 //Plan
 //-onClick go to questions (loading page, etc.)
@@ -81,7 +81,7 @@ export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps(ctx) {
     return {
       props:{
-        username: await useRetrieveAuth0User(ctx)
+        username: await getAuth0User(ctx)
         //Add any other props here if needed for more fetching
     }}
   },
