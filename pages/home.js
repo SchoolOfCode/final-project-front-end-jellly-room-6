@@ -105,7 +105,7 @@ export default function Home({ authenticatedUser }) {
   return (
     user && (
       <div>
-        <NavBar />
+        <NavBar userId={userInfo.user_id} />
         <div className={styles.grid}>
           {sections.map((section, index) => {
             return (
