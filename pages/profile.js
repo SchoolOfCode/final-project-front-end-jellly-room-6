@@ -14,7 +14,29 @@ export default function Profile() {
     user && (
       <div>
         <NavBar />
-        Profile
+        <div>
+          <div> Profile information</div>
+          <div>
+            <h2>Statistics</h2>
+            <div className="statistics-item">
+              <h3>Player Level</h3>
+              <div>2</div>
+            </div>
+            <div className="statistics-item">
+              <h3>Total XP</h3>
+              <div>100</div>
+            </div>
+            <div className="statistics-item">
+              <h3>Total Beans</h3>
+              <div>20</div>
+            </div>
+            <div className="statistics-item">
+              <h3>Leaderboard Position</h3>
+              <div>1</div>
+            </div>
+          </div>
+          <div>Achievements </div>
+        </div>
       </div>
     )
   );
