@@ -10,6 +10,6 @@ console.warn = (...args) => {
 module.exports = {
   reactStrictMode: true,
   images: {
-      domains: ['via.placeholder.com']
+      domains: ['s.gravatar.com']
   }
 }

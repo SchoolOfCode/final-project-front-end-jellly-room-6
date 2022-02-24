@@ -21,7 +21,7 @@ export default async function getAuth0User(ctx){
             });
     
             const data = await metadataResponse.json();
-            return data.username;
+            return data;
           } catch (e) {
             console.log(e.message);
           }
