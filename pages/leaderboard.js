@@ -1,6 +1,7 @@
 import { useUser } from "@auth0/nextjs-auth0";
 import { useState } from "react";
 import NavBar from "../src/components/NavBar";
+import styles from "../styles/leaderboard.module.css"
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -15,12 +16,13 @@ export default function Leaderboard({ users }) {
   }
   return (
     user && (
-      <div>
+      <div className={styles.container}>
         <NavBar />
         <h1>Leaderboard</h1>
         <ol>
-          {users.map(user => (
-            <li key={user}>
+          {users.map((user, index) => (
+            <li className={styles.user} key={user}>
+              <h2>{index +1}</h2>
               <h2>{user.username}</h2>
               <h3>{user.xp}</h3>
             </li>
