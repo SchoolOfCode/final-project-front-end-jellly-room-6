@@ -99,6 +99,7 @@ export const getServerSideProps = withPageAuthRequired({
     const data = await response.json();
 
     const users = data.payload.sort((a, b) => (a.xp < b.xp ? 1 : -1));
+
     return {
       props: {
         auth0User: await getAuth0User(ctx),
