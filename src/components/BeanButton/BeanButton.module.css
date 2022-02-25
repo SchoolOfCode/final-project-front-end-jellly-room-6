@@ -19,6 +19,7 @@
   z-index: 1;
   top: 33%;
   left: 50%;
+  width: 100%;
   transform: translateX(-50%);
   color: white;
   font-weight: bold;
