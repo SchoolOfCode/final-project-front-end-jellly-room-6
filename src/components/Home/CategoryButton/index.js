@@ -14,7 +14,6 @@ export default function CategoryButton({ category, disabled, user, isCompleted }
     >
       <a>
         <button
-          disabled={isCompleted ? true : false}
           className={`${styles.button} ${isCompleted && styles.completed}`}
         >
           {category}

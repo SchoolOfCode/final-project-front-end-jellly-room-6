@@ -83,7 +83,9 @@ export async function getServerSideProps(context) {
   const res = await fetch(`https://jellly.herokuapp.com/questions/${context.query.category}`);
   const data = await res.json();
   // Storing questions
-  const questions = data.payload;
+
+  const questions = [data.payload[0], data.payload[1], data.payload[2]]
+  //Set to max 3 questions for testing
 
   // Sending props into the question page component
   return {

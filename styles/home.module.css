@@ -5,8 +5,8 @@
     grid-auto-flow: row dense; 
     grid-template-columns: auto auto auto auto auto auto; 
     gap: 1em; 
-    max-width: 1400px;
-    margin: 8em auto;
+    max-width: 1200px;
+    margin: 2em auto;
 
     box-sizing: border-box;
   }
@@ -21,7 +21,8 @@
   .gridItemLevel{
     grid-column-start: 1;
     grid-column-end: 4;
-
+    grid-row-start: 1;
+    grid-row-end: 4;
   }
 
   .levelTitle{
@@ -49,11 +50,13 @@
 .levelContainer{
     border: solid black 2px;
     border-radius: 25px;
-    padding: 8em;
+    width: 600px;
+    padding: 2em;
     display:flex;
     gap: 2em;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 
 }
 
@@ -87,7 +90,8 @@
 .gridItemLogo{
     grid-column-start: 4;
     grid-column-end: 7;
-    grid-row-end: span 2;
+    grid-row-start: 2;
+    grid-row-end: 4;
 }
 
 .gridItemLogoContainer{
