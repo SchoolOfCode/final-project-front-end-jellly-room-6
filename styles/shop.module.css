@@ -1,25 +1,59 @@
-.NavBar{
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: row;
+.NavBar {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
 }
 
-.category{
-    display:flex;
-
+.category {
+  display: flex;
+  flex-direction: row;
+    justify-content: space-around;
+}
+.shopcategory{
+    margin-right: 23%;
+    margin-left: 5%;
+    /* border: solid black; */
+    padding: 10px;
+    
+    
+    z-index: 1;
 }
 
-.price{
-    display:flex;
+.price {
+  display: flex;
 }
 
-.infocard{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    min-width: 400px;
-    max-width: 400px;
-    background-color: #ca38ff42;
-    border-radius: 25px;
+.infocard {
+  position: absolute;
+  bottom: 20%;
+  right: 3%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-width: 50px;
+  max-width: 500px;
+  min-height: 40px;
+  background-color: #ca38ff42;
+  border-radius: 25px;
+  padding: 10px;
+}
+
+.shopitem {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 15px;
+  padding: 20px;
+  border-radius: 10%;
+  box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+}
+.shoppagetitle{
+  display: flex;
+  justify-content: center;
+  font-size: 2em;
+}
+.tagprice {
+  margin: 20px;
 }
