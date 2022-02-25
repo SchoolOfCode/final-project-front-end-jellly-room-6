@@ -9,9 +9,6 @@
   border: none;
 }
 
-.disabled {
-}
-
 .beanButton:hover {
   transform: scale(1.05);
   opacity: 1;
