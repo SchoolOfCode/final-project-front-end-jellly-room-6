@@ -4,6 +4,7 @@ import getAuth0User from "../src/hooks/getAuth0User";
 import useUserInfo from "../src/hooks/useUserInfo";
 import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import InformationCard from "../src/components/InformationCard";
+import style from "../styles/shop.module.css"
 
 const data = [{id: 1, src:"/logoJelly.png", alt:"beans-coins", price:150}, {id: 1, src:"/jelly_guy_blue.png", alt:"beans-coins", price:150}, {id: 1, src:"/jelly_guy_green.png", alt:"beans-coins", price:150}, {id: 1, src:"/jelly_guy_red.png", alt:"beans-coins", price:150}]
 
@@ -23,9 +24,10 @@ export default function Shop({auth0User}) {
       <>
 
       <NavBar/>
-      <h1>The Jelly Shop</h1>
+      <h1>The Jellly Shop</h1>
+      <InformationCard username={userInfo.username} beans={userInfo.beans}/>
       <ShopCategory categorytitle="Color skins" data={data} /> 
-      <InformationCard username={username} beans={userInfo.beans}/>
+      
       </>
       
     )
