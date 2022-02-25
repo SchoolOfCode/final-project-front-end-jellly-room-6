@@ -4,7 +4,7 @@
   justify-content: center;
   margin: 2rem;
   height: 30rem;
-  width: 38rem;
+  width: 60rem;
 }
 
 .statistics {
@@ -15,7 +15,7 @@
 
 .badges {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   margin-bottom: 2em;
 }
 
@@ -25,13 +25,13 @@
   align-items: center;
 }
 
-.userDetails{
-  display:flex;
+.userDetails {
+  display: flex;
   gap: 2em;
   margin: 2em 0;
 }
 
-.userImage{
+.userImage {
   border-radius: 25rem;
 }
 
