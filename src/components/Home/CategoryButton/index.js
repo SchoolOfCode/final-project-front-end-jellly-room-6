@@ -2,19 +2,18 @@ import Link from "next/link";
 import BeanButton from "../../BeanButton";
 import styles from "./index.module.css";
 
-export default function CategoryButton({ category, user, color, isCompleted }) {
+export default function CategoryButton({ category, isCompleted, color, xPos }) {
   return (
     <Link
       href={{
         pathname: "/question",
         query: {
-          category,
-          user,
+          category
         },
       }}
     >
       <a>
-        <BeanButton color={color} text={category} disabled={isCompleted ? true : false}>
+        <BeanButton color={color} xPos={xPos} text={category} completed={isCompleted ? true : false}>
           {category}
         </BeanButton>
       </a>

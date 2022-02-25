@@ -7,9 +7,14 @@ import style from "../../../styles/results.module.css";
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export default function Results({ numQuestions, user, score, category, hasWon }) {
+  console.log(user)
+  function hasCompletedCategory(categoryToCheck){
+      return user.categories.includes(categoryToCheck)
+  }
+
   useEffect(() => {
     async function rewardUser(XP, beans) {
-      await fetch(`${API_URL}/users/${user}`, {
+      await fetch(`${API_URL}/users/${user.user_id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -18,7 +23,7 @@ export default function Results({ numQuestions, user, score, category, hasWon })
         body: JSON.stringify({ XP, beans }),
       });
 
-      await fetch(`${API_URL}/categories/${user}`, {
+      await fetch(`${API_URL}/categories/${user.user_id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -27,7 +32,8 @@ export default function Results({ numQuestions, user, score, category, hasWon })
         body: JSON.stringify({ category }),
       });
     }
-    hasWon && rewardUser(score * 10, 20);
+    if(!hasWon || hasCompletedCategory(category)) return;
+    rewardUser(score * 10, 20);
   }, [hasWon, score, user]);
 
   return (
