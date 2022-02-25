@@ -6,9 +6,9 @@ export default function CategoryContainer({ handleSelect, categories, userId, co
   const buttonColors = categories.map(() => Math.floor(Math.random() * 720));
   function getRandomXPos(){
     // Return number between -150 and 150
-    const minXPos = -150;
-    const maxXPos = 150;
-    return Math.random() * (150 - -150) + -150;
+    const minXPos = -100;
+    const maxXPos = 100;
+    return Math.random() * (maxXPos - minXPos) + minXPos;
   }
 
   return (
