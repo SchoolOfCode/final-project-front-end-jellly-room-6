@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 2rem;
+  margin: 4rem;
   height: 30rem;
   width: 60rem;
 }
@@ -39,4 +39,23 @@
   background-color: #3c3c3c;
   width: 90vw;
   opacity: 0.3;
+}
+
+.badges > button {
+  margin-right: 3rem;
+}
+.badges > button:hover {
+  animation: wiggle 0.6s;
+}
+
+@keyframes wiggle {
+  25% {
+    transform: scale(0.8, 1.3);
+  }
+  50% {
+    transform: scale(1.1, 0.8);
+  }
+  75% {
+    transform: scale(0.7, 1.2);
+  }
 }
