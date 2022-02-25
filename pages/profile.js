@@ -81,7 +81,6 @@ export default function Profile({ auth0User, users }) {
               return (
                 <BeanButton
                   key={index}
-                  completed
                   color={colorArray[index]}
                   text={`Level ${item + 1} `}
                 />
