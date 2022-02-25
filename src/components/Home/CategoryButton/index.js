@@ -2,6 +2,7 @@ import Link from "next/link";
 import BeanButton from "../../BeanButton";
 import styles from "./index.module.css";
 
+
 export default function CategoryButton({ category, isCompleted, color, xPos }) {
   return (
     <Link

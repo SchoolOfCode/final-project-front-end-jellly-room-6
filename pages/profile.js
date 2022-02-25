@@ -7,13 +7,14 @@ import Image from "next/image";
 import StatisticsItem from "../src/components/Profile/StatisticsItem";
 import Badge from "../src/components/Profile/Badge";
 import styles from "../styles/profile.module.css";
+import BeanButton from "../src/components/BeanButton";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export default function Profile({ auth0User, users }) {
   const { user, error, isLoading } = useUser();
   const userInfo = useUserInfo(auth0User.username);
-
+  const colorArray = [150, 15, 300, 70, 250, 270];
   let leaderIndex = users
     .map((user, index) => {
       if (user.username === auth0User.username) {
@@ -78,10 +79,10 @@ export default function Profile({ auth0User, users }) {
           <div className={styles.badges}>
             {arrBadge.map((item, index) => {
               return (
-                <Badge
+                <BeanButton
                   key={index}
-                  className={styles.badgeItem}
-                  name={`Level ${item + 1} `}
+                  color={colorArray[index]}
+                  text={`Level ${item + 1} `}
                 />
               );
             })}
@@ -98,6 +99,7 @@ export const getServerSideProps = withPageAuthRequired({
     const data = await response.json();
 
     const users = data.payload.sort((a, b) => (a.xp < b.xp ? 1 : -1));
+
     return {
       props: {
         auth0User: await getAuth0User(ctx),

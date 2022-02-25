@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import styles from "./BeanButton.module.css";
 
+
 export default function BeanButton({ text, color, completed, xPos }) {
 
   const opacity = completed ? `1` : `0.5`
