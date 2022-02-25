@@ -27,48 +27,67 @@ import useUserInfo from "../src/hooks/useUserInfo";
 const sections = [
   {
     id: 1,
-    categories: ["Addition", "Subtraction", "Multiplication"],
+    name: "social",
+    categories: ["Drinking", "Eating Out", "Travel", "Occasions", "Holidays"],
   },
   {
     id: 2,
-    categories: ["Category 4", "Category 5", "Category 6"],
+    name: "financial",
+    categories: ["Interest Rates", "Currencies", "Mortgages", "Charity", "Saving"],
   },
   {
     id: 3,
-    categories: ["Category 7", "Category 8", "Category 9"],
+    name: "wellbeing",
+    categories: ["Health", "Exercise", "Nutrition", "Mindfulness", "Weight"],
   },
+  {
+    id:4,
+    name: "general",
+    categories: ["Further", "Division", "Addition", "Subtraction", "Multiplication"]
+  },
+  {
+    id:5,
+    name: "home",
+    categories: ["Gardening", "Shopping", "Cooking", "Chores", "DIY"]
+  }
 ];
 
 export default function Home({ auth0User }) {
   const { user, error, isLoading } = useUser();
   const userInfo = useUserInfo(auth0User.username)
 
+  const [selectedCategory, setSelectedCategory] = useState("social")
+
   // If userInfo is undefined or isLoading is true, display "Loading..."
   if (isLoading || !userInfo) return <Loading>Loading...</Loading>;
   if (error) return <div>{error.message}</div>;
+
+
+  function handleSelect(e){
+    setSelectedCategory(e.target.value)
+  }
 
   return (
     user && (
       <div>
         <NavBar userId={userInfo.user_id} />
         <div className={styles.grid}>
-          {sections.map((section, index) => {
-            return (
+      
               <CategoryContainer
-                key={index}
-                id={section.id}
-                categories={section.categories}
+                id={sections[0].id}
+                categories={sections.find(category => category.name === selectedCategory).categories}
                 userId={userInfo.user_id}
                 completedCategories={userInfo.categories}
+                selectedDropdownCategory={selectedCategory}
+                handleSelect={handleSelect}
               />
-            );
-          })}
+
 
           <HomeStatsDisplay userInfo={userInfo} />
 
           <div className={`${styles.gridItem} ${styles.gridItemLogo} `}>
             <div className={`${styles.gridItemLogoContainer}`}>
-              <Image src="/logojelly.png" width="350" height="400"></Image>
+              <Image src="/logojelly.png" width="250" height="250"></Image>
             </div>
           </div>
         </div>

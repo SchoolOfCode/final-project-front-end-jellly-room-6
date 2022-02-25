@@ -7,7 +7,7 @@ export default function InformationCard({username, beans}) {
     <div className={style.infocard}>
         <h2>{username}</h2>
         <h3>You have {beans} jelly beans</h3>
-        <Image src="/Jarbean.png" width={40} height={40} alt="Jar of beans" />
+        <Image src="/Jarbean.png" width={125} height={150} alt="Jar of beans" />
     </div>
   )
 }

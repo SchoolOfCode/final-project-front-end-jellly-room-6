@@ -7,10 +7,11 @@
   opacity: 0.8;
   background: none;
   border: none;
+  scale: 1.5;
 }
 
 .beanButton:hover {
-  transform: scale(1.05);
+  scale: 1.55;
   opacity: 1;
 }
 
@@ -19,8 +20,9 @@
   z-index: 1;
   top: 33%;
   left: 50%;
+  width: 100%;
   transform: translateX(-50%);
-  color: white;
+  color: #ffffff;
   font-weight: bold;
 }
 
