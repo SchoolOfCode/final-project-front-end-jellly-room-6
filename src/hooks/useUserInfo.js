@@ -56,7 +56,7 @@ useEffect(() => {
 
       //console.log("Found user:", { ...data.payload[0], categories, playerLevel });
       // Set userInfo state to user object with categories included
-      setUserInfo({ ...user, categories });
+      setUserInfo({ ...user, categories, playerLevel });
     }
 
     fetchUser();

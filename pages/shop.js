@@ -7,9 +7,9 @@ import InformationCard from "../src/components/InformationCard";
 
 const data = [{id: 1, src:"/logoJelly.png", alt:"beans-coins", price:150}, {id: 1, src:"/jelly_guy_blue.png", alt:"beans-coins", price:150}, {id: 1, src:"/jelly_guy_green.png", alt:"beans-coins", price:150}, {id: 1, src:"/jelly_guy_red.png", alt:"beans-coins", price:150}]
 
-export default function Shop({username}) {
+export default function Shop({auth0User}) {
   const { user, error, isLoading } = useUser();
-  const userInfo = useUserInfo(username)
+  const userInfo = useUserInfo(auth0User.username)
   console.log(userInfo)
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>{error.message}</div>;
@@ -36,7 +36,7 @@ export default function Shop({username}) {
   async getServerSideProps(ctx) {
     return {
       props:{
-        username: await getAuth0User(ctx)
+        auth0User: await getAuth0User(ctx)
         //Add any other props here if needed for more fetching
     }}
   },
