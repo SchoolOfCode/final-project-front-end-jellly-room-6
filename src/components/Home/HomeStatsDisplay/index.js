@@ -1,5 +1,5 @@
 import styles from '../../../../styles/home.module.css'
-import getUserLevel, {getUserRemainingXpPercentage, getUserXpNextLevelRequired, getUserXpToNextLevel, getUserXpEarnedThisLevel} from '../../../hooks/getUserLevel';
+import {getUserRemainingXpPercentage, getUserXpNextLevelRequired, getUserXpEarnedThisLevel} from '../../../hooks/getUserLevel';
 
 
 export default function HomeStatsDisplay({userInfo}){
