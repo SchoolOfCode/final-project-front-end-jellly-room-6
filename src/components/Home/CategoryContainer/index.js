@@ -21,7 +21,7 @@ export default function CategoryContainer({ handleSelect, categories, userId, co
           {categories.map((category, index) => {
             return (
               <CategoryButton
-                color={buttonColors[index]}
+                color={buttonColors[index] }
                 xPos={getRandomXPos()}
                 key={category}
                 category={category}

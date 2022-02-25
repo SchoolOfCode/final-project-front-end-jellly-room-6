@@ -13,7 +13,7 @@ export default function CategoryButton({ category, isCompleted, color, xPos }) {
       }}
     >
       <a>
-        <BeanButton color={color} xPos={xPos} text={category} disabled={isCompleted ? true : false}>
+        <BeanButton color={color} xPos={xPos} text={category} completed={isCompleted ? true : false}>
           {category}
         </BeanButton>
       </a>
