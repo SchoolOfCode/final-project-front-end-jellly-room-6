@@ -60,6 +60,13 @@
 
 }
 
+.levelBarStyleBackground{
+        width: 80%;
+        background-color: #fff;
+        margin-bottom: 0.25em;
+        border-radius: 5px;
+}
+
 
 .beanBtn{
     border: solid black 1px;
