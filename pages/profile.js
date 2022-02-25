@@ -97,7 +97,7 @@ export const getServerSideProps = withPageAuthRequired({
     const response = await fetch(`${API_URL}/users`);
     const data = await response.json();
 
-    const users = data.payload.sort((a, b) => b.xp - a.xp);
+    const users = data.payload.sort((a, b) => (a.xp < b.xp ? 1 : -1));
     return {
       props: {
         auth0User: await getAuth0User(ctx),
