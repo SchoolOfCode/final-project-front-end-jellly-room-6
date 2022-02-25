@@ -7,7 +7,6 @@ import Image from "next/image";
 import StatisticsItem from "../src/components/Profile/StatisticsItem";
 import Badge from "../src/components/Profile/Badge";
 import styles from "../styles/profile.module.css";
-import Bean from "../src/components/Bean";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -77,14 +76,6 @@ export default function Profile({ auth0User, users }) {
           </div>
           <h2 className={styles.title}>Achievements</h2>
           <div className={styles.badges}>
-            {/* {arrBadge.map((item, index) => {
-              return (
-                <div key={index}>
-                  <h3>{`Level ${item + 1} `}</h3>
-                  <Bean />
-                </div>
-              );
-            })} */}
             {arrBadge.map((item, index) => {
               return (
                 <Badge
