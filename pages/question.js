@@ -87,12 +87,15 @@ export const getServerSideProps = withPageAuthRequired({
   const data = await res.json();
   // Storing questions
 
-  
+  function getQuestions(arr){
+    if(!arr) throw new Error(`API did not return any questions for category: ${ctx.query.category}`);
+    return shuffleArray(data.payload).slice(0, questionCount)
+  }
   const questionCount = 3;
   function shuffleArray(arr) {
     return arr.sort(() => Math.random() - 0.5);
   }
-  const questions = shuffleArray(data.payload).slice(0, questionCount)
+  const questions = getQuestions(data.payload)
 
   //Set to max 3 questions for testing
 

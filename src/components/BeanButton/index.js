@@ -5,10 +5,10 @@ import styles from "./BeanButton.module.css";
 
 export default function BeanButton({ text, color, completed, xPos }) {
 
-  const opacity = completed ? `1` : `0.5`
+  const grayscale = completed ? `1` : `0`
 
   return (
-    <button className={styles.beanButton} style={{ filter: `hue-rotate(${color}deg)`,transform:`translateX(${xPos}%)`, opacity: opacity}}>
+    <button className={styles.beanButton} style={{ filter: `hue-rotate(${color}deg) grayscale(${grayscale})`,transform:`translateX(${xPos}%)`}}>
       <p className={styles.category}>{text}</p>
       <Image
         className={styles.jellybean}
