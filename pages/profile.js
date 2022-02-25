@@ -22,9 +22,8 @@ export default function Profile({ auth0User, users }) {
     })
     .join("");
 
-  let count = Math.floor(userInfo.xp / 100);
   let arrBadge = [];
-  for (let i = 0; i < count; i++) {
+  for (let i = 0; i < userInfo.playerLevel; i++) {
     arrBadge.push(i);
   }
 
@@ -57,7 +56,7 @@ export default function Profile({ auth0User, users }) {
             <StatisticsItem
               className={styles.StatisticsItem}
               title="Player Level"
-              value={arrBadge.length}
+              value={userInfo.playerLevel}
             />
             <StatisticsItem
               className={styles.StatisticsItem}
