@@ -1,14 +1,13 @@
 import Link from "next/link";
 import styles from "./index.module.css";
 
-export default function CategoryButton({ category, disabled, user, isCompleted }) {
+export default function CategoryButton({ category, isCompleted }) {
   return (
     <Link
       href={{
         pathname: "/question",
         query: {
-          category,
-          user,
+          category
         },
       }}
     >
