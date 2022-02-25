@@ -2,7 +2,7 @@ import Link from "next/link";
 import BeanButton from "../../BeanButton";
 import styles from "./index.module.css";
 
-export default function CategoryButton({ category, isCompleted, color }) {
+export default function CategoryButton({ category, isCompleted, color, xPos }) {
   return (
     <Link
       href={{
@@ -13,7 +13,7 @@ export default function CategoryButton({ category, isCompleted, color }) {
       }}
     >
       <a>
-        <BeanButton color={color} text={category} disabled={isCompleted ? true : false}>
+        <BeanButton color={color} xPos={xPos} text={category} disabled={isCompleted ? true : false}>
           {category}
         </BeanButton>
       </a>

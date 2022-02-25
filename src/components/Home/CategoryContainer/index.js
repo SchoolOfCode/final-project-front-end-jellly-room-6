@@ -4,6 +4,12 @@ import CategoryDropdown from "../CategoryDropdown";
 
 export default function CategoryContainer({ handleSelect, categories, userId, completedCategories }) {
   const buttonColors = categories.map(() => Math.floor(Math.random() * 720));
+  function getRandomXPos(){
+    // Return number between -150 and 150
+    const minXPos = -150;
+    const maxXPos = 150;
+    return Math.random() * (150 - -150) + -150;
+  }
 
   return (
     <div className={`${styles.gridItem} ${styles.gridItemLevel}`}>
@@ -16,6 +22,7 @@ export default function CategoryContainer({ handleSelect, categories, userId, co
             return (
               <CategoryButton
                 color={buttonColors[index]}
+                xPos={getRandomXPos()}
                 key={category}
                 category={category}
                 user={userId}

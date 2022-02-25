@@ -38,7 +38,7 @@ const sections = [
   {
     id: 3,
     name: "wellbeing",
-    categories: ["Health", "Exercise", "Nutrition", "Mindfulness", "Weight Management"],
+    categories: ["Health", "Exercise", "Nutrition", "Mindfulness", "Weight"],
   },
   {
     id:4,
