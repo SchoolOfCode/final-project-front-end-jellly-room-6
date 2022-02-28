@@ -1,4 +1,4 @@
-# HOW TO USE:
+# FETCHING USER INFO ON PAGE:
 
 <br/>
 
