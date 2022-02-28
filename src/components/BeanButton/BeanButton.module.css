@@ -10,11 +10,6 @@
   scale: 1.5;
 }
 
-.beanButton:hover {
-  scale: 1.55;
-  opacity: 1;
-}
-
 .category {
   position: absolute;
   z-index: 1;
