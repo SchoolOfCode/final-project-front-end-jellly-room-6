@@ -2,8 +2,7 @@ import Link from "next/link";
 import Router from "next/router";
 import React, { useEffect } from "react";
 import Image from "next/image";
-import styles from "./index.module.css"
-import {motion} from "framer-motion"
+import style from "../../../styles/results.module.css";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -38,10 +37,9 @@ export default function Results({ numQuestions, user, score, category, hasWon })
   }, [hasWon, score, user]);
 
   return (
-    <div className={styles.frame}>
+    <div>
       {hasWon && (
-        <motion.div animate={{x: [-5000, 0]}}>
-        <div classsName={styles.content}>
+        <div className={style.frame}>
           <Image src="/threeJellies.png" width={40} height={40} alt="Jellies" />
           <h1>Results</h1>
           <h2>Correct answers: {score}</h2>
@@ -55,11 +53,9 @@ export default function Results({ numQuestions, user, score, category, hasWon })
             </a>
           </Link>
         </div>
-        </motion.div>
       )}
       {!hasWon && (
-        <motion.div animate={{x: [-5000, 0]}}>
-        <div className={styles.content}>
+        <div className={style.frame}>
           <Image src="/threeJellies.png" width={40} height={40} alt="Jellies" />
           <h1>Results</h1>
           <h2>Correct answers: {score}</h2>
@@ -68,11 +64,10 @@ export default function Results({ numQuestions, user, score, category, hasWon })
           <button onClick={() => Router.reload(window.location.pathname)}>Retry?</button>
           <Link href="/home">
             <a>
-              <button className={styles.smallbutton}>Home</button>
+              <button className={style.smallbutton}>Home</button>
             </a>
           </Link>
         </div>
-        </motion.div>
       )}
     </div>
   );

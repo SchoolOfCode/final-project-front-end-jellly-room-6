@@ -2,10 +2,7 @@
     font-size: 1rem;
     padding: 1em;
     margin: 1em;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+    border-radius: 25px;
     border:solid  black 2px;
     
 }
-
-

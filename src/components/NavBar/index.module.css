@@ -17,10 +17,6 @@
     font-size: 1.25rem;
 }
 
-.link:hover{
-  border-bottom:solid black 2px;
-}
-
 .title {
   font-family: "Chewy", cursive;
   font-size: 3rem;
@@ -28,3 +24,4 @@
   margin: 0;
   margin-left: 1rem;
 }
+

@@ -2,7 +2,6 @@ import React from "react";
 import ShopItem from "../ShopItem/ShopItem";
 import style from "../../../styles/shop.module.css";
 
-
 export default function ShopCategory({ categorytitle, data }) {
   return (
     <div className={style.shopcategory}>
