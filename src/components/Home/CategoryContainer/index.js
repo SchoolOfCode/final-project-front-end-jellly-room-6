@@ -2,6 +2,8 @@ import styles from "../../../../styles/home.module.css";
 import CategoryButton from "../CategoryButton";
 import CategoryDropdown from "../CategoryDropdown";
 
+
+
 export default function CategoryContainer({ handleSelect, categories, userId, completedCategories }) {
   const buttonColors = categories.map(() => Math.floor(Math.random() * 720));
   function getRandomXPos(){
@@ -12,6 +14,7 @@ export default function CategoryContainer({ handleSelect, categories, userId, co
   }
 
   return (
+    
     <div className={`${styles.gridItem} ${styles.gridItemLevel}`}>
       <div className={styles.level}>
         <CategoryDropdown handleSelect={handleSelect}/>

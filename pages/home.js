@@ -9,6 +9,7 @@ import HomeStatsDisplay from "../src/components/Home/HomeStatsDisplay";
 import Loading from "../src/components/Loading";
 import getAuth0User from "../src/hooks/getAuth0User";
 import useUserInfo from "../src/hooks/useUserInfo";
+
 //Plan
 //-onClick go to questions (loading page, etc.)
 //-stats: we need to fetch user info.

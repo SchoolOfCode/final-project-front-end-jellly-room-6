@@ -1,0 +1,19 @@
+.frame{
+    background-color:#ca38ff20;
+    padding: 2em;
+    width: 60%;
+    height: 800px;
+    border-radius: 10px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin:auto;
+}
+
+.content{
+
+}
+
+.h1{
+    font-family:'Chewy', cursive;
+}
