@@ -15,8 +15,12 @@
 /**
  * @type {Cypress.PluginConfig}
  */
+const encrypt = require("cypress-nextjs-auth0/encrypt");
+
 // eslint-disable-next-line no-unused-vars
 module.exports = (on, config) => {
+  on("task", { encrypt });
+
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
-}
+};
