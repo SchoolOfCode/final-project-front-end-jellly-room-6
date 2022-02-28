@@ -18,7 +18,7 @@
 - <b>JELLLY</b> related User information, including completed categories, are returned as an object from the `useUserInfo` hook by passing in the authenticated user.
 - See [here](./src/hooks/readme.md) for more info and usage.
 
-### `src/hooks`
+### src/hooks
 <hr/>
 
 `getUserLevel(xp)` - Calculates a user's level based on their current xp value.
@@ -29,12 +29,12 @@
 - Questions are fetched via a query on selecting a category in `pages/question.js`.
 - Completing a category 'unlocks' it; rewards the user and sends the completed category to `/categories/:userId`
 
-### `pages/question.js`
+### pages/question.js
 <hr/>
 
 `const questionCount` - The number of questions to give the user. Returns a shuffled array of questions.
 
-### `src/components/Results`
+### src/components/Results
 <hr/>
 
 `function hasCompletedCategory(categoryToCheck)` - Ensures the user isn't rewarded if this category exists in the User info object.
@@ -52,7 +52,7 @@
 - WIP..
 
 # API
-### `/users`
+### /users
 - GET `/users` - Returns all users
 - GET `/users/:username` - Retrieves a single User by username. The username must match the entry the user signed up with when registering to Auth0.
 - POST `/users` - Creates a new `JELLLY` user. Requires a `username` sent in the body of the request. Returns the new user.
@@ -61,14 +61,14 @@
 
 <br/>
 
-### `/categories`
+### /categories
 - GET `/categories/:user_id` - Returns a list of categories completed by this user.
 - POST `/categories/:user_id` - Adds a category to this user's list of completed categories. Returns the added category.
 - DELETE `/categories/:user_id/:category` - Removes the specified category from the user's list of completed categories. Returns the deleted category.
 
 <br/>
 
-### `/questions`
+### /questions
 - GET `/questions/:category` - Returns a list of questions from the specified category.
 
 <br/>
