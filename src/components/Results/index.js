@@ -89,9 +89,9 @@ export default function Results({
             <h3 className={styles.resultsText}>Incorrect answers: {numQuestions - score}</h3>
             <h2>Oh no you did not pass! Please try again</h2>
             <div className={styles.buttons}>
-              <Button onClick={() => Router.reload(window.location.pathname)}>
+             <a><Button onClick={() => Router.reload(window.location.pathname)}>
                 Retry?
-              </Button>
+              </Button></a> 
               <Link href="/home">
                 <a>
                   <Button>Home</Button>

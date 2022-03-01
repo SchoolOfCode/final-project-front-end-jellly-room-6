@@ -14,14 +14,14 @@
 
 .content{
     position: relative;
-    font-size: 1.5vw;
+    font-size: 4vmin;
 }
 
 .image{
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 20vw;
+    top: 2vmin;
+    right: 2vmin;
+    width: 15vmin;
     min-width: 30vmin;
 }
 .buttons{
