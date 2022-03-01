@@ -9,9 +9,27 @@ import style from "../styles/shop.module.css";
 import { useEffect, useState } from "react";
 
 const items = [
-  { id: 1, purchase_name: "blue", src: "/jelly_guy_blue.png", alt: "blue-bean", price: 1 },
-  { id: 2, purchase_name: "green", src: "/jelly_guy_green.png", alt: "green-bean", price: 1 },
-  { id: 3, purchase_name: "red", src: "/jelly_guy_red.png", alt: "red-bean", price: 1 },
+  {
+    id: 1,
+    purchase_name: "blue",
+    src: "/jelly_guy_blue.png",
+    alt: "blue-bean",
+    price: 1,
+  },
+  {
+    id: 2,
+    purchase_name: "green",
+    src: "/jelly_guy_green.png",
+    alt: "green-bean",
+    price: 1,
+  },
+  {
+    id: 3,
+    purchase_name: "red",
+    src: "/jelly_guy_red.png",
+    alt: "red-bean",
+    price: 1,
+  },
 ];
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
@@ -28,7 +46,7 @@ export default function Shop({ auth0User }) {
   if (isLoading) return <Loading />;
   if (error) return <div>{error.message}</div>;
 
-  console.log(userInfo);
+  //console.log(userInfo);
 
   async function updateBeans(price) {
     // Update beans in database
@@ -59,6 +77,7 @@ export default function Shop({ auth0User }) {
           categorytitle="Color skins"
           items={items}
           updateBeans={updateBeans}
+          purchases={userInfo.purchases}
         />
       </>
     )
