@@ -34,7 +34,7 @@ const sections = [
   {
     id: 2,
     name: "financial",
-    categories: ["Interest Rates", "Currencies", "Mortgages", "Charity", "Saving"],
+    categories: ["Interest Rates", "Currency", "Mortgages", "Charity", "Savings"],
   },
   {
     id: 3,
