@@ -34,7 +34,7 @@ const sections = [
   {
     id: 2,
     name: "financial",
-    categories: ["Interest Rates", "Currencies", "Mortgages", "Charity", "Saving"],
+    categories: ["Interest Rates", "Currency", "Mortgages", "Charity", "Savings"],
   },
   {
     id: 3,
@@ -60,7 +60,11 @@ export default function Home({ auth0User }) {
   const [selectedCategory, setSelectedCategory] = useState("social");
 
   // If userInfo is undefined or isLoading is true, display "Loading..."
-  if (isLoading || !userInfo) return <Loading>Loading...</Loading>;
+  if (isLoading || !userInfo) 
+  {
+    
+    return <Loading>Loading...</Loading>;
+  }
   if (error) return <div>{error.message}</div>;
 
   function handleSelect(e) {
