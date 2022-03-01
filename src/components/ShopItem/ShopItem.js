@@ -52,7 +52,7 @@ export default function ShopItem({ item, user, updateBeans }) {
         <p className={style.tagprice}> {price}</p>
         <Image src="/beansCoins.png" width={50} height={2} alt="beans-coins" />
       </div>
-      {purchased ? "Button Disabled" : <Button onClick={handlePurchase}>Buy</Button>}
+      {purchased ? <Button className={style.green} onClick={handlePurchase}>Equip</Button>: <Button onClick={handlePurchase}>Buy</Button>}
     </div>
   );
 }

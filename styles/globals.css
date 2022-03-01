@@ -34,6 +34,10 @@ a {
   transition: transform 250ms ease-in-out, box-shadow 250ms ease-in-out;
 }
 
+.equip{
+  background-color: green;
+}
+
 .btn.large {
   background: #ffd23f;
   color: #3c3c3c;
