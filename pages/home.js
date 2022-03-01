@@ -30,7 +30,7 @@ const sections = [
   {
     id: 1,
     name: "social",
-    categories: ["Drinking", "Eating Out", "Travel", "Occasions", "Holidays"],
+    categories: ["Drinking", "Eating Out", "Travel", "Occasions", "Holiday"],
   },
   {
     id: 2,

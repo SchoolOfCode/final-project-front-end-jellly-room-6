@@ -58,11 +58,11 @@ export default function Results({
             />
           </div>
           <div className={styles.content}>
-            <h1>Results</h1>
-            <h2>Correct answers: {score}</h2>
-            <h2>Incorrect answers: {numQuestions - score}</h2>
-            <h2>XP earned: {score * 10}</h2>
-            <h2>Beans collected: 20</h2>
+            <h2>Results</h2>
+            <h3 className={styles.resultsText}>Correct answers: {score}</h3>
+            <h3 className={styles.resultsText}>Incorrect answers: {numQuestions - score}</h3>
+            <h3 className={styles.resultsText}>XP earned: {score * 10}</h3>
+            <h3 className={styles.resultsText}>Beans collected: 20</h3>
             <h2>You passed it!</h2>
             <Link href="/home">
               <a>
@@ -83,11 +83,11 @@ export default function Results({
               layout="responsive"
             />
           </div>
-          <div className={styles.content}>
-            <h1>Results</h1>
-            <h2>Correct answers: {score}</h2>
-            <h2>Incorrect answers: {numQuestions - score}</h2>
-            <h1>Oh no you did not pass! Please try again</h1>
+            <div className={styles.content}>
+            <h2>Results</h2>
+            <h3 className={styles.resultsText}>Correct answers: {score}</h3>
+            <h3 className={styles.resultsText}>Incorrect answers: {numQuestions - score}</h3>
+            <h2>Oh no you did not pass! Please try again</h2>
             <div className={styles.buttons}>
               <Button onClick={() => Router.reload(window.location.pathname)}>
                 Retry?

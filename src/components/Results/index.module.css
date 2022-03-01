@@ -17,10 +17,6 @@
     font-size: 1.5vw;
 }
 
-.h1{
-    font-family:'Chewy', cursive;
-}
-
 .image{
     position: absolute;
     top: 0;
@@ -31,4 +27,12 @@
 .buttons{
     display:flex;
     justify-content: center;
+}
+
+.resultsText{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  /* font-size: 1.5rem; */
+  font-weight: 400;
 }
