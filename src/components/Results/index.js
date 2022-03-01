@@ -42,13 +42,16 @@ export default function Results({ numQuestions, user, score, category, hasWon })
       {hasWon && (
         <motion.div animate={{x: [-5000, 0]}}>
         <div classsName={styles.content}>
-          <Image src="/threeJellies.png" width={40} height={40} alt="Jellies" />
+          <div className={styles.image}>
+          <Image  
+          src="/threeJellies.png" width={300} height={300} alt="Jellies" />
+          </div>
           <h1>Results</h1>
           <h2>Correct answers: {score}</h2>
           <h2>Incorrect answers: {numQuestions - score}</h2>
           <h2>XP earned: {score * 10}</h2>
           <h2>Beans collected: 20</h2>
-          <h1>You bean it!</h1>
+          <h2>You passed it!</h2>
           <Link href="/home">
             <a>
               <button>Continue</button>
@@ -60,7 +63,7 @@ export default function Results({ numQuestions, user, score, category, hasWon })
       {!hasWon && (
         <motion.div animate={{x: [-5000, 0]}}>
         <div className={styles.content}>
-          <Image src="/threeJellies.png" width={40} height={40} alt="Jellies" />
+          <Image className={styles.image} src="/threeJellies.png" width={300} height={300} alt="Jellies" />
           <h1>Results</h1>
           <h2>Correct answers: {score}</h2>
           <h2>Incorrect answers: {numQuestions - score}</h2>

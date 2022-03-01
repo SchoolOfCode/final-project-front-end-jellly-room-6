@@ -9,6 +9,7 @@ import HomeStatsDisplay from "../src/components/Home/HomeStatsDisplay";
 import Loading from "../src/components/Loading";
 import getAuth0User from "../src/hooks/getAuth0User";
 import useUserInfo from "../src/hooks/useUserInfo";
+import { Carousel } from "react-bootstrap";
 
 //Plan
 //-onClick go to questions (loading page, etc.)
@@ -73,7 +74,8 @@ export default function Home({ auth0User }) {
       <div>
         <NavBar userId={userInfo.user_id} />
         <div className={styles.grid}>
-      
+
+              
               <CategoryContainer
                 id={sections[0].id}
                 categories={sections.find(category => category.name === selectedCategory).categories}
@@ -88,7 +90,7 @@ export default function Home({ auth0User }) {
 
           <div className={`${styles.gridItem} ${styles.gridItemLogo} `}>
             <div className={`${styles.gridItemLogoContainer}`}>
-              <Image src="/logojelly.png" width="250" height="250"></Image>
+              <Image src="/logojelly.png" width={250} height={250} alt="Logo"></Image>
             </div>
           </div>
         </div>

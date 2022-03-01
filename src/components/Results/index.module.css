@@ -11,9 +11,14 @@
 }
 
 .content{
-
+    position: relative;
 }
 
 .h1{
     font-family:'Chewy', cursive;
+}
+
+.image{
+    position: absolute;
+    left: 10rem;
 }
