@@ -13,6 +13,8 @@ export default function Results({ numQuestions, user, score, category, hasWon })
       return user.categories.includes(categoryToCheck)
   }
 
+  
+
   useEffect(() => {
     async function rewardUser(XP, beans) {
       await fetch(`${API_URL}/users/${user.user_id}`, {

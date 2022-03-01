@@ -56,11 +56,16 @@ const sections = [
 export default function Home({ auth0User }) {
   const { user, error, isLoading } = useUser();
   const userInfo = useUserInfo(auth0User.username)
+  
 
   const [selectedCategory, setSelectedCategory] = useState("social")
 
   // If userInfo is undefined or isLoading is true, display "Loading..."
-  if (isLoading || !userInfo) return <Loading>Loading...</Loading>;
+  if (isLoading || !userInfo) 
+  {
+    
+    return <Loading>Loading...</Loading>;
+  }
   if (error) return <div>{error.message}</div>;
 
 
