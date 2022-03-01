@@ -8,7 +8,11 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export default function ShopItem({ item, user, updateBeans }) {
   const { purchase_name, src, alt, price } = item;
-  const [purchased, setPurchased] = useState(false);
+  const [purchased, setPurchased] = useState(isItemPurchased(item))
+
+  function isItemPurchased(item){
+    return user.purchases.find(purchase => purchase.purchase_name == item.purchase_name)
+  }
 
   async function addPurchase(purchase_name) {
     const body = {
@@ -38,6 +42,8 @@ export default function ShopItem({ item, user, updateBeans }) {
     updateBeans(price);
     setPurchased(true);
   }
+
+
 
   return (
     <div className={style.shopitem}>

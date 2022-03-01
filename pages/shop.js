@@ -22,7 +22,7 @@ export default function Shop({ auth0User }) {
     setBeans(userInfo.beans);
   }, [userInfo]);
 
-  if (isLoading) return <Loading />;
+  if (isLoading || !userInfo) return <Loading />;
   if (error) return <div>{error.message}</div>;
 
   async function updateBeans(price) {
