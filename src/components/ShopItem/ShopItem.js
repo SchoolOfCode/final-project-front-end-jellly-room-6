@@ -1,28 +1,15 @@
 import Image from "next/image";
 import Button from "react-bootstrap/Button";
 import style from "../../../styles/shop.module.css";
-import useUserInfo from "../../hooks/useUserInfo";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { items } from "../../data";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export default function ShopItem({ item, user, updateBeans }) {
   const { purchase_name, src, alt, price } = item;
-  const [disabled, setDisabled] = useState(false);
+  const [purchased, setPurchased] = useState(false);
 
-  useEffect(() => {
-    checkPurchases();
-  });
-  console.log("found: " + user);
-
-  function checkPurchases() {
-    const foundPurchase = user.purchases.filter(
-      (el) => el.purchase_name === item.purchase_name
-    );
-    if (foundPurchase) {
-      setDisabled(true);
-    }
-  }
   async function addPurchase(purchase_name) {
     const body = {
       purchase_name,
@@ -45,12 +32,11 @@ export default function ShopItem({ item, user, updateBeans }) {
 
   function handlePurchase() {
     // Check if user has enough beans
-    if (user.beans < item.price) return;
+    if (user.beans < item.price) return console.log("Not enough beans.");
     // If they do, remove beans from user in db
-    updateBeans(price);
     addPurchase(item.purchase_name);
-
-    //
+    updateBeans(price);
+    setPurchased(true);
   }
 
   return (
@@ -60,9 +46,7 @@ export default function ShopItem({ item, user, updateBeans }) {
         <p className={style.tagprice}> {price}</p>
         <Image src="/beansCoins.png" width={50} height={2} alt="beans-coins" />
       </div>
-      <Button disabled={disabled} onClick={handlePurchase}>
-        Buy
-      </Button>
+      {purchased ? "Button Disabled" : <Button onClick={handlePurchase}>Buy</Button>}
     </div>
   );
 }
