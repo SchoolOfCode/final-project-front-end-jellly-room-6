@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 4rem;
+  margin: 10rem;
   height: 30rem;
   width: 60rem;
 }
@@ -41,10 +41,10 @@
   opacity: 0.3;
 }
 
-.badges > button {
-  margin-right: 3rem;
+.badges > div > button {
+  margin-right: 6rem;
 }
-.badges > button:hover {
+.badges > div > button:hover {
   animation: wiggle 0.6s;
 }
 
