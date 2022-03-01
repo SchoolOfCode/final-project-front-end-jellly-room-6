@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import styles from "./index.module.css"
 import {motion} from "framer-motion"
+import Button from "react-bootstrap/Button"
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -54,7 +55,7 @@ export default function Results({ numQuestions, user, score, category, hasWon })
           <h2>You passed it!</h2>
           <Link href="/home">
             <a>
-              <button>Continue</button>
+              <Button>Continue</Button>
             </a>
           </Link>
         </div>
@@ -71,10 +72,10 @@ export default function Results({ numQuestions, user, score, category, hasWon })
           <h2>Correct answers: {score}</h2>
           <h2>Incorrect answers: {numQuestions - score}</h2>
           <h1>Oh no you did not pass! Please try again</h1>
-          <button onClick={() => Router.reload(window.location.pathname)}>Retry?</button>
+          <Button onClick={() => Router.reload(window.location.pathname)}>Retry?</Button>
           <Link href="/home">
             <a>
-              <button className={styles.smallbutton}>Home</button>
+              <Button>Home</Button>
             </a>
           </Link>
         </div>
