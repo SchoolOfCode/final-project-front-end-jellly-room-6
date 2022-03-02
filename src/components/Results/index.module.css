@@ -12,17 +12,12 @@
   /* border: solid red; */
 }
 
-<<<<<<< HEAD
+
 .content{
     position: relative;
     font-size: 4vmin;
-    
-=======
-.content {
-  position: relative;
-  font-size: 4vmin;
->>>>>>> d6f453be66c89f805c845ca29a94032490c87d18
 }
+
 
 .image {
   position: absolute;
