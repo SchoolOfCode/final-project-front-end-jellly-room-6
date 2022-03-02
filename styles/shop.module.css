@@ -7,16 +7,15 @@
 .category {
   display: flex;
   flex-direction: row;
-    justify-content: space-around;
+  justify-content: space-around;
 }
-.shopcategory{
-    margin-right: 23%;
-    margin-left: 5%;
-    /* border: solid black; */
-    padding: 10px;
-    
-    
-    z-index: 1;
+.shopcategory {
+  margin-right: 23%;
+  margin-left: 5%;
+  /* border: solid black; */
+  padding: 10px;
+
+  z-index: 1;
 }
 
 .price {
@@ -49,11 +48,16 @@
   border-radius: 10%;
   box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
 }
-.shoppagetitle{
+.shoppagetitle {
   display: flex;
   justify-content: center;
   font-size: 2em;
 }
 .tagprice {
   margin: 20px;
+}
+
+.equipBtn {
+  background-color: rgb(255, 227, 14);
+  color: black;
 }
