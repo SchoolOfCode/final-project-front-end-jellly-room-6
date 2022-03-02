@@ -5,7 +5,6 @@ import NavBar from "../src/components/NavBar";
 import Loading from "../src/components/Loading";
 import Image from "next/image";
 import StatisticsItem from "../src/components/Profile/StatisticsItem";
-import Badge from "../src/components/Profile/Badge";
 import styles from "../styles/profile.module.css";
 import BeanButton from "../src/components/BeanButton";
 
@@ -79,11 +78,7 @@ export default function Profile({ auth0User, users }) {
           <div className={styles.badges}>
             {arrBadge.map((item, index) => {
               return (
-                <BeanButton
-                  key={index}
-                  color={colorArray[index]}
-                  text={`Level ${item + 1} `}
-                />
+                <BeanButton key={index} color={colorArray[index]} text={`Level ${item + 1} `} />
               );
             })}
           </div>
