@@ -1,63 +1,45 @@
-.NavBar {
-  display: flex;
-  justify-content: space-evenly;
-  flex-direction: row;
+.container {
+  display: grid;
+  place-items: center;
 }
 
-.category {
-  display: flex;
-  flex-direction: row;
-    justify-content: space-around;
-}
-.shopcategory{
-    margin-right: 23%;
-    margin-left: 5%;
-    /* border: solid black; */
-    padding: 10px;
-    
-    
-    z-index: 1;
-}
-
-.price {
-  display: flex;
-}
-
-.infocard {
-  position: absolute;
-  bottom: 20%;
-  right: 3%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  min-width: 50px;
-  max-width: 500px;
-  min-height: 40px;
-  background-color: #ca38ff42;
-  border-radius: 25px;
-  padding: 10px;
-}
-
-.shopitem {
+.title {
   display: flex;
   justify-content: center;
-  flex-direction: column;
-  margin: 15px;
-  padding: 20px;
-  border-radius: 10%;
-  box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+  font-size: 4em;
 }
-.shoppagetitle{
-  display: flex;
-  justify-content: center;
-  font-size: 2em;
+
+.items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 2rem;
+  gap: 2rem;
 }
+
 .tagprice {
   margin: 20px;
 }
 
-.green{
-  background-color: green;
+.equipBtn {
+  background-color: rgb(255, 227, 14);
+  color: black;
+}
+.container {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar {
+  margin: 2rem;
+}
+
+.equipBtn {
+  background-color: rgb(255, 227, 14);
+  color: black;
 }

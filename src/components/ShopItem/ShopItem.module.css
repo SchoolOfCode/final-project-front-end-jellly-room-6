@@ -1,0 +1,46 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem;
+}
+
+.image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 1rem;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.image img {
+  width: 75%;
+}
+
+.price {
+  display: flex;
+  margin: 1rem;
+}
+
+.price p {
+  margin: 1rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.buttons {
+  position: absolute;
+  bottom: 5%;
+  right: 50%;
+  transform: translate(50%);
+}
+
+.equipBtn {
+  background: rgb(255, 217, 3);
+  color: black;
+}
