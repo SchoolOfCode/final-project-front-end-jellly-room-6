@@ -50,3 +50,35 @@
   left:40%;
   
 }
+
+.h1{
+    font-family:'Chewy', cursive;
+}
+
+.image{
+    margin-left: 10em;
+}
+
+.meterContainer{
+    position:absolute;
+    left: 5vw;
+    top:5vh;
+    height: 85vh;
+  }
+  
+  .meterBackground{
+    position:relative;
+    transform: rotateZ(180deg);
+    height: 100%;
+    width: 50px;
+    background-color: #fff;
+    border: solid black 2px;
+    margin-bottom: 0.25em;
+    border-radius: 5px;
+  }
+  
+  .meterTitle{
+    font-size: 2rem;
+    margin: 0;
+    padding: 0.75rem 0;
+  }

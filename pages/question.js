@@ -4,8 +4,12 @@ import useUserInfo from "../src/hooks/useUserInfo";
 import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import Results from "../src/components/Results";
 import styles from "../styles/questions.module.css";
+import Button from "react-bootstrap/Button"
+import Link from "next/link";
 
 export default function Question({ questions, category, auth0User }) {
+
+
 
   const { user, error, isLoading } = useUser();
   const userInfo = useUserInfo(auth0User.username)
@@ -39,25 +43,60 @@ export default function Question({ questions, category, auth0User }) {
     setComplete(true);
   }
 
+  const meterProgressPercentage = (100 / questions.length) * questionCount;
+
+  const meterBarStyle={
+      height: `${complete ? 100 : meterProgressPercentage}%`,
+      width: "100%",
+      // backgroundColor: "#7EC65C",
+      backgroundImage: 'url("/static/beanMeterFilled.png")',
+      backgroundSize: "100%",
+      borderRadius: "5px",
+      transition: "2s"
+      }
+
   return (
     user && (
       <div className={styles.container}>
+      <Link href="/home">
+        <a><h1 className={styles.exitButton}>X</h1></a>
+      </Link>
+      
+      <div className={styles.meterContainer}>
+
+          <div className={styles.meterBackground}>
+
+              <div style={meterBarStyle}>
+              </div>
+
+          </div>
+
+
+          <h1 className={styles.meterTitle}>Bean-O-Meter</h1>
+
+      </div>
+              
         {!complete && (
+
+
+            
           <div className={styles.questionContainer}>
+
+
             <h2 className={styles.questionText}>{currentQuestion.question}</h2>
             <div className={styles.answers}>
-              <button className={styles.btn} onClick={checkAnswer}>
+              <Button className={styles.btn} onClick={checkAnswer}>
                 {currentQuestion.answers[0]}
-              </button>
-              <button className={styles.btn} onClick={checkAnswer}>
+              </Button>
+              <Button className={styles.btn} onClick={checkAnswer}>
                 {currentQuestion.answers[1]}
-              </button>
-              <button className={styles.btn} onClick={checkAnswer}>
+              </Button>
+              <Button className={styles.btn} onClick={checkAnswer}>
                 {currentQuestion.answers[2]}
-              </button>
-              <button className={styles.btn} onClick={checkAnswer}>
+              </Button>
+              <Button className={styles.btn} onClick={checkAnswer}>
                 {currentQuestion.answers[3]}
-              </button>
+              </Button>
             </div>
             <h3>
               Question: {questionCount + 1}/{questions.length}
