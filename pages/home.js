@@ -98,25 +98,37 @@ console.log(newIndex)
     user && (
       <div>
         <NavBar userId={userInfo.user_id} />
+
         <div className={styles.grid}>
-          <div>
+
+          <div className={styles.gridItemScroller}>
+
           <CategoryScroller handlePreviousCategory={handlePreviousCategory} handleNextCategory={handleNextCategory} selectedCategory={selectedCategory}/>
-              <CategoryContainer
+          </div>
+          <div className={styles.gridItemCategory}>
+          <CategoryContainer
                 id={sections[0].id}
                 categories={sections.find(category => category.name === selectedCategory).categories}
                 userId={userInfo.user_id}
                 completedCategories={userInfo.categories}
                 selectedDropdownCategory={selectedCategory}
                 handleSelect={handleSelect}
-              />
-              </div>
-          <HomeStatsDisplay userInfo={userInfo} />
-          <div className={`${styles.gridItem} ${styles.gridItemLogo} `}>
-            <div className={`${styles.gridItemLogoContainer}`}>
-              <Image src="/logojelly.png" width={250} height={250} alt="Logo"></Image>
-            </div>
+          />
           </div>
+
+          <div className={styles.gridItemStats}>
+          <HomeStatsDisplay userInfo={userInfo} />
+          </div>
+         
+          <div className={`${styles.gridItemLogo}`}>
+              <Image src="/logojelly.png" width={250} height={250} alt="Logo"></Image>
+          </div>
+
+
         </div>
+
+         
+
       </div>
     )
   );

@@ -28,3 +28,11 @@
   margin: 0;
   margin-left: 1rem;
 }
+
+@media (max-width: 1100px) {
+
+  .link{
+    display:none;
+  }
+  
+}
