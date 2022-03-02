@@ -4,25 +4,33 @@
   align-items: center;
   text-align: center;
   min-height: 100vh;
+  
 }
 
 .questionContainer {
   display: grid;
   place-items: center;
   gap: 1em;
-  padding: 2em;
+  
+  
 }
 
 .questionText {
-  width: 70%;
-  height: 15vh;
+  width: 100vmin;
+  text-align: center;
+  font-weight: 400;
+  /* height: 15vh; */
   word-wrap: break-word;
   padding: 1em;
   line-height: 2rem;
+  margin: 0 auto;
+  background-color: #ca38ff42;
+  border-radius: 25px;
+  /* border: solid red; */
 }
 
 .answers {
-  margin-top: 4rem;
+  margin:0 auto;
   display: grid;
   place-items: center;
   grid-template-columns: repeat(2, 1fr);
@@ -30,15 +38,16 @@
 }
 
 .btn {
-  background: #ececec;
+  background: #40e931;
   box-shadow: 4px 10px 15px 5px rgba(0, 0, 0, 0.19);
   border: solid rgba(128, 128, 128, 0.267) 1px;
   border-radius: 16px;
   color:black;
-  padding: 2rem 6rem;
+  padding: 1.5em 4em;
   margin: 1em;
-  font-size: 1.25rem;
+  font-size: 1.25em;
   transition: 0.4s;
+  width: 5vmin;
 }
 
 .btn:hover{
@@ -74,11 +83,15 @@
 }
 
 .exitButton{
+  color: #ee4266;
   position:absolute;
-  margin:0.5em 1em;
+ padding: 0.5rem;
   top:0;
-  right:0;
-  font-size: 3rem;
+  
+  left:95vw;
+  font-size: 6vmin;
+  margin: 0;
+  
 }
 
 .exitButton:hover{
