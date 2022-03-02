@@ -76,7 +76,7 @@ export default function Results({
         <motion.div animate={{ x: [-5000, 0] }}>
           <div className={styles.image}>
             <Image
-              src="/threeJellies.png"
+              src="/redJelly_sad.png"
               width={300}
               height={300}
               alt="Jellies"
