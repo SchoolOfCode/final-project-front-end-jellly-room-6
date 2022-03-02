@@ -12,13 +12,9 @@
   /* border: solid red; */
 }
 
-
 .content{
     position: relative;
     font-size: 4vmin;
-    
-    
-  
 }
 
 
@@ -29,13 +25,13 @@
   width: 15vmin;
   /* min-width: 30vmin; */
 }
+
 .buttons {
   display: flex;
   justify-content: center;
 }
 
 .resultsText {
-  
   align-items: center;
   text-align: left;
   /* font-size: 1.5rem; */
@@ -44,19 +40,27 @@
 
 .circle {
   width: 35%;
-
   position: relative;
   display: flex;
   left:40%;
-  
 }
 
-.h1{
-    font-family:'Chewy', cursive;
+.meterContainer {
+  position: absolute;
+  left: 5vw;
+  top: 5vh;
+  height: 85vh;
 }
 
-.image{
-    margin-left: 10em;
+.meterBackground {
+  position: relative;
+  transform: rotateZ(180deg);
+  height: 100%;
+  width: 50px;
+  background-color: #fff;
+  border: solid black 2px;
+  margin-bottom: 0.25em;
+  border-radius: 5px;
 }
 
 .meterContainer{

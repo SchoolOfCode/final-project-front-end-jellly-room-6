@@ -9,6 +9,7 @@ import HomeStatsDisplay from "../src/components/Home/HomeStatsDisplay";
 import Loading from "../src/components/Loading";
 import getAuth0User from "../src/hooks/getAuth0User";
 import useUserInfo from "../src/hooks/useUserInfo";
+import { getEquippedItem, getEquippedItemImg } from "../src/hooks/helpers";
 import { Carousel } from "react-bootstrap";
 import CategoryScroller from "../src/components/Home/CategoryScroller";
 
@@ -62,10 +63,10 @@ export default function Home({ auth0User }) {
   const [selectedCategory, setSelectedCategory] = useState("social");
 
   // If userInfo is undefined or isLoading is true, display "Loading..."
-  if (isLoading || !userInfo) {
-    return <Loading>Loading...</Loading>;
-  }
+  if (isLoading || !userInfo) return <Loading />;
   if (error) return <div>{error.message}</div>;
+
+  console.log(userInfo);
 
   function handleSelect(e) {
     setSelectedCategory(e.target.value);
@@ -111,7 +112,12 @@ console.log(newIndex)
           <HomeStatsDisplay userInfo={userInfo} />
           <div className={`${styles.gridItem} ${styles.gridItemLogo} `}>
             <div className={`${styles.gridItemLogoContainer}`}>
-              <Image src="/logojelly.png" width={250} height={250} alt="Logo"></Image>
+              <Image
+                src={userInfo.equipped.src || "/logoJelly.png"}
+                width={250}
+                height={250}
+                alt="avatar"
+              />
             </div>
           </div>
         </div>
