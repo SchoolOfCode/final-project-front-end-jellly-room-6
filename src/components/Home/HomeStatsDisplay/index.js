@@ -12,9 +12,7 @@ export default function HomeStatsDisplay({userInfo}){
         borderRadius: "5px"
         }
     
-    return  <div className={`${styles.gridItem} ${styles.gridItemStats} `}>
-    <div className={`${styles.statsContainer}`}>
-    <div className={`${styles.statsDisplay}`}>
+    return  <div className={`${styles.statsDisplay}`}>
           <h2>{userInfo.username}</h2>
           <h2>Beans: {userInfo.beans}</h2>
           <p>Level {userInfo.playerLevel}</p>
@@ -24,12 +22,9 @@ export default function HomeStatsDisplay({userInfo}){
             </div>
 
           <p>{getUserXpEarnedThisLevel(userInfo.xp, userInfo.playerLevel)}/{getUserXpNextLevelRequired(userInfo.playerLevel)} XP</p>
-
-    </div>
     
     </div>
 
-    </div>
 }
 
 

@@ -15,7 +15,7 @@ export default function CategoryContainer({ handleSelect, categories, userId, co
 
   return (
     
-    <div className={`${styles.gridItem} ${styles.gridItemLevel}`}>
+
       <div className={styles.level}>
         <div className={styles.levelContainer}>
           {categories.map((category, index) => {
@@ -32,6 +32,6 @@ export default function CategoryContainer({ handleSelect, categories, userId, co
           })}
         </div>
       </div>
-    </div>
+
   );
 }

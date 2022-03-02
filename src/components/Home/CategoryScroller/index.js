@@ -9,7 +9,7 @@ export default function CategoryScroller({handlePreviousCategory, handleNextCate
   return (
     <div className={styles.scroller}>
         <p onClick={handlePreviousCategory}>{"<"}</p>
-        <p>{selectedCategory}</p>
+        <h2>{selectedCategory}</h2>
         <p onClick={handleNextCategory}>{">"}</p>
     </div>
   )
