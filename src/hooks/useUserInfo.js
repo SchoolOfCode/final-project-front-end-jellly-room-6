@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import getUserLevel from "./getUserLevel.js";
 import { getPurchasesByUser } from "./helpers.js";
+import { items } from "../data.js";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -56,8 +57,12 @@ export default function useUserInfo(authenticatedUser) {
       let purchases = await getPurchasesByUser(user.user_id);
       if (!purchases) purchases = [];
 
+      const equipped = purchases.find(item => item.active);
+
+      if (equipped) equipped.src = items.find(i => i.purchase_name === equipped.purchase_name).src;
+
       // Set userInfo state to user object with categories included
-      setUserInfo({ ...user, categories, playerLevel, purchases });
+      setUserInfo({ ...user, categories, playerLevel, purchases, equipped: equipped || "" });
     }
 
     fetchUser();

@@ -1,14 +1,15 @@
 import ShopItem from "../ShopItem/ShopItem";
 import style from "../../../styles/shop.module.css";
-import { useState } from "react";
 
-export default function ShopCategory({ categorytitle, items, user, updateBeans, purchases }) {
-  const [equippedItem, setEquippedItem] = useState(getEquippedItem());
-
-  function getEquippedItem() {
-    return user.purchases.find(item => item.active);
-  }
-
+export default function ShopCategory({
+  categorytitle,
+  items,
+  user,
+  updateBeans,
+  purchases,
+  equippedItem,
+  setEquippedItem,
+}) {
   return (
     <div className={style.shopcategory}>
       <div className={style.categorytitle}>
