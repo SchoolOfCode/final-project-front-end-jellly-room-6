@@ -128,7 +128,6 @@ console.log(newIndex)
            </div>
           </div>
         </div>
-      </div>
     )
   );
 }
