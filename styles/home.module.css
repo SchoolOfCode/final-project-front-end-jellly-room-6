@@ -1,115 +1,109 @@
-
-
 .grid {
-    display: grid; 
-    grid-auto-flow: row dense; 
-    grid-template-columns: auto auto auto auto auto auto; 
-    gap: 1em; 
-    max-width: 1200px;
-    margin: 2em auto;
+  display: grid;
+  grid-auto-flow: row dense;
+  grid-template-columns: auto auto auto auto auto auto;
+  gap: 1em;
+  max-width: 1200px;
+  margin: 2em auto;
 
-    box-sizing: border-box;
-  }
-
-  .gridItem{
-
-       width: 100%;
-       height: 100%;
-       box-sizing: border-box;
-  }
-
-  .gridItemLevel{
-    grid-column-start: 1;
-    grid-column-end: 4;
-    grid-row-start: 1;
-    grid-row-end: 4;
-  }
-
-  .levelTitle{
-    width: 100%;
-    text-align: center;
-  }
-
-  .gridItemStats{
-      grid-column-start: 4;
-      grid-column-end: 7;
-      grid-row-end: span 1;
-  }
-
-.level{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  box-sizing: border-box;
 }
 
-.levelTitle{
-    font-size: 1.5rem;
+.gridItem {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
 }
 
-.levelContainer{
-    border: solid black 2px;
-    border-radius: 25px;
-    width: 600px;
-    padding: 2em;
-    display:flex;
-    gap: 2em;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
+.gridItemLevel {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 4;
 }
 
-.levelBarStyleBackground{
-        width: 80%;
-        background-color: #fff;
-        margin-bottom: 0.25em;
-        border-radius: 5px;
+.levelTitle {
+  width: 100%;
+  text-align: center;
 }
 
-
-.beanBtn{
-    border: solid black 1px;
-    padding: 1em;
+.gridItemStats {
+  grid-column-start: 4;
+  grid-column-end: 7;
+  grid-row-end: span 1;
 }
 
-.statsContainer{
-    margin: auto;
-    display:flex;
-    align-items: flex-end;
-    justify-content: center;
-    height: 100%;
-
+.level {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.statsDisplay{
-    border: solid black 2px;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    min-width: 400px;
-    max-width: 400px;
-    background-color: #ca38ff42;
-    border-radius: 25px;
+.levelTitle {
+  font-size: 1.5rem;
 }
 
-.gridItemLogo{
-    grid-column-start: 4;
-    grid-column-end: 7;
-    grid-row-start: 2;
-    grid-row-end: 4;
+.levelContainer {
+  border: solid black 2px;
+  border-radius: 25px;
+  width: 600px;
+  padding: 2em;
+  display: flex;
+  gap: 2em;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.gridItemLogoContainer{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
+.levelBarStyleBackground {
+  width: 80%;
+  background-color: #fff;
+  margin-bottom: 0.25em;
+  border-radius: 5px;
 }
 
-.gridItemLogoImage{
-    width: 350px;
-    height: 400px;
+.beanBtn {
+  border: solid black 1px;
+  padding: 1em;
+}
 
+.statsContainer {
+  margin: auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 100%;
+  border-radius: 10pt;
+}
+
+.statsDisplay {
+  border: solid black 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-width: 400px;
+  max-width: 400px;
+  background-color: #ca38ff42;
+  border-radius: 25px;
+}
+
+.gridItemLogo {
+  grid-column-start: 4;
+  grid-column-end: 7;
+  grid-row-start: 2;
+  grid-row-end: 4;
+}
+
+.gridItemLogoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.gridItemLogoImage {
+  width: 350px;
+  height: 400px;
 }

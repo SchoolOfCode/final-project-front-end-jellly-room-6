@@ -1,0 +1,8 @@
+.scroller{
+    display:flex;
+    gap:2rem;
+    font-size:4rem;
+    text-transform: capitalize;
+    cursor: pointer;
+    justify-content: center;
+}

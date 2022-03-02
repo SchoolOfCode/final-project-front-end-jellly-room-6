@@ -7,7 +7,7 @@ export default function App({ Component, pageProps }) {
   return (
     <UserProvider>
       <Head>
-        <link rel="shortcut icon" href="/static/favicon.ico"></link>
+        <link rel="shortcut icon" href="/logoJelly.png"></link>
       </Head>
       <Component {...pageProps} />
     </UserProvider>
