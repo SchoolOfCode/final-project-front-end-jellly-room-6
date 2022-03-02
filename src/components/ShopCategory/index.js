@@ -1,5 +1,5 @@
 import ShopItem from "../ShopItem/ShopItem";
-import style from "../../../styles/shop.module.css";
+import style from "./ShopCategory.module.css";
 
 export default function ShopCategory({
   categorytitle,
@@ -11,11 +11,9 @@ export default function ShopCategory({
   setEquippedItem,
 }) {
   return (
-    <div className={style.shopcategory}>
-      <div className={style.categorytitle}>
-        <h3>{categorytitle}</h3>
-      </div>
-      <div className={style.category}>
+    <div className={style.container}>
+      <h3 className={style.title}>{categorytitle}</h3>
+      <div className={style.items}>
         {items.map(item => (
           <ShopItem
             setEquippedItem={setEquippedItem}

@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Button from "react-bootstrap/Button";
-import style from "../../../styles/shop.module.css";
+import style from "./ShopItem.module.css";
 import { useEffect, useState } from "react";
+import { getUserBeans } from "../../hooks/helpers";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -43,7 +43,7 @@ export default function ShopItem({
 
     const data = await res.json();
 
-    console.log(data);
+    console.log("Purchased:", data.payload.purchase_name);
   }
 
   async function equipItem(purchase_name) {
@@ -60,12 +60,13 @@ export default function ShopItem({
 
     const data = await res.json();
 
-    console.log(data);
+    console.log("Equipped:", data.payload.purchase_name);
   }
 
-  function handlePurchase() {
+  async function handlePurchase() {
     // Check if user has enough beans
-    if (user.beans < item.price) return console.log("Not enough beans.");
+    const currentBeans = await getUserBeans(user.username);
+    if (currentBeans - item.price < 0) return console.log("Not enough beans.");
     // If they do, remove beans from user in db
     addPurchase(item.purchase_name);
     updateBeans(price);
@@ -78,19 +79,25 @@ export default function ShopItem({
   }
 
   return (
-    <div className={style.shopitem}>
-      <Image src={src} width={50} height={100} alt={alt} />
-      <div className={style.price}>
-        <p className={style.tagprice}> {price}</p>
-        <Image src="/beansCoins.png" width={50} height={2} alt="beans-coins" />
+    <div className={style.container}>
+      <div className={style.image}>
+        <img src={src} alt={alt} />
       </div>
-      {!purchased && <Button onClick={handlePurchase}>Buy</Button>}
-      {purchased && !isEquipped && (
-        <Button className={style.equipBtn} onClick={handleEquip}>
-          Equip
-        </Button>
-      )}
-      {purchased && isEquipped && <p>Equipped</p>}
+
+      <div className={style.price}>
+        <p> {price}</p>
+        <img src="/beansCoins.png" alt="beans-coins" />
+      </div>
+
+      <div className={style.buttons}>
+        {!purchased && <Button onClick={handlePurchase}>Buy</Button>}
+        {purchased && !isEquipped && (
+          <Button className={style.equipBtn} onClick={handleEquip}>
+            Equip
+          </Button>
+        )}
+        {purchased && isEquipped && <p>Equipped</p>}
+      </div>
     </div>
   );
 }

@@ -47,25 +47,29 @@ export default function Shop({ auth0User }) {
     user && (
       <>
         <NavBar />
-        <div className={style.shoppagetitle}>
-          <h1>The Jellly Shop</h1>
+        <h1 className={style.title}>The Jellly Shop</h1>
+        <div className={style.container}>
+          <ShopCategory
+            equippedItem={equippedItem}
+            setEquippedItem={setEquippedItem}
+            user={userInfo}
+            categorytitle="Color skins"
+            items={items}
+            updateBeans={updateBeans}
+            purchases={userInfo.purchases}
+          />
+          <div className={style.panel}>
+            <InformationCard username={userInfo.username} beans={beans} />
+            <div className={style.avatar}>
+              <Image
+                src={getEquippedItemImg(equippedItem) || "/logoJelly.png"}
+                alt=""
+                width={200}
+                height={200}
+              />
+            </div>
+          </div>
         </div>
-        <InformationCard username={userInfo.username} beans={beans} />
-        <ShopCategory
-          equippedItem={equippedItem}
-          setEquippedItem={setEquippedItem}
-          user={userInfo}
-          categorytitle="Color skins"
-          items={items}
-          updateBeans={updateBeans}
-          purchases={userInfo.purchases}
-        />
-        <Image
-          src={getEquippedItemImg(equippedItem) || "/logoJelly.png"}
-          alt=""
-          width={200}
-          height={200}
-        />
       </>
     )
   );
