@@ -32,8 +32,8 @@
   align-items: center;
 }
 
-.titleLogo{
-  display:flex;
+.titleLogo {
+  display: flex;
 }
 
 .jellyBean {
@@ -54,23 +54,25 @@
 }
 
 .text {
-  width: 80%;
-  text-align: center;
+  width: 70%;
+  text-align: justify;
+  font-weight: 400;
+  margin-top: 5px;
+  margin-block-start: 1.5em;
 }
 
-.lineContainer{
-  position:absolute;
-  bottom: 10%;
+.lineContainer {
+  position: absolute;
+  bottom: 5%;
 }
 .line {
   background-color: #3c3c3c;
   width: 90vw;
   opacity: 0.3;
-  
 }
 
-@media (max-width: 700px) { 
-  .jellies{
-    display:none;
+@media (max-width: 600px) {
+  .jellies {
+    display: none;
   }
- }
+}
