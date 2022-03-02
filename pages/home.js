@@ -9,6 +9,8 @@ import HomeStatsDisplay from "../src/components/Home/HomeStatsDisplay";
 import Loading from "../src/components/Loading";
 import getAuth0User from "../src/hooks/getAuth0User";
 import useUserInfo from "../src/hooks/useUserInfo";
+import { Carousel } from "react-bootstrap";
+import CategoryScroller from "../src/components/Home/CategoryScroller";
 
 //Plan
 //-onClick go to questions (loading page, etc.)
@@ -29,7 +31,7 @@ const sections = [
   {
     id: 1,
     name: "social",
-    categories: ["Drinking", "Eating Out", "Travel", "Occasions", "Holidays"],
+    categories: ["Drinking", "Eating Out", "Travel", "Occasions", "Holiday"],
   },
   {
     id: 2,
@@ -69,25 +71,47 @@ export default function Home({ auth0User }) {
     setSelectedCategory(e.target.value);
   }
 
+  //Find the current index
+  //pass in current state to find index
+  // call set the state to sections[index+1].name
+
+  function handleNextCategory(e){
+    const index = sections.findIndex((section)=> {
+      return section.name === selectedCategory
+    })
+    const newIndex = index + 1 >sections.length - 1 ? 0 : index + 1
+    setSelectedCategory(sections[newIndex].name)
+  }
+
+  function handlePreviousCategory(e){
+    const index = sections.findIndex((section)=> {
+      return section.name === selectedCategory
+    })
+    const newIndex = index - 1 <0 ? sections.length - 1: index - 1 
+console.log(newIndex)
+    setSelectedCategory(sections[newIndex].name)
+  }
+
   return (
     user && (
       <div>
         <NavBar userId={userInfo.user_id} />
         <div className={styles.grid}>
-          <CategoryContainer
-            id={sections[0].id}
-            categories={sections.find(category => category.name === selectedCategory).categories}
-            userId={userInfo.user_id}
-            completedCategories={userInfo.categories}
-            selectedDropdownCategory={selectedCategory}
-            handleSelect={handleSelect}
-          />
-
+          <div>
+          <CategoryScroller handlePreviousCategory={handlePreviousCategory} handleNextCategory={handleNextCategory} selectedCategory={selectedCategory}/>
+              <CategoryContainer
+                id={sections[0].id}
+                categories={sections.find(category => category.name === selectedCategory).categories}
+                userId={userInfo.user_id}
+                completedCategories={userInfo.categories}
+                selectedDropdownCategory={selectedCategory}
+                handleSelect={handleSelect}
+              />
+              </div>
           <HomeStatsDisplay userInfo={userInfo} />
-
           <div className={`${styles.gridItem} ${styles.gridItemLogo} `}>
             <div className={`${styles.gridItemLogoContainer}`}>
-              <Image src="/logojelly.png" width="250" height="250"></Image>
+              <Image src="/logojelly.png" width={250} height={250} alt="Logo"></Image>
             </div>
           </div>
         </div>

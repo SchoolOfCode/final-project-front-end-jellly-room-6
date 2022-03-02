@@ -84,6 +84,7 @@ export default function ShopItem({
         <p className={style.tagprice}> {price}</p>
         <Image src="/beansCoins.png" width={50} height={2} alt="beans-coins" />
       </div>
+<<<<<<< HEAD
       {!purchased && <Button onClick={handlePurchase}>Buy</Button>}
       {purchased && !isEquipped && (
         <Button className={style.equipBtn} onClick={handleEquip}>
@@ -91,6 +92,9 @@ export default function ShopItem({
         </Button>
       )}
       {purchased && isEquipped && <p>Equipped</p>}
+=======
+      {purchased ? <Button className={style.green} onClick={handlePurchase}>Equip</Button>: <Button onClick={handlePurchase}>Buy</Button>}
+>>>>>>> 3d1e250c39af6a2e95c5d2e3bcb4d58ccd5c8bca
     </div>
   );
 }

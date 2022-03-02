@@ -57,7 +57,12 @@
   margin: 20px;
 }
 
+<<<<<<< HEAD
 .equipBtn {
   background-color: rgb(255, 227, 14);
   color: black;
+=======
+.green{
+  background-color: green;
+>>>>>>> 3d1e250c39af6a2e95c5d2e3bcb4d58ccd5c8bca
 }
