@@ -17,7 +17,6 @@ export default function CategoryContainer({ handleSelect, categories, userId, co
     
     <div className={`${styles.gridItem} ${styles.gridItemLevel}`}>
       <div className={styles.level}>
-        <CategoryDropdown handleSelect={handleSelect}/>
         <div className={styles.levelContainer}>
           {categories.map((category, index) => {
             return (
