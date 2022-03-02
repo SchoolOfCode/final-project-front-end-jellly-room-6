@@ -5,6 +5,8 @@ import Image from "next/image";
 import styles from "./index.module.css";
 import { motion } from "framer-motion";
 import Button from "react-bootstrap/Button";
+import { CircularProgressbar } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -62,9 +64,18 @@ export default function Results({
           <div className={styles.content}>
             <h2>Results</h2>
             <h3 className={styles.resultsText}>Correct answers: {score}</h3>
-            <h3 className={styles.resultsText}>Incorrect answers: {numQuestions - score}</h3>
+            <h3 className={styles.resultsText}>
+              Incorrect answers: {numQuestions - score}
+            </h3>
             <h3 className={styles.resultsText}>XP earned: {score * 10}</h3>
             <h3 className={styles.resultsText}>Beans collected: 20</h3>
+            <div className={styles.circle}>
+              <CircularProgressbar
+                styles={{ borderRadius: "5rem" }}
+                value={(score * 100) / numQuestions}
+                text={`${(score * 100) / numQuestions}%`}
+              />
+            </div>
             <h2>You passed it!</h2>
             <Link href="/home">
               <a>
@@ -78,22 +89,33 @@ export default function Results({
         <motion.div animate={{ x: [-5000, 0] }}>
           <div className={styles.image}>
             <Image
-              src="/threeJellies.png"
+              src="/redJelly_sad.png"
               width={300}
               height={300}
               alt="Jellies"
               layout="responsive"
             />
           </div>
-            <div className={styles.content}>
+          <div className={styles.content}>
             <h2>Results</h2>
             <h3 className={styles.resultsText}>Correct answers: {score}</h3>
-            <h3 className={styles.resultsText}>Incorrect answers: {numQuestions - score}</h3>
+            <h3 className={styles.resultsText}>
+              Incorrect answers: {numQuestions - score}
+            </h3>
+            <div className={styles.circle}>
+              <CircularProgressbar
+                styles={{ borderRadius: "5rem" }}
+                value={(score * 100) / numQuestions}
+                text={`${Math.floor((score * 100) / numQuestions)}%`}
+              />
+            </div>
             <h2>Oh no you did not pass! Please try again</h2>
             <div className={styles.buttons}>
-              <Button onClick={() => Router.reload(window.location.pathname)}>
-                Retry?
-              </Button>
+              <a>
+                <Button onClick={() => Router.reload(window.location.pathname)}>
+                  Retry?
+                </Button>
+              </a>
               <Link href="/home">
                 <a>
                   <Button>Home</Button>
