@@ -2,8 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 10rem;
-  margin-top: 5rem;
+  margin: 4rem;
   height: 30rem;
   width: 60rem;
 }
@@ -58,5 +57,48 @@
   }
   75% {
     transform: scale(0.7, 1.2);
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+  .profileContainer {
+    width: 100%;
+    margin-top: 17rem;
+  }
+  .statistics {
+    width: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 2rem;
+    grid-template-rows: 10rem 10rem;
+    grid-template-columns: 13rem 13rem;
+    padding: 10px;
+  }
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .badges > div > button {
+    margin-right: 5rem;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .profileContainer {
+    width: 100%;
+    margin-top: 17rem;
+    margin-left: 5rem;
+  }
+  .statistics {
+    width: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 2rem;
+    grid-template-rows: 10rem 10rem;
+    grid-template-columns: 20rem 25rem;
+    padding: 10px;
+  }
+  .badges > div > button {
+    margin-right: 5rem;
+    flex-wrap: wrap;
   }
 }

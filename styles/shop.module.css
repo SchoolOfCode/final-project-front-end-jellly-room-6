@@ -39,6 +39,7 @@
   margin: 2rem;
 }
 
-.green{
-  background-color: green;
+.equipBtn {
+  background-color: rgb(255, 227, 14);
+  color: black;
 }

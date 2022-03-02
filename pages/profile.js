@@ -54,22 +54,22 @@ export default function Profile({ auth0User, users }) {
           <h2 className={styles.title}>Statistics</h2>
           <div className={styles.statistics}>
             <StatisticsItem
-              className={styles.StatisticsItem}
+              className={styles.statisticsItem}
               title="Player Level"
               value={userInfo.playerLevel}
             />
             <StatisticsItem
-              className={styles.StatisticsItem}
+              className={styles.statisticsItem}
               title="Total XP"
               value={userInfo.xp}
             />
             <StatisticsItem
-              className={styles.StatisticsItem}
+              className={styles.statisticsItem}
               title="Total Beans"
               value={userInfo.beans}
             />
             <StatisticsItem
-              className={styles.StatisticsItem}
+              className={styles.statisticsItem}
               title="Leaderboard Position"
               value={leaderIndex}
             />
