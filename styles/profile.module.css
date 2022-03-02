@@ -73,8 +73,12 @@
     grid-template-columns: 13rem 13rem;
     padding: 10px;
   }
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+  }
   .badges > div > button {
-    margin-right: 3rem;
+    margin-right: 2rem;
   }
 }
 
@@ -95,5 +99,6 @@
   }
   .badges > div > button {
     margin-right: 5rem;
+    flex-wrap: wrap;
   }
 }
