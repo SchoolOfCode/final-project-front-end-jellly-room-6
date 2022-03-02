@@ -4,7 +4,8 @@ import useUserInfo from "../src/hooks/useUserInfo";
 import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import Results from "../src/components/Results";
 import styles from "../styles/questions.module.css";
-import {motion} from "framer-motion"
+import Button from "react-bootstrap/Button"
+import Link from "next/link";
 
 export default function Question({ questions, category, auth0User }) {
 
@@ -57,6 +58,9 @@ export default function Question({ questions, category, auth0User }) {
   return (
     user && (
       <div className={styles.container}>
+      <Link href="/home">
+        <a><h1 className={styles.exitButton}>X</h1></a>
+      </Link>
       
       <div className={styles.meterContainer}>
 
@@ -68,7 +72,7 @@ export default function Question({ questions, category, auth0User }) {
           </div>
 
 
-          <h2 className={styles.meterTitle}>Bean-O-Meter</h2>
+          <h1 className={styles.meterTitle}>Bean-O-Meter</h1>
 
       </div>
               
@@ -81,18 +85,18 @@ export default function Question({ questions, category, auth0User }) {
 
             <h2 className={styles.questionText}>{currentQuestion.question}</h2>
             <div className={styles.answers}>
-              <button className={styles.btn} onClick={checkAnswer}>
+              <Button className={styles.btn} onClick={checkAnswer}>
                 {currentQuestion.answers[0]}
-              </button>
-              <button className={styles.btn} onClick={checkAnswer}>
+              </Button>
+              <Button className={styles.btn} onClick={checkAnswer}>
                 {currentQuestion.answers[1]}
-              </button>
-              <button className={styles.btn} onClick={checkAnswer}>
+              </Button>
+              <Button className={styles.btn} onClick={checkAnswer}>
                 {currentQuestion.answers[2]}
-              </button>
-              <button className={styles.btn} onClick={checkAnswer}>
+              </Button>
+              <Button className={styles.btn} onClick={checkAnswer}>
                 {currentQuestion.answers[3]}
-              </button>
+              </Button>
             </div>
             <h3>
               Question: {questionCount + 1}/{questions.length}
