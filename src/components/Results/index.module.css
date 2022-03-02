@@ -16,6 +16,9 @@
 .content{
     position: relative;
     font-size: 4vmin;
+    
+    
+  
 }
 
 
@@ -24,7 +27,7 @@
   top: 2vmin;
   right: 2vmin;
   width: 15vmin;
-  min-width: 30vmin;
+  /* min-width: 30vmin; */
 }
 .buttons {
   display: flex;
@@ -32,16 +35,18 @@
 }
 
 .resultsText {
-  display: flex;
+  
   align-items: center;
-  text-align: center;
+  text-align: left;
   /* font-size: 1.5rem; */
   font-weight: 400;
 }
 
 .circle {
-  width: 15rem;
-  height: 15rem;
+  width: 35%;
+
   position: relative;
   display: flex;
+  left:40%;
+  
 }

@@ -31,7 +31,8 @@ a {
   padding: 0.75rem 1.25rem;
   font-weight: 600;
   cursor: pointer;
-  
+  font-size: 0.5em;
+  width: 15vmin;
   
   transition: transform 250ms ease-in-out, box-shadow 250ms ease-in-out;
 }
