@@ -20,6 +20,8 @@ export default function Results({
     return user.categories.includes(categoryToCheck);
   }
 
+  
+
   useEffect(() => {
     async function rewardUser(XP, beans) {
       await fetch(`${API_URL}/users/${user.user_id}`, {
