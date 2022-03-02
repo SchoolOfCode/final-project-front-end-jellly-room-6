@@ -1,10 +1,10 @@
 .loading {
-  border: 16px solid #f3f3f3;
+  border: 1rem solid #f3f3f3;
   border-radius: 50%;
-  border-top: 16px solid blue;
-  border-bottom: 16px solid blue;
-  width: 60px;
-  height: 60px;
+  border-top: 1rem solid blue;
+  border-bottom: 1rem solid blue;
+  width: 3.75rem;
+  height: 3.75rem;
   -webkit-animation: spin 2s linear infinite;
   animation: spin 2s linear infinite;
   position: absolute;
@@ -27,5 +27,12 @@
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 576px) {
+  .loading {
+    top: 40%;
+    left: 45%;
   }
 }
