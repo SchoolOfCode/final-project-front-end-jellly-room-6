@@ -26,6 +26,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  font-size: 2rem;
 }
 
 .userDetails {
@@ -34,8 +35,18 @@
   margin: 2em 0;
 }
 
+.username {
+  font-size: 3rem;
+}
+.email {
+  font-size: 2rem;
+}
 .userImage {
-  border-radius: 25rem;
+  border-radius: 30rem;
+}
+.userTitle {
+  position: relative;
+  top: -2rem;
 }
 
 .line {
@@ -65,21 +76,28 @@
     transform: scale(0.7, 1.2);
   }
 }
-@media only screen and (min-width: 128px) and (max-width: 515px) {
+@media only screen and (min-width: 0px) and (max-width: 515px) {
   .profileContainer {
     width: 100%;
-    margin-top: 20rem;
-    margin-left: 5rem;
+    margin-top: 25rem;
+    margin-left: 3rem;
   }
+
+  .username {
+    font-size: 3rem;
+  }
+  .email {
+    font-size: 2rem;
+  }
+
   .statistics {
     width: 100%;
     display: grid;
     grid-auto-flow: column;
     grid-gap: 2rem;
     grid-template-rows: 10rem 10rem;
-    grid-template-columns: 13rem 13rem;
+    grid-template-columns: 12rem 18rem;
     padding: 10px;
-    margin-right: 2rem;
     flex-wrap: wrap;
   }
   .badges {
@@ -96,12 +114,15 @@
   .badges > div > button {
     margin-right: 5rem;
   }
+  .title {
+    font-size: 2rem;
+  }
 }
 
 @media only screen and (min-width: 516px) and (max-width: 1024px) {
   .profileContainer {
     width: 100%;
-    margin-top: 17rem;
+    margin-top: 20rem;
     margin-left: 5rem;
   }
   .statistics {
@@ -111,7 +132,7 @@
     grid-gap: 2rem;
     grid-template-rows: 10rem 10rem;
     grid-template-columns: 20rem 25rem;
-    padding: 10px;
+    padding: 1rem;
   }
   .badges {
     display: flex;
