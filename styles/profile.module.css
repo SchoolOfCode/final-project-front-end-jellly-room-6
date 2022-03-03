@@ -2,15 +2,18 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 4rem;
+  margin: 10rem;
+  margin-left: 10rem;
   height: 30rem;
-  width: 60rem;
+  width: 80rem;
 }
 
 .statistics {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 2em;
+  margin-bottom: 2rem;
+  margin-right: 2rem;
+  flex-wrap: wrap;
 }
 
 .badges {
@@ -40,7 +43,10 @@
   width: 90vw;
   opacity: 0.3;
 }
-
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+}
 .badges > div > button {
   margin-right: 8rem;
 }
@@ -59,10 +65,11 @@
     transform: scale(0.7, 1.2);
   }
 }
-@media only screen and (min-width: 320px) and (max-width: 768px) {
+@media only screen and (min-width: 128px) and (max-width: 515px) {
   .profileContainer {
     width: 100%;
-    margin-top: 17rem;
+    margin-top: 20rem;
+    margin-left: 5rem;
   }
   .statistics {
     width: 100%;
@@ -72,9 +79,18 @@
     grid-template-rows: 10rem 10rem;
     grid-template-columns: 13rem 13rem;
     padding: 10px;
+    margin-right: 2rem;
+    flex-wrap: wrap;
   }
   .badges {
-    display: flex;
+    width: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 2rem;
+    grid-template-rows: 10rem 10rem;
+    grid-template-columns: 13rem 13rem;
+    padding: 10px;
+    margin-right: 2rem;
     flex-wrap: wrap;
   }
   .badges > div > button {
@@ -82,7 +98,7 @@
   }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
+@media only screen and (min-width: 516px) and (max-width: 1024px) {
   .profileContainer {
     width: 100%;
     margin-top: 17rem;
@@ -96,6 +112,10 @@
     grid-template-rows: 10rem 10rem;
     grid-template-columns: 20rem 25rem;
     padding: 10px;
+  }
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
   }
   .badges > div > button {
     margin-right: 5rem;
