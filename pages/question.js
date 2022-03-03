@@ -6,6 +6,7 @@ import Results from "../src/components/Results";
 import styles from "../styles/questions.module.css";
 import Button from "react-bootstrap/Button";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function Question({ questions, category, auth0User }) {
   const { user, error, isLoading } = useUser();
@@ -60,20 +61,32 @@ export default function Question({ questions, category, auth0User }) {
               <h1 className={styles.exitButton}>X</h1>
             </a>
           </Link>
-          <div className={styles.meterContainer}>
+          <motion.div
+            className={styles.meterContainer}
+            animate={{ x: [-500, 0] }}
+            transition={{ delay: 1 }}
+          >
             <div className={styles.meterBackground}>
               <div style={meterBarStyle}></div>
             </div>
 
             <h1 className={styles.meterTitle}>Bean-O-Meter</h1>
-          </div>
+          </motion.div>
         </div>
 
         <div>
           {!complete && (
-            <div className={styles.questionContainer}>
+            <motion.div
+              className={styles.questionContainer}
+              animate={{ opacity: [0, 1] }}
+              transition={{ duration: 1 }}
+            >
               <h2 className={styles.questionText}>{currentQuestion.question}</h2>
-              <div className={styles.answers}>
+              <motion.div
+                className={styles.answers}
+                animate={{ opacity: [0, 1] }}
+                transition={{ delay: 1 }}
+              >
                 <Button className={styles.btn} onClick={checkAnswer}>
                   {currentQuestion.answers[0]}
                 </Button>
@@ -86,14 +99,14 @@ export default function Question({ questions, category, auth0User }) {
                 <Button className={styles.btn} onClick={checkAnswer}>
                   {currentQuestion.answers[3]}
                 </Button>
-              </div>
-              <div>
+              </motion.div>
+              <motion.div animate={{ opacity: [0, 1] }} transition={{ delay: 1 }}>
                 <h3 className={styles.questionCount}>
                   Question: {questionCount + 1}/{questions.length}
                 </h3>
                 <p>{currentQuestion.correct}</p>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           )}
           {complete && (
             <Results
