@@ -4,7 +4,7 @@
   grid-template-columns: auto auto;
   grid-template-rows: auto auto auto;
   gap: 1em 3em;
-  max-width: 1200px;
+  max-width: 90vw;
   margin: 2em auto;
   box-sizing: border-box;
 }
