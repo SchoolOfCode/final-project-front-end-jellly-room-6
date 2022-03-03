@@ -12,6 +12,7 @@ import useUserInfo from "../src/hooks/useUserInfo";
 import { getEquippedItem, getEquippedItemImg } from "../src/hooks/helpers";
 import { Carousel } from "react-bootstrap";
 import CategoryScroller from "../src/components/Home/CategoryScroller";
+import { motion } from "framer-motion";
 
 //Plan
 //-onClick go to questions (loading page, etc.)
@@ -37,7 +38,13 @@ const sections = [
   {
     id: 2,
     name: "financial",
-    categories: ["Interest Rates", "Currency", "Mortgages", "Charity", "Savings"],
+    categories: [
+      "Interest Rates",
+      "Currency",
+      "Mortgages",
+      "Charity",
+      "Savings",
+    ],
   },
   {
     id: 3,
@@ -47,7 +54,13 @@ const sections = [
   {
     id: 4,
     name: "general",
-    categories: ["Further", "Division", "Addition", "Subtraction", "Multiplication"],
+    categories: [
+      "Further",
+      "Division",
+      "Addition",
+      "Subtraction",
+      "Multiplication",
+    ],
   },
   {
     id: 5,
@@ -76,21 +89,21 @@ export default function Home({ auth0User }) {
   //pass in current state to find index
   // call set the state to sections[index+1].name
 
-  function handleNextCategory(e){
-    const index = sections.findIndex((section)=> {
-      return section.name === selectedCategory
-    })
-    const newIndex = index + 1 >sections.length - 1 ? 0 : index + 1
-    setSelectedCategory(sections[newIndex].name)
+  function handleNextCategory(e) {
+    const index = sections.findIndex((section) => {
+      return section.name === selectedCategory;
+    });
+    const newIndex = index + 1 > sections.length - 1 ? 0 : index + 1;
+    setSelectedCategory(sections[newIndex].name);
   }
 
-  function handlePreviousCategory(e){
-    const index = sections.findIndex((section)=> {
-      return section.name === selectedCategory
-    })
-    const newIndex = index - 1 <0 ? sections.length - 1: index - 1 
-console.log(newIndex)
-    setSelectedCategory(sections[newIndex].name)
+  function handlePreviousCategory(e) {
+    const index = sections.findIndex((section) => {
+      return section.name === selectedCategory;
+    });
+    const newIndex = index - 1 < 0 ? sections.length - 1 : index - 1;
+    console.log(newIndex);
+    setSelectedCategory(sections[newIndex].name);
   }
 
   return (
@@ -99,35 +112,49 @@ console.log(newIndex)
         <NavBar userId={userInfo.user_id} />
 
         <div className={styles.grid}>
-
           <div className={styles.gridItemScroller}>
-
-          <CategoryScroller handlePreviousCategory={handlePreviousCategory} handleNextCategory={handleNextCategory} selectedCategory={selectedCategory}/>
+            <CategoryScroller
+              handlePreviousCategory={handlePreviousCategory}
+              handleNextCategory={handleNextCategory}
+              selectedCategory={selectedCategory}
+            />
           </div>
           <div className={styles.gridItemCategory}>
-          <CategoryContainer
-                id={sections[0].id}
-                categories={sections.find(category => category.name === selectedCategory).categories}
-                userId={userInfo.user_id}
-                completedCategories={userInfo.categories}
-                selectedDropdownCategory={selectedCategory}
-                handleSelect={handleSelect}
-          />
+            <CategoryContainer
+              id={sections[0].id}
+              categories={
+                sections.find((category) => category.name === selectedCategory)
+                  .categories
+              }
+              userId={userInfo.user_id}
+              completedCategories={userInfo.categories}
+              selectedDropdownCategory={selectedCategory}
+              handleSelect={handleSelect}
+            />
           </div>
 
           <div className={styles.gridItemStats}>
-          <HomeStatsDisplay userInfo={userInfo} />
+            <HomeStatsDisplay userInfo={userInfo} />
           </div>
           <div className={`${styles.gridItemLogo}`}>
-          <Image
+            <motion.div
+              animate={{
+                x: [-30, 30],
+                y: [-20, 20],
+                scale: [0.2, 1.2],
+                rotate: [-50, 10],
+              }}
+            >
+              <Image
                 src={userInfo.equipped.src || "/logoJelly.png"}
                 width={250}
                 height={250}
                 alt="avatar"
               />
-           </div>
+            </motion.div>
           </div>
         </div>
+      </div>
     )
   );
 }
