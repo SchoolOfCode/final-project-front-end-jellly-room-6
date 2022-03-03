@@ -6,6 +6,7 @@ import Results from "../src/components/Results";
 import styles from "../styles/questions.module.css";
 import Button from "react-bootstrap/Button";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { playSound } from "../src/hooks/helpers";
 
 export default function Question({ questions, category, auth0User }) {
@@ -48,7 +49,6 @@ export default function Question({ questions, category, auth0User }) {
   const meterBarStyle = {
     height: `${complete ? 100 : meterProgressPercentage}%`,
     width: "100%",
-    // backgroundColor: "#7EC65C",
     backgroundImage: 'url("/static/beanMeterFilled.png")',
     backgroundSize: "100%",
     borderRadius: "5px",
@@ -58,52 +58,72 @@ export default function Question({ questions, category, auth0User }) {
   return (
     user && (
       <div className={styles.container}>
-        <Link href="/home">
-          <a>
-            <h1 className={styles.exitButton}>X</h1>
-          </a>
-        </Link>
+  
+        <div>
+  
+          <Link href="/home">
+            <a>
+              <h1 className={styles.exitButton}>X</h1>
+            </a>
+          </Link>
 
-        <div className={styles.meterContainer}>
-          <div className={styles.meterBackground}>
-            <div style={meterBarStyle}></div>
-          </div>
+          <motion.div
+            className={styles.meterContainer}
+            animate={{ x: [-500, 0] }}
+            transition={{ delay: 1 }}
+          >
+            <div className={styles.meterBackground}>
+              <div style={meterBarStyle}></div>
+            </div>
 
-          <h1 className={styles.meterTitle}>Bean-O-Meter</h1>
+            <h1 className={styles.meterTitle}>Bean-O-Meter</h1>
+          </motion.div>
         </div>
 
-        {!complete && (
-          <div className={styles.questionContainer}>
-            <h2 className={styles.questionText}>{currentQuestion.question}</h2>
-            <div className={styles.answers}>
-              <Button className={styles.btn} onClick={checkAnswer}>
-                {currentQuestion.answers[0]}
-              </Button>
-              <Button className={styles.btn} onClick={checkAnswer}>
-                {currentQuestion.answers[1]}
-              </Button>
-              <Button className={styles.btn} onClick={checkAnswer}>
-                {currentQuestion.answers[2]}
-              </Button>
-              <Button className={styles.btn} onClick={checkAnswer}>
-                {currentQuestion.answers[3]}
-              </Button>
-            </div>
-            <h3>
-              Question: {questionCount + 1}/{questions.length}
-            </h3>
-            <p>{currentQuestion.correct}</p>
-          </div>
-        )}
-        {complete && (
-          <Results
-            numQuestions={questions.length}
-            category={category}
-            score={score}
-            hasWon={win}
-            user={userInfo}
-          />
-        )}
+        <div>
+          {!complete && (
+            <motion.div
+              className={styles.questionContainer}
+              animate={{ opacity: [0, 1] }}
+              transition={{ duration: 1 }}
+            >
+              <h2 className={styles.questionText}>{currentQuestion.question}</h2>
+              <motion.div
+                className={styles.answers}
+                animate={{ opacity: [0, 1] }}
+                transition={{ delay: 1 }}
+              >
+                <Button className={styles.btn} onClick={checkAnswer}>
+                  {currentQuestion.answers[0]}
+                </Button>
+                <Button className={styles.btn} onClick={checkAnswer}>
+                  {currentQuestion.answers[1]}
+                </Button>
+                <Button className={styles.btn} onClick={checkAnswer}>
+                  {currentQuestion.answers[2]}
+                </Button>
+                <Button className={styles.btn} onClick={checkAnswer}>
+                  {currentQuestion.answers[3]}
+                </Button>
+              </motion.div>
+              <motion.div animate={{ opacity: [0, 1] }} transition={{ delay: 1 }}>
+                <h3 className={styles.questionCount}>
+                  Question: {questionCount + 1}/{questions.length}
+                </h3>
+                <p>{currentQuestion.correct}</p>
+              </motion.div>
+            </motion.div>
+          )}
+          {complete && (
+            <Results
+              numQuestions={questions.length}
+              category={category}
+              score={score}
+              hasWon={win}
+              user={userInfo}
+            />
+          )}
+        </div>
         <audio id="correct-answer" src="/audio/correct_answer.wav" />
         <audio id="incorrect-answer" src="/audio/incorrect_answer.wav" />
       </div>
