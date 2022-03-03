@@ -4,13 +4,10 @@ import styles from "./index.module.css";
 import { useState } from "react";
 import NavDropdown from "../NavDropdown";
 
+
 export default function NavBar() {
 
-  const [showDropdown, setShowDropdown] = useState(false)
 
-  function handleClick(){
-    setShowDropdown(!showDropdown)
-  }
 
   return (
     <div className={styles.container}>
@@ -34,7 +31,7 @@ export default function NavBar() {
         </Link>
       </div>
 
-      <NavDropdown handleClick={handleClick} isDisplayed={showDropdown}/>
+      <NavDropdown/>
 
 
     </div>
