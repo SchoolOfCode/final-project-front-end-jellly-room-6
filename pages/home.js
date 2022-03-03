@@ -141,9 +141,10 @@ export default function Home({ auth0User }) {
               animate={{
                 x: [-30, 30],
                 y: [-20, 20],
-                scale: [0.2, 1.2],
+                scale: [-0.2, 0.8],
                 rotate: [-50, 10],
               }}
+              transition={{ ease: "easeOut", duration: 3 }}
             >
               <Image
                 src={userInfo.equipped.src || "/logoJelly.png"}

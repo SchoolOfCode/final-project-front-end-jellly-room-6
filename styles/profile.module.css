@@ -63,6 +63,7 @@
 }
 .badges > div > button:hover {
   animation: wiggle 0.6s;
+  cursor: auto;
 }
 
 @keyframes wiggle {
