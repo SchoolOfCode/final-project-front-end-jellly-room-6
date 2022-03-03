@@ -13,7 +13,10 @@ export default function NavBar() {
     <div className={styles.container}>
     
       <div className={styles.branding}>
-        <Image alt="icon-jelly" src="/logoJelly.png" width={70} height={10} />
+      <div className={styles.logo}>
+
+        <Image alt="icon-jelly" src="/logoJelly.png" width={70} height={70} layout="fixed" />
+      </div>
         <h2 className={styles.title}>JELLLY</h2>
       </div>
       <div className={styles.navLinks}>
@@ -30,8 +33,15 @@ export default function NavBar() {
           <a className={styles.link}>Profile</a>
         </Link>
       </div>
+      <Link href="/api/auth/logout">
+        <a className={styles.link}>
+          <button className={`${styles.logoutBtn} btn`}>Logout</button>
+        </a>
+      </Link>
 
+<div className={styles.dropdownDisplay}>
       <NavDropdown/>
+</div>
 
 
     </div>
