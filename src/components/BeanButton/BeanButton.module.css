@@ -29,3 +29,23 @@
 .beanButton:hover .jellybean {
   filter: drop-shadow(0 0 5px rgba(0 0 0 / 0.3));
 }
+
+@media (max-width: 1100px) {
+
+  .beanButton{
+    scale:1.25;
+    margin: 0;
+    padding: 0;
+  }
+
+}
+
+@media (max-width: 500px) {
+
+  .beanButton{
+    scale:0.875;
+    margin: 0;
+    padding: 0;
+  }
+
+}

@@ -6,6 +6,7 @@
   gap: 1em 3em;
   max-width: 1200px;
   margin: 2em auto;
+  padding: 1em;
   box-sizing: border-box;
 }
 
@@ -21,7 +22,7 @@
 }
 
 .levelContainer {
-  border: solid black 2px;
+  box-shadow: 0 3px 10px 5px rgba(0, 0, 0, 0.2);
   border-radius: 25px;
   width: 100%;
   padding: 2em;
@@ -34,29 +35,52 @@
 
 .levelBarStyleBackground {
   width: 80%;
+
   background-color: #fff;
-  margin-bottom: 0.25em;
   border-radius: 5px;
 }
 
+.levelBarContainer{
+  width: 100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.levelBarNextLevel{
+  background-color: rgb(166, 71, 179);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.levelBarNextLevel p{
+  margin: 0;
+  font-weight: 600;
+  color:#fff;
+}
+
 .beanBtn {
-  border: solid black 1px;
   padding: 1em;
 }
 
 
 
 .statsDisplay {
-  border: solid black 2px;
+  box-shadow: 0 3px 10px 5px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   background-color: #ca38ff42;
   border-radius: 25px;
-  margin: auto;
   max-width: 500px;
 }
+
 
 .gridItemLogo {
   grid-row-start: 3;
@@ -68,11 +92,17 @@
   transform:rotateY(180deg);
 }
 
+.gridItemLogoMobile{
+  display:none;
+}
+
 .gridItemStats{
   grid-row-start: 2;
   grid-row-end: 3;
   grid-column-start: 2;
   grid-column-end: 3;
+  justify-content: center;
+  align-items: center;
 }
 
 .gridItemCategory{
@@ -96,21 +126,36 @@
    align-items: center;
  }
 
- .gridItemCategory{
-  overflow:hidden;
- }
+
 
  .gridItemStats{
 
+  display:flex;
   align-self:center;
   order: -1;
-  overflow:hidden;
-  width: 100%;
+
+  width: 90%;
+  position:relative;
  }
 
  .gridItemLogo{
    display:none;
-   
+ }
+
+ .statsTitle{
+  display:flex;
+  width: 90%;
+  justify-content: center;
+  align-items: center;
+  position:relative;
+ }
+
+ .gridItemLogoMobile{
+  display:unset;
+    width: 25%;
+  position: absolute;
+  left: 0;
+  top: 1em;
  }
 
  .gridItemScroller{
@@ -119,11 +164,10 @@
  }
 
  .statsDisplay{
-  width: 90%;
+  width: 100%;
  }
  
  .levelContainer{
-  border: solid black 2px;
   border-radius: 25px;
   max-width: 700px;
   width: 90vw;
@@ -135,5 +179,30 @@
   
  }
 
+ 
+.levelBarStyleBackground {
+  width: 75%;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.levelContainer a{
+  margin: 0;
+  height: 125px;
+}
+
+
+}
+
+@media (max-width: 450px) {
+
+  .statsDisplay h1{
+    margin-left: 1em;
+  }
+
+  .levelContainer a{
+    margin: 0;
+    height: 100px;
+  }
 
 }

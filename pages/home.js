@@ -134,7 +134,7 @@ export default function Home({ auth0User }) {
           </div>
 
           <div className={styles.gridItemStats}>
-            <HomeStatsDisplay userInfo={userInfo} />
+          <HomeStatsDisplay userInfo={userInfo} />
           </div>
           <div className={`${styles.gridItemLogo}`}>
             <motion.div
