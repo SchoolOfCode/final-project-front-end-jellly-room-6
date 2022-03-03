@@ -6,6 +6,7 @@ import Results from "../src/components/Results";
 import styles from "../styles/questions.module.css";
 import Button from "react-bootstrap/Button";
 import Link from "next/link";
+import { playSound } from "../src/hooks/helpers";
 
 export default function Question({ questions, category, auth0User }) {
   const { user, error, isLoading } = useUser();
@@ -27,11 +28,9 @@ export default function Question({ questions, category, auth0User }) {
   function checkAnswer(e) {
     // Check if text inside clicked button is equal to correct answer
     if (e.target.textContent == currentQuestion.correct) {
-      const audio = document.querySelector("#correct-answer");
-      audio.currentTime = 0;
-      audio.play();
+      playSound("correct-answer");
       setScore(score + 1);
-    } else console.log("incorrect");
+    } else playSound("incorrect-answer");
     // Only increment question count if there is a question available to increment to
     if (questionCount < questions.length - 1) return setQuestionCount(questionCount + 1);
     calculateScore();
@@ -105,7 +104,8 @@ export default function Question({ questions, category, auth0User }) {
             user={userInfo}
           />
         )}
-        <audio id="correct-answer" src="/audio/correct_answer.wav"></audio>
+        <audio id="correct-answer" src="/audio/correct_answer.wav" />
+        <audio id="incorrect-answer" src="/audio/incorrect_answer.wav" />
       </div>
     )
   );
