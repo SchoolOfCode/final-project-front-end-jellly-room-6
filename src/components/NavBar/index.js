@@ -1,10 +1,20 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./index.module.css";
+import { useState } from "react";
+import NavDropdown from "../NavDropdown";
 
 export default function NavBar() {
+
+  const [showDropdown, setShowDropdown] = useState(false)
+
+  function handleClick(){
+    setShowDropdown(!showDropdown)
+  }
+
   return (
     <div className={styles.container}>
+    
       <div className={styles.branding}>
         <Image alt="icon-jelly" src="/logoJelly.png" width={70} height={10} />
         <h2 className={styles.title}>JELLLY</h2>
@@ -23,11 +33,10 @@ export default function NavBar() {
           <a className={styles.link}>Profile</a>
         </Link>
       </div>
-      <Link href="/api/auth/logout">
-        <a>
-          <button className="btn">Logout</button>
-        </a>
-      </Link>
+
+      <NavDropdown handleClick={handleClick} isDisplayed={showDropdown}/>
+
+
     </div>
   );
 }

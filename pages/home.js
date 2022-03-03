@@ -96,7 +96,7 @@ console.log(newIndex)
   return (
     user && (
       <div>
-        <NavBar userId={userInfo.user_id} />
+        <NavBar/>
 
         <div className={styles.grid}>
 
