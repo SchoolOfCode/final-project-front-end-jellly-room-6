@@ -15,14 +15,12 @@
 
 .main {
   position: relative;
-  top: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 800px;
-  gap: 4em;
-  padding: 2em;
+  gap: 2rem;
+  height: 75vh;
 }
 
 .titleContainer {
@@ -34,6 +32,7 @@
 
 .titleLogo {
   display: flex;
+  align-items: center;
 }
 
 .jellyBean {
@@ -42,8 +41,8 @@
 
 .jellies {
   position: absolute;
-  right: 0;
-  bottom: -2em;
+  bottom: 10%;
+  left: 75%;
 }
 
 .title {
@@ -54,25 +53,29 @@
 }
 
 .text {
-  width: 70%;
-  text-align: justify;
+  width: 75%;
   font-weight: 400;
-  margin-top: 5px;
-  margin-block-start: 1.5em;
+  text-align: center;
+  margin-top: 2rem;
 }
 
 .lineContainer {
   position: absolute;
   bottom: 5%;
 }
+
 .line {
   background-color: #3c3c3c;
   width: 90vw;
   opacity: 0.3;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .jellies {
     display: none;
+  }
+
+  .titleLogo {
+    flex-direction: column;
   }
 }
