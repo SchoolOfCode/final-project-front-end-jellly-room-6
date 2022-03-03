@@ -59,7 +59,7 @@ export default function ShopItem({
     });
 
     const data = await res.json();
-  
+
     console.log("Equipped:", data.payload.purchase_name);
   }
 
@@ -98,13 +98,6 @@ export default function ShopItem({
         )}
         {purchased && isEquipped && <p>Equipped</p>}
       </div>
-      {!purchased && <Button onClick={handlePurchase}>Buy</Button>}
-      {purchased && !isEquipped && (
-        <Button className={style.equipBtn} onClick={handleEquip}>
-          Equip
-        </Button>
-      )}
-      {purchased && isEquipped && <p>Equipped</p>}
     </div>
   );
 }
