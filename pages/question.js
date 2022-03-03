@@ -7,6 +7,7 @@ import styles from "../styles/questions.module.css";
 import Button from "react-bootstrap/Button";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { playSound } from "../src/hooks/helpers";
 
 export default function Question({ questions, category, auth0User }) {
   const { user, error, isLoading } = useUser();
@@ -27,8 +28,10 @@ export default function Question({ questions, category, auth0User }) {
 
   function checkAnswer(e) {
     // Check if text inside clicked button is equal to correct answer
-    if (e.target.textContent == currentQuestion.correct) setScore(score + 1);
-    else console.log("incorrect");
+    if (e.target.textContent == currentQuestion.correct) {
+      playSound("correct-answer");
+      setScore(score + 1);
+    } else playSound("incorrect-answer");
     // Only increment question count if there is a question available to increment to
     if (questionCount < questions.length - 1) return setQuestionCount(questionCount + 1);
     calculateScore();
@@ -55,12 +58,15 @@ export default function Question({ questions, category, auth0User }) {
   return (
     user && (
       <div className={styles.container}>
+  
         <div>
+  
           <Link href="/home">
             <a>
               <h1 className={styles.exitButton}>X</h1>
             </a>
           </Link>
+
           <motion.div
             className={styles.meterContainer}
             animate={{ x: [-500, 0] }}
@@ -118,6 +124,8 @@ export default function Question({ questions, category, auth0User }) {
             />
           )}
         </div>
+        <audio id="correct-answer" src="/audio/correct_answer.wav" />
+        <audio id="incorrect-answer" src="/audio/incorrect_answer.wav" />
       </div>
     )
   );

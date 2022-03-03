@@ -27,7 +27,7 @@ export default function Profile({ auth0User, users }) {
     arrBadge.push(i);
   }
 
-  if (isLoading) return <Loading>Loading...</Loading>;
+  if (isLoading) return <Loading />;
   if (error) return <div>{error.message}</div>;
 
   return (
@@ -40,12 +40,12 @@ export default function Profile({ auth0User, users }) {
               className={styles.userImage}
               src={auth0User.picture}
               alt="Jelly"
-              width={110}
-              height={50}
+              width={200}
+              height={40}
             />
-            <div>
-              <h2>{userInfo.username}</h2>
-              <h3>{auth0User.email}</h3>
+            <div className={styles.userTitle}>
+              <h2 className={styles.username}>{userInfo.username}</h2>
+              <h3 className={styles.email}>{auth0User.email}</h3>
             </div>
           </div>
 
@@ -78,7 +78,11 @@ export default function Profile({ auth0User, users }) {
           <div className={styles.badges}>
             {arrBadge.map((item, index) => {
               return (
-                <BeanButton key={index} color={colorArray[index]} text={`Level ${item + 1} `} />
+                <BeanButton
+                  key={index}
+                  color={colorArray[index]}
+                  text={`Level ${item + 1} `}
+                />
               );
             })}
           </div>

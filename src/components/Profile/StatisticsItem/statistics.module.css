@@ -5,10 +5,25 @@
   width: 7rem;
   max-width: 30rem;
   height: 2.5rem;
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  font-size: 1.5rem;
+}
+
+.title {
+  font-size: 2rem;
+}
+
+@media only screen and (min-width: 128px) and (max-width: 515px) {
+  .statisticsValue {
+    width: 10rem;
+    height: 4rem;
+  }
+  .title {
+    font-size: 1.85rem;
+  }
 }
