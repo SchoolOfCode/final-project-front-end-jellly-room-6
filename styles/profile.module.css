@@ -77,7 +77,20 @@
     transform: scale(0.7, 1.2);
   }
 }
-@media only screen and (min-width: 0px) and (max-width: 515px) {
+@media (max-width: 400px) {
+  .profileContainer {
+    width: 100%;
+    margin-bottom: 20rem;
+  }
+  .userImage {
+    border-radius: 3rem;
+    height: 1rem;
+  }
+  .userDetails {
+    height: 8rem;
+  }
+}
+@media (max-width: 550px) {
   .profileContainer {
     width: 100%;
     margin-top: 25rem;
@@ -102,25 +115,18 @@
     flex-wrap: wrap;
   }
   .badges {
-    width: 100%;
-    display: grid;
-    grid-auto-flow: column;
-    grid-gap: 2rem;
-    grid-template-rows: 10rem 10rem;
-    grid-template-columns: 13rem 13rem;
-    padding: 10px;
-    margin-right: 2rem;
+    display: flex;
     flex-wrap: wrap;
   }
   .badges > div > button {
-    margin-right: 5rem;
+    margin-right: 3rem;
   }
   .title {
     font-size: 2rem;
   }
 }
 
-@media only screen and (min-width: 516px) and (max-width: 1024px) {
+@media (max-width: 1024px) {
   .profileContainer {
     width: 100%;
     margin-top: 20rem;
