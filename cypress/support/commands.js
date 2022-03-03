@@ -83,12 +83,18 @@ Cypress.Commands.add("seal", (thingToEncrypt) => {
 Cypress.Commands.add("login", (overrides = {}) => {
   // cy.clearCookies(); // If needed
 
+  /* https://github.com/auth0/nextjs-auth0/blob/master/src/handlers/login.ts#L70 */
+
   cy.setCookie("a0:state", "some-random-state");
 
   cy._loginTestUser().then((response) => {
     const { accessToken, expiresIn, idToken, scope, tokenType } = response;
 
     cy.getUserInfo(accessToken).then((user) => {
+      /* https://github.com/auth0/nextjs-auth0/blob/master/src/handlers/callback.ts#L44 */
+      /* https://github.com/auth0/nextjs-auth0/blob/master/src/handlers/callback.ts#L47 */
+      /* https://github.com/auth0/nextjs-auth0/blob/master/src/session/cookie-store/index.ts#L57 */
+
       const persistedSession = {
         user,
         idToken,
@@ -97,6 +103,8 @@ Cypress.Commands.add("login", (overrides = {}) => {
         accessTokenExpiresAt: Date.now() + expiresIn,
         createdAt: Date.now(),
       };
+
+      /* https://github.com/auth0/nextjs-auth0/blob/master/src/session/cookie-store/index.ts#L73 */
 
       cy.seal(persistedSession).then((encryptedSession) => {
         cy.setCookie("a0:session", encryptedSession);

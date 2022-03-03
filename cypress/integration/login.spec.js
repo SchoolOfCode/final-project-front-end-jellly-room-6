@@ -1,11 +1,8 @@
-context("Logging in", () => {
-  it("should successfully log in", () => {
-    cy.login().then(() => {
+context("Login", () => {
+  it("should successfully log into our app", () => {
+    cy.login().then((resp) => {
+      // User is now logged in similar to https://github.com/auth0/nextjs-auth0
       cy.visit("http://localhost:3000/profile");
-
-      cy.request("/api/me").then(({ body: user }) => {
-        expect(user).to.exist;
-      });
     });
   });
 });
