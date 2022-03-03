@@ -4,19 +4,20 @@
 }
 
 .title {
+  font-size: 3vmin;
   font-family: "Roboto", sans-serif;
   font-weight: 500;
-  background-color: #8816b2;
+  background-color: #7f00ff;
   color: white;
-  margin: 3rem 0;
-  padding: 1.5rem 2rem;
+  margin: 1em 0;
+  padding: 1em 1.5em;
   border-radius: 20px;
   width: 30vw;
   text-align: center;
 }
 
 .leaderboard {
-  position: relative;
+  position: block;
 }
 
 .user {
@@ -25,20 +26,23 @@
   width: 25vw;
   height: 2rem;
   text-align: left;
-  margin-bottom: 7rem;
-  font-size: 1.5rem;
+  margin: 2em auto;
+  font-size: 2vmin;
   font-weight: 400;
 }
 
 .userPosition {
-  position: absolute;
+  position: block;
   left: 1rem;
   font-weight: bold;
+  margin: 0 3em;
+  padding: 1em;
 }
 
 .username {
-  position: absolute;
-  left: 50%;
+  position: block;
+  margin: 0 auto;
+  padding: 1em;
   transform: translateX(-50%);
 }
 .userXP {
@@ -48,14 +52,29 @@
   right: 1rem;
   font-weight: 500;
   background: #ffd900;
-  width: 5vw;
-  padding: 1rem;
-  border-radius: 1000px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  width: 15vw;
+  margin-left: 0.65em;
+  margin-right: 0.65em;
+  padding: 1em 5px;
+  border-radius: 15px;
+  box-shadow: 0 5px 100px rgba(0, 0, 0, 0.2);
 }
 
 .jellies {
   position: absolute;
-  bottom: 12.5%;
+  bottom: 65%;
   right: 12.5%;
+  width: 20vmin;
+}
+
+.loadButton {
+  background: #ee4266;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  padding: 1em 1em;
+  font-size: 2vmin;
+  margin: 0 auto;
+  width: 20vmin;
+  border: none;
 }

@@ -31,11 +31,19 @@ export default function Leaderboard({ users }) {
               </li>
             ))}
           </ol>
-          <button className="btn load-more" onClick={() => setLimit(limit + 5)}>
+          <button
+            className={styles.loadButton}
+            onClick={() => setLimit(limit + 5)}
+          >
             Load More
           </button>
           <div className={styles.jellies}>
-            <Image alt="icon-jelly" src="/threeJellies.png" width={300} height={300} />
+            <Image
+              alt="icon-jelly"
+              src="/threeJellies.png"
+              width={300}
+              height={300}
+            />
           </div>
         </div>
       </div>
