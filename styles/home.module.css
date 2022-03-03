@@ -186,9 +186,10 @@
   border-radius: 5px;
 }
 
- .levelContainer a{
-   margin: 0;
- }
+.levelContainer a{
+  margin: 0;
+  height: 125px;
+}
 
 
 }
@@ -197,6 +198,11 @@
 
   .statsDisplay h1{
     margin-left: 1em;
+  }
+
+  .levelContainer a{
+    margin: 0;
+    height: 100px;
   }
 
 }

@@ -33,7 +33,17 @@
 @media (max-width: 1100px) {
 
   .beanButton{
-    scale:unset;
+    scale:1.25;
+    margin: 0;
+    padding: 0;
+  }
+
+}
+
+@media (max-width: 500px) {
+
+  .beanButton{
+    scale:0.875;
     margin: 0;
     padding: 0;
   }
