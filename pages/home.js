@@ -116,6 +116,7 @@ console.log(newIndex)
           </div>
 
           <div className={styles.gridItemStats}>
+
           <HomeStatsDisplay userInfo={userInfo} />
           </div>
           <div className={`${styles.gridItemLogo}`}>

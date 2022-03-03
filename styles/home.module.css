@@ -35,8 +35,31 @@
 .levelBarStyleBackground {
   width: 80%;
   background-color: #fff;
-  margin-bottom: 0.25em;
   border-radius: 5px;
+}
+
+.levelBarContainer{
+  width: 100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.levelBarNextLevel{
+  background-color: rgb(166, 71, 179);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.levelBarNextLevel p{
+  margin: 0;
+  font-weight: 600;
+  color:#fff;
 }
 
 .beanBtn {
@@ -54,9 +77,9 @@
   flex-direction: column;
   background-color: #ca38ff42;
   border-radius: 25px;
-  margin: auto;
   max-width: 500px;
 }
+
 
 .gridItemLogo {
   grid-row-start: 3;
@@ -68,11 +91,17 @@
   transform:rotateY(180deg);
 }
 
+.gridItemLogoMobile{
+  display:none;
+}
+
 .gridItemStats{
   grid-row-start: 2;
   grid-row-end: 3;
   grid-column-start: 2;
   grid-column-end: 3;
+  justify-content: center;
+  align-items: center;
 }
 
 .gridItemCategory{
@@ -102,15 +131,32 @@
 
  .gridItemStats{
 
+  display:flex;
   align-self:center;
   order: -1;
   overflow:hidden;
-  width: 100%;
+  width: 90%;
+  position:relative;
  }
 
  .gridItemLogo{
    display:none;
-   
+ }
+
+ .statsTitle{
+  display:flex;
+  width: 90%;
+  justify-content: center;
+  align-items: center;
+  position:relative;
+ }
+
+ .gridItemLogoMobile{
+  display:unset;
+    width: 25%;
+  position: absolute;
+  left: 0;
+  top: 1em;
  }
 
  .gridItemScroller{
