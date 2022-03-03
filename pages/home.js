@@ -109,7 +109,7 @@ export default function Home({ auth0User }) {
   return (
     user && (
       <div>
-        <NavBar userId={userInfo.user_id} />
+        <NavBar/>
 
         <div className={styles.grid}>
           <div className={styles.gridItemScroller}>

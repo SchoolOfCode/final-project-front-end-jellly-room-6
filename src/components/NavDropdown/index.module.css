@@ -1,0 +1,104 @@
+.dropdownContainer{
+    font-size:1rem;
+    border-radius: 8px;
+    display:flex;
+    flex-direction: column;
+    position:relative;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgb(154, 82, 165);
+    justify-content: center;
+    align-items: center;
+    cursor:default;
+    transition: 0.2s;
+}
+
+.dropdownContainer p{
+    color:rgb(224, 203, 224);
+    margin: 0;
+    font-weight: 800;
+    font-size: 2rem;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    border-radius: 50%;
+    transition: 0.2s;
+    user-select: none;
+}
+
+.dropdownContainer p:hover{
+        transition: 0.2s;
+        background-color: rgb(125, 65, 134);
+
+}
+
+.dropdownContainer p:active{
+    transition: 0.2s;
+    background-color: rgb(93, 49, 100);
+
+}
+
+.dropdownMenu{
+    display:none;
+    position:absolute;
+    border-radius:10px;
+    top: 50px;
+    right: 0;
+    border:solid rgb(143, 143, 143) 1px;
+    width: 250px;
+    background-color:rgb(239, 211, 241);
+    box-shadow: 1px 3px 5px 3px rgba(0, 0, 0, 0.2);
+
+}
+
+.dropdownMenu a{
+    display:block;
+}
+
+.show{
+    display:unset;
+}
+
+.dropdownMenuLinks{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.5em;
+}
+
+.dropdownMenuLinks a:last-child{
+    border-bottom: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    
+}
+
+.dropdownMenuLinks a:last-child:hover{
+    background-color: unset;
+ }
+
+.dropdownMenuLinks a:first-child{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    
+}
+
+.dropdownMenuLinks a{
+    width: 100%;
+    z-index: 100;
+    margin: 0;
+    padding: 1em;
+    border-bottom: solid rgba(0, 0, 0, 0.2) 1px;
+
+}
+
+.dropdownMenuLinks a:hover{
+   background-color: rgb(202, 163, 207);
+}
+
+.logoutBtn{
+    width: 100%;
+}
+
+
