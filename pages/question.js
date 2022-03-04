@@ -178,7 +178,7 @@ export const getServerSideProps = withPageAuthRequired({
         throw new Error(`API did not return any questions for category: ${ctx.query.category}`);
       return shuffleArray(data.payload).slice(0, questionCount);
     }
-    const questionCount = 3;
+    const questionCount = 4;
     function shuffleArray(arr) {
       return arr.sort(() => Math.random() - 0.5);
     }
