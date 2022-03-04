@@ -11,8 +11,7 @@
 .statistics {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 2rem;
-  margin-right: 2rem;
+  margin-right: 0 auto;
   flex-wrap: wrap;
   font-size: 2vmin;
 }
@@ -134,7 +133,19 @@
   }
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1000px) {
+  .userDetails {
+    width: 20%;
+  }
+
+  .email {
+    font-size: 1rem;
+  }
+
+  .username {
+    font-size: 1rem;
+  }
+
   .profileContainer {
     width: 100%;
     /* margin-top: 20rem;
@@ -142,12 +153,13 @@
   }
   .statistics {
     width: 100%;
-    display: grid;
-    grid-auto-flow: column;
+    display: flex;
+    flex-direction: column;
     grid-gap: 2rem;
     grid-template-rows: 10rem 10rem;
     grid-template-columns: 10rem 90rem;
     padding: 1rem;
+    margin: 0 auto;
   }
   .badges {
     display: flex;
