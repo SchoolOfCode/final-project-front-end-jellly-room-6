@@ -2,18 +2,18 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 10rem;
-  margin-left: 10rem;
-  height: 30rem;
+  margin-left: 3em;
+
+  /* height: 30rem; */
   width: 80rem;
 }
 
 .statistics {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 2rem;
-  margin-right: 2rem;
+  margin-right: 0 auto;
   flex-wrap: wrap;
+  font-size: 2vmin;
 }
 
 .badges {
@@ -26,34 +26,41 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  font-size: 2rem;
+  font-size: 3vmin;
 }
 
 .userDetails {
   display: flex;
-  gap: 2em;
-  margin: 2em 0;
+  /* gap: 3em; */
+  margin-left: 1em;
+  padding: 3em 1.5em;
 }
-
-.username {
-  font-size: 3rem;
-}
-.email {
-  font-size: 2rem;
+.image {
+  margin: 0 1em;
 }
 .userImage {
   border-radius: 30rem;
 }
-.userTitle {
-  position: relative;
-  top: -2rem;
+.username {
+  font-size: 3vmin;
+}
+.email {
+  font-size: 2vmin;
 }
 
-.line {
-  background-color: #3c3c3c;
-  width: 90vw;
-  opacity: 0.3;
+.userTitle {
+  padding: 1.5em, 1.5em;
+
+  /*position: relative;
+  top: 1rem;*/
 }
+
+/*.line {
+  background-color: #3c3c3c;
+  width: 90%;
+  opacity: 0.3;
+}*/
+
 .badges {
   display: flex;
   flex-wrap: wrap;
@@ -78,10 +85,10 @@
   }
 }
 @media (max-width: 400px) {
-  .profileContainer {
-    width: 100%;
+  /* .profileContainer {
+    
     margin-bottom: 20rem;
-  }
+  } */
   .userImage {
     border-radius: 3rem;
     height: 1rem;
@@ -92,9 +99,9 @@
 }
 @media (max-width: 550px) {
   .profileContainer {
-    width: 100%;
-    margin-top: 25rem;
-    margin-left: 3rem;
+   
+    /* margin-top: 25rem;
+    margin-left: 3rem; */
   }
 
   .username {
@@ -105,10 +112,11 @@
   }
 
   .statistics {
-    width: 100%;
-    display: grid;
-    grid-auto-flow: column;
+   
+    display: flex;
+    flex-direction: column;
     grid-gap: 2rem;
+    padding: 1em 1.5em;
     grid-template-rows: 10rem 10rem;
     grid-template-columns: 12rem 18rem;
     padding: 10px;
@@ -126,20 +134,33 @@
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1000px) {
+  .userDetails {
+    width: 20%;
+  }
+
+  .email {
+    font-size: 1rem;
+  }
+
+  .username {
+    font-size: 1rem;
+  }
+
   .profileContainer {
     width: 100%;
-    margin-top: 20rem;
-    margin-left: 5rem;
+    /* margin-top: 20rem;
+    margin-left: 5rem; */
   }
   .statistics {
-    width: 100%;
-    display: grid;
-    grid-auto-flow: column;
+  
+    display: flex;
+    flex-direction: column;
     grid-gap: 2rem;
     grid-template-rows: 10rem 10rem;
-    grid-template-columns: 20rem 25rem;
-    padding: 1rem;
+    grid-template-columns: 10rem 90rem;
+    padding: 1em 1.5em;
+    margin: 0 auto;
   }
   .badges {
     display: flex;

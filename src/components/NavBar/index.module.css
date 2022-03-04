@@ -4,20 +4,22 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding:1em;
+  padding: 1em;
   border-bottom: solid #3c3c3c4b 2px;
+  width: 100%;
+
 }
 
-.branding{
-    display:flex;
+.branding {
+  display: flex;
 }
 
-.link{
-    font-size: 1.25rem;
+.link {
+  font-size: 1.25rem;
 }
 
-.link:hover{
-  border-bottom:solid black 2px;
+.link:hover {
+  border-bottom: solid black 2px;
 }
 
 .title {
@@ -28,19 +30,16 @@
   margin-left: 1rem;
 }
 
-.dropdownDisplay{
-  display:none;
+.dropdownDisplay {
+  display: none;
 }
 
 @media (max-width: 1100px) {
-
-  .link{
-    display:none;
+  .link {
+    display: none;
   }
 
-  .dropdownDisplay{
-    display:unset;
+  .dropdownDisplay {
+    display: unset;
   }
-
-  
 }

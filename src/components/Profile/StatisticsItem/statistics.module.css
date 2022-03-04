@@ -1,8 +1,9 @@
 .statisticsValue {
   border: 0.1rem solid #3c3c3c;
   color: rgb(99, 81, 81);
-  border-radius: 0.3rem;
+  border-radius: 1.3rem;
   width: 7rem;
+  padding: 1em 1.5em;
   max-width: 30rem;
   height: 2.5rem;
   display: flex;
@@ -15,7 +16,7 @@
 }
 
 .title {
-  font-size: 2rem;
+  font-size: 3vmin;
 }
 
 @media only screen and (min-width: 128px) and (max-width: 515px) {

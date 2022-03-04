@@ -37,13 +37,15 @@ export default function Profile({ auth0User, users }) {
         <NavBar />
         <motion.div className={styles.profileContainer} animate={{ opacity: [0, 1] }}>
           <motion.div className={styles.userDetails} animate={{ x: [-100, 0], opacity: [0, 1] }}>
+          <div className={styles.image}>
             <Image
               className={styles.userImage}
               src={auth0User.picture}
               alt="Jelly"
-              width={200}
-              height={40}
-            />
+              width={80}
+              height={80}
+              layout="fixed"/>
+            </div>
             <div className={styles.userTitle}>
               <h2 className={styles.username}>{userInfo.username}</h2>
               <h3 className={styles.email}>{auth0User.email}</h3>
@@ -81,7 +83,7 @@ export default function Profile({ auth0User, users }) {
             />
             <StatisticsItem
               className={styles.statisticsItem}
-              title="Leaderboard Position"
+              title="Rank"
               value={leaderIndex}
             />
           </motion.div>
