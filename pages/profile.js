@@ -7,6 +7,7 @@ import Image from "next/image";
 import StatisticsItem from "../src/components/Profile/StatisticsItem";
 import styles from "../styles/profile.module.css";
 import BeanButton from "../src/components/BeanButton";
+import { motion } from "framer-motion";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -27,32 +28,42 @@ export default function Profile({ auth0User, users }) {
     arrBadge.push(i);
   }
 
-  if (isLoading) return <Loading>Loading...</Loading>;
+  if (isLoading) return <Loading />;
   if (error) return <div>{error.message}</div>;
 
   return (
     user && (
       <div>
         <NavBar />
-        <div className={styles.profileContainer}>
-          <div className={styles.userDetails}>
+        <motion.div className={styles.profileContainer} animate={{ opacity: [0, 1] }}>
+          <motion.div className={styles.userDetails} animate={{ x: [-100, 0], opacity: [0, 1] }}>
             <Image
               className={styles.userImage}
               src={auth0User.picture}
               alt="Jelly"
-              width={110}
-              height={50}
+              width={200}
+              height={40}
             />
-            <div>
-              <h2>{userInfo.username}</h2>
-              <h3>{auth0User.email}</h3>
+            <div className={styles.userTitle}>
+              <h2 className={styles.username}>{userInfo.username}</h2>
+              <h3 className={styles.email}>{auth0User.email}</h3>
             </div>
-          </div>
+          </motion.div>
 
           <hr className={styles.line} />
 
-          <h2 className={styles.title}>Statistics</h2>
-          <div className={styles.statistics}>
+          <motion.h2
+            className={styles.title}
+            animate={{ y: [100, 0], opacity: [0, 1] }}
+            transition={{ delay: 0.5 }}
+          >
+            Statistics
+          </motion.h2>
+          <motion.div
+            className={styles.statistics}
+            animate={{ y: [100, 0], opacity: [0, 1] }}
+            transition={{ delay: 0.5 }}
+          >
             <StatisticsItem
               className={styles.statisticsItem}
               title="Player Level"
@@ -73,16 +84,26 @@ export default function Profile({ auth0User, users }) {
               title="Leaderboard Position"
               value={leaderIndex}
             />
-          </div>
-          <h2 className={styles.title}>Achievements</h2>
-          <div className={styles.badges}>
+          </motion.div>
+          <motion.h2
+            className={styles.title}
+            animate={{ opacity: [0, 1] }}
+            transition={{ delay: 1 }}
+          >
+            Achievements
+          </motion.h2>
+          <motion.div
+            className={styles.badges}
+            animate={{ opacity: [0, 1] }}
+            transition={{ delay: 1 }}
+          >
             {arrBadge.map((item, index) => {
               return (
                 <BeanButton key={index} color={colorArray[index]} text={`Level ${item + 1} `} />
               );
             })}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     )
   );

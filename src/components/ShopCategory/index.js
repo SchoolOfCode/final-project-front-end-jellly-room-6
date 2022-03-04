@@ -14,8 +14,9 @@ export default function ShopCategory({
     <div className={style.container}>
       <h3 className={style.title}>{categorytitle}</h3>
       <div className={style.items}>
-        {items.map(item => (
+        {items.map((item, index) => (
           <ShopItem
+            index={index}
             setEquippedItem={setEquippedItem}
             equippedItem={equippedItem}
             isEquipped={equippedItem.purchase_name === item.purchase_name}

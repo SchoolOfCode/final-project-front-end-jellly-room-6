@@ -4,27 +4,32 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 4rem;
+  gap: 1em;
+  width: 15vw;
+  max-width: 300px;
+
 }
 
 .image {
+    z-index: -1;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
   border-radius: 20px;
   overflow: hidden;
   padding: 1rem;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  min-width: 100px;
+  width: 100%;
+  
 }
 
-.image img {
-  width: 75%;
-}
-
-.price {
+.beanCostContainer {
   display: flex;
-  margin: 1rem;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  
 }
 
 .price p {
@@ -33,14 +38,42 @@
   font-weight: bold;
 }
 
-.buttons {
-  position: absolute;
-  bottom: 5%;
-  right: 50%;
-  transform: translate(50%);
-}
-
 .equipBtn {
   background: rgb(255, 217, 3);
   color: black;
+}
+
+.buttons{
+  margin: auto;
+
+}
+
+.equipped{
+  margin: 0;
+  padding: 0;
+}
+
+
+@media (max-width: 1100px) {
+
+  .container{
+    
+    width: 100%;
+    flex-direction: row;
+  
+  }
+
+  .beanCostContainer {
+    width: 100%;
+  }
+
+  .buttons{
+    display:flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+
+
+  
 }

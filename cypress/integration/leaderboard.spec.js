@@ -14,6 +14,7 @@ context("Home page", () => {
   });
 
   it("Should find leaderboard page", () => {
+    cy.getCookie("accessToken").should("exist");
     cy.get("h1").contains("Leaderboard");
     // cy.get("div").find("p").contains("jellylord");
   });

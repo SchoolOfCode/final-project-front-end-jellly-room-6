@@ -4,58 +4,145 @@
 }
 
 .title {
+  font-size: 2rem;
   font-family: "Roboto", sans-serif;
   font-weight: 500;
-  background-color: #8816b2;
+  background-color: #7f00ff;
   color: white;
-  margin: 3rem 0;
-  padding: 1.5rem 2rem;
+  padding: 1em 1.5em;
   border-radius: 20px;
-  width: 30vw;
+  width: 50%;
   text-align: center;
 }
 
 .leaderboard {
-  position: relative;
+  width: 35vw;
+  padding: 0;
 }
 
 .user {
+  position: relative;
   display: flex;
+  justify-content: space-evenly;
   align-items: center;
-  width: 25vw;
-  height: 2rem;
-  text-align: left;
-  margin-bottom: 7rem;
+  margin: 4rem 0;
   font-size: 1.5rem;
-  font-weight: 400;
+}
+
+.username {
+  font-size: 1.75rem;
 }
 
 .userPosition {
   position: absolute;
-  left: 1rem;
+  left: 0;
+  padding: 2.5rem;
+  border-radius: 100%;
   font-weight: bold;
+  z-index: -1;
 }
 
-.username {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.userXP {
-  display: grid;
-  place-items: center;
-  position: absolute;
-  right: 1rem;
-  font-weight: 500;
-  background: #ffd900;
-  width: 5vw;
-  padding: 1rem;
-  border-radius: 1000px;
+.user:nth-child(1) .userPosition,
+.user:nth-child(2) .userPosition,
+.user:nth-child(3) .userPosition {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.user:nth-child(1) .userPosition {
+  background: #ffd900;
+  box-shadow: 0 0 0 10px hsl(51, 100%, 40%), inset 0 0 10px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user:nth-child(2) .userPosition {
+  box-shadow: 0 0 0 10px hsl(0, 0%, 75%), inset 0 0 10px 4px rgba(0, 0, 0, 0.1);
+  background: #f0f0f0;
+}
+
+.user:nth-child(3) .userPosition {
+  box-shadow: 0 0 0 10px hsl(30, 61%, 40%), inset 0 0 10px 4px rgba(0, 0, 0, 0.1);
+  background: #cd7f32;
+  color: white;
+}
+
+.userXP {
+  position: absolute;
+  right: 0;
+  width: 20%;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .jellies {
   position: absolute;
-  bottom: 12.5%;
-  right: 12.5%;
+  top: 20%;
+  right: 5%;
+}
+
+.loadButton {
+  background: #ee4266;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  padding: 1em 1em;
+  font-size: 2vmin;
+  margin: 0 auto;
+  width: 20vmin;
+  border: none;
+}
+
+@media (max-width: 1200px) {
+  .jellies {
+    transform: scale(0.75);
+    top: 10%;
+    right: 0;
+  }
+
+  .leaderboard {
+    width: 50vw;
+  }
+}
+
+@media (max-width: 1000px) {
+  .title {
+    width: 60%;
+    font-size: 1.75rem;
+  }
+
+  .leaderboard {
+    width: 75vw;
+  }
+
+  .user {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    padding: 2rem;
+    border-radius: 25px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .userPosition {
+    position: relative;
+    margin: 0;
+    transform: scale(0.75);
+  }
+
+  .userXP {
+    position: relative;
+    margin: 0;
+    width: 100%;
+  }
+
+  .jellies {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .title {
+    font-size: 1rem;
+    border-radius: 10px;
+  }
 }

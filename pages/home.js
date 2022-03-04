@@ -1,17 +1,17 @@
 // Import Header here
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import styles from "../styles/home.module.css";
 import NavBar from "../src/components/NavBar";
-import { useUser, getSession, withPageAuthRequired } from "@auth0/nextjs-auth0";
+import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import Image from "next/image";
 import CategoryContainer from "../src/components/Home/CategoryContainer";
 import HomeStatsDisplay from "../src/components/Home/HomeStatsDisplay";
 import Loading from "../src/components/Loading";
 import getAuth0User from "../src/hooks/getAuth0User";
 import useUserInfo from "../src/hooks/useUserInfo";
-import { getEquippedItem, getEquippedItemImg } from "../src/hooks/helpers";
-import { Carousel } from "react-bootstrap";
 import CategoryScroller from "../src/components/Home/CategoryScroller";
+import { motion } from "framer-motion";
+import { sections } from "../src/data";
 
 //Plan
 //-onClick go to questions (loading page, etc.)
@@ -28,39 +28,11 @@ import CategoryScroller from "../src/components/Home/CategoryScroller";
  - when looping through category buttons, pass down a prop called 'completed' which will be true or false, depending on if found in that state 
  */
 
-const sections = [
-  {
-    id: 1,
-    name: "social",
-    categories: ["Drinking", "Eating Out", "Travel", "Occasions", "Holiday"],
-  },
-  {
-    id: 2,
-    name: "financial",
-    categories: ["Interest Rates", "Currency", "Mortgages", "Charity", "Savings"],
-  },
-  {
-    id: 3,
-    name: "wellbeing",
-    categories: ["Health", "Exercise", "Nutrition", "Mindfulness", "Weight"],
-  },
-  {
-    id: 4,
-    name: "general",
-    categories: ["Further", "Division", "Addition", "Subtraction", "Multiplication"],
-  },
-  {
-    id: 5,
-    name: "home",
-    categories: ["Gardening", "Shopping", "Cooking", "Chores", "DIY"],
-  },
-];
-
 export default function Home({ auth0User }) {
   const { user, error, isLoading } = useUser();
   const userInfo = useUserInfo(auth0User.username);
 
-  const [selectedCategory, setSelectedCategory] = useState("social");
+  const [selectedCategory, setSelectedCategory] = useState("general");
 
   // If userInfo is undefined or isLoading is true, display "Loading..."
   if (isLoading || !userInfo) return <Loading />;
@@ -76,58 +48,70 @@ export default function Home({ auth0User }) {
   //pass in current state to find index
   // call set the state to sections[index+1].name
 
-  function handleNextCategory(e){
-    const index = sections.findIndex((section)=> {
-      return section.name === selectedCategory
-    })
-    const newIndex = index + 1 >sections.length - 1 ? 0 : index + 1
-    setSelectedCategory(sections[newIndex].name)
+  function handleNextCategory(e) {
+    const index = sections.findIndex(section => {
+      return section.name === selectedCategory;
+    });
+    const newIndex = index + 1 > sections.length - 1 ? 0 : index + 1;
+    setSelectedCategory(sections[newIndex].name);
   }
 
-  function handlePreviousCategory(e){
-    const index = sections.findIndex((section)=> {
-      return section.name === selectedCategory
-    })
-    const newIndex = index - 1 <0 ? sections.length - 1: index - 1 
-console.log(newIndex)
-    setSelectedCategory(sections[newIndex].name)
+  function handlePreviousCategory(e) {
+    const index = sections.findIndex(section => {
+      return section.name === selectedCategory;
+    });
+    const newIndex = index - 1 < 0 ? sections.length - 1 : index - 1;
+    console.log(newIndex);
+    setSelectedCategory(sections[newIndex].name);
   }
 
   return (
     user && (
       <div>
-        <NavBar userId={userInfo.user_id} />
+        <NavBar />
 
-        <div className={styles.grid}>
-
+        <motion.div className={styles.grid} animate={{ opacity: [0, 1] }}>
           <div className={styles.gridItemScroller}>
-
-          <CategoryScroller handlePreviousCategory={handlePreviousCategory} handleNextCategory={handleNextCategory} selectedCategory={selectedCategory}/>
+            <CategoryScroller
+              handlePreviousCategory={handlePreviousCategory}
+              handleNextCategory={handleNextCategory}
+              selectedCategory={selectedCategory}
+            />
           </div>
           <div className={styles.gridItemCategory}>
-          <CategoryContainer
-                id={sections[0].id}
-                categories={sections.find(category => category.name === selectedCategory).categories}
-                userId={userInfo.user_id}
-                completedCategories={userInfo.categories}
-                selectedDropdownCategory={selectedCategory}
-                handleSelect={handleSelect}
-          />
+            <CategoryContainer
+              id={sections[0].id}
+              categories={sections.find(category => category.name === selectedCategory).categories}
+              userId={userInfo.user_id}
+              completedCategories={userInfo.categories}
+              selectedDropdownCategory={selectedCategory}
+              handleSelect={handleSelect}
+            />
           </div>
 
-          <div className={styles.gridItemStats}>
-          <HomeStatsDisplay userInfo={userInfo} />
-          </div>
-          <div className={`${styles.gridItemLogo}`}>
-          <Image
+          <motion.div
+            className={styles.gridItemStats}
+            animate={{ opacity: [0, 1], scale: [0, 1] }}
+            transition={{ delay: 0.5 }}
+          >
+            <HomeStatsDisplay userInfo={userInfo} />
+          </motion.div>
+          <motion.div
+            className={`${styles.gridItemLogo}`}
+            animate={{ scale: [0, 1], opacity: [0, 1] }}
+            transition={{ delay: 1 }}
+          >
+            <div>
+              <Image
                 src={userInfo.equipped.src || "/logoJelly.png"}
                 width={250}
                 height={250}
                 alt="avatar"
               />
-           </div>
-          </div>
-        </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      </div>
     )
   );
 }

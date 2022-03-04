@@ -1,7 +1,6 @@
 import Link from "next/link";
 import BeanButton from "../../BeanButton";
-import styles from "./index.module.css";
-
+import { motion } from "framer-motion";
 
 export default function CategoryButton({ category, isCompleted, color, xPos }) {
   return (
@@ -9,17 +8,20 @@ export default function CategoryButton({ category, isCompleted, color, xPos }) {
       href={{
         pathname: "/question",
         query: {
-          category
+          category,
         },
       }}
     >
-      <a>
-
-        <BeanButton color={color} text={category} xPos={xPos} completed={isCompleted ? true : false}>
+      <motion.a animate={{ x: xPos }}>
+        <BeanButton
+          color={color}
+          text={category}
+          xPos={xPos}
+          completed={isCompleted ? true : false}
+        >
           {category}
         </BeanButton>
-
-      </a>
+      </motion.a>
     </Link>
   );
 }

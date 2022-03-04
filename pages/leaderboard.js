@@ -3,6 +3,7 @@ import NavBar from "../src/components/NavBar";
 import styles from "../styles/leaderboard.module.css";
 import Image from "next/image";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -20,24 +21,26 @@ export default function Leaderboard({ users }) {
     user && (
       <div>
         <NavBar />
-        <div className={styles.container}>
+        <motion.div className={styles.container} animate={{ opacity: [0, 1] }}>
           <h1 className={styles.title}>Leaderboard</h1>
           <ol className={styles.leaderboard}>
             {usersList.map((user, index) => (
-              <li className={styles.user} key={user.username}>
+              <motion.li
+                className={styles.user}
+                key={user.username}
+                animate={{ x: [-200, 0], opacity: [0, 1] }}
+                transition={{ delay: 0.25 * index }}
+              >
                 <p className={styles.userPosition}>#{index + 1}</p>
                 <p className={styles.username}>{user.username}</p>
-                <p className={styles.userXP}>{user.xp}</p>
-              </li>
+                <p className={styles.userXP}>{user.xp} XP</p>
+              </motion.li>
             ))}
           </ol>
-          <button className="btn load-more" onClick={() => setLimit(limit + 5)}>
-            Load More
-          </button>
-          <div className={styles.jellies}>
+          <motion.div className={styles.jellies} animate={{ scale: [0, 1], opacity: [0, 1] }}>
             <Image alt="icon-jelly" src="/threeJellies.png" width={300} height={300} />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     )
   );
