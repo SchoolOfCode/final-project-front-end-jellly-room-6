@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Chewy&display=swap");
-
 .container {
   display: flex;
   flex-direction: row;
@@ -17,6 +16,10 @@
     font-size: 1.25rem;
 }
 
+.link:hover{
+  border-bottom:solid black 2px;
+}
+
 .title {
   font-family: "Chewy", cursive;
   font-size: 3rem;
@@ -25,3 +28,19 @@
   margin-left: 1rem;
 }
 
+.dropdownDisplay{
+  display:none;
+}
+
+@media (max-width: 1100px) {
+
+  .link{
+    display:none;
+  }
+
+  .dropdownDisplay{
+    display:unset;
+  }
+
+  
+}

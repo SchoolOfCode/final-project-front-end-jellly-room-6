@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
-import getUserLevel from "./getUserLevel.js"
+import getUserLevel from "./getUserLevel.js";
+import { getPurchasesByUser } from "./helpers.js";
+import { items } from "../data.js";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
-export default function useUserInfo(authenticatedUser){
-    
+export default function useUserInfo(authenticatedUser) {
+  const [userInfo, setUserInfo] = useState("");
 
-    const [userInfo, setUserInfo] = useState("");
-
-// UseEffect to get user info will run any time the authenticatedUser variable changes in value
-useEffect(() => {
+  // UseEffect to get user info will run any time the authenticatedUser variable changes in value
+  useEffect(() => {
     async function createNewUser(username) {
       // POST /users
       // Adds a new user to our database, using the username fetched from Auth0 (see get serverside props below for the Auth0 fetch)
@@ -35,8 +35,8 @@ useEffect(() => {
     }
 
     async function fetchUser() {
-    // If no authenticated user/authenticated user is Null, do not run the rest of funtion
-    if(!authenticatedUser) return;
+      // If no authenticated user/authenticated user is Null, do not run the rest of funtion
+      if (!authenticatedUser) return;
       // Get user info from our database (including XP/Beans etc)
       const res = await fetch(`${API_URL}/users/${authenticatedUser}`);
       const data = await res.json();
@@ -50,20 +50,23 @@ useEffect(() => {
       // Get categories for the user by id
       let categories = await getCategories(user.user_id);
       // Mapping over the array of category objects, and replacing each object with just the string of the category name
-      categories = categories.map((category) => category.category_name);
+      categories = categories.map(category => category.category_name);
 
       const playerLevel = getUserLevel(user.xp);
 
-      //console.log("Found user:", { ...data.payload[0], categories, playerLevel });
+      let purchases = await getPurchasesByUser(user.user_id);
+      if (!purchases) purchases = [];
+
+      const equipped = purchases.find(item => item.active);
+
+      if (equipped) equipped.src = items.find(i => i.purchase_name === equipped.purchase_name).src;
+
       // Set userInfo state to user object with categories included
-      setUserInfo({ ...user, categories, playerLevel });
+      setUserInfo({ ...user, categories, playerLevel, purchases, equipped: equipped || "" });
     }
 
     fetchUser();
   }, [authenticatedUser]);
 
-
-
-    return userInfo
+  return userInfo;
 }
-

@@ -1,34 +1,76 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# JELLLY App
 
-## Getting Started
+### Mobile friendly app created using NextJS and Postgres. Earn rewards and learn Maths for the real world as you progress.
 
-First, run the development server:
+## Contents:
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+- [Users](#users)
+- [Questions](#questions)
+- [Profile](#profile)
+- [Shop](#shop)
+- [API](#api)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Users
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- User login details and personal info are protected with <b>Auth0</b> on a separate database. 
+- A separate users table is allocated on heroku for storing <b>JELLLY</b> app specific data, such as XP, Level, and beans.
+- <b>JELLLY</b> related info is retrieved after a user is logged in and authenticated based on the username they signed up to <b>Auth0</b> with. 
+- <b>JELLLY</b> related User information, including completed categories, are returned as an object from the `useUserInfo` hook by passing in the authenticated user.
+- See [here](./src/hooks/readme.md) for more info and usage.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### src/hooks
+<hr/>
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+`getUserLevel(xp)` - Calculates a user's level based on their current xp value.
 
-## Learn More
+# Questions
 
-To learn more about Next.js, take a look at the following resources:
+- 5 Categories separated into 25 sub-categories.
+- Questions are fetched via a query on selecting a category in `pages/question.js`.
+- Completing a category 'unlocks' it; rewards the user and sends the completed category to `/categories/:userId`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### pages/question.js
+<hr/>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+`const questionCount` - The number of questions to give the user. Returns a shuffled array of questions.
 
-## Deploy on Vercel
+### src/components/Results
+<hr/>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+`function hasCompletedCategory(categoryToCheck)` - Ensures the user isn't rewarded if this category exists in the User info object.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+`async function rewardUser(XP, beans)` - Gives the user the specified amount of XP and beans.
+
+
+# Profile
+
+- Renders details from Auth0User information such as email and avatar.
+- Displays the user's achievements and stats.
+
+# Shop
+
+- WIP..
+
+# API
+### /users
+- GET `/users` - Returns all users
+- GET `/users/:username` - Retrieves a single User by username. The username must match the entry the user signed up with when registering to Auth0.
+- POST `/users` - Creates a new `JELLLY` user. Requires a `username` sent in the body of the request. Returns the new user.
+- PUT `/users/:user_id` - Used to reward a user with XP and beans. Replaces the user with the specified ID. Requires an `XP` amount and a `beans` amount send in the body of the request. Returns the updated user.
+- DELETE `/users/:user_id` - Deletes a user with the specified ID. Returns the deleted user.
+
+<br/>
+
+### /categories
+- GET `/categories/:user_id` - Returns a list of categories completed by this user.
+- POST `/categories/:user_id` - Adds a category to this user's list of completed categories. Returns the added category.
+- DELETE `/categories/:user_id/:category` - Removes the specified category from the user's list of completed categories. Returns the deleted category.
+
+<br/>
+
+### /questions
+- GET `/questions/:category` - Returns a list of questions from the specified category.
+
+<br/>
+
+## [Back to top](#)

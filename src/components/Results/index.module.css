@@ -1,0 +1,106 @@
+.frame {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ca38ff20;
+  padding: 10rem;
+  border-radius: 10px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image {
+  width: 25%;
+  position: absolute;
+  top: 5%;
+  right: 5%;
+}
+
+.title {
+  font-family: "Chewy", cursive;
+  font-size: 3rem;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.stats div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stats p {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.stats h3 {
+  background: white;
+  margin: 0;
+  padding: 1rem;
+  width: 60px;
+  border-radius: 10px;
+}
+
+.correct {
+  color: green;
+}
+
+.incorrect {
+  color: red;
+}
+
+.circle {
+  width: 40%;
+  margin: 2rem;
+}
+
+.meterContainer {
+  position: absolute;
+  left: 5vw;
+  top: 5vh;
+  height: 85vh;
+}
+
+.meterBackground {
+  position: relative;
+  transform: rotateZ(180deg);
+  height: 100%;
+  width: 50px;
+  background-color: #fff;
+  border: solid black 2px;
+  margin-bottom: 0.25em;
+  border-radius: 5px;
+}
+
+.meterContainer {
+  position: absolute;
+  left: 5vw;
+  top: 5vh;
+  height: 85vh;
+}
+
+.meterBackground {
+  position: relative;
+  transform: rotateZ(180deg);
+  height: 100%;
+  width: 50px;
+  background-color: #fff;
+  border: solid black 2px;
+  margin-bottom: 0.25em;
+  border-radius: 5px;
+}
+
+.meterTitle {
+  font-size: 2rem;
+  margin: 0;
+  padding: 0.75rem 0;
+}

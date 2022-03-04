@@ -9,20 +9,115 @@
 .questionContainer {
   display: grid;
   place-items: center;
+  width: 50vw;
 }
 
 .questionText {
-  width: 50%;
+  width: 100%;
+  text-align: center;
   word-wrap: break-word;
+  font-size: 2rem;
+  padding: 2em;
+  border-radius: 25px;
 }
 
 .answers {
   display: grid;
   place-items: center;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  gap: 4rem;
 }
 
 .btn {
-  padding: 1.5rem 4rem;
+  width: 100%;
+  background: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid black;
+  border-radius: 16px;
+  color: black;
+  padding: 1.5em 4em;
+  font-size: 2rem;
+  transition: all 250ms ease-in-out;
+}
+
+.btn:hover {
+  background-color: #9136b3;
+  color: #fff;
+}
+
+.questionCount {
+  font-size: 1.5rem;
+}
+
+/* Bean-O-Meter */
+
+.meterContainer {
+  position: absolute;
+  left: 5vw;
+  top: 5vh;
+  height: 85vh;
+}
+
+.meterBackground {
+  transform: rotateZ(180deg);
+  height: 95%;
+  width: 100px;
+  background-color: #fff;
+  border: 2px solid black;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 0.25em;
+  border-radius: 5px;
+}
+
+.meterTitle {
+  font-size: 3rem;
+  margin: 0;
+  padding: 0.75rem 0;
+}
+
+.exitButton {
+  position: absolute;
+  margin: 0;
+  top: 0;
+  right: 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 3rem;
+  font-weight: 400;
+  opacity: 0.5;
+  transition: all 250ms ease-in-out;
+}
+
+.exitButton:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+@media (max-width: 1200px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .questionText {
+    width: 100%;
+  }
+
+  .meterContainer {
+    display: none;
+  }
+
+  /* 
+  .meterTitle {
+    display: none;
+  }
+
+  .meterContainer {
+    transform: rotate(90deg);
+    left: 50%;
+    top: 45vh;
+    width: 0;
+  }
+
+  .meterBackground {
+    width: 75px;
+  } */
 }

@@ -1,20 +1,48 @@
 import styles from '../../../../styles/home.module.css'
-
+import {getUserRemainingXpPercentage, getUserXpNextLevelRequired, getUserXpEarnedThisLevel} from '../../../hooks/getUserLevel';
+import Image from 'next/image';
 
 export default function HomeStatsDisplay({userInfo}){
+    const levelProgress = (getUserRemainingXpPercentage(userInfo.xp, userInfo.playerLevel))
+
+    const levelBarStyle={
+        width: `${levelProgress*100}%`,
+        height: "30px",
+        backgroundColor: "#7EC65C",
+        borderRadius: "5px"
+        }
     
-    return  <div className={`${styles.gridItem} ${styles.gridItemStats} `}>
-    <div className={`${styles.statsContainer}`}>
-    <div className={`${styles.statsDisplay}`}>
-          <h2>{userInfo.username}</h2>
+    return  <div className={`${styles.statsDisplay}`}>
+    <div className={styles.statsTitle}>
+
+              <div className={`${styles.gridItemLogoMobile}`}>
+          <Image
+                src={userInfo.equipped.src || "/logoJelly.png"}
+                width={200}
+                height={200}
+                alt="avatar"
+              />
+           </div>
+          <h1>{userInfo.username}</h1>
+
+    </div>
           <h2>Beans: {userInfo.beans}</h2>
-          <p>Level 1</p>
-          <p>LEVEL PROGRESS BAR</p>
-          <p>{userInfo.xp} XP</p>
+          <p>Level {userInfo.playerLevel}</p>
+          
+          <div className={styles.levelBarContainer}>
 
-    </div>
+          <div className={styles.levelBarStyleBackground}>
+                    <div style={levelBarStyle}>
+                    </div>
+            </div>
+            <div className={styles.levelBarNextLevel}><p>{userInfo.playerLevel + 1}</p></div>
+
+          </div>
+
+          <p>{getUserXpEarnedThisLevel(userInfo.xp, userInfo.playerLevel)}/{getUserXpNextLevelRequired(userInfo.playerLevel)} XP</p>
     
     </div>
 
-    </div>
 }
+
+

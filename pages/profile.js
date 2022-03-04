@@ -5,7 +5,6 @@ import NavBar from "../src/components/NavBar";
 import Loading from "../src/components/Loading";
 import Image from "next/image";
 import StatisticsItem from "../src/components/Profile/StatisticsItem";
-import Badge from "../src/components/Profile/Badge";
 import styles from "../styles/profile.module.css";
 import BeanButton from "../src/components/BeanButton";
 
@@ -28,7 +27,7 @@ export default function Profile({ auth0User, users }) {
     arrBadge.push(i);
   }
 
-  if (isLoading) return <Loading>Loading...</Loading>;
+  if (isLoading) return <Loading />;
   if (error) return <div>{error.message}</div>;
 
   return (
@@ -41,12 +40,12 @@ export default function Profile({ auth0User, users }) {
               className={styles.userImage}
               src={auth0User.picture}
               alt="Jelly"
-              width={110}
-              height={50}
+              width={200}
+              height={40}
             />
-            <div>
-              <h2>{userInfo.username}</h2>
-              <h3>{auth0User.email}</h3>
+            <div className={styles.userTitle}>
+              <h2 className={styles.username}>{userInfo.username}</h2>
+              <h3 className={styles.email}>{auth0User.email}</h3>
             </div>
           </div>
 
@@ -55,22 +54,22 @@ export default function Profile({ auth0User, users }) {
           <h2 className={styles.title}>Statistics</h2>
           <div className={styles.statistics}>
             <StatisticsItem
-              className={styles.StatisticsItem}
+              className={styles.statisticsItem}
               title="Player Level"
               value={userInfo.playerLevel}
             />
             <StatisticsItem
-              className={styles.StatisticsItem}
+              className={styles.statisticsItem}
               title="Total XP"
               value={userInfo.xp}
             />
             <StatisticsItem
-              className={styles.StatisticsItem}
+              className={styles.statisticsItem}
               title="Total Beans"
               value={userInfo.beans}
             />
             <StatisticsItem
-              className={styles.StatisticsItem}
+              className={styles.statisticsItem}
               title="Leaderboard Position"
               value={leaderIndex}
             />
