@@ -2,11 +2,13 @@ import Button from "react-bootstrap/Button";
 import style from "./ShopItem.module.css";
 import { useEffect, useState } from "react";
 import { getUserBeans } from "../../hooks/helpers";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export default function ShopItem({
+  index,
   item,
   equippedItem,
   setEquippedItem,
@@ -80,7 +82,11 @@ export default function ShopItem({
   }
 
   return (
-    <div className={style.container}>
+    <motion.div
+      className={style.container}
+      animate={{ y: [100, 0], opacity: [0, 1] }}
+      transition={{ delay: 0.25 * index }}
+    >
       <div className={style.image}>
         <Image src={src} alt={alt} width={100} height={100} />
       </div>
@@ -101,6 +107,6 @@ export default function ShopItem({
         )}
         {purchased && isEquipped && <p className={style.equipped}>Equipped</p>}
       </div>
-    </div>
+    </motion.div>
   );
 }
