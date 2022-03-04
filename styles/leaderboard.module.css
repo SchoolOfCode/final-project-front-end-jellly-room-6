@@ -39,6 +39,7 @@
   padding: 2.5rem;
   border-radius: 100%;
   font-weight: bold;
+  z-index: -1;
 }
 
 .user:nth-child(1) .userPosition,
