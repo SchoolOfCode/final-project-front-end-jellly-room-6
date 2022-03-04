@@ -39,8 +39,13 @@ export default function Question({ questions, category, auth0User }) {
 
   function calculateScore() {
     // More than 50% correct at end of quiz, setWin to true
-    if (score >= questions.length * 0.5) setWin(true);
-    else setWin(false);
+    if (score >= questions.length * 0.5) {
+      setWin(true);
+      playSound("win", 500);
+    } else {
+      setWin(false);
+      playSound("lose", 750);
+    }
     setComplete(true);
   }
 
@@ -126,6 +131,8 @@ export default function Question({ questions, category, auth0User }) {
         </div>
         <audio id="correct-answer" src="/audio/correct_answer.wav" />
         <audio id="incorrect-answer" src="/audio/incorrect_answer.wav" />
+        <audio id="win" src="/audio/win.wav" />
+        <audio id="lose" src="/audio/lose.wav" />
       </div>
     )
   );

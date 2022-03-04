@@ -17,10 +17,12 @@ export async function getUserBeans(username) {
   return data.payload[0].beans;
 }
 
-export function playSound(sound) {
+export function playSound(sound, delay) {
   const audio = document.querySelector(`#${sound}`);
   if (audio) {
     audio.currentTime = 0;
-    audio.play();
+    setTimeout(() => {
+      audio.play();
+    }, delay);
   }
 }
