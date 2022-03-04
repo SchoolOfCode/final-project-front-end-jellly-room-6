@@ -9,6 +9,7 @@ import ShopCategory from "../src/components/ShopCategory";
 import Loading from "../src/components/Loading";
 import InformationCard from "../src/components/InformationCard";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 import style from "../styles/shop.module.css";
 
@@ -47,8 +48,10 @@ export default function Shop({ auth0User }) {
     user && (
       <>
         <NavBar />
-        <h1 className={style.title}>The Jellly Shop</h1>
-        <div className={style.container}>
+        <motion.h1 className={style.title} animate={{ y: [20, 0], opacity: [0, 1] }}>
+          The Jellly Shop
+        </motion.h1>
+        <motion.div className={style.container} animate={{ opacity: [0, 1] }}>
           <ShopCategory
             equippedItem={equippedItem}
             setEquippedItem={setEquippedItem}
@@ -58,18 +61,26 @@ export default function Shop({ auth0User }) {
             updateBeans={updateBeans}
             purchases={userInfo.purchases}
           />
-          <div className={style.panel}>
+          <motion.div
+            className={style.panel}
+            animate={{ x: [20, 0], opacity: [0, 1] }}
+            transition={{ delay: 1 }}
+          >
             <InformationCard username={userInfo.username} beans={beans} />
-            <div className={style.avatar}>
+            <motion.div
+              className={style.avatar}
+              animate={{ scale: [0, 1], opacity: [0, 1] }}
+              transition={{ delay: 1.25 }}
+            >
               <Image
                 src={getEquippedItemImg(equippedItem) || "/logoJelly.png"}
                 alt=""
                 width={200}
                 height={200}
               />
-            </div>
-          </div>
-        </div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
       </>
     )
   );

@@ -1,11 +1,14 @@
 import Button from "react-bootstrap/Button";
 import style from "./ShopItem.module.css";
 import { useEffect, useState } from "react";
-import { getUserBeans } from "../../hooks/helpers";
+import { getUserBeans, playSound } from "../../hooks/helpers";
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export default function ShopItem({
+  index,
   item,
   equippedItem,
   setEquippedItem,
@@ -71,22 +74,30 @@ export default function ShopItem({
     addPurchase(item.purchase_name);
     updateBeans(price);
     setPurchased(true);
+    playSound("purchase");
   }
 
   function handleEquip() {
     setEquippedItem(item);
     equipItem(item.purchase_name);
+    playSound("pop");
   }
 
   return (
-    <div className={style.container}>
+    <motion.div
+      className={style.container}
+      animate={{ y: [100, 0], opacity: [0, 1] }}
+      transition={{ delay: 0.25 * index }}
+    >
       <div className={style.image}>
-        <img src={src} alt={alt} />
+        <Image src={src} alt={alt} width={100} height={100} />
       </div>
 
-      <div className={style.price}>
+      <div className={style.beanCostContainer}>
         <p> {price}</p>
-        <img src="/beansCoins.png" alt="beans-coins" />
+        <div className={style.beanCostImage}>
+          <Image src="/beansCoins.png" alt="beans-coins" width={40} height={25} />
+        </div>
       </div>
 
       <div className={style.buttons}>
@@ -96,8 +107,10 @@ export default function ShopItem({
             Equip
           </Button>
         )}
-        {purchased && isEquipped && <p>Equipped</p>}
+        {purchased && isEquipped && <p className={style.equipped}>Equipped</p>}
       </div>
-    </div>
+      <audio id="pop" src="/audio/pop.wav" />
+      <audio id="purchase" src="/audio/purchase.wav" />
+    </motion.div>
   );
 }

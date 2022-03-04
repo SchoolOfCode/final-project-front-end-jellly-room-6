@@ -4,6 +4,7 @@ import styles from "../styles/index.module.css";
 import { useUser } from "@auth0/nextjs-auth0";
 import Link from "next/link";
 import Loading from "../src/components/Loading";
+import { motion } from "framer-motion";
 
 export default function LandingPage() {
   const { user, error, isLoading } = useUser();
@@ -16,18 +17,22 @@ export default function LandingPage() {
   }
 
   return (
-    <div className={styles.container}>
-      <header className={styles.header}>
+    <motion.div className={styles.container} animate={{ opacity: [0, 1] }}>
+      <motion.header
+        className={styles.header}
+        animate={{ opacity: [0, 1] }}
+        transition={{ delay: 2, duration: 2 }}
+      >
         <Link href="/api/auth/login">
           <a>
             <Button className="btn login">Login</Button>
           </a>
         </Link>
-      </header>
+      </motion.header>
 
       <main className={styles.main}>
-        <div className={styles.titleContainer}>
-          <div className={styles.titleLogo}>
+        <motion.div className={styles.titleContainer} animate={{ opacity: [0, 1] }}>
+          <motion.div className={styles.titleLogo} animate={{ y: [-50, 0], opacity: [0, 1] }}>
             <Image
               className={styles.jellyBean}
               src="/logoJelly.png"
@@ -36,27 +41,35 @@ export default function LandingPage() {
               height="100"
             />
             <h1 className={styles.title}>JELLLY</h1>
-          </div>
-          <h2 className={styles.text}>
+          </motion.div>
+          <motion.h2
+            className={styles.text}
+            animate={{ x: [-50, 0], opacity: [0, 1] }}
+            transition={{ delay: 0.5 }}
+          >
             The fun, free way to learn maths and improve financial literacy.
-          </h2>
-        </div>
+          </motion.h2>
+        </motion.div>
 
         <Link href="/api/auth/login">
-          <a>
+          <motion.a animate={{ opacity: [0, 1] }} transition={{ duration: 2, delay: 1 }}>
             <button className="btn large" id={styles.getStarted}>
               Get Started
             </button>
-          </a>
+          </motion.a>
         </Link>
 
-        <div className={styles.jellies}>
+        <motion.div
+          className={styles.jellies}
+          animate={{ scale: [0, 1] }}
+          transition={{ duration: 1, delay: 1.5 }}
+        >
           <Image src="/threeJellies.png" alt="me" width="200" height="200" />
-        </div>
+        </motion.div>
       </main>
       <div className={styles.lineContainer}>
         <hr className={styles.line} />
       </div>
-    </div>
+    </motion.div>
   );
 }

@@ -2,16 +2,20 @@
 //in the home page
 //selected category state
 
-import React from 'react'
-import styles from "./index.module.css"
+import React from "react";
+import styles from "./index.module.css";
+import { motion } from "framer-motion";
 
-export default function CategoryScroller({handlePreviousCategory, handleNextCategory, selectedCategory }) {
+export default function CategoryScroller({
+  handlePreviousCategory,
+  handleNextCategory,
+  selectedCategory,
+}) {
   return (
-    <div className={styles.scroller}>
-        <p onClick={handlePreviousCategory}>{"<"}</p>
-        <h2>{selectedCategory}</h2>
-        <p onClick={handleNextCategory}>{">"}</p>
-    </div>
-  )
+    <motion.div className={styles.scroller} animate={{ opacity: [0, 1] }}>
+      <p onClick={handlePreviousCategory}>{"<"}</p>
+      <motion.h2 animate={{ x: [-50, 0] }}>{selectedCategory}</motion.h2>
+      <p onClick={handleNextCategory}>{">"}</p>
+    </motion.div>
+  );
 }
-

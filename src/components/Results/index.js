@@ -68,11 +68,11 @@ export default function Results({ numQuestions, user, score, category, hasWon })
 
               <div>
                 <p>XP earned</p>
-                <h3>{score * 10}</h3>
+                {hasCompletedCategory(category) ? <h3>0</h3> : <h3>{score * 10}</h3>}
               </div>
               <div>
                 <p>Beans collected</p>
-                <h3>20</h3>
+                {hasCompletedCategory(category) ? <h3>0</h3> : <h3>20</h3>}
               </div>
             </div>
             <div className={styles.circle}>
@@ -119,7 +119,7 @@ export default function Results({ numQuestions, user, score, category, hasWon })
                 <Button onClick={() => Router.reload(window.location.pathname)}>Retry?</Button>
               </a>
               <Link href="/home">
-                <a className="btn">
+                <a>
                   <Button>Home</Button>
                 </a>
               </Link>

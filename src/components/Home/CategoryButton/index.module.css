@@ -1,19 +1,11 @@
 .button {
-
-        background-color: #7f00ff;
-        color: white;
-        border: none;
-        border-radius: 10px;
-        padding: 1em 2.75em;
-        font-weight: 600;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: transform 250ms ease-in-out, box-shadow 250ms ease-in-out;
-
-}
-
-.completed {
-    background-color: greenyellow;
-    color:black;
-    border:solid black 1px;
+  background-color: #7f00ff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 1em 2.75em;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 250ms ease-in-out, box-shadow 250ms ease-in-out;
 }
