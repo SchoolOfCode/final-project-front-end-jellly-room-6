@@ -4,8 +4,13 @@
   justify-content: center;
   align-items: center;
   background-color: #ca38ff20;
-  padding: 10rem;
   border-radius: 10px;
+  width: 60%;
+  margin: 0 0 0 6rem;
+  padding: 1rem;
+  max-width: 1200px;
+  box-shadow: 0 3px 10px 5px rgba(0, 0, 0, 0.2);
+
 }
 
 .content {
@@ -15,10 +20,10 @@
 }
 
 .image {
-  width: 25%;
+  width: 20%;
   position: absolute;
-  top: 5%;
-  right: 5%;
+  top: 1em;
+  right: 1em;
 }
 
 .title {
@@ -63,44 +68,30 @@
   margin: 2rem;
 }
 
-.meterContainer {
-  position: absolute;
-  left: 5vw;
-  top: 5vh;
-  height: 85vh;
+.buttons button {
+    padding: 1em 2em;
+    margin: 1em;
+    font-size: 1rem;
 }
 
-.meterBackground {
-  position: relative;
-  transform: rotateZ(180deg);
-  height: 100%;
-  width: 50px;
-  background-color: #fff;
-  border: solid black 2px;
-  margin-bottom: 0.25em;
-  border-radius: 5px;
-}
+@media (max-width: 1100px) {
 
-.meterContainer {
-  position: absolute;
-  left: 5vw;
-  top: 5vh;
-  height: 85vh;
-}
+  .frame{
+    margin: 0;
+    margin-bottom: 4rem;
+    width: 90%;
 
-.meterBackground {
-  position: relative;
-  transform: rotateZ(180deg);
-  height: 100%;
-  width: 50px;
-  background-color: #fff;
-  border: solid black 2px;
-  margin-bottom: 0.25em;
-  border-radius: 5px;
-}
+  }
 
-.meterTitle {
-  font-size: 2rem;
-  margin: 0;
-  padding: 0.75rem 0;
+  .content{
+    height: 100%;
+
+  }
+
+  .buttons button{
+    margin: 0.5em 0;
+  }
+
+
+
 }
