@@ -48,6 +48,17 @@
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
+.user:nth-child(1) .userPosition::after,
+.user:nth-child(2) .userPosition::after,
+.user:nth-child(3) .userPosition::after {
+  content: "\2726";
+  position: absolute;
+  color: white;
+  top: -5%;
+  right: 10%;
+  font-size: 2rem;
+}
+
 .user:nth-child(1) .userPosition {
   background: #ffd900;
   box-shadow: 0 0 0 10px hsl(51, 100%, 40%), inset 0 0 10px 4px rgba(0, 0, 0, 0.1);
