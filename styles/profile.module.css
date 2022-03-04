@@ -31,9 +31,9 @@
 
 .userDetails {
   display: flex;
-  gap: 3em;
-  margin: 0;
-  padding: 5em 1.5em;
+  /* gap: 3em; */
+  margin-left: 1em;
+  padding: 3em 1.5em;
 }
 .image {
   margin: 0 1em;
