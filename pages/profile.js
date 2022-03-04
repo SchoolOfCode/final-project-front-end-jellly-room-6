@@ -36,13 +36,15 @@ export default function Profile({ auth0User, users }) {
         <NavBar />
         <div className={styles.profileContainer}>
           <div className={styles.userDetails}>
+          <div className={styles.image}>
             <Image
               className={styles.userImage}
               src={auth0User.picture}
               alt="Jelly"
               width={200}
-              height={40}
-            />
+              height={200}
+          layout="fixed"
+            /></div>
             <div className={styles.userTitle}>
               <h2 className={styles.username}>{userInfo.username}</h2>
               <h3 className={styles.email}>{auth0User.email}</h3>
@@ -70,7 +72,7 @@ export default function Profile({ auth0User, users }) {
             />
             <StatisticsItem
               className={styles.statisticsItem}
-              title="Leaderboard Position"
+              title="Rank"
               value={leaderIndex}
             />
           </div>

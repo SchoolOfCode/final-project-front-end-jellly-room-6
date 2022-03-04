@@ -7,7 +7,7 @@
   padding: 1em;
   border-bottom: solid #3c3c3c4b 2px;
   width: 100%;
-  margin: 0 auto;
+
 }
 
 .branding {
@@ -34,7 +34,7 @@
   display: none;
 }
 
-/* @media (max-width: 1100px) {
+@media (max-width: 1100px) {
   .link {
     display: none;
   }
@@ -42,4 +42,4 @@
   .dropdownDisplay {
     display: unset;
   }
-} */
+}
