@@ -49,11 +49,12 @@
   top: -2rem;
 }
 
-.line {
+/*.line {
   background-color: #3c3c3c;
-  width: 90vw;
+  width: 90%;
   opacity: 0.3;
-}
+}*/
+
 .badges {
   display: flex;
   flex-wrap: wrap;
