@@ -41,8 +41,8 @@ export default function Profile({ auth0User, users }) {
               className={styles.userImage}
               src={auth0User.picture}
               alt="Jelly"
-              width={200}
-              height={200}
+              width={80}
+              height={80}
           layout="fixed"
             /></div>
             <div className={styles.userTitle}>

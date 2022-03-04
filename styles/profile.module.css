@@ -2,8 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 10em;
-  margin-left: 10em;
+  
   /* height: 30rem; */
   width: 80rem;
 }
@@ -14,7 +13,7 @@
   margin-bottom: 2rem;
   margin-right: 2rem;
   flex-wrap: wrap;
-  font-size: 3vmin;
+  font-size: 2vmin;
 }
 
 .badges {
@@ -27,15 +26,14 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  font-size: 4.5vmin;
+  font-size: 3vmin;
 }
 
 .userDetails {
   display: flex;
-  gap: 2em;
-  margin: 0 auto;
-    padding: 5em 11em;
-  border: solid black;
+  gap: 5em;
+  margin: 0;
+    padding: 1em 1.5em;
 }
 .image{
  
@@ -46,10 +44,10 @@
   border-radius: 30rem;
 }
 .username {
-  font-size: 3rem;
+  font-size: 3vmin;
 }
 .email {
-  font-size: 2rem;
+  font-size: 2vmin;
 }
 
 .userTitle {
@@ -87,10 +85,10 @@
   }
 }
 @media (max-width: 400px) {
-  .profileContainer {
+  /* .profileContainer {
     width: 100%;
     margin-bottom: 20rem;
-  }
+  } */
   .userImage {
     border-radius: 3rem;
     height: 1rem;
@@ -102,8 +100,8 @@
 @media (max-width: 550px) {
   .profileContainer {
     width: 100%;
-    margin-top: 25rem;
-    margin-left: 3rem;
+    /* margin-top: 25rem;
+    margin-left: 3rem; */
   }
 
   .username {
@@ -138,8 +136,8 @@
 @media (max-width: 1400px) {
   .profileContainer {
     width: 100%;
-    margin-top: 20rem;
-    margin-left: 5rem;
+    /* margin-top: 20rem;
+    margin-left: 5rem; */
   }
   .statistics {
     width: 100%;
@@ -147,7 +145,7 @@
     grid-auto-flow: column;
     grid-gap: 2rem;
     grid-template-rows: 10rem 10rem;
-    grid-template-columns: 20rem 92vmin;
+    grid-template-columns: 10rem 90rem;
     padding: 1rem;
   }
   .badges {
