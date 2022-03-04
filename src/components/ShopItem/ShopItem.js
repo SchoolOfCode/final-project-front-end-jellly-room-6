@@ -96,7 +96,7 @@ export default function ShopItem({
       <div className={style.beanCostContainer}>
         <p> {price}</p>
         <div className={style.beanCostImage}>
-          <Image src="/beansCoins.png" alt="beans-coins"   width={40} height={25}/>
+          <Image src="/beansCoins.png" alt="beans-coins" width={40} height={25} />
         </div>
       </div>
 
@@ -111,7 +111,6 @@ export default function ShopItem({
       </div>
       <audio id="pop" src="/audio/pop.wav" />
       <audio id="purchase" src="/audio/purchase.wav" />
-    </div>
     </motion.div>
   );
 }
