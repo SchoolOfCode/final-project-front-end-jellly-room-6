@@ -16,3 +16,11 @@ export async function getUserBeans(username) {
   const data = await res.json();
   return data.payload[0].beans;
 }
+
+export function playSound(sound) {
+  const audio = document.querySelector(`#${sound}`);
+  if (audio) {
+    audio.currentTime = 0;
+    audio.play();
+  }
+}

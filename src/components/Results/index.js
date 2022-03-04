@@ -10,13 +10,7 @@ import "react-circular-progressbar/dist/styles.css";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
-export default function Results({
-  numQuestions,
-  user,
-  score,
-  category,
-  hasWon,
-}) {
+export default function Results({ numQuestions, user, score, category, hasWon }) {
   console.log(user);
   function hasCompletedCategory(categoryToCheck) {
     return user.categories.includes(categoryToCheck);
@@ -49,7 +43,7 @@ export default function Results({
   return (
     <div className={styles.frame}>
       {hasWon && (
-        <motion.div animate={{ x: [-5000, 0] }}>
+        <motion.div animate={{ opacity: [0, 1] }}>
           <div className={styles.image}>
             <Image
               src="/threeJellies.png"
@@ -60,13 +54,27 @@ export default function Results({
             />
           </div>
           <div className={styles.content}>
-            <h2>Results</h2>
-            <h3 className={styles.resultsText}>Correct answers: {score}</h3>
-            <h3 className={styles.resultsText}>
-              Incorrect answers: {numQuestions - score}
-            </h3>
-            <h3 className={styles.resultsText}>XP earned: {score * 10}</h3>
-            <h3 className={styles.resultsText}>Beans collected: 20</h3>
+            <h2 className={styles.title}>Results</h2>
+            <div className={styles.stats}>
+              <div>
+                <p>Correct</p>
+                <h3 className={styles.correct}>{score}</h3>
+              </div>
+
+              <div>
+                <p>Incorrect</p>
+                <h3 className={styles.incorrect}>{numQuestions - score}</h3>
+              </div>
+
+              <div>
+                <p>XP earned</p>
+                <h3>{score * 10}</h3>
+              </div>
+              <div>
+                <p>Beans collected</p>
+                <h3>20</h3>
+              </div>
+            </div>
             <div className={styles.circle}>
               <CircularProgressbar
                 styles={{ borderRadius: "5rem" }}
@@ -74,9 +82,9 @@ export default function Results({
                 text={`${(score * 100) / numQuestions}%`}
               />
             </div>
-            <h2>You passed it!</h2>
+            <h2>You passed!</h2>
             <Link href="/home">
-              <a>
+              <a className="btn">
                 <Button>Continue</Button>
               </a>
             </Link>
@@ -84,7 +92,7 @@ export default function Results({
         </motion.div>
       )}
       {!hasWon && (
-        <motion.div animate={{ x: [-5000, 0] }}>
+        <motion.div animate={{ opacity: [0, 1] }}>
           <div className={styles.image}>
             <Image
               src="/redJelly_sad.png"
@@ -97,9 +105,7 @@ export default function Results({
           <div className={styles.content}>
             <h2>Results</h2>
             <h3 className={styles.resultsText}>Correct answers: {score}</h3>
-            <h3 className={styles.resultsText}>
-              Incorrect answers: {numQuestions - score}
-            </h3>
+            <h3 className={styles.resultsText}>Incorrect answers: {numQuestions - score}</h3>
             <div className={styles.circle}>
               <CircularProgressbar
                 styles={{ borderRadius: "5rem" }}
@@ -107,15 +113,13 @@ export default function Results({
                 text={`${Math.floor((score * 100) / numQuestions)}%`}
               />
             </div>
-            <h2>Oh no you did not pass! Please try again</h2>
+            <h2>Oh no you did not pass! Please try again.</h2>
             <div className={styles.buttons}>
               <a>
-                <Button onClick={() => Router.reload(window.location.pathname)}>
-                  Retry?
-                </Button>
+                <Button onClick={() => Router.reload(window.location.pathname)}>Retry?</Button>
               </a>
               <Link href="/home">
-                <a>
+                <a className="btn">
                   <Button>Home</Button>
                 </a>
               </Link>
