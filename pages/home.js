@@ -38,13 +38,7 @@ const sections = [
   {
     id: 2,
     name: "financial",
-    categories: [
-      "Interest Rates",
-      "Currency",
-      "Mortgages",
-      "Charity",
-      "Savings",
-    ],
+    categories: ["Interest Rates", "Currency", "Mortgages", "Charity", "Savings"],
   },
   {
     id: 3,
@@ -54,13 +48,7 @@ const sections = [
   {
     id: 4,
     name: "general",
-    categories: [
-      "Further",
-      "Division",
-      "Addition",
-      "Subtraction",
-      "Multiplication",
-    ],
+    categories: ["Further", "Division", "Addition", "Subtraction", "Multiplication"],
   },
   {
     id: 5,
@@ -73,7 +61,7 @@ export default function Home({ auth0User }) {
   const { user, error, isLoading } = useUser();
   const userInfo = useUserInfo(auth0User.username);
 
-  const [selectedCategory, setSelectedCategory] = useState("social");
+  const [selectedCategory, setSelectedCategory] = useState("general");
 
   // If userInfo is undefined or isLoading is true, display "Loading..."
   if (isLoading || !userInfo) return <Loading />;
@@ -90,7 +78,7 @@ export default function Home({ auth0User }) {
   // call set the state to sections[index+1].name
 
   function handleNextCategory(e) {
-    const index = sections.findIndex((section) => {
+    const index = sections.findIndex(section => {
       return section.name === selectedCategory;
     });
     const newIndex = index + 1 > sections.length - 1 ? 0 : index + 1;
@@ -98,7 +86,7 @@ export default function Home({ auth0User }) {
   }
 
   function handlePreviousCategory(e) {
-    const index = sections.findIndex((section) => {
+    const index = sections.findIndex(section => {
       return section.name === selectedCategory;
     });
     const newIndex = index - 1 < 0 ? sections.length - 1 : index - 1;
@@ -109,7 +97,7 @@ export default function Home({ auth0User }) {
   return (
     user && (
       <div>
-        <NavBar/>
+        <NavBar />
 
         <div className={styles.grid}>
           <div className={styles.gridItemScroller}>
@@ -122,10 +110,7 @@ export default function Home({ auth0User }) {
           <div className={styles.gridItemCategory}>
             <CategoryContainer
               id={sections[0].id}
-              categories={
-                sections.find((category) => category.name === selectedCategory)
-                  .categories
-              }
+              categories={sections.find(category => category.name === selectedCategory).categories}
               userId={userInfo.user_id}
               completedCategories={userInfo.categories}
               selectedDropdownCategory={selectedCategory}
@@ -134,7 +119,7 @@ export default function Home({ auth0User }) {
           </div>
 
           <div className={styles.gridItemStats}>
-          <HomeStatsDisplay userInfo={userInfo} />
+            <HomeStatsDisplay userInfo={userInfo} />
           </div>
           <div className={`${styles.gridItemLogo}`}>
             <motion.div
