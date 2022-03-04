@@ -27,23 +27,18 @@ export default function Leaderboard({ users }) {
               <li className={styles.user} key={user.username}>
                 <p className={styles.userPosition}>#{index + 1}</p>
                 <p className={styles.username}>{user.username}</p>
-                <p className={styles.userXP}>{user.xp}</p>
+                <p className={styles.userXP}>{user.xp} XP</p>
               </li>
             ))}
           </ol>
-          <button
+          {/* <button
             className={styles.loadButton}
             onClick={() => setLimit(limit + 5)}
           >
             Load More
-          </button>
+          </button> */}
           <div className={styles.jellies}>
-            <Image
-              alt="icon-jelly"
-              src="/threeJellies.png"
-              width={300}
-              height={300}
-            />
+            <Image alt="icon-jelly" src="/threeJellies.png" width={300} height={300} />
           </div>
         </div>
       </div>
