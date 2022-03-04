@@ -1,18 +1,17 @@
 // Import Header here
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import styles from "../styles/home.module.css";
 import NavBar from "../src/components/NavBar";
-import { useUser, getSession, withPageAuthRequired } from "@auth0/nextjs-auth0";
+import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import Image from "next/image";
 import CategoryContainer from "../src/components/Home/CategoryContainer";
 import HomeStatsDisplay from "../src/components/Home/HomeStatsDisplay";
 import Loading from "../src/components/Loading";
 import getAuth0User from "../src/hooks/getAuth0User";
 import useUserInfo from "../src/hooks/useUserInfo";
-import { getEquippedItem, getEquippedItemImg } from "../src/hooks/helpers";
-import { Carousel } from "react-bootstrap";
 import CategoryScroller from "../src/components/Home/CategoryScroller";
 import { motion } from "framer-motion";
+import { sections } from "../src/data";
 
 //Plan
 //-onClick go to questions (loading page, etc.)
@@ -28,34 +27,6 @@ import { motion } from "framer-motion";
  - add state of categories checked as a prop down to container relating to section
  - when looping through category buttons, pass down a prop called 'completed' which will be true or false, depending on if found in that state 
  */
-
-const sections = [
-  {
-    id: 1,
-    name: "social",
-    categories: ["Drinking", "Eating Out", "Travel", "Occasions", "Holiday"],
-  },
-  {
-    id: 2,
-    name: "financial",
-    categories: ["Interest Rates", "Currency", "Mortgages", "Charity", "Savings"],
-  },
-  {
-    id: 3,
-    name: "wellbeing",
-    categories: ["Health", "Exercise", "Nutrition", "Mindfulness", "Weight"],
-  },
-  {
-    id: 4,
-    name: "general",
-    categories: ["Further", "Division", "Addition", "Subtraction", "Multiplication"],
-  },
-  {
-    id: 5,
-    name: "home",
-    categories: ["Gardening", "Shopping", "Cooking", "Chores", "DIY"],
-  },
-];
 
 export default function Home({ auth0User }) {
   const { user, error, isLoading } = useUser();
@@ -99,7 +70,7 @@ export default function Home({ auth0User }) {
       <div>
         <NavBar />
 
-        <div className={styles.grid}>
+        <motion.div className={styles.grid} animate={{ opacity: [0, 1] }}>
           <div className={styles.gridItemScroller}>
             <CategoryScroller
               handlePreviousCategory={handlePreviousCategory}
@@ -118,28 +89,28 @@ export default function Home({ auth0User }) {
             />
           </div>
 
-          <div className={styles.gridItemStats}>
+          <motion.div
+            className={styles.gridItemStats}
+            animate={{ opacity: [0, 1], scale: [0, 1] }}
+            transition={{ delay: 0.5 }}
+          >
             <HomeStatsDisplay userInfo={userInfo} />
-          </div>
-          <div className={`${styles.gridItemLogo}`}>
-            <motion.div
-              animate={{
-                x: [-30, 30],
-                y: [-20, 20],
-                scale: [-0.2, 0.8],
-                rotate: [-50, 10],
-              }}
-              transition={{ ease: "easeOut", duration: 3 }}
-            >
+          </motion.div>
+          <motion.div
+            className={`${styles.gridItemLogo}`}
+            animate={{ scale: [0, 1], opacity: [0, 1] }}
+            transition={{ delay: 1 }}
+          >
+            <div>
               <Image
                 src={userInfo.equipped.src || "/logoJelly.png"}
                 width={250}
                 height={250}
                 alt="avatar"
               />
-            </motion.div>
-          </div>
-        </div>
+            </div>
+          </motion.div>
+        </motion.div>
       </div>
     )
   );
