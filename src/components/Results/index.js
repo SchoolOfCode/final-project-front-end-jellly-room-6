@@ -119,7 +119,7 @@ export default function Results({ numQuestions, user, score, category, hasWon })
                 <Button onClick={() => Router.reload(window.location.pathname)}>Retry?</Button>
               </a>
               <Link href="/home">
-                <a className="btn">
+                <a>
                   <Button>Home</Button>
                 </a>
               </Link>

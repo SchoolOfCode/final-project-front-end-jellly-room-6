@@ -9,6 +9,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { playSound } from "../src/hooks/helpers";
 
+const showAnswer = false;
+
 export default function Question({ questions, category, auth0User }) {
   const { user, error, isLoading } = useUser();
   const userInfo = useUserInfo(auth0User.username);
@@ -54,19 +56,32 @@ export default function Question({ questions, category, auth0User }) {
     borderRadius: "5px",
     transition: "2s",
   };
+  const meterBarStyleResponsive = {
+    width: `${complete ? 100 : meterProgressPercentage}%`,
+    height: "100%",
+    backgroundImage: 'url("/static/beanMeterFilledHorizontal.png")',
+    backgroundSize: "contain",
+    borderRadius: "5px",
+    transition: "2s",
+  };
 
   return (
     user && (
       <div className={styles.container}>
   
-        <div>
-  
-          <Link href="/home">
-            <a>
-              <h1 className={styles.exitButton}>X</h1>
-            </a>
-          </Link>
 
+  
+      <div className={styles.exitButton}>
+              <Link href="/home">
+
+                <a >
+                  <h1 >X</h1>
+                </a>
+              </Link>
+          </div>
+
+
+        
           <motion.div
             className={styles.meterContainer}
             animate={{ x: [-500, 0] }}
@@ -78,21 +93,38 @@ export default function Question({ questions, category, auth0User }) {
 
             <h1 className={styles.meterTitle}>Bean-O-Meter</h1>
           </motion.div>
-        </div>
+          
+          <motion.div
+            className={styles.meterContainerResponsive}
+            animate={{ y: [1000, 0] }}
+            transition={{ delay: 1 }}
+          >
+            <div className={styles.meterBackgroundResponsive}>
+              <div style={meterBarStyleResponsive}></div>
+            </div>
 
-        <div>
+            <h1 className={styles.meterTitleResponsive}>Bean-O-Meter</h1>
+          </motion.div>
+
+          
+        
+
+        
           {!complete && (
             <motion.div
               className={styles.questionContainer}
               animate={{ opacity: [0, 1] }}
               transition={{ duration: 1 }}
             >
+
               <h2 className={styles.questionText}>{currentQuestion.question}</h2>
+
               <motion.div
                 className={styles.answers}
                 animate={{ opacity: [0, 1] }}
                 transition={{ delay: 1 }}
               >
+
                 <Button className={styles.btn} onClick={checkAnswer}>
                   {currentQuestion.answers[0]}
                 </Button>
@@ -105,12 +137,14 @@ export default function Question({ questions, category, auth0User }) {
                 <Button className={styles.btn} onClick={checkAnswer}>
                   {currentQuestion.answers[3]}
                 </Button>
+
               </motion.div>
+              
               <motion.div animate={{ opacity: [0, 1] }} transition={{ delay: 1 }}>
                 <h3 className={styles.questionCount}>
                   Question: {questionCount + 1}/{questions.length}
                 </h3>
-                <p>{currentQuestion.correct}</p>
+                <p>{showAnswer && currentQuestion.correct}</p>
               </motion.div>
             </motion.div>
           )}
@@ -123,7 +157,7 @@ export default function Question({ questions, category, auth0User }) {
               user={userInfo}
             />
           )}
-        </div>
+        
         <audio id="correct-answer" src="/audio/correct_answer.wav" />
         <audio id="incorrect-answer" src="/audio/incorrect_answer.wav" />
       </div>
