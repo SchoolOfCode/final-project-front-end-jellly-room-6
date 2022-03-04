@@ -1,22 +1,19 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./index.module.css";
-import { useState } from "react";
 import NavDropdown from "../NavDropdown";
 
-
 export default function NavBar() {
-
-
-
   return (
     <div className={styles.container}>
-    
       <div className={styles.branding}>
-      <div className={styles.logo}>
-
-        <Image alt="icon-jelly" src="/logoJelly.png" width={70} height={70} layout="fixed" />
-      </div>
+        <div className={styles.logo}>
+          <Link href="/home">
+            <a style={{ margin: 0 }}>
+              <Image alt="icon-jelly" src="/logoJelly.png" width={70} height={70} layout="fixed" />
+            </a>
+          </Link>
+        </div>
         <h2 className={styles.title}>JELLLY</h2>
       </div>
       <div className={styles.navLinks}>
@@ -39,11 +36,9 @@ export default function NavBar() {
         </a>
       </Link>
 
-<div className={styles.dropdownDisplay}>
-      <NavDropdown/>
-</div>
-
-
+      <div className={styles.dropdownDisplay}>
+        <NavDropdown />
+      </div>
     </div>
   );
 }

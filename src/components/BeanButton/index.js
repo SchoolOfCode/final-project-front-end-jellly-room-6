@@ -3,7 +3,7 @@ import Image from "next/image";
 import styles from "./BeanButton.module.css";
 
 export default function BeanButton({ text, color, completed }) {
-  const grayscale = completed ? `1` : `0`;
+  const grayscale = completed ? `0` : `1`;
 
   return (
     <div>

@@ -48,7 +48,7 @@ export const sections = [
   {
     id: 4,
     name: "general",
-    categories: ["Further", "Division", "Addition", "Subtraction", "Multiplication"],
+    categories: ["Addition", "Subtraction", "Multiplication", "Division", "Further"],
   },
   {
     id: 5,
