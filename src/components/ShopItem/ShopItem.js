@@ -1,7 +1,7 @@
 import Button from "react-bootstrap/Button";
 import style from "./ShopItem.module.css";
 import { useEffect, useState } from "react";
-import { getUserBeans } from "../../hooks/helpers";
+import { getUserBeans, playSound } from "../../hooks/helpers";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -71,11 +71,13 @@ export default function ShopItem({
     addPurchase(item.purchase_name);
     updateBeans(price);
     setPurchased(true);
+    playSound("purchase");
   }
 
   function handleEquip() {
     setEquippedItem(item);
     equipItem(item.purchase_name);
+    playSound("pop");
   }
 
   return (
@@ -98,6 +100,8 @@ export default function ShopItem({
         )}
         {purchased && isEquipped && <p>Equipped</p>}
       </div>
+      <audio id="pop" src="/audio/pop.wav" />
+      <audio id="purchase" src="/audio/purchase.wav" />
     </div>
   );
 }
