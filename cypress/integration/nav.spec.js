@@ -6,12 +6,12 @@ describe("Navbar", () => {
 
     describe("When you visit home", () => {
       it("should navigate to home page", () => {
-        cy.visit("http://localhost:3000/home");
+        cy.visit("/home");
       });
       describe("Nav", () => {
         it("should navigate to Shop page", () => {
           cy.get("[data-cy=nav-item]").contains("Jelly Shop").click();
-          cy.url().should("include", "http://localhost:3000/shop");
+          cy.url().should("include", "/shop");
         });
       });
     });
@@ -34,7 +34,7 @@ describe("Navbar", () => {
 
         describe("nav", () => {
           it("Should navigate to About page", () => {
-            cy.get("[data-cy=nav-cntr]").contains("Jelly Shop").click();
+            cy.get("[data-cy=nav-cntr]").contains("Jellly Shop").click();
             cy.url().should("include", "http://localhost:3000/shop");
           });
         });

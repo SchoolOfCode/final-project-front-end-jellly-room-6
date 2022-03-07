@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 context("Home page", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:3000");
+    cy.visit("/");
   });
   describe("Landing Page", () => {
     it("Should find description", () => {
@@ -22,7 +22,7 @@ context("Home page", () => {
     });
     it("login", () => {
       cy.login().then((resp) => {
-        cy.visit("http://localhost:3000/home");
+        cy.visit("/home");
       });
     });
   });
