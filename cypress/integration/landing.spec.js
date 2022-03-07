@@ -3,13 +3,27 @@ context("Home page", () => {
   beforeEach(() => {
     cy.visit("http://localhost:3000");
   });
-  it("Should find landing page", () => {
-    cy.get("h2").contains(
-      "The fun, free way to learn maths and improve financial literacy."
-    );
-    cy.get("h1").contains("JELLLY");
-    cy.get(".login").contains("Login");
-    cy.get(".large").contains("Get Started");
-    cy.get("div").find("img").should("be.visible");
+  describe("Landing Page", () => {
+    it("Should find description", () => {
+      cy.get("h2").contains(
+        "The fun, free way to learn maths and improve financial literacy."
+      );
+    });
+    it("Should find Name of App", () => {
+      cy.get("h1").contains("JELLLY");
+    });
+    it("Should find visible image", () => {
+      cy.get("div").find("img").should("be.visible");
+    });
+
+    it("Should find Login button", () => {
+      cy.get("[data-cy=login]").contains("Login");
+      cy.get("[data-cy=get-started]").contains("Get Started").click();
+    });
+    it("login", () => {
+      cy.login().then((resp) => {
+        cy.visit("http://localhost:3000/home");
+      });
+    });
   });
 });
