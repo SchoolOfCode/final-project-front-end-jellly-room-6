@@ -46,18 +46,11 @@ export default function Profile({ auth0User, users }) {
     user && (
       <div>
         <NavBar />
-        <motion.div
-          className={styles.profileContainer}
-          animate={{ opacity: [0, 1] }}
-        >
-          <motion.div
-            className={styles.userDetails}
-            animate={{ x: [-100, 0], opacity: [0, 1] }}
-          >
+        <motion.div className={styles.profileContainer} animate={{ opacity: [0, 1] }}>
+          <motion.div className={styles.userDetails} animate={{ x: [-100, 0], opacity: [0, 1] }}>
             <div className={styles.image}>
               <Image
-                data-cy="logo"
-                src={getEquippedItemImg(equippedItem) || "/logoJelly.png"}
+                src={equippedItem.src || "/logoJelly.png"}
                 alt="Jelly"
                 width={160}
                 height={160}
@@ -105,6 +98,9 @@ export default function Profile({ auth0User, users }) {
                 title="Total Beans"
                 value={userInfo.beans}
               />
+              <StatisticsItem className={styles.statisticsItem} title="Rank" value={leaderIndex} />
+            </motion.div>
+            <motion.h2
               <StatisticsItem
                 className={styles.statisticsItem}
                 title="Rank"
@@ -126,11 +122,7 @@ export default function Profile({ auth0User, users }) {
             >
               {arrBadge.map((item, index) => {
                 return (
-                  <BeanButton
-                    key={index}
-                    color={colorArray[index]}
-                    text={`Level ${item + 1} `}
-                  />
+                  <BeanButton key={index} color={colorArray[index]} text={`Level ${item + 1} `} />
                 );
               })}
             </motion.div>

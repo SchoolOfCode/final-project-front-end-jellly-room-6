@@ -1,6 +1,7 @@
 .container{
   padding: 1em;
 
+
 }
 
 .items {
@@ -27,7 +28,8 @@
 
   .items{
     display:flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 2em;
     width: 100%;
     align-items: center;

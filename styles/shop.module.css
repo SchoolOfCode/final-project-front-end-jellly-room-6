@@ -5,7 +5,6 @@
   max-width: 1600px;
   justify-content: center;
   margin: auto;
-
 }
 
 .title {
@@ -33,7 +32,7 @@
 
 .panel {
   padding: 1em;
-  
+  margin: 0 auto;
 }
 
 
@@ -57,13 +56,10 @@
 
   .panel{
     
-
     order: -1;
-    
-
-  max-width: 500px;
-  width: 100%;
-  position:relative;
+    max-width: 500px;
+    width: 100%;
+    position:relative;
 
   }
 
