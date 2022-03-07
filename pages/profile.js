@@ -85,6 +85,7 @@ export default function Profile({ auth0User, users }) {
               Statistics
             </motion.h2>
             <motion.div
+              data-cy="st-item"
               className={styles.statistics}
               animate={{ y: [100, 0], opacity: [0, 1] }}
               transition={{ delay: 0.5 }}
