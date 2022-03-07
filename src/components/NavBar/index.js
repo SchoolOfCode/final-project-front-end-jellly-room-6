@@ -21,7 +21,7 @@ export default function NavBar() {
           <a className={styles.link}>Home</a>
         </Link>
         <Link href="/shop">
-          <a className={styles.link}>Jelly Shop</a>
+          <a className={styles.link}>Jellly Shop</a>
         </Link>
         <Link href="/leaderboard">
           <a className={styles.link}>Leaderboard</a>
