@@ -79,7 +79,6 @@ export const items = [
     price: 35,
     category: "backgrounds",
   },
-  
 ];
 
 export const sections = [
