@@ -101,13 +101,6 @@ export default function Profile({ auth0User, users }) {
               <StatisticsItem className={styles.statisticsItem} title="Rank" value={leaderIndex} />
             </motion.div>
             <motion.h2
-              <StatisticsItem
-                className={styles.statisticsItem}
-                title="Rank"
-                value={leaderIndex}
-              />
-            </motion.div>
-            <motion.h2
               data-cy="title"
               className={styles.title}
               animate={{ opacity: [0, 1] }}
