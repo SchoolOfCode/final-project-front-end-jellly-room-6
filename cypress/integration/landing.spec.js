@@ -19,11 +19,10 @@ context("Home page", () => {
     it("Should find Login button", () => {
       cy.get("[data-cy=login]").contains("Login");
       cy.get("[data-cy=get-started]").contains("Get Started").click();
-    });
-    it("login", () => {
-      cy.login().then((resp) => {
-        cy.visit("/home");
-      });
+      //   cy.loginByAuth0Api(
+      //     Cypress.env("auth0_username"),
+      //     Cypress.env("auth0_password")
+      //   );
     });
   });
 });

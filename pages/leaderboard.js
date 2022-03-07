@@ -4,6 +4,7 @@ import styles from "../styles/leaderboard.module.css";
 import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Loading from "../src/components/Loading";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -12,7 +13,7 @@ export default function Leaderboard({ users }) {
   const [limit, setLimit] = useState(10);
   const [usersList, setUsersList] = useState([...users.slice(0, limit)]);
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <Loading />;
   if (error) return <div>{error.message}</div>;
   if (!user) {
     window.location.href = "/";
@@ -22,7 +23,9 @@ export default function Leaderboard({ users }) {
       <div>
         <NavBar />
         <motion.div className={styles.container} animate={{ opacity: [0, 1] }}>
-          <h1 className={styles.title}>Leaderboard</h1>
+          <h1 data-cy="leaderboard-title" className={styles.title}>
+            Leaderboard
+          </h1>
           <ol className={styles.leaderboard}>
             {usersList.map((user, index) => (
               <motion.li
@@ -37,8 +40,16 @@ export default function Leaderboard({ users }) {
               </motion.li>
             ))}
           </ol>
-          <motion.div className={styles.jellies} animate={{ scale: [0, 1], opacity: [0, 1] }}>
-            <Image alt="icon-jelly" src="/threeJellies.png" width={300} height={300} />
+          <motion.div
+            className={styles.jellies}
+            animate={{ scale: [0, 1], opacity: [0, 1] }}
+          >
+            <Image
+              alt="icon-jelly"
+              src="/threeJellies.png"
+              width={300}
+              height={300}
+            />
           </motion.div>
         </motion.div>
       </div>
@@ -51,7 +62,6 @@ export async function getServerSideProps() {
   const data = await response.json();
 
   const users = data.payload.sort((a, b) => (a.xp < b.xp ? 1 : -1));
-
   return {
     props: {
       users,
