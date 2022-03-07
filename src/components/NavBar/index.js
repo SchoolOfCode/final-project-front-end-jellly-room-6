@@ -10,7 +10,13 @@ export default function NavBar() {
         <div className={styles.logo}>
           <Link href="/home">
             <a style={{ margin: 0 }}>
-              <Image alt="icon-jelly" src="/logoJelly.png" width={70} height={70} layout="fixed" />
+              <Image
+                alt="icon-jelly"
+                src="/logoJelly.png"
+                width={70}
+                height={70}
+                layout="fixed"
+              />
             </a>
           </Link>
         </div>
@@ -21,7 +27,9 @@ export default function NavBar() {
           <a className={styles.link}>Home</a>
         </Link>
         <Link href="/shop">
-          <a className={styles.link}>Jellly Shop</a>
+          <a data-cy="nav-item" className={styles.link}>
+            Jellly Shop
+          </a>
         </Link>
         <Link href="/leaderboard">
           <a className={styles.link}>Leaderboard</a>

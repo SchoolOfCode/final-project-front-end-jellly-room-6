@@ -27,7 +27,9 @@ export default function LandingPage() {
       >
         <Link href="/api/auth/login">
           <a>
-            <Button className="btn login">Login</Button>
+            <Button data-cy="login" className="btn login">
+              Login
+            </Button>
           </a>
         </Link>
       </motion.header>
@@ -54,8 +56,15 @@ export default function LandingPage() {
         </motion.div>
 
         <Link href="/api/auth/login">
-          <motion.a animate={{ opacity: [0, 1] }} transition={{ duration: 2, delay: 1 }}>
-            <button className="btn large" id={styles.getStarted}>
+          <motion.a
+            animate={{ opacity: [0, 1] }}
+            transition={{ duration: 2, delay: 1 }}
+          >
+            <button
+              data-cy="get-started"
+              className="btn large"
+              id={styles.getStarted}
+            >
               Get Started
             </button>
           </motion.a>
