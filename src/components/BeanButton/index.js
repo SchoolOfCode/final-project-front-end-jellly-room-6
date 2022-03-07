@@ -6,12 +6,12 @@ export default function BeanButton({ text, color, completed }) {
   const grayscale = completed ? `0.9` : `0`;
 
   return (
-    <div>
+    <div className={styles.container}>
+    {completed && <div className={styles.completedMark}></div>}
       <button
         className={styles.beanButton}
         style={{ filter: `hue-rotate(${color}deg) grayscale(${grayscale})` }}
       >
-        {completed && <div className={styles.completedMark}>✔️</div>}
         <p className={styles.category}>{text}</p>
         <Image
           className={styles.jellybean}

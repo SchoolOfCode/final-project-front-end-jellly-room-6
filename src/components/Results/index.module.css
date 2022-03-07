@@ -75,6 +75,14 @@
     font-size: 1rem;
 }
 
+.retry{
+  
+}
+
+.home{
+  background-color: rgb(158, 158, 158);
+}
+
 .exitButton{
   z-index: 100;
 }

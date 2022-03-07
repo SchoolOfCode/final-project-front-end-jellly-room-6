@@ -9,6 +9,8 @@ import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
+const rewardXpAmountPerQuestion = 20;
+const rewardBeanAmount = 10;
 
 export default function Results({ numQuestions, user, score, category, hasWon }) {
   console.log(user);
@@ -37,7 +39,7 @@ export default function Results({ numQuestions, user, score, category, hasWon })
       });
     }
     if (!hasWon || hasCompletedCategory(category)) return;
-    rewardUser(score * 10, 20);
+    rewardUser(score * rewardXpAmountPerQuestion, rewardBeanAmount);
   }, [hasWon, score, user]);
 
   return (
@@ -85,7 +87,7 @@ export default function Results({ numQuestions, user, score, category, hasWon })
             <h3>You passed!</h3>
             <Link href="/home">
               <a className="btn">
-                <Button>Continue</Button>
+                <Button >Continue</Button>
               </a>
             </Link>
           </div>
@@ -116,11 +118,11 @@ export default function Results({ numQuestions, user, score, category, hasWon })
             <h3>Oh no you did not pass! Please try again.</h3>
             <div className={styles.buttons}>
               <a>
-                <Button onClick={() => Router.reload(window.location.pathname)}>Retry?</Button>
+                <Button className={styles.retry} onClick={() => Router.reload(window.location.pathname)}>Retry?</Button>
               </a>
               <Link href="/home">
                 <a>
-                  <Button>Home</Button>
+                  <Button className={styles.home}>Home</Button>
                 </a>
               </Link>
             </div>
