@@ -94,7 +94,7 @@ export default function ShopItem({
       </div>
 
       <div className={style.buttons}>
-        {!purchased && <Button onClick={handlePurchase}>Buy</Button>}
+        {!purchased && <Button className={style.buyBtn} onClick={handlePurchase}>Buy</Button>}
         {purchased && !isEquipped && (
           <Button className={style.equipBtn} onClick={handleEquip}>
             Equip
