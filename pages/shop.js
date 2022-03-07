@@ -3,7 +3,7 @@ import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import getAuth0User from "../src/hooks/getAuth0User";
 import useUserInfo from "../src/hooks/useUserInfo";
 import { getEquippedItemImg } from "../src/hooks/helpers";
-import { items } from "../src/data";
+import items from "../src/data";
 import NavBar from "../src/components/NavBar";
 import ShopCategory from "../src/components/ShopCategory";
 import Loading from "../src/components/Loading";
@@ -44,6 +44,8 @@ export default function Shop({ auth0User }) {
     setBeans(beans - price);
   }
 
+  console.log(items);
+
   return (
     user && (
       <>
@@ -52,15 +54,19 @@ export default function Shop({ auth0User }) {
           The Jellly Shop
         </motion.h1>
         <motion.div className={style.container} animate={{ opacity: [0, 1] }}>
-          <ShopCategory
-            equippedItem={equippedItem}
-            setEquippedItem={setEquippedItem}
-            user={userInfo}
-            categorytitle="Color skins"
-            items={items}
-            updateBeans={updateBeans}
-            purchases={userInfo.purchases}
-          />
+          {items.map(category => (
+            <>
+              <ShopCategory
+                equippedItem={equippedItem}
+                setEquippedItem={setEquippedItem}
+                user={userInfo}
+                categorytitle={category[0].category}
+                items={category}
+                updateBeans={updateBeans}
+                purchases={userInfo.purchases}
+              />
+            </>
+          ))}
           <motion.div
             className={style.panel}
             animate={{ x: [20, 0], opacity: [0, 1] }}
@@ -72,12 +78,7 @@ export default function Shop({ auth0User }) {
               animate={{ scale: [0, 1], opacity: [0, 1] }}
               transition={{ delay: 1.25 }}
             >
-              <Image
-                src={getEquippedItemImg(equippedItem) || "/logoJelly.png"}
-                alt=""
-                width={200}
-                height={200}
-              />
+              <Image src={equippedItem.src || "/logoJelly.png"} alt="" width={200} height={200} />
             </motion.div>
           </motion.div>
         </motion.div>
