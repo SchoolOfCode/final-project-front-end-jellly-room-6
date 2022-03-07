@@ -8,6 +8,8 @@
   background: none;
   border: none;
   scale: 1.5;
+  letter-spacing: 1px;
+  font-family: "Roboto", sans-serif;
 }
 
 .category {
@@ -29,6 +31,14 @@
   animation: wiggle 0.6s;
 }
 
+.completedMark{
+  position:absolute;
+  margin: 0;
+  top: 2.5em;
+  right: 1em;
+  z-index: 100;
+}
+
 @media (max-width: 1100px) {
   .beanButton {
     scale: 1.25;
@@ -39,9 +49,7 @@
 
 @media (max-width: 500px) {
   .beanButton {
-    scale: 0.875;
-    margin: 0;
-    padding: 0;
+    scale: 1.15;
   }
 }
 

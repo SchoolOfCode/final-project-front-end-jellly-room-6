@@ -2,76 +2,94 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 3em;
+  padding: 1em;
 
-  /* height: 30rem; */
-  width: 80rem;
 }
+
+.statsContainer{
+  padding: 1em;
+  display:flex;
+  flex-direction: column;
+}
+
 
 .statistics {
   display: flex;
-  justify-content: space-between;
-  margin-right: 0 auto;
+  justify-content: space-evenly;
   flex-wrap: wrap;
-  font-size: 2vmin;
+  gap: 2em;
+  margin-bottom: 2em;
+}
+
+.item{
+  padding: 3em;
 }
 
 .badges {
   display: flex;
-  justify-content: flex-start;
-  margin-bottom: 2em;
 }
 
 .title {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  font-size: 3vmin;
+  font-size: 2rem;
+}
+
+.statsDisplay {
+  box-shadow: 0 3px 10px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #ca38ff42;
+  border-radius: 25px;
+  max-width: 500px;
 }
 
 .userDetails {
   display: flex;
-  /* gap: 3em; */
-  margin-left: 1em;
-  padding: 3em 1.5em;
+  align-items: center;
+  gap: 4em;
+  margin: auto;
+  padding: 2em;
+  width: 90%;
 }
+
 .image {
   margin: 0 1em;
-}
-.userImage {
-  border-radius: 30rem;
-}
-.username {
-  font-size: 3vmin;
-}
-.email {
-  font-size: 2vmin;
+  z-index: -1;
+  display:flex;
+  justify-content: center;
 }
 
-.userTitle {
-  padding: 1.5em, 1.5em;
-
-  /*position: relative;
-  top: 1rem;*/
+.username{
+  font-size: 2.5rem;
 }
 
-/*.line {
+
+
+.line {
   background-color: #3c3c3c;
   width: 90%;
   opacity: 0.3;
-}*/
+}
 
 .badges {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
 }
-.badges > div > button {
-  margin-right: 8rem;
+
+.badges div{
+  width: 20%;
+  min-width: 200px;
+  max-width: 400px;
+  padding: 1em 2em;
+  margin-left: 2em;
 }
-.badges > div > button:hover {
-  animation: wiggle 0.6s;
-  cursor: auto;
-}
+
 
 @keyframes wiggle {
   25% {
@@ -84,90 +102,45 @@
     transform: scale(0.7, 1.2);
   }
 }
-@media (max-width: 400px) {
-  /* .profileContainer {
-    
-    margin-bottom: 20rem;
-  } */
-  .userImage {
-    border-radius: 3rem;
-    height: 1rem;
-  }
-  .userDetails {
-    height: 8rem;
-  }
-}
-@media (max-width: 550px) {
-  .profileContainer {
-   
-    /* margin-top: 25rem;
-    margin-left: 3rem; */
-  }
 
-  .username {
-    font-size: 3rem;
-  }
-  .email {
-    font-size: 2rem;
-  }
 
-  .statistics {
-   
+
+@media (max-width: 1100px) {
+
+
+
+  .userDetails{
     display: flex;
+    align-items: center;
     flex-direction: column;
-    grid-gap: 2rem;
-    padding: 1em 1.5em;
-    grid-template-rows: 10rem 10rem;
-    grid-template-columns: 12rem 18rem;
-    padding: 10px;
-    flex-wrap: wrap;
-  }
-  .badges {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .badges > div > button {
-    margin-right: 3rem;
-  }
-  .title {
-    font-size: 2rem;
-  }
-}
-
-@media (max-width: 1000px) {
-  .userDetails {
-    width: 20%;
-  }
-
-  .email {
-    font-size: 1rem;
-  }
-
-  .username {
-    font-size: 1rem;
-  }
-
-  .profileContainer {
+    justify-content: center;
+    gap: 0;
+    margin: auto;
+    padding: 2em;
     width: 100%;
-    /* margin-top: 20rem;
-    margin-left: 5rem; */
-  }
-  .statistics {
-  
+    text-align: center;
+    box-shadow: 0 3px 10px 5px rgba(0, 0, 0, 0.2);
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
-    grid-gap: 2rem;
-    grid-template-rows: 10rem 10rem;
-    grid-template-columns: 10rem 90rem;
-    padding: 1em 1.5em;
-    margin: 0 auto;
+    background-color: #ca38ff42;
+    border-radius: 25px;
+    max-width: 500px;
+    z-index: -2;
   }
-  .badges {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .badges > div > button {
-    margin-right: 5rem;
-    flex-wrap: wrap;
-  }
+
+.title{
+  justify-content: center;
+}
+
+
+.line{
+  margin-top: 2em;
+}
+
+.badges div{
+
+}
+
 }

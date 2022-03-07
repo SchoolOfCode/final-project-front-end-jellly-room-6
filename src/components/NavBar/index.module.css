@@ -12,6 +12,7 @@
 
 .branding {
   display: flex;
+  align-items:center;
 }
 
 .link {

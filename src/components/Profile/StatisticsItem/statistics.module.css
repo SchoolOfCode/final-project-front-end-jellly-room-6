@@ -1,30 +1,31 @@
-.statisticsValue {
-  border: 0.1rem solid #3c3c3c;
-  color: rgb(99, 81, 81);
-  border-radius: 1.3rem;
-  width: 7rem;
-  padding: 1em 1.5em;
-  max-width: 30rem;
-  height: 2.5rem;
+.container{
+
+
+
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
+  width: 20%;
+  min-width: 200px;
+  max-width: 400px;
+}
+
+.statisticsValue {
   transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   font-size: 1.5rem;
+  width: 100%;
+
+  border: 0.1rem solid #3c3c3c;
+  border-radius:50px;
+  color: rgb(99, 81, 81);
+  text-align: center;
+  padding: 1em 0;
+  font-weight: 600;
 }
 
-.title {
-  font-size: 3vmin;
+.title{
+  text-align: center;
 }
 
-@media only screen and (min-width: 128px) and (max-width: 515px) {
-  .statisticsValue {
-    width: 10rem;
-    height: 4rem;
-  }
-  .title {
-    font-size: 1.85rem;
-  }
-}

@@ -82,7 +82,7 @@ export default function Results({ numQuestions, user, score, category, hasWon })
                 text={`${(score * 100) / numQuestions}%`}
               />
             </div>
-            <h2>You passed!</h2>
+            <h3>You passed!</h3>
             <Link href="/home">
               <a className="btn">
                 <Button>Continue</Button>
@@ -113,7 +113,7 @@ export default function Results({ numQuestions, user, score, category, hasWon })
                 text={`${Math.floor((score * 100) / numQuestions)}%`}
               />
             </div>
-            <h2>Oh no you did not pass! Please try again.</h2>
+            <h3>Oh no you did not pass! Please try again.</h3>
             <div className={styles.buttons}>
               <a>
                 <Button onClick={() => Router.reload(window.location.pathname)}>Retry?</Button>

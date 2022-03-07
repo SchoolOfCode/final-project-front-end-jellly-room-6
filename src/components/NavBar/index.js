@@ -28,7 +28,7 @@ export default function NavBar() {
         </Link>
         <Link href="/shop">
           <a data-cy="nav-item" className={styles.link}>
-            Jelly Shop
+            Jellly Shop
           </a>
         </Link>
         <Link href="/leaderboard">
