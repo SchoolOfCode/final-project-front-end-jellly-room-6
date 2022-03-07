@@ -73,7 +73,7 @@
 
 
 .statsDisplay {
-  box-shadow: 0 3px 10px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -91,7 +91,11 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  transform:rotateY(180deg);
+
+}
+
+.gridItemLogo img{
+  transform: rotateY(180deg);
 }
 
 .gridItemLogoMobile{

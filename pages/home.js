@@ -101,14 +101,14 @@ export default function Home({ auth0User }) {
             animate={{ scale: [0, 1], opacity: [0, 1] }}
             transition={{ delay: 1 }}
           >
-            <div>
+            
               <Image
                 src={userInfo.equipped.src || "/logoJelly.png"}
                 width={250}
                 height={250}
                 alt="avatar"
               />
-            </div>
+            
           </motion.div>
         </motion.div>
       </div>

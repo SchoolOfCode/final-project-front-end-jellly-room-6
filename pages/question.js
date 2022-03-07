@@ -76,14 +76,14 @@ export default function Question({ questions, category, auth0User }) {
   
 
   
-      <div className={styles.exitButton}>
+      { !complete && <div className={styles.exitButton}>
               <Link href="/home">
 
                 <a >
                   <h1 >X</h1>
                 </a>
               </Link>
-          </div>
+          </div>}
 
 
         

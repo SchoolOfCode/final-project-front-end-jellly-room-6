@@ -39,6 +39,21 @@
   z-index: 100;
 }
 
+.completedMark::after{
+  content: "\2713";
+  color:green;
+  font-size: 3.5rem;
+  font-weight: 800;
+  filter:drop-shadow();
+  position:absolute;
+  top: -60px;
+  right: -40px;
+  text-shadow: 1px 2px 2px rgb(148, 148, 148);
+}
+.container:hover .completedMark::after{
+  animation: wiggle 0.6s;
+}
+
 @media (max-width: 1100px) {
   .beanButton {
     scale: 1.25;

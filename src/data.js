@@ -33,7 +33,7 @@ export const sections = [
   {
     id: 1,
     name: "social",
-    categories: ["Drinking", "Eating Out", "Travel", "Occasions", "Holiday"],
+    categories: ["Drink", "Food", "Travel", "Occasions", "Holiday"],
   },
   {
     id: 2,

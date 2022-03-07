@@ -9,6 +9,7 @@ import styles from "../styles/profile.module.css";
 import BeanButton from "../src/components/BeanButton";
 import { motion } from "framer-motion";
 import { getEquippedItemImg } from "../src/hooks/helpers";
+import { useState, useEffect } from "react";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -16,6 +17,13 @@ export default function Profile({ auth0User, users }) {
   const { user, error, isLoading } = useUser();
   const userInfo = useUserInfo(auth0User.username);
   const colorArray = [150, 15, 300, 70, 250, 270];
+
+  const [equippedItem, setEquippedItem] = useState("");
+
+  useEffect(() => {
+    if (userInfo) setEquippedItem(userInfo.equipped);
+  }, [userInfo]);
+
   let leaderIndex = users
     .map((user, index) => {
       if (user.username === auth0User.username) {
@@ -43,7 +51,7 @@ export default function Profile({ auth0User, users }) {
 
           <div className={styles.image}>
             <Image
-              src={userInfo.equipped || "/logoJelly.png"}
+              src={getEquippedItemImg(equippedItem) || "/logoJelly.png"}
               alt="Jelly"
               width={160}
               height={160}
