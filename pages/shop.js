@@ -54,6 +54,7 @@ export default function Shop({ auth0User }) {
           The Jellly Shop
         </motion.h1>
         <motion.div className={style.container} animate={{ opacity: [0, 1] }}>
+        <div>
           {items.map(category => (
             <>
               <ShopCategory
@@ -67,6 +68,8 @@ export default function Shop({ auth0User }) {
               />
             </>
           ))}
+
+        </div>
           <motion.div
             className={style.panel}
             animate={{ x: [20, 0], opacity: [0, 1] }}
