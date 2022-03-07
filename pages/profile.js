@@ -8,6 +8,7 @@ import StatisticsItem from "../src/components/Profile/StatisticsItem";
 import styles from "../styles/profile.module.css";
 import BeanButton from "../src/components/BeanButton";
 import { motion } from "framer-motion";
+import { getEquippedItemImg } from "../src/hooks/helpers";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -23,6 +24,8 @@ export default function Profile({ auth0User, users }) {
     })
     .join("");
 
+  console.log(userInfo)
+
   let arrBadge = [];
   for (let i = 0; i < userInfo.playerLevel; i++) {
     arrBadge.push(i);
@@ -37,22 +40,24 @@ export default function Profile({ auth0User, users }) {
         <NavBar />
         <motion.div className={styles.profileContainer} animate={{ opacity: [0, 1] }}>
           <motion.div className={styles.userDetails} animate={{ x: [-100, 0], opacity: [0, 1] }}>
+
           <div className={styles.image}>
             <Image
-              className={styles.userImage}
-              src={auth0User.picture}
+              src={userInfo.equipped || "/logoJelly.png"}
               alt="Jelly"
-              width={80}
-              height={80}
-              layout="fixed"/>
+              width={160}
+              height={160}
+              />
             </div>
             <div className={styles.userTitle}>
-              <h2 className={styles.username}>{userInfo.username}</h2>
-              <h3 className={styles.email}>{auth0User.email}</h3>
+              <h1 className={styles.username}>{userInfo.username}</h1>
+              <h2 className={styles.email}>{auth0User.email}</h2>
             </div>
           </motion.div>
 
           <hr className={styles.line} />
+
+          <div className={styles.statsContainer}>
 
           <motion.h2
             className={styles.title}
@@ -105,6 +110,9 @@ export default function Profile({ auth0User, users }) {
               );
             })}
           </motion.div>
+
+
+          </div>
         </motion.div>
       </div>
     )
