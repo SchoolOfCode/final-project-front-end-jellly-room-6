@@ -57,8 +57,12 @@ export default function Profile({ auth0User, users }) {
               />
             </div>
             <div className={styles.userTitle}>
-              <h1 className={styles.username}>{userInfo.username}</h1>
-              <h2 className={styles.email}>{auth0User.email}</h2>
+              <h1 data-cy="username" className={styles.username}>
+                {userInfo.username}
+              </h1>
+              <h2 data-cy="email" className={styles.email}>
+                {auth0User.email}
+              </h2>
             </div>
           </motion.div>
 
@@ -66,6 +70,7 @@ export default function Profile({ auth0User, users }) {
 
           <div className={styles.statsContainer}>
             <motion.h2
+              data-cy="title"
               className={styles.title}
               animate={{ y: [100, 0], opacity: [0, 1] }}
               transition={{ delay: 0.5 }}
@@ -73,6 +78,7 @@ export default function Profile({ auth0User, users }) {
               Statistics
             </motion.h2>
             <motion.div
+              data-cy="st-item"
               className={styles.statistics}
               animate={{ y: [100, 0], opacity: [0, 1] }}
               transition={{ delay: 0.5 }}
@@ -95,6 +101,14 @@ export default function Profile({ auth0User, users }) {
               <StatisticsItem className={styles.statisticsItem} title="Rank" value={leaderIndex} />
             </motion.div>
             <motion.h2
+              <StatisticsItem
+                className={styles.statisticsItem}
+                title="Rank"
+                value={leaderIndex}
+              />
+            </motion.div>
+            <motion.h2
+              data-cy="title"
               className={styles.title}
               animate={{ opacity: [0, 1] }}
               transition={{ delay: 1 }}
