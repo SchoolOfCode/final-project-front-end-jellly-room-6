@@ -94,10 +94,6 @@
 
 }
 
-.gridItemLogo img{
-  transform: rotateY(180deg);
-}
-
 .gridItemLogoMobile{
   display:none;
 }
