@@ -32,7 +32,7 @@ export default function Profile({ auth0User, users }) {
     })
     .join("");
 
-  console.log(userInfo)
+  console.log(userInfo);
 
   let arrBadge = [];
   for (let i = 0; i < userInfo.playerLevel; i++) {
@@ -48,13 +48,12 @@ export default function Profile({ auth0User, users }) {
         <NavBar />
         <motion.div className={styles.profileContainer} animate={{ opacity: [0, 1] }}>
           <motion.div className={styles.userDetails} animate={{ x: [-100, 0], opacity: [0, 1] }}>
-
-          <div className={styles.image}>
-            <Image
-              src={getEquippedItemImg(equippedItem) || "/logoJelly.png"}
-              alt="Jelly"
-              width={160}
-              height={160}
+            <div className={styles.image}>
+              <Image
+                src={equippedItem.src || "/logoJelly.png"}
+                alt="Jelly"
+                width={160}
+                height={160}
               />
             </div>
             <div className={styles.userTitle}>
@@ -66,60 +65,53 @@ export default function Profile({ auth0User, users }) {
           <hr className={styles.line} />
 
           <div className={styles.statsContainer}>
-
-          <motion.h2
-            className={styles.title}
-            animate={{ y: [100, 0], opacity: [0, 1] }}
-            transition={{ delay: 0.5 }}
-          >
-            Statistics
-          </motion.h2>
-          <motion.div
-            className={styles.statistics}
-            animate={{ y: [100, 0], opacity: [0, 1] }}
-            transition={{ delay: 0.5 }}
-          >
-            <StatisticsItem
-              className={styles.statisticsItem}
-              title="Player Level"
-              value={userInfo.playerLevel}
-            />
-            <StatisticsItem
-              className={styles.statisticsItem}
-              title="Total XP"
-              value={userInfo.xp}
-            />
-            <StatisticsItem
-              className={styles.statisticsItem}
-              title="Total Beans"
-              value={userInfo.beans}
-            />
-            <StatisticsItem
-              className={styles.statisticsItem}
-              title="Rank"
-              value={leaderIndex}
-            />
-          </motion.div>
-          <motion.h2
-            className={styles.title}
-            animate={{ opacity: [0, 1] }}
-            transition={{ delay: 1 }}
-          >
-            Achievements
-          </motion.h2>
-          <motion.div
-            className={styles.badges}
-            animate={{ opacity: [0, 1] }}
-            transition={{ delay: 1 }}
-          >
-            {arrBadge.map((item, index) => {
-              return (
-                <BeanButton key={index} color={colorArray[index]} text={`Level ${item + 1} `} />
-              );
-            })}
-          </motion.div>
-
-
+            <motion.h2
+              className={styles.title}
+              animate={{ y: [100, 0], opacity: [0, 1] }}
+              transition={{ delay: 0.5 }}
+            >
+              Statistics
+            </motion.h2>
+            <motion.div
+              className={styles.statistics}
+              animate={{ y: [100, 0], opacity: [0, 1] }}
+              transition={{ delay: 0.5 }}
+            >
+              <StatisticsItem
+                className={styles.statisticsItem}
+                title="Player Level"
+                value={userInfo.playerLevel}
+              />
+              <StatisticsItem
+                className={styles.statisticsItem}
+                title="Total XP"
+                value={userInfo.xp}
+              />
+              <StatisticsItem
+                className={styles.statisticsItem}
+                title="Total Beans"
+                value={userInfo.beans}
+              />
+              <StatisticsItem className={styles.statisticsItem} title="Rank" value={leaderIndex} />
+            </motion.div>
+            <motion.h2
+              className={styles.title}
+              animate={{ opacity: [0, 1] }}
+              transition={{ delay: 1 }}
+            >
+              Achievements
+            </motion.h2>
+            <motion.div
+              className={styles.badges}
+              animate={{ opacity: [0, 1] }}
+              transition={{ delay: 1 }}
+            >
+              {arrBadge.map((item, index) => {
+                return (
+                  <BeanButton key={index} color={colorArray[index]} text={`Level ${item + 1} `} />
+                );
+              })}
+            </motion.div>
           </div>
         </motion.div>
       </div>

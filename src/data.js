@@ -1,155 +1,11 @@
-export const items = [
+const purple = [
   {
-    id: 1,
-    purchase_name: "blue",
-    src: "/jelly_guy_blue.png",
-    alt: "blue-bean",
-    category: "skins",
-    price: 20,
-  },
-  {
-    id: 2,
-    purchase_name: "green",
-    src: "/jelly_guy_green.png",
-    alt: "green-bean",
-    category: "skins",
-    price: 20,
-  },
-  {
-    id: 3,
-    purchase_name: "red",
-    src: "/jelly_guy_red.png",
-    alt: "red-bean",
-    category: "skins",
-    price: 20,
-  },
-  {
-    id: 4,
-    purchase_name: "yellow",
-    src: "/yellowjelly/yellowJelly_resize.png",
-    alt: "jellies",
-    category: "skins", //is it really a skin?
-    price: 20,
-  },
-  {
-    id: 5,
-    purchase_name: "Chef Hat",
-    src: "/chef_hat.png",
-    alt: "chef hat",
-    price: 35,
-    category: "hats",
-  },
-  {
-    id: 6,
-    purchase_name: "Sheriff Hat",
-    src: "/sheriff_hat_right.png",
-    alt: "sheriff hat",
-    price: 35,
-    category: "hats",
-  },
-  {
-    id: 7,
-    purchase_name: "Mexican Hat",
-    src: "/mexican_hat.png",
-    alt: "amigos mexican sombrero",
-    price: 35,
-    category: "hats",
-  },
-  {
-    id: 8,
-    purchase_name: "Yellow and Chef Hat",
-    src: "/yellowjelly/yellowJelly_chefHat.png",
-    alt: "a yellow jelly wearing a chef hat",
+    id: 23,
+    category: "Purple",
+    purchase_name: "Purple",
+    src: "/purplejelly/jelly_guy_purple_chef.png",
+    alt: "a purple jelly wearing a chef hat",
     price: 50,
-    category: "skins and hats",
-  },
-  {
-    id: 9,
-    purchase_name: "Mexican Yellow Jelly",
-    src: "/yellowjelly/yellowJelly_mexicanHat_moustache.png",
-    alt: "a mexican yellow jelly with moustache wearing a chef hat",
-    price: 90,
-    category: "premium skins",
-  },
-  {
-    id: 10,
-    purchase_name: "Yellow and Sheriff Hat",
-    src: "/yellowjelly/yellowJelly_sheriffHat.png",
-    alt: "a yellow jelly wearing a sheriff hat",
-    price: 50,
-    category: "skins and hats",
-  },
-  {
-    id: 11,
-    purchase_name: "Blue and Chef Hat",
-    src: "/bluejelly/blue_chefHat.png",
-    alt: "a blue jelly wearing a chef hat",
-    price: 50,
-    category: "skins and hats",
-  },
-  {
-    id: 12,
-    purchase_name: "Blue and Mexican Hat",
-    src: "/bluejelly/blue_mexicanHat.png",
-    alt: "a blue jelly wearing a mexican hat",
-    price: 50,
-    category: "skins and hats",
-  },
-  {
-    id: 13,
-    purchase_name: "Blue and Sheriff Hat",
-    src: "/bluejelly/blue_sheriffHat.png",
-    alt: "a blue jelly wearing a sheriff hat",
-    price: 50,
-    category: "skins and hats",
-  },
-  {
-    id: 14,
-    purchase_name: "Green and Chef Hat",
-    src: "/greenjelly/green_chefHat.png",
-    alt: "a green jelly wearing a chef hat",
-    price: 50,
-    category: "skins and hats",
-  },
-  {
-    id: 15,
-    purchase_name: "Green Sheriff Jelly in Mars",
-    src: "/greenjelly/green_mars_sheriff_moustache.jpg",
-    alt: "a green jelly wearing a chef hat",
-    price: 90,
-    category: "premium skins",
-  },
-  {
-    id: 16,
-    purchase_name: "Green and Mexican Hat",
-    src: "/greenjelly/green_mexicanHat.png",
-    alt: "a green jelly wearing a mexican hat",
-    price: 50,
-    category: "skins and hats",
-  },
-  {
-    id: 17,
-    purchase_name: "Red and Chef Hat",
-    src: "/redjelly/jelly_guy_red_chefHat.png",
-    alt: "a red jelly wearing a chef hat",
-    price: 50,
-    category: "skins and hats",
-  },
-  {
-    id: 18,
-    purchase_name: "Red and Mexican Hat",
-    src: "/redjelly/jelly_guy_red_mexicanHat.png",
-    alt: "a red jelly wearing a mexican hat",
-    price: 50,
-    category: "skins and hats",
-  },
-  {
-    id: 19,
-    purchase_name: "Red Chef Jelly in a Madow",
-    src: "/redjelly/redJelly_chef_meadow.png",
-    alt: "a chef red jelly bean in a meadow",
-    price: 90,
-    category: "premium skins",
   },
   {
     id: 20,
@@ -157,7 +13,6 @@ export const items = [
     src: "/purplejelly/jelly_guy_purple_chef.png",
     alt: "a purple jelly wearing a chef hat",
     price: 50,
-    category: "skins and hats",
   },
   {
     id: 21,
@@ -165,7 +20,6 @@ export const items = [
     src: "/purplejelly/jelly_guy_purple_mex.png",
     alt: "a purple jelly wearing a Mexican hat",
     price: 50,
-    category: "skins and hats",
   },
   {
     id: 22,
@@ -173,9 +27,135 @@ export const items = [
     src: "/purplejelly/jelly_guy_purple_sheriff.png",
     alt: "a purple jelly wearing a Sheriff hat",
     price: 50,
-    category: "skins and hats",
   },
-  
+];
+
+const blue = [
+  {
+    id: 1,
+    category: "Blue",
+    purchase_name: "Blue",
+    src: "/jelly_guy_blue.png",
+    alt: "blue-bean",
+    price: 20,
+  },
+  {
+    id: 11,
+    purchase_name: "Blue and Chef Hat",
+    src: "/bluejelly/blue_chefHat.png",
+    alt: "a blue jelly wearing a chef hat",
+    price: 50,
+  },
+  {
+    id: 12,
+    purchase_name: "Blue and Mexican Hat",
+    src: "/bluejelly/blue_mexicanHat.png",
+    alt: "a blue jelly wearing a mexican hat",
+    price: 50,
+  },
+  {
+    id: 13,
+    purchase_name: "Blue and Sheriff Hat",
+    src: "/bluejelly/blue_sheriffHat.png",
+    alt: "a blue jelly wearing a sheriff hat",
+    price: 50,
+  },
+];
+
+const green = [
+  {
+    id: 2,
+    category: "Green",
+    purchase_name: "Green",
+    src: "/jelly_guy_green.png",
+    alt: "green-bean",
+    price: 20,
+  },
+  {
+    id: 14,
+    purchase_name: "Green and Chef Hat",
+    src: "/greenjelly/green_chefHat.png",
+    alt: "a green jelly wearing a chef hat",
+    price: 50,
+  },
+  // {
+  //   id: 15,
+  //   purchase_name: "Green Sheriff Jelly in Mars",
+  //   src: "/greenjelly/green_mars_sheriff_moustache.jpg",
+  //   alt: "a green jelly wearing a chef hat",
+  //   price: 90,
+  // },
+  {
+    id: 16,
+    purchase_name: "Green and Mexican Hat",
+    src: "/greenjelly/green_mexicanHat.png",
+    alt: "a green jelly wearing a mexican hat",
+    price: 50,
+  },
+];
+
+const red = [
+  {
+    id: 3,
+    category: "Red",
+    purchase_name: "Red",
+    src: "/jelly_guy_red.png",
+    alt: "red-bean",
+    price: 20,
+  },
+  {
+    id: 17,
+    purchase_name: "Red and Chef Hat",
+    src: "/redjelly/jelly_guy_red_chefHat.png",
+    alt: "a red jelly wearing a chef hat",
+    price: 50,
+  },
+  {
+    id: 18,
+    purchase_name: "Red and Mexican Hat",
+    src: "/redjelly/jelly_guy_red_mexicanHat.png",
+    alt: "a red jelly wearing a mexican hat",
+    price: 50,
+  },
+  // {
+  //   id: 19,
+  //   purchase_name: "Red Chef Jelly in a Madow",
+  //   src: "/redjelly/redJelly_chef_meadow.png",
+  //   alt: "a chef red jelly bean in a meadow",
+  //   price: 90,
+  // },
+];
+
+const yellow = [
+  {
+    id: 4,
+    category: "Yellow",
+    purchase_name: "Yellow",
+    src: "/yellowjelly/yellowJelly_resize.png",
+    alt: "jellies",
+    price: 20,
+  },
+  {
+    id: 8,
+    purchase_name: "Yellow and Chef Hat",
+    src: "/yellowjelly/yellowJelly_chefHat.png",
+    alt: "a yellow jelly wearing a chef hat",
+    price: 50,
+  },
+  {
+    id: 9,
+    purchase_name: "Mexican Yellow Jelly",
+    src: "/yellowjelly/yellowJelly_mexicanHat_moustache.png",
+    alt: "a mexican yellow jelly with moustache wearing a chef hat",
+    price: 90,
+  },
+  {
+    id: 10,
+    purchase_name: "Yellow and Sheriff Hat",
+    src: "/yellowjelly/yellowJelly_sheriffHat.png",
+    alt: "a yellow jelly wearing a sheriff hat",
+    price: 50,
+  },
 ];
 
 export const sections = [
@@ -187,13 +167,7 @@ export const sections = [
   {
     id: 2,
     name: "financial",
-    categories: [
-      "Interest Rates",
-      "Currency",
-      "Mortgages",
-      "Charity",
-      "Savings",
-    ],
+    categories: ["Interest Rates", "Currency", "Mortgages", "Charity", "Savings"],
   },
   {
     id: 3,
@@ -203,13 +177,7 @@ export const sections = [
   {
     id: 4,
     name: "general",
-    categories: [
-      "Addition",
-      "Subtraction",
-      "Multiplication",
-      "Division",
-      "Further",
-    ],
+    categories: ["Addition", "Subtraction", "Multiplication", "Division", "Further"],
   },
   {
     id: 5,
@@ -217,3 +185,5 @@ export const sections = [
     categories: ["Gardening", "Shopping", "Cooking", "Chores", "DIY"],
   },
 ];
+
+export default [purple, blue, green, red, yellow];

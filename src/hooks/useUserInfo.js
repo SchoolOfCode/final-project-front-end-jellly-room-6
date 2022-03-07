@@ -59,8 +59,6 @@ export default function useUserInfo(authenticatedUser) {
 
       const equipped = purchases.find(item => item.active);
 
-      if (equipped) equipped.src = items.find(i => i.purchase_name === equipped.purchase_name).src;
-
       // Set userInfo state to user object with categories included
       setUserInfo({ ...user, categories, playerLevel, purchases, equipped: equipped || "" });
     }
