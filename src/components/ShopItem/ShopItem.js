@@ -89,7 +89,7 @@ export default function ShopItem({
       <div className={style.beanCostContainer}>
         <p> {price}</p>
         <div className={style.beanCostImage}>
-          <Image src="/beansCoins.png" alt="beans-coins" width={40} height={25} />
+          <Image src="/beanCurrency.png" alt="beans-coins" width={40} height={25} />
         </div>
       </div>
 
