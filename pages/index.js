@@ -17,7 +17,9 @@ export default function LandingPage() {
   }
 
   return (
-    <motion.div className={styles.container} animate={{ opacity: [0, 1] }}>
+
+
+    <motion.div animate={{ opacity: [0, 1] }}>
       <motion.header
         className={styles.header}
         animate={{ opacity: [0, 1] }}
@@ -30,7 +32,7 @@ export default function LandingPage() {
         </Link>
       </motion.header>
 
-      <main className={styles.main}>
+      <main className={styles.container}>
         <motion.div className={styles.titleContainer} animate={{ opacity: [0, 1] }}>
           <motion.div className={styles.titleLogo} animate={{ y: [-50, 0], opacity: [0, 1] }}>
             <Image
