@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import getAuth0User from "../src/hooks/getAuth0User";
 import useUserInfo from "../src/hooks/useUserInfo";
-import { getEquippedItemImg } from "../src/hooks/helpers";
 import items from "../src/data";
 import NavBar from "../src/components/NavBar";
 import ShopCategory from "../src/components/ShopCategory";
@@ -54,22 +53,21 @@ export default function Shop({ auth0User }) {
           The Jellly Shop
         </motion.h1>
         <motion.div className={style.container} animate={{ opacity: [0, 1] }}>
-        <div>
-          {items.map(category => (
-            <>
-              <ShopCategory
-                equippedItem={equippedItem}
-                setEquippedItem={setEquippedItem}
-                user={userInfo}
-                categorytitle={category[0].category}
-                items={category}
-                updateBeans={updateBeans}
-                purchases={userInfo.purchases}
-              />
-            </>
-          ))}
-
-        </div>
+          <div>
+            {items.map(category => (
+              <>
+                <ShopCategory
+                  equippedItem={equippedItem}
+                  setEquippedItem={setEquippedItem}
+                  user={userInfo}
+                  categorytitle={category[0].category}
+                  items={category}
+                  updateBeans={updateBeans}
+                  purchases={userInfo.purchases}
+                />
+              </>
+            ))}
+          </div>
           <motion.div
             className={style.panel}
             animate={{ x: [20, 0], opacity: [0, 1] }}
