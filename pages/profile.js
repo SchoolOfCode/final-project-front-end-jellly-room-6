@@ -24,6 +24,9 @@ export default function Profile({ auth0User, users }) {
     if (userInfo) setEquippedItem(userInfo.equipped);
   }, [userInfo]);
 
+  if (isLoading) return <Loading redirect="/profile" />;
+  if (error) return <div>{error.message}</div>;
+
   let leaderIndex = users
     .map((user, index) => {
       if (user.username === auth0User.username) {

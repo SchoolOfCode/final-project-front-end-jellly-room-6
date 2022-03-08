@@ -25,7 +25,7 @@ export default function Shop({ auth0User }) {
     if (userInfo) setEquippedItem(userInfo.equipped);
   }, [userInfo]);
 
-  if (isLoading || !userInfo) return <Loading />;
+  if (isLoading || !userInfo) return <Loading redirect="/shop" />;
   if (error) return <div>{error.message}</div>;
 
   async function updateBeans(price) {
@@ -46,7 +46,7 @@ export default function Shop({ auth0User }) {
   console.log(items);
 
   return (
-    user && (
+    userInfo && (
       <>
         <NavBar />
         <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }}>

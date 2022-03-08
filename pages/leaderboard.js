@@ -13,7 +13,7 @@ export default function Leaderboard({ users }) {
   const [limit, setLimit] = useState(10);
   const [usersList, setUsersList] = useState([...users.slice(0, limit)]);
 
-  if (isLoading) return <Loading />;
+  if (isLoading) return <Loading redirect="/leaderboard" />;
   if (error) return <div>{error.message}</div>;
   if (!user) {
     window.location.href = "/";
