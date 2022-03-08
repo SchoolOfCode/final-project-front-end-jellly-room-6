@@ -138,6 +138,10 @@
     display: unset;
   }
 
+  .meterTitleResponsive{
+    margin: 0;
+  }
+
   .container {
     display: flex;
     flex-direction: column;
@@ -153,7 +157,7 @@
     justify-content: space-evenly; */
     width: 100%;
     padding: 1em;
-    margin-bottom: 3em;
+    margin-bottom: 6em;
     grid-template-rows: 2fr 1fr 1fr;
     
   }
