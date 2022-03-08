@@ -28,6 +28,27 @@ const purple = [
     alt: "a purple jelly wearing a Sheriff hat",
     price: 10,
   },
+  {
+    id: 23,
+    purchase_name: "Lady Purple",
+    src: "/purplejelly/purple_lips_roseHat.png",
+    alt: "a lady purple jelly wearing a hat with a rose",
+    price: 10,
+  },
+  {
+    id: 24,
+    purchase_name: "Lady Purple with baseball cap",
+    src: "/purplejelly/purple_lips_baseball.png",
+    alt: "a lady purple jelly wearing a baseball cap",
+    price: 10,
+  },
+  {
+    id: 25,
+    purchase_name: "Lady Purple with knite hat",
+    src: "/purplejelly/purple_lips_knitehat.png",
+    alt: "a lady purple jelly wearing a knitehat hat",
+    price: 10,
+  },
 ];
 
 const blue = [
@@ -60,7 +81,29 @@ const blue = [
     alt: "a blue jelly wearing a sheriff hat",
     price: 10,
   },
+  {
+    id: 14,
+    purchase_name: "Lady Blue",
+    src: "/bluejelly/blue_lips_roseHat.png",
+    alt: "a  lady blue jelly wearing a hat with a rose",
+    price: 10,
+  },
+  {
+    id: 24,
+    purchase_name: "Lady Blue with baseball cap",
+    src: "/bluejelly/blue_lips_baseball.png",
+    alt: "a lady blue jelly wearing a baseball cap",
+    price: 10,
+  },
+  {
+  id: 25,
+  purchase_name: "Lady blue with knite hat",
+  src: "/bluejelly/blue_lips_knitehat.png",
+  alt: "a lady blue jelly wearing a knitehat hat",
+  price: 10,
+},
 ];
+
 
 const green = [
   {
@@ -85,6 +128,35 @@ const green = [
     alt: "a green jelly wearing a mexican hat",
     price: 10,
   },
+  {
+    id: 17,
+    purchase_name: "Green and Sheriff Hat",
+    src: "/greenjelly/green_sherifHat_moustache.png",
+    alt: "a green jelly with moustache wearing a sheriff hat",
+    price: 10,
+  },
+  {
+    id: 18,
+    purchase_name: "Lady Green",
+    src: "/greenjelly/green_lips_rosehat.png",
+    alt: "a lady green jelly wearing a hat with a rose",
+    price: 10,
+  },
+  {
+    id: 24,
+    purchase_name: "Lady Green with baseball cap",
+    src: "/greenjelly/green_lips_baseball.png",
+    alt: "a lady green jelly wearing a baseball cap",
+    price: 10,
+  },
+  {
+    id: 25,
+    purchase_name: "Lady Green with knite hat",
+    src: "/greenjelly/green_lips_knitehat.png",
+    alt: "a lady green jelly wearing a knitehat hat",
+    price: 10,
+  },
+
 ];
 
 const red = [
@@ -110,6 +182,34 @@ const red = [
     alt: "a red jelly wearing a mexican hat",
     price: 10,
   },
+  {
+    id: 19,
+    purchase_name: "Red and Sheriff Hat",
+    src: "/redjelly/jelly_guy_red_sheriffHat.png",
+    alt: "a red jelly wearing a sheriff hat",
+    price: 10,
+  },
+  {
+    id: 20,
+    purchase_name: "Lady Red",
+    src: "/redjelly/red_lips_roseHat.png",
+    alt: "a lady red jelly wearing a hat with a rose",
+    price: 10,
+  },
+  {
+    id: 24,
+    purchase_name: "Lady Red with baseball cap",
+    src: "/redjelly/red_lips_baseball.png",
+    alt: "a lady red jelly wearing a baseball cap",
+    price: 10,
+  },
+  {
+  id: 25,
+  purchase_name: "Lady Red with knite hat",
+  src: "/redjelly/red_lips_knitehat.png",
+  alt: "a lady red jelly wearing a knitehat hat",
+  price: 10,
+},
 ];
 
 const yellow = [
@@ -140,6 +240,27 @@ const yellow = [
     purchase_name: "Yellow and Sheriff Hat",
     src: "/yellowjelly/yellowJelly_sheriffHat.png",
     alt: "a yellow jelly wearing a sheriff hat",
+    price: 10,
+  },
+  {
+    id: 11,
+    purchase_name: "Lady Yellow",
+    src: "/yellowjelly/yellow_lips_roseHat.png",
+    alt: "a lady yellow jelly wearing a hat with a rose",
+    price: 10,
+  },
+  {
+    id: 24,
+    purchase_name: "Lady Yellow with baseball cap",
+    src: "/yellowjelly/yellow_lips_baseball.png",
+    alt: "a lady yellow jelly wearing a baseball cap",
+    price: 10,
+  },
+  {
+    id: 25,
+    purchase_name: "Lady yellow with knite hat",
+    src: "/yellowjelly/yellow_lips_knitehat.png",
+    alt: "a lady yellow jelly wearing a knitehat hat",
     price: 10,
   },
 ];
