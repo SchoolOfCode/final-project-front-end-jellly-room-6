@@ -114,13 +114,13 @@
 .meterContainerResponsive {
   display: none;
   position: absolute;
-  bottom: 10vh;
-  height: 5vh;
+  bottom: 60px;
+  height: 35px;
   width: 90vw;
 }
 
 .meterBackgroundResponsive {
-  height: 95%;
+  height: 100%;
   width: 100%;
   background-color: #fff;
   border: 2px solid black;
@@ -157,7 +157,7 @@
     justify-content: space-evenly; */
     width: 100%;
     padding: 1em;
-    margin-bottom: 6em;
+    margin-bottom: 4rem;
     grid-template-rows: 2fr 1fr 1fr;
     
   }

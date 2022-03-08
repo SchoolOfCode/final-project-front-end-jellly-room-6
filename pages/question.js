@@ -65,7 +65,7 @@ export default function Question({ questions, category, auth0User }) {
     width: `${complete ? 100 : meterProgressPercentage}%`,
     height: "100%",
     backgroundImage: 'url("/static/beanMeterFilledHorizontal.png")',
-    backgroundSize: "contain",
+    backgroundSize: "auto 100%",
     borderRadius: "5px",
     transition: "2s",
   };
