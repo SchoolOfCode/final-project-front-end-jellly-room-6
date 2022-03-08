@@ -42,6 +42,13 @@ const purple = [
     alt: "a lady purple jelly wearing a baseball cap",
     price: 10,
   },
+  {
+    id: 25,
+    purchase_name: "Lady Purple with knite hat",
+    src: "/purplejelly/purple_lips_knitehat.png",
+    alt: "a lady purple jelly wearing a knitehat hat",
+    price: 10,
+  },
 ];
 
 const blue = [
@@ -88,6 +95,13 @@ const blue = [
     alt: "a lady blue jelly wearing a baseball cap",
     price: 10,
   },
+  {
+  id: 25,
+  purchase_name: "Lady blue with knite hat",
+  src: "/bluejelly/blue_lips_knitehat.png",
+  alt: "a lady blue jelly wearing a knitehat hat",
+  price: 10,
+},
 ];
 
 
@@ -133,6 +147,13 @@ const green = [
     purchase_name: "Lady Green with baseball cap",
     src: "/greenjelly/green_lips_baseball.png",
     alt: "a lady green jelly wearing a baseball cap",
+    price: 10,
+  },
+  {
+    id: 25,
+    purchase_name: "Lady Green with knite hat",
+    src: "/greenjelly/green_lips_knitehat.png",
+    alt: "a lady green jelly wearing a knitehat hat",
     price: 10,
   },
 
@@ -182,6 +203,13 @@ const red = [
     alt: "a lady red jelly wearing a baseball cap",
     price: 10,
   },
+  {
+  id: 25,
+  purchase_name: "Lady Red with knite hat",
+  src: "/redjelly/red_lips_knitehat.png",
+  alt: "a lady red jelly wearing a knitehat hat",
+  price: 10,
+},
 ];
 
 const yellow = [
@@ -226,6 +254,13 @@ const yellow = [
     purchase_name: "Lady Yellow with baseball cap",
     src: "/yellowjelly/yellow_lips_baseball.png",
     alt: "a lady yellow jelly wearing a baseball cap",
+    price: 10,
+  },
+  {
+    id: 25,
+    purchase_name: "Lady yellow with knite hat",
+    src: "/yellowjelly/yellow_lips_knitehat.png",
+    alt: "a lady yellow jelly wearing a knitehat hat",
     price: 10,
   },
 ];
