@@ -94,6 +94,7 @@
   position: absolute;
   top: 30%;
   right: 8%;
+  animation: bounce forwards 750ms ease-in-out;
 }
 
 .loadButton {
@@ -117,6 +118,20 @@
 
   .leaderboard {
     width: 50vw;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(-300px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(50%) scaleY(80%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
   }
 }
 
