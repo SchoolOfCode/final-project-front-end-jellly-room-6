@@ -3,15 +3,13 @@
   flex-direction: column;
   justify-content: center;
   padding: 1em;
-
 }
 
-.statsContainer{
+.statsContainer {
   padding: 1em;
-  display:flex;
+  display: flex;
   flex-direction: column;
 }
-
 
 .statistics {
   display: flex;
@@ -21,7 +19,7 @@
   margin-bottom: 2em;
 }
 
-.item{
+.item {
   padding: 3em;
 }
 
@@ -59,15 +57,13 @@
 .image {
   margin: 0 1em;
   z-index: -1;
-  display:flex;
+  display: flex;
   justify-content: center;
 }
 
-.username{
+.username {
   font-size: 2.5rem;
 }
-
-
 
 .line {
   background-color: #3c3c3c;
@@ -82,14 +78,13 @@
   align-items: center;
 }
 
-.badges div{
+.badges div {
   width: 20%;
   min-width: 200px;
   max-width: 400px;
   padding: 1em 2em;
   margin-left: 2em;
 }
-
 
 @keyframes wiggle {
   25% {
@@ -103,13 +98,8 @@
   }
 }
 
-
-
 @media (max-width: 1100px) {
-
-
-
-  .userDetails{
+  .userDetails {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -130,17 +120,11 @@
     z-index: -2;
   }
 
-.title{
-  justify-content: center;
-}
+  .title {
+    justify-content: center;
+  }
 
-
-.line{
-  margin-top: 2em;
-}
-
-.badges div{
-
-}
-
+  .line {
+    margin-top: 2em;
+  }
 }

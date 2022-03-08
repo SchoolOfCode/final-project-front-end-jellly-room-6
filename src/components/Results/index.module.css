@@ -12,11 +12,14 @@
   box-shadow: 0 3px 10px 5px rgba(0, 0, 0, 0.2);
 }
 
+.resultsText {
+  font-weight: 400;
+  margin: 0.5rem;
+}
 .content {
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
 .image {
@@ -24,6 +27,7 @@
   position: absolute;
   top: 1em;
   right: 1em;
+  animation: bounce infinite 1.5s ease-in-out;
 }
 
 .title {
@@ -40,12 +44,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
 .stats p {
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .stats h3 {
@@ -70,57 +73,62 @@
 }
 
 .buttons button {
-    padding: 1em 2em;
-    margin: 1em;
-    font-size: 1rem;
+  padding: 1em 2em;
+  margin: 1em;
+  font-size: 1rem;
 }
 
-.retry{
-  
-}
-
-.home{
+.home {
   background-color: rgb(158, 158, 158);
 }
 
-.exitButton{
+.exitButton {
   z-index: 100;
 }
 
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
 
+  50% {
+    transform: translateY(85%) scaleY(80%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 @media (max-width: 1100px) {
-
-  .frame{
+  .frame {
     margin: 0;
     margin-bottom: 4.5rem;
     width: 90%;
     padding: 0.5em;
   }
 
-
-  .frame h2, .frame h3, .title{
+  .frame h2,
+  .frame h3,
+  .title {
     margin: 0.25em;
     padding: 0.25em;
   }
 
-  .frame h2{
+  .frame h2 {
     font-size: 2rem;
   }
 
-  .image{
+  .image {
     top: 0;
     left: 0;
-    transform:rotateY(180deg)
+    transform: rotateY(180deg);
   }
 
-  .frame a{
+  .frame a {
     padding: 0;
-
   }
 
-  .buttons button{
+  .buttons button {
     margin: 0.5em 0;
-
   }
 
   .content p {
@@ -128,17 +136,8 @@
     margin: 0.5em;
   }
 
-  .circle{
+  .circle {
     margin: 1em;
     width: 30%;
   }
-
-
-
-
-
-
-
-
-
 }
