@@ -70,7 +70,7 @@ export default function Home({ auth0User }) {
       <div>
         <NavBar />
 
-        <motion.div className={styles.grid} animate={{ opacity: [0, 1] }}>
+        <motion.main className={styles.grid} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
           <div className={styles.gridItemScroller}>
             <CategoryScroller
               handlePreviousCategory={handlePreviousCategory}
@@ -101,16 +101,14 @@ export default function Home({ auth0User }) {
             animate={{ scale: [0, 1], opacity: [0, 1] }}
             transition={{ delay: 1 }}
           >
-            
-              <Image
-                src={userInfo.equipped.src || "/logoJelly.png"}
-                width={250}
-                height={250}
-                alt="avatar"
-              />
-            
+            <Image
+              src={userInfo.equipped.src || "/logoJelly.png"}
+              width={250}
+              height={250}
+              alt="avatar"
+            />
           </motion.div>
-        </motion.div>
+        </motion.main>
       </div>
     )
   );

@@ -22,7 +22,7 @@ export default function Leaderboard({ users }) {
     user && (
       <div>
         <NavBar />
-        <motion.div className={styles.container} animate={{ opacity: [0, 1] }}>
+        <motion.main className={styles.container} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
           <h1 data-cy="leaderboard-title" className={styles.title}>
             Leaderboard
           </h1>
@@ -40,18 +40,10 @@ export default function Leaderboard({ users }) {
               </motion.li>
             ))}
           </ol>
-          <motion.div
-            className={styles.jellies}
-            animate={{ scale: [0, 1], opacity: [0, 1] }}
-          >
-            <Image
-              alt="icon-jelly"
-              src="/threeJellies.png"
-              width={300}
-              height={300}
-            />
+          <motion.div className={styles.jellies} animate={{ scale: [0, 1], opacity: [0, 1] }}>
+            <Image alt="icon-jelly" src="/threeJellies.png" width={300} height={300} />
           </motion.div>
-        </motion.div>
+        </motion.main>
       </div>
     )
   );

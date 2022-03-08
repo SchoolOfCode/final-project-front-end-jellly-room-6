@@ -46,7 +46,11 @@ export default function Profile({ auth0User, users }) {
     user && (
       <div>
         <NavBar />
-        <motion.div className={styles.profileContainer} animate={{ opacity: [0, 1] }}>
+        <motion.main
+          className={styles.profileContainer}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+        >
           <motion.div className={styles.userDetails} animate={{ x: [-100, 0], opacity: [0, 1] }}>
             <div className={styles.image}>
               <Image
@@ -120,7 +124,7 @@ export default function Profile({ auth0User, users }) {
               })}
             </motion.div>
           </div>
-        </motion.div>
+        </motion.main>
       </div>
     )
   );
