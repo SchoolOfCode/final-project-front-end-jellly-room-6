@@ -72,102 +72,91 @@ export default function Question({ questions, category, auth0User }) {
 
   return (
     user && (
-      <div className={styles.container}>
-  
+      <motion.div className={styles.container} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+        {!complete && (
+          <div className={styles.exitButton}>
+            <Link href="/home">
+              <a>
+                <h1>X</h1>
+              </a>
+            </Link>
+          </div>
+        )}
 
-  
-      { !complete && <div className={styles.exitButton}>
-              <Link href="/home">
+        <motion.div
+          className={styles.meterContainer}
+          animate={{ x: [-500, 0] }}
+          transition={{ delay: 1 }}
+        >
+          <div className={styles.meterBackground}>
+            <div style={meterBarStyle}></div>
+          </div>
 
-                <a >
-                  <h1 >X</h1>
-                </a>
-              </Link>
-          </div>}
+          <h1 className={styles.meterTitle}>Bean-O-Meter</h1>
+        </motion.div>
 
+        <motion.div
+          className={styles.meterContainerResponsive}
+          animate={{ y: [1000, 0] }}
+          transition={{ delay: 1 }}
+        >
+          <div className={styles.meterBackgroundResponsive}>
+            <div style={meterBarStyleResponsive}></div>
+          </div>
 
-        
+          <h1 className={styles.meterTitleResponsive}>Bean-O-Meter</h1>
+        </motion.div>
+
+        {!complete && (
           <motion.div
-            className={styles.meterContainer}
-            animate={{ x: [-500, 0] }}
-            transition={{ delay: 1 }}
+            className={styles.questionContainer}
+            animate={{ opacity: [0, 1] }}
+            transition={{ duration: 1 }}
           >
-            <div className={styles.meterBackground}>
-              <div style={meterBarStyle}></div>
-            </div>
+            <h2 className={styles.questionText}>{currentQuestion.question}</h2>
 
-            <h1 className={styles.meterTitle}>Bean-O-Meter</h1>
-          </motion.div>
-          
-          <motion.div
-            className={styles.meterContainerResponsive}
-            animate={{ y: [1000, 0] }}
-            transition={{ delay: 1 }}
-          >
-            <div className={styles.meterBackgroundResponsive}>
-              <div style={meterBarStyleResponsive}></div>
-            </div>
-
-            <h1 className={styles.meterTitleResponsive}>Bean-O-Meter</h1>
-          </motion.div>
-
-          
-        
-
-        
-          {!complete && (
             <motion.div
-              className={styles.questionContainer}
+              className={styles.answers}
               animate={{ opacity: [0, 1] }}
-              transition={{ duration: 1 }}
+              transition={{ delay: 1 }}
             >
-
-              <h2 className={styles.questionText}>{currentQuestion.question}</h2>
-
-              <motion.div
-                className={styles.answers}
-                animate={{ opacity: [0, 1] }}
-                transition={{ delay: 1 }}
-              >
-
-                <Button className={styles.btn} onClick={checkAnswer}>
-                  {currentQuestion.answers[0]}
-                </Button>
-                <Button className={styles.btn} onClick={checkAnswer}>
-                  {currentQuestion.answers[1]}
-                </Button>
-                <Button className={styles.btn} onClick={checkAnswer}>
-                  {currentQuestion.answers[2]}
-                </Button>
-                <Button className={styles.btn} onClick={checkAnswer}>
-                  {currentQuestion.answers[3]}
-                </Button>
-
-              </motion.div>
-              
-              <motion.div animate={{ opacity: [0, 1] }} transition={{ delay: 1 }}>
-                <h3 className={styles.questionCount}>
-                  Question: {questionCount + 1}/{questions.length}
-                </h3>
-                <p>{showAnswer && currentQuestion.correct}</p>
-              </motion.div>
+              <Button className={styles.btn} onClick={checkAnswer}>
+                {currentQuestion.answers[0]}
+              </Button>
+              <Button className={styles.btn} onClick={checkAnswer}>
+                {currentQuestion.answers[1]}
+              </Button>
+              <Button className={styles.btn} onClick={checkAnswer}>
+                {currentQuestion.answers[2]}
+              </Button>
+              <Button className={styles.btn} onClick={checkAnswer}>
+                {currentQuestion.answers[3]}
+              </Button>
             </motion.div>
-          )}
-          {complete && (
-            <Results
-              numQuestions={questions.length}
-              category={category}
-              score={score}
-              hasWon={win}
-              user={userInfo}
-            />
-          )}
-        
+
+            <motion.div animate={{ opacity: [0, 1] }} transition={{ delay: 1 }}>
+              <h3 className={styles.questionCount}>
+                Question: {questionCount + 1}/{questions.length}
+              </h3>
+              <p>{showAnswer && currentQuestion.correct}</p>
+            </motion.div>
+          </motion.div>
+        )}
+        {complete && (
+          <Results
+            numQuestions={questions.length}
+            category={category}
+            score={score}
+            hasWon={win}
+            user={userInfo}
+          />
+        )}
+
         <audio id="correct-answer" src="/audio/correct_answer.wav" />
         <audio id="incorrect-answer" src="/audio/incorrect_answer.wav" />
         <audio id="win" src="/audio/win.wav" />
         <audio id="lose" src="/audio/lose.wav" />
-      </div>
+      </motion.div>
     )
   );
 }
@@ -183,7 +172,6 @@ export const getServerSideProps = withPageAuthRequired({
     function getQuestions(arr) {
       if (!arr)
         throw new Error(`API did not return any questions for category: ${ctx.query.category}`);
-
 
       return shuffleArray(data.payload).slice(0, questionCount);
     }

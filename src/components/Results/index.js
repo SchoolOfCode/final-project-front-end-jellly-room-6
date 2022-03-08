@@ -12,13 +12,7 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL;
 const rewardXpAmountPerQuestion = 20;
 const rewardBeanAmount = 10;
 
-export default function Results({
-  numQuestions,
-  user,
-  score,
-  category,
-  hasWon,
-}) {
+export default function Results({ numQuestions, user, score, category, hasWon }) {
   console.log(user);
   function hasCompletedCategory(categoryToCheck) {
     return user.categories.includes(categoryToCheck);
@@ -76,7 +70,11 @@ export default function Results({
 
               <div>
                 <p>XP earned</p>
-                {hasCompletedCategory(category) ? <h3>0</h3> : <h3>{score * rewardXpAmountPerQuestion}</h3>}
+                {hasCompletedCategory(category) ? (
+                  <h3>0</h3>
+                ) : (
+                  <h3>{score * rewardXpAmountPerQuestion}</h3>
+                )}
               </div>
               <div>
                 <p>Beans collected</p>
@@ -101,7 +99,7 @@ export default function Results({
       )}
       {!hasWon && (
         <motion.div animate={{ opacity: [0, 1] }}>
-          <div className={styles.image}>
+          <div className={styles.loseImage}>
             <Image
               src="/redJelly_sad.png"
               width={300}
@@ -113,9 +111,7 @@ export default function Results({
           <div className={styles.content}>
             <h2>Results</h2>
             <h3 className={styles.resultsText}>Correct answers: {score}</h3>
-            <h3 className={styles.resultsText}>
-              Incorrect answers: {numQuestions - score}
-            </h3>
+            <h3 className={styles.resultsText}>Incorrect answers: {numQuestions - score}</h3>
             <div className={styles.circle}>
               <CircularProgressbar
                 styles={{ borderRadius: "5rem" }}

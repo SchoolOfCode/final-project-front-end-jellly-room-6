@@ -3,14 +3,14 @@ import Image from "next/image";
 import styles from "./BeanButton.module.css";
 
 export default function BeanButton({ text, color, completed }) {
-  const grayscale = completed ? `0.9` : `0`;
+  const opacity = completed ? `0.5` : `1`;
 
   return (
     <div className={styles.container}>
-    {completed && <div className={`${styles.completedMark} ${styles.animate}`}></div>}
+      {completed && <div className={`${styles.completedMark} ${styles.animate}`}></div>}
       <button
         className={`${styles.beanButton} ${styles.animate}`}
-        style={{ filter: `hue-rotate(${color}deg) grayscale(${grayscale})` }}
+        style={{ filter: `hue-rotate(${color}deg) opacity(${opacity})` }}
       >
         <p className={styles.category}>{text}</p>
         <Image

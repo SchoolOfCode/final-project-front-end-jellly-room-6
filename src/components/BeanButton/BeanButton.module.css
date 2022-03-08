@@ -31,26 +31,26 @@
   animation: wiggle 0.6s;
 } */
 
-.completedMark{
-  position:absolute;
+.completedMark {
+  position: absolute;
   margin: 0;
   top: 2.5em;
   right: 1em;
   z-index: 100;
 }
 
-.completedMark::after{
+.completedMark::after {
   content: "\2713";
-  color:green;
+  color: green;
   font-size: 3.5rem;
   font-weight: 800;
-  filter:drop-shadow();
-  position:absolute;
+  filter: drop-shadow();
+  position: absolute;
   top: -60px;
   right: -40px;
   text-shadow: 1px 2px 2px rgb(148, 148, 148);
 }
-.container:hover .animate{
+.container:hover .animate {
   animation: wiggle 0.6s;
 }
 
