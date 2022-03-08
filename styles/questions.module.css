@@ -114,7 +114,7 @@
 .meterContainerResponsive {
   display: none;
   position: absolute;
-  bottom: 60px;
+  bottom: 20px;
   height: 35px;
   width: 90vw;
 }
