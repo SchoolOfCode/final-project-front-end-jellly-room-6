@@ -13,16 +13,14 @@ export default function Leaderboard({ users }) {
   const [limit, setLimit] = useState(10);
   const [usersList, setUsersList] = useState([...users.slice(0, limit)]);
 
-  if (isLoading) return <Loading />;
+  if (isLoading) return <Loading redirect="/leaderboard" />;
   if (error) return <div>{error.message}</div>;
-  if (!user) {
-    window.location.href = "/";
-  }
+
   return (
     user && (
       <div>
         <NavBar />
-        <motion.div className={styles.container} animate={{ opacity: [0, 1] }}>
+        <motion.main className={styles.container} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
           <h1 data-cy="leaderboard-title" className={styles.title}>
             Leaderboard
           </h1>
@@ -40,18 +38,10 @@ export default function Leaderboard({ users }) {
               </motion.li>
             ))}
           </ol>
-          <motion.div
-            className={styles.jellies}
-            animate={{ scale: [0, 1], opacity: [0, 1] }}
-          >
-            <Image
-              alt="icon-jelly"
-              src="/threeJellies.png"
-              width={300}
-              height={300}
-            />
+          <motion.div className={styles.jellies} animate={{ scale: [0, 1], opacity: [0, 1] }}>
+            <Image alt="icon-jelly" src="/threeJellies.png" width={300} height={300} />
           </motion.div>
-        </motion.div>
+        </motion.main>
       </div>
     )
   );

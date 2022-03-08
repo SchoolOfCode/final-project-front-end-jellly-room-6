@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import getUserLevel from "./getUserLevel.js";
 import { getPurchasesByUser } from "./helpers.js";
+import getUserLevel from "./getUserLevel.js";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 

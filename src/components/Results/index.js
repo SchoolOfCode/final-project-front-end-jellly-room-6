@@ -12,7 +12,13 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL;
 const rewardXpAmountPerQuestion = 20;
 const rewardBeanAmount = 10;
 
-export default function Results({ numQuestions, user, score, category, hasWon }) {
+export default function Results({
+  numQuestions,
+  user,
+  score,
+  category,
+  hasWon,
+}) {
   console.log(user);
   function hasCompletedCategory(categoryToCheck) {
     return user.categories.includes(categoryToCheck);
@@ -40,7 +46,7 @@ export default function Results({ numQuestions, user, score, category, hasWon })
     }
     if (!hasWon || hasCompletedCategory(category)) return;
     rewardUser(score * rewardXpAmountPerQuestion, rewardBeanAmount);
-  }, [hasWon, score, user]);
+  }, [hasWon, score, user, category]);
 
   return (
     <div className={styles.frame}>
@@ -84,10 +90,10 @@ export default function Results({ numQuestions, user, score, category, hasWon })
                 text={`${(score * 100) / numQuestions}%`}
               />
             </div>
-            <h3>You passed!</h3>
+            <h3>You smashed it!</h3>
             <Link href="/home">
               <a className="btn">
-                <Button >Continue</Button>
+                <Button>Continue</Button>
               </a>
             </Link>
           </div>
@@ -107,7 +113,9 @@ export default function Results({ numQuestions, user, score, category, hasWon })
           <div className={styles.content}>
             <h2>Results</h2>
             <h3 className={styles.resultsText}>Correct answers: {score}</h3>
-            <h3 className={styles.resultsText}>Incorrect answers: {numQuestions - score}</h3>
+            <h3 className={styles.resultsText}>
+              Incorrect answers: {numQuestions - score}
+            </h3>
             <div className={styles.circle}>
               <CircularProgressbar
                 styles={{ borderRadius: "5rem" }}
@@ -115,10 +123,15 @@ export default function Results({ numQuestions, user, score, category, hasWon })
                 text={`${Math.floor((score * 100) / numQuestions)}%`}
               />
             </div>
-            <h3>Oh no you did not pass! Please try again.</h3>
+            <h3>{"Oh no you didn't pass! Please try again."}</h3>
             <div className={styles.buttons}>
               <a>
-                <Button className={styles.retry} onClick={() => Router.reload(window.location.pathname)}>Retry?</Button>
+                <Button
+                  className={styles.retry}
+                  onClick={() => Router.reload(window.location.pathname)}
+                >
+                  Retry?
+                </Button>
               </a>
               <Link href="/home">
                 <a>
