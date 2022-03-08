@@ -5,10 +5,9 @@
 
 .title {
   font-size: 4rem;
-  /* font-family: "Roboto", sans-serif; */
   font-weight: 500;
-  /* background-color: #7f00ff; */
-  /* color: white; */
+  background-color: #7f00ff;
+  color: white;
   padding: 0.5em 0.5em;
   border-radius: 10px;
   width: 50%;
@@ -76,11 +75,10 @@
   color: white;
 }
 
-.user:nth-child(n+4) .userPosition {
+.user:nth-child(n + 4) .userPosition {
   background-color: rgb(207, 212, 211);
   box-shadow: 0 0 0 10px hsla(30, 8%, 80%, 0.808), inset 0 0 10px 4px rgba(0, 0, 0, 0.1);
 }
-
 
 .userXP {
   position: absolute;
@@ -112,7 +110,7 @@
 
 @media (max-width: 1200px) {
   .jellies {
-    transform: scale(0.75);
+    transform: scale(0.5);
     top: 10%;
     right: 0;
   }
