@@ -35,7 +35,7 @@ export default function Home({ auth0User }) {
   const [selectedCategory, setSelectedCategory] = useState("general");
 
   // If userInfo is undefined or isLoading is true, display "Loading..."
-  if (isLoading || !userInfo) return <Loading />;
+  if (isLoading || !userInfo) return <Loading redirect="/home" />;
   if (error) return <div>{error.message}</div>;
 
   console.log(userInfo);
