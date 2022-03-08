@@ -4,13 +4,12 @@
 }
 
 .title {
-  font-size: 2rem;
-  font-family: "Roboto", sans-serif;
+  font-size: 4rem;
   font-weight: 500;
   background-color: #7f00ff;
   color: white;
-  padding: 1em 1.5em;
-  border-radius: 20px;
+  padding: 0.5em 0.5em;
+  border-radius: 10px;
   width: 50%;
   text-align: center;
 }
@@ -40,6 +39,7 @@
   border-radius: 100%;
   font-weight: bold;
   z-index: -1;
+  max-width: 7rem;
 }
 
 .user:nth-child(1) .userPosition,
@@ -60,19 +60,24 @@
 }
 
 .user:nth-child(1) .userPosition {
-  background: #ffd900;
+  background: #f7d203f5;
   box-shadow: 0 0 0 10px hsl(51, 100%, 40%), inset 0 0 10px 4px rgba(0, 0, 0, 0.1);
 }
 
 .user:nth-child(2) .userPosition {
-  box-shadow: 0 0 0 10px hsl(0, 0%, 75%), inset 0 0 10px 4px rgba(0, 0, 0, 0.1);
-  background: #f0f0f0;
+  box-shadow: 0 0 0 10px hsl(0, 1%, 49%), inset 0 0 10px 4px rgba(0, 0, 0, 0.1);
+  background: #a7a5a5;
 }
 
 .user:nth-child(3) .userPosition {
   box-shadow: 0 0 0 10px hsl(30, 61%, 40%), inset 0 0 10px 4px rgba(0, 0, 0, 0.1);
   background: #cd7f32;
   color: white;
+}
+
+.user:nth-child(n + 4) .userPosition {
+  background-color: rgb(207, 212, 211);
+  box-shadow: 0 0 0 10px hsla(30, 8%, 80%, 0.808), inset 0 0 10px 4px rgba(0, 0, 0, 0.1);
 }
 
 .userXP {
@@ -87,8 +92,8 @@
 
 .jellies {
   position: absolute;
-  top: 20%;
-  right: 5%;
+  top: 30%;
+  right: 8%;
 }
 
 .loadButton {
@@ -105,7 +110,7 @@
 
 @media (max-width: 1200px) {
   .jellies {
-    transform: scale(0.75);
+    transform: scale(0.5);
     top: 10%;
     right: 0;
   }
