@@ -35,6 +35,13 @@ const purple = [
     alt: "a lady purple jelly wearing a hat with a rose",
     price: 10,
   },
+  {
+    id: 24,
+    purchase_name: "Lady Purple with baseball cap",
+    src: "/purplejelly/purple_lips_baseball.png",
+    alt: "a lady purple jelly wearing a baseball cap",
+    price: 10,
+  },
 ];
 
 const blue = [
@@ -74,7 +81,15 @@ const blue = [
     alt: "a  lady blue jelly wearing a hat with a rose",
     price: 10,
   },
+  {
+    id: 24,
+    purchase_name: "Lady Blue with baseball cap",
+    src: "/bluejelly/blue_lips_baseball.png",
+    alt: "a lady blue jelly wearing a baseball cap",
+    price: 10,
+  },
 ];
+
 
 const green = [
   {
@@ -113,6 +128,14 @@ const green = [
     alt: "a lady green jelly wearing a hat with a rose",
     price: 10,
   },
+  {
+    id: 24,
+    purchase_name: "Lady Green with baseball cap",
+    src: "/greenjelly/green_lips_baseball.png",
+    alt: "a lady green jelly wearing a baseball cap",
+    price: 10,
+  },
+
 ];
 
 const red = [
@@ -152,6 +175,13 @@ const red = [
     alt: "a lady red jelly wearing a hat with a rose",
     price: 10,
   },
+  {
+    id: 24,
+    purchase_name: "Lady Red with baseball cap",
+    src: "/redjelly/red_lips_baseball.png",
+    alt: "a lady red jelly wearing a baseball cap",
+    price: 10,
+  },
 ];
 
 const yellow = [
@@ -189,6 +219,13 @@ const yellow = [
     purchase_name: "Lady Yellow",
     src: "/yellowjelly/yellow_lips_roseHat.png",
     alt: "a lady yellow jelly wearing a hat with a rose",
+    price: 10,
+  },
+  {
+    id: 24,
+    purchase_name: "Lady Yellow with baseball cap",
+    src: "/yellowjelly/yellow_lips_baseball.png",
+    alt: "a lady yellow jelly wearing a baseball cap",
     price: 10,
   },
 ];
