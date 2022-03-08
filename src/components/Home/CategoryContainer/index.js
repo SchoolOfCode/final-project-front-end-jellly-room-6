@@ -3,7 +3,8 @@ import CategoryButton from "../CategoryButton";
 import { motion } from "framer-motion";
 
 export default function CategoryContainer({ categories, userId, completedCategories }) {
-  const buttonColors = categories.map(() => Math.floor(Math.random() * 720));
+  const colorArray = [0, 90, 150, 200, 260, 300, 0, 90, 150, 200, 260, 300];
+
   function getRandomXPos() {
     // Return number between -150 and 150
     const minXPos = -100;
@@ -18,7 +19,7 @@ export default function CategoryContainer({ categories, userId, completedCategor
           return (
             <CategoryButton
               index={index}
-              color={buttonColors[index]}
+              color={colorArray[index]}
               xPos={getRandomXPos()}
               key={category}
               category={category}

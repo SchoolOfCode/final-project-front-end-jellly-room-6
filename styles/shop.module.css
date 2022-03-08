@@ -1,7 +1,7 @@
 .container {
   display: grid;
   grid-template-columns: 3fr 1fr;
-  gap: 1em; 
+  gap: 1em;
   max-width: 1600px;
   justify-content: center;
   margin: auto;
@@ -11,7 +11,7 @@
   display: flex;
   justify-content: center;
   font-size: 3em;
-
+  font-family: "Chewy", cursive;
 }
 
 .items {
@@ -29,12 +29,10 @@
   color: black;
 }
 
-
 .panel {
   padding: 1em;
   margin: 0 auto;
 }
-
 
 .avatar {
   margin: 2rem;
@@ -47,29 +45,23 @@
 }
 
 @media (max-width: 1100px) {
-
-  .container{
-    display:flex;
+  .container {
+    display: flex;
     flex-direction: column;
   }
 
-
-  .panel{
-    
+  .panel {
     order: -1;
     max-width: 500px;
     width: 100%;
-    position:relative;
-
+    position: relative;
   }
 
   .avatar {
-    position:absolute;
+    position: absolute;
     width: 20%;
     left: 2em;
     top: 2em;
     margin: 0;
   }
-  
 }
-

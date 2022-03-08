@@ -8,7 +8,6 @@ import StatisticsItem from "../src/components/Profile/StatisticsItem";
 import styles from "../styles/profile.module.css";
 import BeanButton from "../src/components/BeanButton";
 import { motion } from "framer-motion";
-import { getEquippedItemImg } from "../src/hooks/helpers";
 import { useState, useEffect } from "react";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
@@ -16,7 +15,7 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL;
 export default function Profile({ auth0User, users }) {
   const { user, error, isLoading } = useUser();
   const userInfo = useUserInfo(auth0User.username);
-  const colorArray = [150, 15, 300, 70, 250, 270];
+  const colorArray = [0, 90, 150, 200, 260, 300, 0, 90, 150, 200, 260, 300];
 
   const [equippedItem, setEquippedItem] = useState("");
 
