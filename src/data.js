@@ -3,7 +3,7 @@ const purple = [
     id: 23,
     category: "Purple",
     purchase_name: "Purple",
-    src: "/purplejelly/jelly_guy_purple_chef.png",
+    src: "/purplejelly/jelly_guy_purple_resize.png",
     alt: "a purple jelly wearing a chef hat",
     price: 50,
   },
@@ -35,7 +35,7 @@ const blue = [
     id: 1,
     category: "Blue",
     purchase_name: "Blue",
-    src: "/jelly_guy_blue.png",
+    src: "/bluejelly/blue_resize.png",
     alt: "blue-bean",
     price: 20,
   },
@@ -67,7 +67,7 @@ const green = [
     id: 2,
     category: "Green",
     purchase_name: "Green",
-    src: "/jelly_guy_green.png",
+    src: "/greenjelly/jelly_guy_green_resize.png",
     alt: "green-bean",
     price: 20,
   },
@@ -78,13 +78,6 @@ const green = [
     alt: "a green jelly wearing a chef hat",
     price: 50,
   },
-  // {
-  //   id: 15,
-  //   purchase_name: "Green Sheriff Jelly in Mars",
-  //   src: "/greenjelly/green_mars_sheriff_moustache.jpg",
-  //   alt: "a green jelly wearing a chef hat",
-  //   price: 90,
-  // },
   {
     id: 16,
     purchase_name: "Green and Mexican Hat",
@@ -99,7 +92,7 @@ const red = [
     id: 3,
     category: "Red",
     purchase_name: "Red",
-    src: "/jelly_guy_red.png",
+    src: "/redjelly/jelly_guy_red_resize.png",
     alt: "red-bean",
     price: 20,
   },
@@ -117,13 +110,6 @@ const red = [
     alt: "a red jelly wearing a mexican hat",
     price: 50,
   },
-  // {
-  //   id: 19,
-  //   purchase_name: "Red Chef Jelly in a Madow",
-  //   src: "/redjelly/redJelly_chef_meadow.png",
-  //   alt: "a chef red jelly bean in a meadow",
-  //   price: 90,
-  // },
 ];
 
 const yellow = [
@@ -186,4 +172,6 @@ export const sections = [
   },
 ];
 
-export default [purple, blue, green, red, yellow];
+const items = [purple, blue, green, red, yellow];
+
+export default items;
