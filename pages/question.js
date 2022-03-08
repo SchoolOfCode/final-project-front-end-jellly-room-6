@@ -9,7 +9,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { playSound } from "../src/hooks/helpers";
 
-const showAnswer = true;
+const showAnswer = false;
 
 export default function Question({ questions, category, auth0User }) {
   const { user, error, isLoading } = useUser();
@@ -134,7 +134,7 @@ export default function Question({ questions, category, auth0User }) {
               </Button>
             </motion.div>
 
-            <motion.div animate={{ opacity: [0, 1] }} transition={{ delay: 1 }}>
+            <motion.div className={styles.remainingQuestions} animate={{ opacity: [0, 1] }} transition={{ delay: 1 }}>
               <h3 className={styles.questionCount}>
                 Question: {questionCount + 1}/{questions.length}
               </h3>
