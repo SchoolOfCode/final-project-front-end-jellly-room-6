@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import getAuth0User from "../src/hooks/getAuth0User";
 import useUserInfo from "../src/hooks/useUserInfo";
 import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
@@ -9,7 +9,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { playSound } from "../src/hooks/helpers";
 
-const showAnswer = false;
+const showAnswer = true;
 
 export default function Question({ questions, category, auth0User }) {
   const { user, error, isLoading } = useUser();
@@ -17,9 +17,9 @@ export default function Question({ questions, category, auth0User }) {
 
   const [questionCount, setQuestionCount] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState(questions[0]);
-  const [score, setScore] = useState(0);
   const [win, setWin] = useState(false);
   const [complete, setComplete] = useState(false);
+  const score = useRef(0);
 
   useEffect(() => {
     setCurrentQuestion(questions[questionCount]);
@@ -32,7 +32,7 @@ export default function Question({ questions, category, auth0User }) {
     // Check if text inside clicked button is equal to correct answer
     if (e.target.textContent == currentQuestion.correct) {
       playSound("correct-answer");
-      setScore(score + 1);
+      score.current++;
     } else playSound("incorrect-answer");
     // Only increment question count if there is a question available to increment to
     if (questionCount < questions.length - 1) return setQuestionCount(questionCount + 1);
@@ -41,7 +41,7 @@ export default function Question({ questions, category, auth0User }) {
 
   function calculateScore() {
     // More than 50% correct at end of quiz, setWin to true
-    if (score >= questions.length * 0.5) {
+    if (score.current >= questions.length * 0.5) {
       setWin(true);
       playSound("win", 500);
     } else {
@@ -146,7 +146,7 @@ export default function Question({ questions, category, auth0User }) {
           <Results
             numQuestions={questions.length}
             category={category}
-            score={score}
+            score={score.current}
             hasWon={win}
             user={userInfo}
           />
