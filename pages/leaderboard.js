@@ -15,9 +15,7 @@ export default function Leaderboard({ users }) {
 
   if (isLoading) return <Loading redirect="/leaderboard" />;
   if (error) return <div>{error.message}</div>;
-  if (!user) {
-    window.location.href = "/";
-  }
+
   return (
     user && (
       <div>
