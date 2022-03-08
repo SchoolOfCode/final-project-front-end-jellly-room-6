@@ -39,7 +39,7 @@ export default function NavBar() {
         </Link>
       </div>
       <Link href="/api/auth/logout">
-        <a className={styles.link}>
+        <a className={styles.logoutAnchor}>
           <button className={`${styles.logoutBtn} btn`}>Logout</button>
         </a>
       </Link>

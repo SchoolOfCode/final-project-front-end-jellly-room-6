@@ -39,6 +39,9 @@
   .link {
     display: none;
   }
+  .logoutAnchor{
+    display:none;
+  }
 
   .dropdownDisplay {
     display: unset;

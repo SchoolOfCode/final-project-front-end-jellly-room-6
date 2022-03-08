@@ -62,6 +62,7 @@ export default function useUserInfo(authenticatedUser) {
       setUserInfo({ ...user, categories, playerLevel, purchases, equipped: equipped || "" });
     }
 
+
     fetchUser();
   }, [authenticatedUser]);
 

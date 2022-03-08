@@ -7,9 +7,9 @@ export default function BeanButton({ text, color, completed }) {
 
   return (
     <div className={styles.container}>
-    {completed && <div className={styles.completedMark}></div>}
+    {completed && <div className={`${styles.completedMark} ${styles.animate}`}></div>}
       <button
-        className={styles.beanButton}
+        className={`${styles.beanButton} ${styles.animate}`}
         style={{ filter: `hue-rotate(${color}deg) grayscale(${grayscale})` }}
       >
         <p className={styles.category}>{text}</p>

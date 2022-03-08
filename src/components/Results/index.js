@@ -76,15 +76,11 @@ export default function Results({
 
               <div>
                 <p>XP earned</p>
-                {hasCompletedCategory(category) ? (
-                  <h3>0</h3>
-                ) : (
-                  <h3>{score * 10}</h3>
-                )}
+                {hasCompletedCategory(category) ? <h3>0</h3> : <h3>{score * rewardXpAmountPerQuestion}</h3>}
               </div>
               <div>
                 <p>Beans collected</p>
-                {hasCompletedCategory(category) ? <h3>0</h3> : <h3>20</h3>}
+                {hasCompletedCategory(category) ? <h3>0</h3> : <h3>{rewardBeanAmount}</h3>}
               </div>
             </div>
             <div className={styles.circle}>

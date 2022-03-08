@@ -26,7 +26,13 @@ export default function HomeStatsDisplay({userInfo}){
           <h1>{userInfo.username}</h1>
 
     </div>
-          <h2>Beans: {userInfo.beans}</h2>
+          <div className={styles.beans}>
+            <Image src="/Jarbean.png" width={125} height={150} alt="Jar of beans" />
+                <div className={styles.beanAmount}>
+
+                    <p>{userInfo.beans}</p>
+                </div>
+          </div>
           <p>Level {userInfo.playerLevel}</p>
           
           <div className={styles.levelBarContainer}>

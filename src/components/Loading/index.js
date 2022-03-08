@@ -1,7 +1,7 @@
 import styles from "./loading.module.css";
 import { useEffect } from "react";
 
-const timeoutInSeconds = 1;
+const timeoutInSeconds = 2.5;
 
 export default function Loading({ redirect }) {
   useEffect(() => {

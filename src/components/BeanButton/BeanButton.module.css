@@ -27,9 +27,9 @@
   transform: rotate(-90deg);
 }
 
-.beanButton:hover {
+/* .beanButton:hover {
   animation: wiggle 0.6s;
-}
+} */
 
 .completedMark{
   position:absolute;
@@ -50,7 +50,7 @@
   right: -40px;
   text-shadow: 1px 2px 2px rgb(148, 148, 148);
 }
-.container:hover .completedMark::after{
+.container:hover .animate{
   animation: wiggle 0.6s;
 }
 

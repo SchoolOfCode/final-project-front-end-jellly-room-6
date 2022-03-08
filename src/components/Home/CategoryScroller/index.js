@@ -13,9 +13,9 @@ export default function CategoryScroller({
 }) {
   return (
     <motion.div className={styles.scroller} animate={{ opacity: [0, 1] }}>
-      <p onClick={handlePreviousCategory}>{"<"}</p>
+      <motion.p animate={{ opacity: [0, 1] }} onClick={handlePreviousCategory} className={styles.prevBtn}><span>&#10140;</span></motion.p>
       <motion.h2 animate={{ x: [-50, 0] }}>{selectedCategory}</motion.h2>
-      <p onClick={handleNextCategory}>{">"}</p>
+      <motion.p animate={{ opacity: [0, 1] }} onClick={handleNextCategory}><span>&#10140;</span></motion.p>
     </motion.div>
   );
 }

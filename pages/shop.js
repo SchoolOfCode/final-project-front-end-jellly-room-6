@@ -15,6 +15,7 @@ import style from "../styles/shop.module.css";
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export default function Shop({ auth0User }) {
+
   const { user, error, isLoading } = useUser();
   const userInfo = useUserInfo(auth0User.username);
   const [beans, setBeans] = useState("");
@@ -43,8 +44,6 @@ export default function Shop({ auth0User }) {
     setBeans(beans - price);
   }
 
-  console.log(items);
-
   return (
     userInfo && (
       <>
@@ -55,9 +54,9 @@ export default function Shop({ auth0User }) {
           </motion.h1>
           <motion.div className={style.container} animate={{ opacity: [0, 1] }}>
             <div>
-              {items.map(category => (
-                <>
+              {items.map((category, index) => (
                   <ShopCategory
+                    key={index}
                     equippedItem={equippedItem}
                     setEquippedItem={setEquippedItem}
                     user={userInfo}
@@ -66,7 +65,6 @@ export default function Shop({ auth0User }) {
                     updateBeans={updateBeans}
                     purchases={userInfo.purchases}
                   />
-                </>
               ))}
             </div>
             <motion.div
@@ -92,6 +90,7 @@ export default function Shop({ auth0User }) {
 
 export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps(ctx) {
+
     return {
       props: {
         auth0User: await getAuth0User(ctx),

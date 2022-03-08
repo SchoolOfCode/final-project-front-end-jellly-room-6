@@ -18,7 +18,6 @@ export default function LandingPage() {
 
   return (
 
-
     <motion.div animate={{ opacity: [0, 1] }}>
       <motion.header
         className={styles.header}
