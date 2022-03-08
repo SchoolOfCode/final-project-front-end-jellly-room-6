@@ -7,7 +7,7 @@ export default function Loading() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      window.location.href = "/api/auth/logout"
+      window.location.reload()
     }, timeoutInSeconds * 1000);
     return () => {
       clearTimeout(timer);

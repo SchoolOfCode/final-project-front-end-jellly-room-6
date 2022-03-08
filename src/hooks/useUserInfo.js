@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import getUserLevel from "./getUserLevel.js";
 import { getPurchasesByUser } from "./helpers.js";
-import { items } from "../data.js";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -62,6 +61,7 @@ export default function useUserInfo(authenticatedUser) {
       // Set userInfo state to user object with categories included
       setUserInfo({ ...user, categories, playerLevel, purchases, equipped: equipped || "" });
     }
+
 
     fetchUser();
   }, [authenticatedUser]);
