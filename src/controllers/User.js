@@ -22,7 +22,6 @@ export function getUserRemainingXpPercentage(xp, level){
 
   //Work out percentage of current xp to remaining xp required
   const percentage = xpLessLevel / difference;
-  console.log(Number(percentage.toFixed(2)))
 
   return Number(percentage.toFixed(2))
 }
@@ -50,7 +49,7 @@ export function getUserXpNextLevelRequired(level){
 }
 
 
-export default function getUserLevel(xp) {
+export function getUserLevel(xp) {
   for (let level in levelRequirements) {
     if (xp < levelRequirements[level]) {
       return Number(level-1);
@@ -60,3 +59,19 @@ export default function getUserLevel(xp) {
     Object.keys(levelRequirements).length - 1
   ];
 }
+
+export async function getUserBeans(username) {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/${username}`);
+  const data = await res.json();
+  return data.payload[0].beans;
+}
+
+export async function getPurchasesByUser(user_id) {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/purchases/${user_id}`);
+  const data = await res.json();
+  return data.payload;
+}
+
+
+
+

@@ -39,7 +39,7 @@ export default function LandingPage() {
             <Image
               className={styles.jellyBean}
               src="/logoJelly.png"
-              alt="me"
+              alt="jellly-logo"
               width="130"
               height="100"
             />

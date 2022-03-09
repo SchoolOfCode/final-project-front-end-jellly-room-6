@@ -1,4 +1,4 @@
-import getAuth0User from "../src/hooks/getAuth0User";
+import getAuth0User from "../src/controllers/Authorisation.js";
 import useUserInfo from "../src/hooks/useUserInfo";
 import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import NavBar from "../src/components/NavBar";

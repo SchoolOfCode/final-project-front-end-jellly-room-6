@@ -10,7 +10,7 @@ import "react-circular-progressbar/dist/styles.css";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 const rewardXpAmountPerQuestion = 20;
-const rewardBeanAmount = 10;
+const rewardBeanAmount = 5;
 
 export default function Results({ numQuestions, user, score, category, hasWon }) {
   console.log(user);

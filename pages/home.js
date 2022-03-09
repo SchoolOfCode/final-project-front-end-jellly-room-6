@@ -7,11 +7,11 @@ import Image from "next/image";
 import CategoryContainer from "../src/components/Home/CategoryContainer";
 import HomeStatsDisplay from "../src/components/Home/HomeStatsDisplay";
 import Loading from "../src/components/Loading";
-import getAuth0User from "../src/hooks/getAuth0User";
+import getAuth0User from "../src/controllers/Authorisation.js";
 import useUserInfo from "../src/hooks/useUserInfo";
 import CategoryScroller from "../src/components/Home/CategoryScroller";
 import { motion } from "framer-motion";
-import { sections } from "../src/data";
+import { sections } from "../src/Categories";
 
 //Plan
 //-onClick go to questions (loading page, etc.)
@@ -37,8 +37,6 @@ export default function Home({ auth0User }) {
   // If userInfo is undefined or isLoading is true, display "Loading..."
   if (isLoading || !userInfo) return <Loading redirect="/home" />;
   if (error) return <div>{error.message}</div>;
-
-  console.log(userInfo);
 
   function handleSelect(e) {
     setSelectedCategory(e.target.value);
