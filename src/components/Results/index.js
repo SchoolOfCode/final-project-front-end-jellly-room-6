@@ -72,7 +72,7 @@ export default function Results({
                   value: ["#00FFFC", "#FC00FF", "#fffc00"],
                 },
                 shape: {
-                  type: ["circle", "square", "triangle", "image"],
+                  type: ["circle", "square", "triangle"], //image removed
                   options: {
                     image: [
                       {
