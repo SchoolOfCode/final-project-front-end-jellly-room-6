@@ -4,6 +4,9 @@ context("Home page", () => {
     cy.visit("/");
   });
   describe("Landing Page", () => {
+    it("Should clear cashe", () => {
+      cy.exec("npm cache clear --force");
+    });
     it("Should find description", () => {
       cy.get("h2").contains(
         "The fun, free way to learn maths and improve financial literacy."
@@ -19,10 +22,6 @@ context("Home page", () => {
     it("Should find Login button", () => {
       cy.get("[data-cy=login]").contains("Login");
       cy.get("[data-cy=get-started]").contains("Get Started").click();
-      //   cy.loginByAuth0Api(
-      //     Cypress.env("auth0_username"),
-      //     Cypress.env("auth0_password")
-      //   );
     });
   });
 });
