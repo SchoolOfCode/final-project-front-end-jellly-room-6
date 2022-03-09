@@ -2,16 +2,16 @@ import { useUser } from "@auth0/nextjs-auth0";
 import NavBar from "../src/components/NavBar";
 import styles from "../styles/leaderboard.module.css";
 import Image from "next/image";
-import { useState } from "react";
 import { motion } from "framer-motion";
 import Loading from "../src/components/Loading";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
+const usersToDisplay = 10;
+
 export default function Leaderboard({ users }) {
   const { user, error, isLoading } = useUser();
-  const [limit, setLimit] = useState(10);
-  const [usersList, setUsersList] = useState([...users.slice(0, limit)]);
+  const usersList = [...users.slice(0, usersToDisplay)];
 
   if (isLoading) return <Loading redirect="/leaderboard" />;
   if (error) return <div>{error.message}</div>;
