@@ -10,7 +10,7 @@ describe("Navbar", () => {
       });
       describe("Nav", () => {
         it("should navigate to Shop page", () => {
-          cy.get("[data-cy=nav-item]").contains("Jelly Shop").click();
+          cy.get("[data-cy=nav-item]").contains("Jellly Shop").click();
           cy.url().should("include", "/shop");
         });
       });

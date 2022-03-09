@@ -7,7 +7,7 @@ export default function NavDropdown() {
 
   return (
     <div
-      onClick={(e) => setIsVisible(!isVisible)}
+      onClick={e => setIsVisible(!isVisible)}
       data-cy="nav-cntr"
       className={`${styles.dropdownContainer}`}
     >
@@ -18,7 +18,7 @@ export default function NavDropdown() {
             <a className={styles.link}>Home</a>
           </Link>
           <Link href="/shop">
-            <a className={styles.link}>Jelly Shop</a>
+            <a className={styles.link}>Jellly Shop</a>
           </Link>
           <Link href="/leaderboard">
             <a className={styles.link}>Leaderboard</a>

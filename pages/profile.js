@@ -56,6 +56,7 @@ export default function Profile({ auth0User, users }) {
           <motion.div className={styles.userDetails} animate={{ x: [-100, 0], opacity: [0, 1] }}>
             <div className={styles.image}>
               <Image
+                data-cy="logo"
                 src={equippedItem.src || "/logoJelly.png"}
                 alt="Jelly"
                 width={160}
