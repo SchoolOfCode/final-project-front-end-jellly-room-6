@@ -13,7 +13,7 @@ const rewardXpAmountPerQuestion = 20;
 const rewardBeanAmount = 5;
 
 export default function Results({ numQuestions, user, score, category, hasWon }) {
-  console.log(user);
+
   function hasCompletedCategory(categoryToCheck) {
     return user.categories.includes(categoryToCheck);
   }

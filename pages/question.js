@@ -7,7 +7,7 @@ import styles from "../styles/questions.module.css";
 import Button from "react-bootstrap/Button";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { playSound } from "../src/hooks/helpers";
+import { playSound } from "../src/controllers/Audio.js";
 
 const showAnswer = false;
 
