@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
-import getAuth0User from "../src/hooks/getAuth0User";
+import getAuth0User from "../src/controllers/Authorisation.js";
 import useUserInfo from "../src/hooks/useUserInfo";
-import items from "../src/data";
+import items from "../src/ShopItems";
 import NavBar from "../src/components/NavBar";
-import ShopCategory from "../src/components/ShopCategory";
+import ShopCategory from "../src/components/Shop/ShopCategory";
 import Loading from "../src/components/Loading";
-import InformationCard from "../src/components/InformationCard";
+import InformationCard from "../src/components/Shop/InformationCard";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
@@ -60,7 +60,7 @@ export default function Shop({ auth0User }) {
                     equippedItem={equippedItem}
                     setEquippedItem={setEquippedItem}
                     user={userInfo}
-                    categorytitle={category[0].category}
+                    categoryTitle={category[0].category}
                     items={category}
                     updateBeans={updateBeans}
                     purchases={userInfo.purchases}
