@@ -7,13 +7,24 @@
   padding: 1em;
   border-bottom: solid #3c3c3c4b 2px;
   width: 100%;
+}
 
+.brandingWithLinks{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navLinks{
+  margin-left: 1em;
 }
 
 .branding {
   display: flex;
   align-items:center;
 }
+
+
 
 .link {
   font-size: 1.25rem;
