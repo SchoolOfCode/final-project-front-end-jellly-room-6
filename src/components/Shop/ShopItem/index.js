@@ -1,8 +1,8 @@
 import Button from "react-bootstrap/Button";
 import style from "./ShopItem.module.css";
 import { useEffect, useState } from "react";
-import { getUserBeans} from "../../../controllers/User.js";
-import { playSound } from "../../../controllers/Audio.js"
+import { getUserBeans } from "../../../controllers/User.js";
+import { playSound } from "../../../controllers/Audio.js";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -74,16 +74,16 @@ export default function ShopItem({
       return;
     }
     // If they do, remove beans from user in db
+    playSound("purchase");
     addPurchase(item.purchase_name, item.src);
     updateBeans(price);
     setPurchased(true);
-    playSound("purchase");
   }
 
   function handleEquip() {
+    playSound("pop");
     setEquippedItem(item);
     equipItem(item.purchase_name);
-    playSound("pop");
   }
 
   return (
@@ -92,7 +92,7 @@ export default function ShopItem({
       animate={{ y: [100, 0], opacity: [0, 1] }}
       transition={{ delay: 0.2 }}
     >
-      <div className={style.image}>
+      <div className={`${style.image} ${isEquipped && style.equippedImg}`}>
         <Image data-cy="shopItemImg" src={src} alt={alt} width={100} height={100} />
       </div>
 
