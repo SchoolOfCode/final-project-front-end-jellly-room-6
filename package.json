@@ -15,6 +15,7 @@
     "antd": "^4.18.9",
     "auth0": "^2.40.0",
     "auth0-js": "^9.19.0",
+    "cypress-nextjs-auth0": "^2.1.0",
     "bootstrap": "^5.1.3",
     "cypress-nextjs-auth0": "^2.1.0",
     "framer-motion": "^6.2.8",
@@ -22,8 +23,7 @@
     "react": "17.0.2",
     "react-bootstrap": "^2.1.2",
     "react-circular-progressbar": "^2.0.4",
-    "react-dom": "17.0.2",
-    "tailwindcss": "^3.0.23"
+    "react-dom": "17.0.2"
   },
   "devDependencies": {
     "cypress": "^9.5.1",

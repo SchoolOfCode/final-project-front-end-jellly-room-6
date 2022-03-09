@@ -17,6 +17,7 @@
 import "./commands";
 // import auth0 from 'auth0-js';
 // import Iron from '@hapi/iron';
+import "cypress-nextjs-auth0";
 
 // const auth = new auth0.WebAuth({
 //   domain: Cypress.env('auth0Domain'),
