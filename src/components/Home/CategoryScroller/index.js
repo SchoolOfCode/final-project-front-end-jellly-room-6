@@ -12,7 +12,7 @@ export default function CategoryScroller({
   selectedCategory,
 }) {
   return (
-    <motion.div className={styles.scroller} animate={{ opacity: [0, 1] }}>
+    <motion.div data-cy="scroller" className={styles.scroller} animate={{ opacity: [0, 1] }}>
       <motion.p animate={{ opacity: [0, 1] }} onClick={handlePreviousCategory} className={styles.prevBtn}><span>&#10140;</span></motion.p>
       <motion.h2 animate={{ x: [-50, 0] }}>{selectedCategory}</motion.h2>
       <motion.p animate={{ opacity: [0, 1] }} onClick={handleNextCategory}><span>&#10140;</span></motion.p>
