@@ -33,7 +33,7 @@ describe("Navbar", () => {
         });
 
         describe("nav", () => {
-          it("Should navigate to About page", () => {
+          it("Should navigate to Shop page", () => {
             cy.get("[data-cy=nav-cntr]").contains("Jellly Shop").click();
             cy.url().should("include", "http://localhost:3000/shop");
           });

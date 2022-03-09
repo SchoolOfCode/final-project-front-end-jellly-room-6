@@ -5,7 +5,7 @@ context("Home page", () => {
   });
   describe("Landing Page", () => {
     it("Should clear cashe", () => {
-      cy.exec("npm cache clear --force");
+      cy.clearCookie("session_id");
     });
     it("Should find description", () => {
       cy.get("h2").contains(
