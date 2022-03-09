@@ -1,12 +1,9 @@
 /// <reference types="cypress" />
 context("Home page", () => {
   beforeEach(() => {
-    cy.visit("/");
+    cy.clearAuth0Cookies();
   });
   describe("Landing Page", () => {
-    it("Should clear cashe", () => {
-      cy.clearCookie("session_id");
-    });
     it("Should find description", () => {
       cy.get("h2").contains(
         "The fun, free way to learn maths and improve financial literacy."
