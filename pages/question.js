@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import getAuth0User from "../src/hooks/getAuth0User";
+import getAuth0User from "../src/controllers/Authorisation.js";
 import useUserInfo from "../src/hooks/useUserInfo";
 import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import Results from "../src/components/Results";
@@ -7,9 +7,9 @@ import styles from "../styles/questions.module.css";
 import Button from "react-bootstrap/Button";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { playSound } from "../src/hooks/helpers";
+import { playSound } from "../src/controllers/Audio.js";
 
-const showAnswer = true;
+const showAnswer = false;
 
 export default function Question({ questions, category, auth0User }) {
   const { user, error, isLoading } = useUser();
@@ -65,7 +65,7 @@ export default function Question({ questions, category, auth0User }) {
     width: `${complete ? 100 : meterProgressPercentage}%`,
     height: "100%",
     backgroundImage: 'url("/static/beanMeterFilledHorizontal.png")',
-    backgroundSize: "contain",
+    backgroundSize: "auto 100%",
     borderRadius: "5px",
     transition: "2s",
   };
@@ -134,7 +134,7 @@ export default function Question({ questions, category, auth0User }) {
               </Button>
             </motion.div>
 
-            <motion.div animate={{ opacity: [0, 1] }} transition={{ delay: 1 }}>
+            <motion.div className={styles.remainingQuestions} animate={{ opacity: [0, 1] }} transition={{ delay: 1 }}>
               <h3 className={styles.questionCount}>
                 Question: {questionCount + 1}/{questions.length}
               </h3>

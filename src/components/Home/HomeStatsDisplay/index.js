@@ -1,5 +1,5 @@
-import styles from '../../../../styles/home.module.css'
-import {getUserRemainingXpPercentage, getUserXpNextLevelRequired, getUserXpEarnedThisLevel} from '../../../hooks/getUserLevel';
+import styles from './index.module.css'
+import {getUserRemainingXpPercentage, getUserXpNextLevelRequired, getUserXpEarnedThisLevel} from '../../../controllers/User';
 import Image from 'next/image';
 
 export default function HomeStatsDisplay({userInfo}){
