@@ -12,10 +12,10 @@ export default function ShopCategory({
 }) {
   return (
     <div className={style.container}>
-      <h3 className={style.title}>{categorytitle}</h3>
+      <h3 data-cy="skincolor" className={style.title}>{categorytitle}</h3>
       <div className={style.items}>
         {items.map((item, index) => (
-          <ShopItem
+          <ShopItem 
             index={index}
             setEquippedItem={setEquippedItem}
             equippedItem={equippedItem}

@@ -83,7 +83,7 @@ export default function ShopItem({
       transition={{ delay: 0.25 * index }}
     >
       <div className={style.image}>
-        <Image src={src} alt={alt} width={100} height={100} />
+        <Image data-cy="shopItemImg" src={src} alt={alt} width={100} height={100} />
       </div>
 
       <div className={style.beanCostContainer}>

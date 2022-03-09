@@ -49,7 +49,7 @@ export default function Shop({ auth0User }) {
       <>
         <NavBar />
         <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <motion.h1 className={style.title} animate={{ y: [20, 0], opacity: [0, 1] }}>
+          <motion.h1 data-cy="title" className={style.title} animate={{ y: [20, 0], opacity: [0, 1] }}>
             The Jellly Shop
           </motion.h1>
           <motion.div className={style.container} animate={{ opacity: [0, 1] }}>
