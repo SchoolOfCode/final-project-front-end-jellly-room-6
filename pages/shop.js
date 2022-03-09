@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import getAuth0User from "../src/controllers/Authorisation.js";
 import useUserInfo from "../src/hooks/useUserInfo";
@@ -9,40 +8,21 @@ import Loading from "../src/components/Loading";
 import InformationCard from "../src/components/Shop/InformationCard";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import useShop from "../src/hooks/useShop.js"
 
 import style from "../styles/shop.module.css";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
 
 export default function Shop({ auth0User }) {
 
   const { user, error, isLoading } = useUser();
   const userInfo = useUserInfo(auth0User.username);
-  const [beans, setBeans] = useState("");
-  const [equippedItem, setEquippedItem] = useState("");
-
-  useEffect(() => {
-    setBeans(userInfo.beans);
-    if (userInfo) setEquippedItem(userInfo.equipped);
-  }, [userInfo]);
+  const {currentBeans, updateBeans, equippedItem, setEquippedItem} = useShop(userInfo);
 
   if (isLoading || !userInfo) return <Loading redirect="/shop" />;
   if (error) return <div>{error.message}</div>;
 
-  async function updateBeans(price) {
-    // Update beans in database
-    const body = { XP: 0, beans: -price };
-    await fetch(`${API_URL}/users/${userInfo.user_id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify(body),
-    });
-    // Update beans state for front end display
-    setBeans(beans - price);
-  }
 
   return (
     userInfo && (
@@ -72,7 +52,7 @@ export default function Shop({ auth0User }) {
               animate={{ x: [20, 0], opacity: [0, 1] }}
               transition={{ delay: 1 }}
             >
-              <InformationCard username={userInfo.username} beans={beans} />
+              <InformationCard username={userInfo.username} beans={currentBeans} />
               <motion.div
                 className={style.avatar}
                 animate={{ scale: [0, 1], opacity: [0, 1] }}
