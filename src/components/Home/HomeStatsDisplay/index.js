@@ -1,5 +1,5 @@
-import styles from '../../../../styles/home.module.css'
-import {getUserRemainingXpPercentage, getUserXpNextLevelRequired, getUserXpEarnedThisLevel} from '../../../hooks/getUserLevel';
+import styles from './index.module.css'
+import {getUserRemainingXpPercentage, getUserXpNextLevelRequired, getUserXpEarnedThisLevel} from '../../../controllers/User';
 import Image from 'next/image';
 
 export default function HomeStatsDisplay({userInfo}){
@@ -16,7 +16,7 @@ export default function HomeStatsDisplay({userInfo}){
     <div className={styles.statsTitle}>
 
               <div className={`${styles.gridItemLogoMobile}`}>
-          <Image
+          <Image data-cy="jellyavatar"
                 src={userInfo.equipped.src || "/logoJelly.png"}
                 width={200}
                 height={200}
@@ -26,8 +26,8 @@ export default function HomeStatsDisplay({userInfo}){
           <h1>{userInfo.username}</h1>
 
     </div>
-          <div className={styles.beans}>
-            <Image src="/Jarbean.png" width={125} height={150} alt="Jar of beans" />
+          <div  className={styles.beans}>
+            <Image data-cy="jarofbeans" src="/Jarbean.png" width={125} height={150} alt="Jar of beans" />
                 <div className={styles.beanAmount}>
 
                     <p>{userInfo.beans}</p>

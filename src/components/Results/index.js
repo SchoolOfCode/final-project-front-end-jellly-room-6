@@ -11,7 +11,7 @@ import Particles from "react-tsparticles";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 const rewardXpAmountPerQuestion = 20;
-const rewardBeanAmount = 10;
+const rewardBeanAmount = 5;
 
 export default function Results({
   numQuestions,
@@ -20,7 +20,6 @@ export default function Results({
   category,
   hasWon,
 }) {
-  console.log(user);
   function hasCompletedCategory(categoryToCheck) {
     return user.categories.includes(categoryToCheck);
   }

@@ -1,0 +1,152 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  width: 15vw;
+  max-width: 300px;
+  margin: 1em 0;
+}
+
+.image {
+  z-index: -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 1rem;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  min-width: 100px;
+  width: 100%;
+}
+
+.beanCostContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+
+.price p {
+  margin: 1rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.equipBtn {
+  background: rgb(255, 217, 3);
+  color: black;
+  padding: 1em 2em;
+}
+
+.buyBtn {
+  padding: 1em 2em;
+}
+
+.buttons {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+}
+
+.equipped {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+  height: 38px;
+  margin: 0;
+  border-radius: 5px;
+  background: rgb(0, 188, 0);
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: white;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2);
+}
+
+.equippedImg {
+  box-shadow: 0 0 0 4px rgb(0, 188, 0);
+  background: rgba(0, 188, 0, 0.3);
+}
+
+.invalidPurchase {
+  animation: shake forwards 300ms ease-in-out;
+}
+
+.message {
+  position: absolute;
+  top: -150%;
+  background: white;
+  padding: 0.5rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  animation: fade-in forwards 250ms ease-in-out, fade-out forwards 500ms 2s ease-in-out;
+  transform-origin: bottom;
+  z-index: 100;
+}
+
+.message::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 80%);
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+
+  border-top: 20px solid white;
+  z-index: 100;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(10%);
+  }
+  50% {
+    transform: translateX(-10%);
+  }
+  75% {
+    transform: translateX(10%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+@media (max-width: 1100px) {
+  .container {
+    width: 100%;
+  }
+}

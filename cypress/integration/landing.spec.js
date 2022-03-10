@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 context("Home page", () => {
   beforeEach(() => {
-    cy.visit("/");
+    cy.clearAuth0Cookies();
   });
   describe("Landing Page", () => {
     it("Should find description", () => {
@@ -19,10 +19,6 @@ context("Home page", () => {
     it("Should find Login button", () => {
       cy.get("[data-cy=login]").contains("Login");
       cy.get("[data-cy=get-started]").contains("Get Started").click();
-      //   cy.loginByAuth0Api(
-      //     Cypress.env("auth0_username"),
-      //     Cypress.env("auth0_password")
-      //   );
     });
   });
 });

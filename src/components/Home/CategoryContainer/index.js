@@ -14,10 +14,10 @@ export default function CategoryContainer({ categories, userId, completedCategor
 
   return (
     <motion.div className={styles.level} animate={{ y: [100, 0], opacity: [0, 1] }}>
-      <div className={styles.levelContainer}>
+      <div data-cy="category" className={styles.levelContainer}>
         {categories.map((category, index) => {
           return (
-            <CategoryButton
+            <CategoryButton data-cy="categorybutton"
               index={index}
               color={colorArray[index]}
               xPos={getRandomXPos()}

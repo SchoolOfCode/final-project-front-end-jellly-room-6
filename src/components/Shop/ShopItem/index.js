@@ -1,14 +1,14 @@
 import Button from "react-bootstrap/Button";
 import style from "./ShopItem.module.css";
 import { useEffect, useState } from "react";
-import { getUserBeans, playSound } from "../../hooks/helpers";
+import { getUserBeans } from "../../../controllers/User.js";
+import { playSound } from "../../../controllers/Audio.js";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export default function ShopItem({
-  index,
   item,
   equippedItem,
   setEquippedItem,
@@ -19,6 +19,8 @@ export default function ShopItem({
   const { src, alt, price } = item;
   const [purchased, setPurchased] = useState(isItemPurchased(item));
   const [isEquipped, setIsEquipped] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     if (equippedItem.purchase_name === item.purchase_name) setIsEquipped(true);
@@ -59,31 +61,39 @@ export default function ShopItem({
     });
   }
 
-  async function handlePurchase() {
+  async function handlePurchase(e) {
     // Check if user has enough beans
     const currentBeans = await getUserBeans(user.username);
-    if (currentBeans - item.price < 0) return console.log("Not enough beans.");
+    if (currentBeans - item.price < 0) {
+      playSound("invalid");
+      setIsAnimating(true);
+      setMessage("Not enough beans");
+      setTimeout(() => {
+        setMessage("");
+      }, 3000);
+      return;
+    }
     // If they do, remove beans from user in db
+    playSound("purchase");
     addPurchase(item.purchase_name, item.src);
     updateBeans(price);
     setPurchased(true);
-    playSound("purchase");
   }
 
   function handleEquip() {
+    playSound("pop");
     setEquippedItem(item);
     equipItem(item.purchase_name);
-    playSound("pop");
   }
 
   return (
     <motion.div
       className={style.container}
       animate={{ y: [100, 0], opacity: [0, 1] }}
-      transition={{ delay: 0.25 * index }}
+      transition={{ delay: 0.2 }}
     >
-      <div className={style.image}>
-        <Image src={src} alt={alt} width={100} height={100} />
+      <div className={`${style.image} ${isEquipped && style.equippedImg}`}>
+        <Image data-cy="shopItemImg" src={src} alt={alt} width={100} height={100} />
       </div>
 
       <div className={style.beanCostContainer}>
@@ -94,7 +104,16 @@ export default function ShopItem({
       </div>
 
       <div className={style.buttons}>
-        {!purchased && <Button className={style.buyBtn} onClick={handlePurchase}>Buy</Button>}
+        {message && <p className={style.message}>{message}</p>}
+        {!purchased && (
+          <Button
+            className={`${style.buyBtn} ${isAnimating && style.invalidPurchase}`}
+            onClick={handlePurchase}
+            onAnimationEnd={() => setIsAnimating(false)}
+          >
+            Buy
+          </Button>
+        )}
         {purchased && !isEquipped && (
           <Button className={style.equipBtn} onClick={handleEquip}>
             Equip
@@ -104,6 +123,7 @@ export default function ShopItem({
       </div>
       <audio id="pop" src="/audio/pop.wav" />
       <audio id="purchase" src="/audio/purchase.wav" />
+      <audio id="invalid" src="/audio/invalid_purchase.wav" />
     </motion.div>
   );
 }

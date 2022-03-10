@@ -76,7 +76,7 @@
 }
 
 .circle {
-  width: 30%;
+  width: 200px;
   margin: 2rem;
 }
 
@@ -159,6 +159,6 @@
 
   .circle {
     margin: 1em;
-    width: 30%;
+    width: 100px;
   }
 }
