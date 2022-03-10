@@ -1,6 +1,12 @@
-# JELLLY App
+# JELLLY.
+### A mobile friendly app designed to help to learn math and improve financial literacy in real-world situations that it was created using NextJS and Postgress.
+## Motivation
+### This app was created by Liam Burton, Laurence Nunn, Yegana, Loreen Fraser-Owusu, Elena Sparshott, and Juan Castel for the four-week final project School of Code Bootcamp. We wanted to create an app that makes learning math more appealing for young adults.
 
-### Mobile friendly app created using NextJS and Postgres. Earn rewards and learn Maths for the real world as you progress.
+## Description.
+### After the user login through Auth0, it can put into practice its math knowledge by selecting a topic of interest on the home page. The user will be challenged to answer a series of 5 questions and if they answer correctly more than 50% of them, the user will pass the test. Every time the user plays a quiz, they will win points of experience and beans proportionally of their results. The beans can be exchanged in the shop for different images for their avatar, and the players can check their details and compare with other users in the dashboard and leaderboard pages respectively.
+
+### See the app here: https://jellly.netlify.app/
 
 ## Contents:
 
