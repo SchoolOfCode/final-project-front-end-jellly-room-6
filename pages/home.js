@@ -114,7 +114,6 @@ export default function Home({ auth0User }) {
 
 export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps(ctx) {
-
     // const error = await getAuth0User(ctx);
     // console.log(error.error);
     // if(error.error && error.error !== "Too Many Requests"){

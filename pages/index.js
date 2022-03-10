@@ -17,7 +17,6 @@ export default function LandingPage() {
   }
 
   return (
-
     <motion.div animate={{ opacity: [0, 1] }}>
       <motion.header
         className={styles.header}
@@ -50,20 +49,15 @@ export default function LandingPage() {
             animate={{ x: [-50, 0], opacity: [0, 1] }}
             transition={{ delay: 0.5 }}
           >
-            The fun, free way to learn maths and improve financial literacy.
+            The Jellly app is a fun, free way to learn basic maths and improve financial literacy.
+            Why not improve your numeracy with just a few minutes of daily practice? Earn points
+            while you learn and use your rewards in our super fun shop!
           </motion.h2>
         </motion.div>
 
         <Link href="/api/auth/login">
-          <motion.a
-            animate={{ opacity: [0, 1] }}
-            transition={{ duration: 2, delay: 1 }}
-          >
-            <button
-              data-cy="get-started"
-              className="btn large"
-              id={styles.getStarted}
-            >
+          <motion.a animate={{ opacity: [0, 1] }} transition={{ duration: 2, delay: 1 }}>
+            <button data-cy="get-started" className="btn large" id={styles.getStarted}>
               Get Started
             </button>
           </motion.a>
