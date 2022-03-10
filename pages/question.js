@@ -183,10 +183,22 @@ export const getServerSideProps = withPageAuthRequired({
 
     //Set to max 3 questions for testing
 
+        //If there's an error, and its not because of too many requests being made, then logout the user..
+        const authenticated = await getAuth0User(ctx);
+        if(authenticated.error && authenticated.error !== "Too Many Requests"){
+          console.log("Found error, so redirecting to logout");
+          return {
+            redirect: {
+              permanent: false,
+              destination: "/api/auth/logout"
+            }
+          }
+        }
+
     // Sending props into the question page component
     return {
       props: {
-        auth0User: await getAuth0User(ctx),
+        auth0User: authenticated,
         category: ctx.query.category,
         questions,
       },
