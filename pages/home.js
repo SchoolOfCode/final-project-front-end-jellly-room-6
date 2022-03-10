@@ -114,17 +114,16 @@ export default function Home({ auth0User }) {
 
 export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps(ctx) {
-
     //If there's an error, and its not because of too many requests being made, then logout the user..
     const authenticated = await getAuth0User(ctx);
-    if(authenticated.error && authenticated.error !== "Too Many Requests"){
+    if (authenticated.error && authenticated.error !== "Too Many Requests") {
       console.log("Found error, so redirecting to logout");
       return {
         redirect: {
           permanent: false,
-          destination: "/api/auth/logout"
-        }
-      }
+          destination: "/api/auth/logout",
+        },
+      };
     }
 
     return {

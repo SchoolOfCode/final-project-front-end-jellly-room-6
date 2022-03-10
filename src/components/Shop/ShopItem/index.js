@@ -87,11 +87,7 @@ export default function ShopItem({
   }
 
   return (
-    <motion.div
-      className={style.container}
-      animate={{ y: [100, 0], opacity: [0, 1] }}
-      transition={{ delay: 0.2 }}
-    >
+    <div className={style.container}>
       <div className={`${style.image} ${isEquipped && style.equippedImg}`}>
         <Image data-cy="shopItemImg" src={src} alt={alt} width={100} height={100} />
       </div>
@@ -124,6 +120,6 @@ export default function ShopItem({
       <audio id="pop" src="/audio/pop.wav" />
       <audio id="purchase" src="/audio/purchase.wav" />
       <audio id="invalid" src="/audio/invalid_purchase.wav" />
-    </motion.div>
+    </div>
   );
 }

@@ -10,6 +10,12 @@
   box-sizing: border-box;
 }
 
+.text {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 3rem;
+}
+
 .level {
   display: flex;
   flex-direction: column;
@@ -27,7 +33,6 @@
   width: 100%;
   padding: 2em;
   display: flex;
-  gap: 2em;
   justify-content: center;
   align-items: center;
   flex-direction: column;

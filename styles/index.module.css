@@ -15,8 +15,6 @@
   width: 100%;
 }
 
-
-
 .main {
   position: relative;
   display: flex;
@@ -56,14 +54,16 @@
 
 .text {
   width: 75%;
+  max-width: 750px;
   font-weight: 400;
   text-align: center;
+  font-size: 1rem;
   margin-top: 2rem;
 }
 
 .lineContainer {
   bottom: 5%;
-  position:absolute;
+  position: absolute;
   left: 5%;
 }
 
@@ -83,12 +83,11 @@
     flex-direction: column;
   }
 
-  .lineContainer{
-    display:none;
+  .lineContainer {
+    display: none;
   }
 
-  .header a{
+  .header a {
     margin: 0;
   }
-
 }
